@@ -1,0 +1,10 @@
+C:\Users\Admin\source\repos\ThayDoiQuyDinh\ThayDoiQuyDinh\bin\Debug\ThayDoiQuyDinh.exe.config
+C:\Users\Admin\source\repos\ThayDoiQuyDinh\ThayDoiQuyDinh\bin\Debug\ThayDoiQuyDinh.exe
+C:\Users\Admin\source\repos\ThayDoiQuyDinh\ThayDoiQuyDinh\bin\Debug\ThayDoiQuyDinh.pdb
+C:\Users\Admin\source\repos\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.Form1.resources
+C:\Users\Admin\source\repos\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.Properties.Resources.resources
+C:\Users\Admin\source\repos\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.exe
+C:\Users\Admin\source\repos\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.pdb

@@ -1,0 +1,10 @@
+C:\Users\Admin\source\repos\TraCuuSach\TraCuuSach\bin\Debug\TraCuuSach.exe.config
+C:\Users\Admin\source\repos\TraCuuSach\TraCuuSach\bin\Debug\TraCuuSach.exe
+C:\Users\Admin\source\repos\TraCuuSach\TraCuuSach\bin\Debug\TraCuuSach.pdb
+C:\Users\Admin\source\repos\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.Properties.Resources.resources
+C:\Users\Admin\source\repos\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.exe
+C:\Users\Admin\source\repos\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.pdb
+C:\Users\Admin\source\repos\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.Form1.resources
