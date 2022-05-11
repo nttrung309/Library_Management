@@ -42,7 +42,6 @@ namespace TraCuuSach
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
             this.vbButton2 = new TraCuuSach.VBButton();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -72,7 +71,7 @@ namespace TraCuuSach
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(466, 62);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(358, 34);
+            this.label1.Size = new System.Drawing.Size(369, 34);
             this.label1.TabIndex = 2;
             this.label1.Text = "Danh Sách Các Cuốn Sách";
             // 
@@ -164,20 +163,6 @@ namespace TraCuuSach
             this.Column6.HeaderText = "Column6";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.CausesValidation = false;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.button1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button1.Location = new System.Drawing.Point(1209, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(39, 38);
-            this.button1.TabIndex = 3;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // vbButton2
             // 
@@ -380,7 +365,6 @@ namespace TraCuuSach
             this.Controls.Add(this.rjCircularPictureBox8);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.vbButton1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.Color.Chocolate;
@@ -424,6 +408,5 @@ namespace TraCuuSach
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private But but1;
-        private System.Windows.Forms.Button button1;
     }
 }

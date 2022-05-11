@@ -1,0 +1,12 @@
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\DemoDesign\Meow\DemoDesign\bin\Debug\DemoDesign.exe.config
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\DemoDesign\Meow\DemoDesign\bin\Debug\DemoDesign.exe
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\DemoDesign\Meow\DemoDesign\bin\Debug\DemoDesign.pdb
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\DemoDesign\Meow\DemoDesign\obj\Debug\DemoDesign.csproj.AssemblyReference.cache
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\DemoDesign\Meow\DemoDesign\obj\Debug\DemoDesign.RecvBook.resources
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\DemoDesign\Meow\DemoDesign\obj\Debug\DemoDesign.LendBook.resources
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\DemoDesign\Meow\DemoDesign\obj\Debug\DemoDesign.Properties.Resources.resources
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\DemoDesign\Meow\DemoDesign\obj\Debug\DemoDesign.Report.resources
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\DemoDesign\Meow\DemoDesign\obj\Debug\DemoDesign.csproj.GenerateResource.cache
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\DemoDesign\Meow\DemoDesign\obj\Debug\DemoDesign.csproj.CoreCompileInputs.cache
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\DemoDesign\Meow\DemoDesign\obj\Debug\DemoDesign.exe
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\DemoDesign\Meow\DemoDesign\obj\Debug\DemoDesign.pdb

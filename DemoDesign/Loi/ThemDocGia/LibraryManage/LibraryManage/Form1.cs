@@ -32,6 +32,19 @@ namespace LibraryManage
             
         }
 
-        
+        private void lbHoTen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbDocGia_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbNgLapThe_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

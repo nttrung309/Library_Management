@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Buts.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RecvBook.cs">
       <SubType>Form</SubType>
     </Compile>
