@@ -1,0 +1,51 @@
+C:\Users\Dell\source\repos\nhapsach\nhapsach\bin\Debug\netcoreapp3.1\nhapsach.exe
+C:\Users\Dell\source\repos\nhapsach\nhapsach\bin\Debug\netcoreapp3.1\nhapsach.deps.json
+C:\Users\Dell\source\repos\nhapsach\nhapsach\bin\Debug\netcoreapp3.1\nhapsach.runtimeconfig.json
+C:\Users\Dell\source\repos\nhapsach\nhapsach\bin\Debug\netcoreapp3.1\nhapsach.runtimeconfig.dev.json
+C:\Users\Dell\source\repos\nhapsach\nhapsach\bin\Debug\netcoreapp3.1\nhapsach.dll
+C:\Users\Dell\source\repos\nhapsach\nhapsach\bin\Debug\netcoreapp3.1\nhapsach.pdb
+C:\Users\Dell\source\repos\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.csproj.AssemblyReference.cache
+C:\Users\Dell\source\repos\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.Form1.resources
+C:\Users\Dell\source\repos\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.Properties.Resources.resources
+C:\Users\Dell\source\repos\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.csproj.GenerateResource.cache
+C:\Users\Dell\source\repos\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dell\source\repos\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.AssemblyInfoInputs.cache
+C:\Users\Dell\source\repos\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.AssemblyInfo.cs
+C:\Users\Dell\source\repos\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.csproj.CoreCompileInputs.cache
+C:\Users\Dell\source\repos\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.dll
+C:\Users\Dell\source\repos\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.pdb
+C:\Users\Dell\source\repos\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.genruntimeconfig.cache
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\nhapsach\nhapsach\bin\Debug\netcoreapp3.1\nhapsach.exe
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\nhapsach\nhapsach\bin\Debug\netcoreapp3.1\nhapsach.deps.json
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\nhapsach\nhapsach\bin\Debug\netcoreapp3.1\nhapsach.runtimeconfig.json
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\nhapsach\nhapsach\bin\Debug\netcoreapp3.1\nhapsach.runtimeconfig.dev.json
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\nhapsach\nhapsach\bin\Debug\netcoreapp3.1\nhapsach.dll
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\nhapsach\nhapsach\bin\Debug\netcoreapp3.1\nhapsach.pdb
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.csproj.AssemblyReference.cache
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.Form1.resources
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.Properties.Resources.resources
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.csproj.GenerateResource.cache
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.AssemblyInfoInputs.cache
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.AssemblyInfo.cs
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.csproj.CoreCompileInputs.cache
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.dll
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.pdb
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.genruntimeconfig.cache
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\NGOC\nhapsach\bin\Debug\netcoreapp3.1\nhapsach.exe
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\NGOC\nhapsach\bin\Debug\netcoreapp3.1\nhapsach.deps.json
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\NGOC\nhapsach\bin\Debug\netcoreapp3.1\nhapsach.runtimeconfig.json
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\NGOC\nhapsach\bin\Debug\netcoreapp3.1\nhapsach.runtimeconfig.dev.json
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\NGOC\nhapsach\bin\Debug\netcoreapp3.1\nhapsach.dll
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\NGOC\nhapsach\bin\Debug\netcoreapp3.1\nhapsach.pdb
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\NGOC\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.csproj.AssemblyReference.cache
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\NGOC\nhapsach\obj\Debug\netcoreapp3.1\PhieuThuTienPhat.Form1.resources
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\NGOC\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.Properties.Resources.resources
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\NGOC\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.csproj.GenerateResource.cache
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\NGOC\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\NGOC\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.AssemblyInfoInputs.cache
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\NGOC\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.AssemblyInfo.cs
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\NGOC\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.csproj.CoreCompileInputs.cache
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\NGOC\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.dll
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\NGOC\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.pdb
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\NGOC\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.genruntimeconfig.cache
