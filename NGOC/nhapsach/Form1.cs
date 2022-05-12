@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace nhapsach
+namespace PhieuThuTienPhat
 {
     public partial class Form1 : Form
     {
@@ -100,11 +100,6 @@ namespace nhapsach
         }
 
         private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void nButton4_Click(object sender, EventArgs e)
         {
 
         }
