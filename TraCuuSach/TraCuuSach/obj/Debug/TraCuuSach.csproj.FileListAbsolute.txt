@@ -18,3 +18,13 @@ C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technolo
 C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.csproj.CoreCompileInputs.cache
 C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.exe
 C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.pdb
+C:\Users\Admin\Desktop\Library_Management\TraCuuSach\TraCuuSach\bin\Debug\TraCuuSach.exe.config
+C:\Users\Admin\Desktop\Library_Management\TraCuuSach\TraCuuSach\bin\Debug\TraCuuSach.exe
+C:\Users\Admin\Desktop\Library_Management\TraCuuSach\TraCuuSach\bin\Debug\TraCuuSach.pdb
+C:\Users\Admin\Desktop\Library_Management\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Library_Management\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.Form1.resources
+C:\Users\Admin\Desktop\Library_Management\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.Properties.Resources.resources
+C:\Users\Admin\Desktop\Library_Management\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Library_Management\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Library_Management\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.exe
+C:\Users\Admin\Desktop\Library_Management\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.pdb
