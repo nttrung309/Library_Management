@@ -2,14 +2,14 @@
 USE QLTV
 -----------------------
 CREATE FUNCTION [dbo].[AUTO_IDDG]()
-RETURNS VARCHAR(50)--
+RETURNS VARCHAR(5)--
 AS
 BEGIN
-	DECLARE @ID VARCHAR(50)--
+	DECLARE @ID VARCHAR(5)--
 	IF (SELECT COUNT(MaDocGia) FROM DOCGIA) = 0--
 		SET @ID = '0'
 	ELSE
-		SELECT @ID = MAX(RIGHT(MaDocGia, 32)) FROM DocGia--
+		SELECT @ID = MAX(RIGHT(MaDocGia, 3)) FROM DocGia--
 		SELECT @ID = CASE
 			WHEN @ID >= 0 and @ID < 9 THEN 'DG00' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
 			WHEN @ID >= 9 THEN 'DG0' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
@@ -36,14 +36,14 @@ CREATE TABLE DOCGIA (
 	
 ----------------
 CREATE FUNCTION [dbo].[AUTO_IDLDG]()--
-RETURNS VARCHAR(50)--
+RETURNS VARCHAR(7)--
 AS
 BEGIN
-	DECLARE @ID VARCHAR(50)--
+	DECLARE @ID VARCHAR(7)--
 	IF (SELECT COUNT(MaLoaiDocGia) FROM LOAIDOCGIA) = 0--
 		SET @ID = '0'
 	ELSE
-		SELECT @ID = MAX(RIGHT(MaLoaiDocGia, 32)) FROM LOAIDOCGIA--
+		SELECT @ID = MAX(RIGHT(MaLoaiDocGia, 3)) FROM LOAIDOCGIA--
 		SELECT @ID = CASE
 			WHEN @ID >= 0 and @ID < 9 THEN 'MLDG00' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
 			WHEN @ID >= 9 THEN 'MLDG0' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
@@ -57,14 +57,14 @@ CREATE TABLE LOAIDOCGIA (
 	)
 ------------
 CREATE FUNCTION [dbo].[AUTO_IDS]()--
-RETURNS VARCHAR(50)
+RETURNS VARCHAR(5)
 AS
 BEGIN
-	DECLARE @ID VARCHAR(50)
+	DECLARE @ID VARCHAR(5)
 	IF (SELECT COUNT(MaSach) FROM SACH) = 0--
 		SET @ID = '0'
 	ELSE
-		SELECT @ID = MAX(RIGHT(MaSach, 32)) FROM Sach--
+		SELECT @ID = MAX(RIGHT(MaSach, 3)) FROM Sach--
 		SELECT @ID = CASE
 			WHEN @ID >= 0 and @ID < 9 THEN 'MS00' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
 			WHEN @ID >= 9 THEN 'MS0' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
@@ -82,14 +82,14 @@ CREATE TABLE SACH (
 	)
 	-----------------
 	CREATE FUNCTION [dbo].[AUTO_CS]()--
-RETURNS VARCHAR(50)
+RETURNS VARCHAR(6)
 AS
 BEGIN
-	DECLARE @ID VARCHAR(50)
+	DECLARE @ID VARCHAR(6)
 	IF (SELECT COUNT(MaCuonSach) FROM CuonSACH) = 0--
 		SET @ID = '0'
 	ELSE
-		SELECT @ID = MAX(RIGHT(MaCuonSach, 32)) FROM CuonSach--
+		SELECT @ID = MAX(RIGHT(MaCuonSach, 3)) FROM CuonSach--
 		SELECT @ID = CASE
 			WHEN @ID >= 0 and @ID < 9 THEN 'MCS00' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
 			WHEN @ID >= 9 THEN 'MCS0' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
@@ -104,14 +104,14 @@ CREATE TABLE CUONSACH(
 	)
 	----------------
 		CREATE FUNCTION [dbo].[AUTO_MTL]()--
-RETURNS VARCHAR(50)
+RETURNS VARCHAR(6)
 AS
 BEGIN
-	DECLARE @ID VARCHAR(50)
+	DECLARE @ID VARCHAR(6)
 	IF (SELECT COUNT(MaTheLoai) FROM TheLOAI) = 0--
 		SET @ID = '0'
 	ELSE
-		SELECT @ID = MAX(RIGHT(MaTheLoai, 32)) FROM TheLoai--
+		SELECT @ID = MAX(RIGHT(MaTheLoai, 3)) FROM TheLoai--
 		SELECT @ID = CASE
 			WHEN @ID >= 0 and @ID < 9 THEN 'MTL00' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
 			WHEN @ID >= 9 THEN 'MTL0' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
@@ -125,14 +125,14 @@ CREATE TABLE THELOAI (
 	)
 --------------------
 CREATE FUNCTION [dbo].[AUTO_MDS]()--
-RETURNS VARCHAR(50)
+RETURNS VARCHAR(6)
 AS
 BEGIN
-	DECLARE @ID VARCHAR(50)
+	DECLARE @ID VARCHAR(6)
 	IF (SELECT COUNT(MaDauSach) FROM DAUSACH) = 0--
 		SET @ID = '0'
 	ELSE
-		SELECT @ID = MAX(RIGHT(MaDauSach, 32)) FROM DAUSACH--
+		SELECT @ID = MAX(RIGHT(MaDauSach, 3)) FROM DAUSACH--
 		SELECT @ID = CASE
 			WHEN @ID >= 0 and @ID < 9 THEN 'MDS00' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
 			WHEN @ID >= 9 THEN 'MDS0' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
@@ -147,14 +147,14 @@ CREATE TABLE DAUSACH (
 	)
 ------------
 CREATE FUNCTION [dbo].[AUTO_MTG]()--
-RETURNS VARCHAR(50)
+RETURNS VARCHAR(6)
 AS
 BEGIN
-	DECLARE @ID VARCHAR(50)
+	DECLARE @ID VARCHAR(6)
 	IF (SELECT COUNT(MaTacGia) FROM TACGIA) = 0--
 		SET @ID = '0'
 	ELSE
-		SELECT @ID = MAX(RIGHT(MaTacGia, 32)) FROM TacGia--
+		SELECT @ID = MAX(RIGHT(MaTacGia, 3)) FROM TacGia--
 		SELECT @ID = CASE
 			WHEN @ID >= 0 and @ID < 9 THEN 'MTG00' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
 			WHEN @ID >= 9 THEN 'MTG0' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
@@ -175,14 +175,14 @@ CREATE TABLE CTTACGIA (
 	)
 -------------------
 CREATE FUNCTION [dbo].[AUTO_MPMS]()--
-RETURNS VARCHAR(50)
+RETURNS VARCHAR(7)
 AS
 BEGIN
-	DECLARE @ID VARCHAR(50)
+	DECLARE @ID VARCHAR(7)
 	IF (SELECT COUNT(MaPhieuMuonSach) FROM PHIEUMUON) = 0--
 		SET @ID = '0'
 	ELSE
-		SELECT @ID = MAX(RIGHT(MaPhieuMuonSach, 32)) FROM PHIEUMUON--
+		SELECT @ID = MAX(RIGHT(MaPhieuMuonSach, 3)) FROM PHIEUMUON--
 		SELECT @ID = CASE
 			WHEN @ID >= 0 and @ID < 9 THEN 'MPMS00' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
 			WHEN @ID >= 9 THEN 'MPMS0' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
@@ -202,14 +202,14 @@ CREATE TABLE PHIEUMUON (
 	ALTER COLUMN HanTra smalldatetime SET DATEFORMAT DMY
 	-----------------------------
 CREATE FUNCTION [dbo].[AUTO_MCTPM]()--
-RETURNS VARCHAR(50)
+RETURNS VARCHAR(8)
 AS
 BEGIN
-	DECLARE @ID VARCHAR(50)
+	DECLARE @ID VARCHAR(8)
 	IF (SELECT COUNT(MaChiTietPhieuMuon) FROM CTPHIEUMUON) = 0--
 		SET @ID = '0'
 	ELSE
-		SELECT @ID = MAX(RIGHT(MaChiTietPhieuMuon, 32)) FROM CTPHIEUMUON--
+		SELECT @ID = MAX(RIGHT(MaChiTietPhieuMuon, 3)) FROM CTPHIEUMUON--
 		SELECT @ID = CASE
 			WHEN @ID >= 0 and @ID < 9 THEN 'MCTPM00' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
 			WHEN @ID >= 9 THEN 'MCTPM0' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
@@ -225,14 +225,14 @@ CREATE TABLE CTPHIEUMUON(
 	)
 ------------------------------
 CREATE FUNCTION [dbo].[AUTO_MPTS]()--
-RETURNS VARCHAR(50)
+RETURNS VARCHAR(7)
 AS
 BEGIN
-	DECLARE @ID VARCHAR(50)
+	DECLARE @ID VARCHAR(7)
 	IF (SELECT COUNT(MaPhieuTraSach) FROM PHIEUTraSach) = 0--
 		SET @ID = '0'
 	ELSE
-		SELECT @ID = MAX(RIGHT(MaPhieuTraSach, 32)) FROM PhieuTraSach--
+		SELECT @ID = MAX(RIGHT(MaPhieuTraSach, 3)) FROM PhieuTraSach--
 		SELECT @ID = CASE
 			WHEN @ID >= 0 and @ID < 9 THEN 'MPTS00' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
 			WHEN @ID >= 9 THEN 'MPTS0' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
@@ -250,14 +250,14 @@ CREATE TABLE PHIEUTRASACH (
 	alter column NgTra smalldatetime set DATEFORMAT DMY
 	------------------
 CREATE FUNCTION [dbo].[AUTO_MCTPTS]()--
-RETURNS VARCHAR(50)
+RETURNS VARCHAR(8)
 AS
 BEGIN
-	DECLARE @ID VARCHAR(50)
+	DECLARE @ID VARCHAR(8)
 	IF (SELECT COUNT(MaChiTietPhieuTra) FROM CTPT) = 0--
 		SET @ID = '0'
 	ELSE
-		SELECT @ID = MAX(RIGHT(MaChiTietPhieuTra, 32)) FROM CTPT--
+		SELECT @ID = MAX(RIGHT(MaChiTietPhieuTra, 3)) FROM CTPT--
 		SELECT @ID = CASE
 			WHEN @ID >= 0 and @ID < 9 THEN 'MCTPT00' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
 			WHEN @ID >= 9 THEN 'MCTPT0' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
@@ -275,14 +275,14 @@ CREATE TABLE CTPT(
 	)
 -----------------------------
 CREATE FUNCTION [dbo].[AUTO_MPNS]()--
-RETURNS VARCHAR(50)
+RETURNS VARCHAR(7)
 AS
 BEGIN
-	DECLARE @ID VARCHAR(50)
+	DECLARE @ID VARCHAR(7)
 	IF (SELECT COUNT(MaPhieuNhapSach) FROM PHIEUNHAPSACH) = 0--
 		SET @ID = '0'
 	ELSE
-		SELECT @ID = MAX(RIGHT(MaPhieuNhapSach, 32)) FROM PHIEUNHAPSACH--
+		SELECT @ID = MAX(RIGHT(MaPhieuNhapSach, 3)) FROM PHIEUNHAPSACH--
 		SELECT @ID = CASE
 			WHEN @ID >= 0 and @ID < 9 THEN 'MPNS00' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
 			WHEN @ID >= 9 THEN 'MPNS0' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
@@ -299,14 +299,14 @@ CREATE TABLE PHIEUNHAPSACH (
 	alter column NgLap smalldatetime set dateformat DMY
 	-------------------
 CREATE FUNCTION [dbo].[AUTO_MCTPN]()--
-RETURNS VARCHAR(50)
+RETURNS VARCHAR(8)
 AS
 BEGIN
-	DECLARE @ID VARCHAR(50)
+	DECLARE @ID VARCHAR(8)
 	IF (SELECT COUNT(MaCTPN) FROM CTPHIEUNHAP) = 0--
 		SET @ID = '0'
 	ELSE
-		SELECT @ID = MAX(RIGHT(MaCTPN, 32)) FROM CTPHIEUNHAP--
+		SELECT @ID = MAX(RIGHT(MaCTPN, 3)) FROM CTPHIEUNHAP--
 		SELECT @ID = CASE
 			WHEN @ID >= 0 and @ID < 9 THEN 'MCTPN00' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
 			WHEN @ID >= 9 THEN 'MCTPN0' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
@@ -324,14 +324,14 @@ CREATE TABLE CTPHIEUNHAP(
 	)
 ----------------------------
 CREATE FUNCTION [dbo].[AUTO_MPT]()--
-RETURNS VARCHAR(50)
+RETURNS VARCHAR(6)
 AS
 BEGIN
-	DECLARE @ID VARCHAR(50)
+	DECLARE @ID VARCHAR(6)
 	IF (SELECT COUNT(MaPhieuThu) FROM PHIEUTHUTIEN) = 0--
 		SET @ID = '0'
 	ELSE
-		SELECT @ID = MAX(RIGHT(MaPhieuThu, 32)) FROM PHIEUTHUTIEN--
+		SELECT @ID = MAX(RIGHT(MaPhieuThu, 3)) FROM PHIEUTHUTIEN--
 		SELECT @ID = CASE
 			WHEN @ID >= 0 and @ID < 9 THEN 'MPT00' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
 			WHEN @ID >= 9 THEN 'MPT0' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
@@ -350,14 +350,14 @@ CREATE TABLE PHIEUTHUTIEN (
 	alter column Ngthu smalldatetime set dateformat DMY
 	-----------------------------
 CREATE FUNCTION [dbo].[AUTO_MBCMS]()--
-RETURNS VARCHAR(50)
+RETURNS VARCHAR(8)
 AS
 BEGIN
-	DECLARE @ID VARCHAR(50)
+	DECLARE @ID VARCHAR(8)
 	IF (SELECT COUNT(MaBaoCaoMuonSach) FROM BAOCAOMUONSACH) = 0--
 		SET @ID = '0'
 	ELSE
-		SELECT @ID = MAX(RIGHT(MaBaoCaoMuonSach, 32)) FROM BAOCAOMUONSACH--
+		SELECT @ID = MAX(RIGHT(MaBaoCaoMuonSach, 3)) FROM BAOCAOMUONSACH--
 		SELECT @ID = CASE
 			WHEN @ID >= 0 and @ID < 9 THEN 'MBCMS00' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
 			WHEN @ID >= 9 THEN 'MBCMS0' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
@@ -374,14 +374,14 @@ CREATE TABLE BAOCAOMUONSACH (
 	alter column ThangNam smalldatetime set dateformat DMY
 	-----------------------
 CREATE FUNCTION [dbo].[AUTO_MCTBCMS]()--
-RETURNS VARCHAR(50)
+RETURNS VARCHAR(10)
 AS
 BEGIN
-	DECLARE @ID VARCHAR(50)
+	DECLARE @ID VARCHAR(10)
 	IF (SELECT COUNT(MaCTBCMS) FROM CTBCMS) = 0--
 		SET @ID = '0'
 	ELSE
-		SELECT @ID = MAX(RIGHT(MaCTBCMS, 32)) FROM CTBCMS--
+		SELECT @ID = MAX(RIGHT(MaCTBCMS, 3)) FROM CTBCMS--
 		SELECT @ID = CASE
 			WHEN @ID >= 0 and @ID < 9 THEN 'MCTBCMS00' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
 			WHEN @ID >= 9 THEN 'MCTBCMS0' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
@@ -507,7 +507,6 @@ insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,NgHetHan,TongN
 insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,NgHetHan,TongNo) values (N'Trần Đình Phúc','MLDG002','23/6/1999',N'Linh Trung, Thủ Đức',N'PhucBoy@gmail.com','13/4/2022','13/10/2022','0')
 insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,NgHetHan,TongNo) values (N'Nguyễn Thị Linh','MLDG002','2/1/1998',N'Bình Dương',N'LinhCute@gmail.com','10/4/2022','10/10/2022','0')
 insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,NgHetHan,TongNo) values (N'Trần Bảo Ngọc','MLDG001','1/1/2000',N'Hồ Chí Minh',N'NgocIUI@gmail.com','13/4/2022','13/10/2022','0')
-
 insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,NgHetHan,TongNo) values (N'Nguyễn Hoàng Linh Chi','MLDG002','1/10/1997',N'Khu phố 7,Linh Trung, Thủ Đức',N'LinhChi1997@gmail.com','1/5/2022','1/11/2022','0')
 insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,NgHetHan,TongNo) values (N'Trần Dư Gia Bảo','MLDG001','8/1/2002',N'Linh Trung, Thủ Đức',N'BaoVip@gmail.com','5/5/2022','5/11/2022','0')
 insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,NgHetHan,TongNo) values (N'Nguyễn Cát Thiên Di','MLDG001','20/02/2002',N'Hồ Chí Minh',N'DiThien00@gmail.com','6/5/2022','6/11/2022','0')
@@ -573,10 +572,10 @@ insert into CTPHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia,ThanhTien) values
 insert into CTPHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia,ThanhTien) values ('MPNS001','MS010','1','150000','150000')
 ---------------------------------------------------------
 
-insert into BAOCAOMUONSACH ( ThangNam,TongSoLuotMuon) values ('31/1/2022','1')
-insert into BAOCAOMUONSACH ( ThangNam,TongSoLuotMuon) values ('31/3/2022','1')
+insert into BAOCAOMUONSACH ( ThangNam,TongSoLuotMuon) values ('3/1/2022','1')
+insert into BAOCAOMUONSACH ( ThangNam,TongSoLuotMuon) values ('3/3/2022','1')
 insert into BAOCAOMUONSACH ( ThangNam,TongSoLuotMuon) values ('30/4/2022','3')
-insert into BAOCAOMUONSACH ( ThangNam,TongSoLuotMuon) values ('31/5/2022','5')
+insert into BAOCAOMUONSACH ( ThangNam,TongSoLuotMuon) values ('3/5/2022','5')
 ---------------------------------------------------------
 insert into CTBCMS (MaBaoCaoMuonSach,MaTheLoai,SoLuotMuon,TiLe) values ('MBCMS001','MTL001','1','0.1')
 insert into CTBCMS (MaBaoCaoMuonSach,MaTheLoai,SoLuotMuon,TiLe) values ('MBCMS002','MTL002','1','0.1')
