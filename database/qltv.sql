@@ -1,6 +1,7 @@
 ﻿CREATE DATABASE QLTV
 USE QLTV
 -----------------------
+set dateformat DMY
 CREATE FUNCTION [dbo].[AUTO_IDDG]()
 RETURNS VARCHAR(5)--
 AS
@@ -25,14 +26,40 @@ CREATE TABLE DOCGIA (
 	NgSinh Date not null,
 	DChi Nvarchar(200) not null,
 	Email Varchar(100) not null,
-	NgLapThe Smalldatetime not null,
-	NgHetHan Smalldatetime not null,
+	NgLapThe date not null,
+	NgHetHan date ,
 	TongNo money not null
 	)
-	alter table DocGIA
-	ALTER COLUMN NgLapThe smalldatetime SET DATEFORMAT DMY
-		alter table DocGIA
-	ALTER COLUMN NgHetHan smalldatetime SET DATEFORMAT DMY
+	alter table DOCGIA
+	add constraint macdinh1 default (0) for TongNo
+	CREATE TRIGGER trg5 ON DOCGIA for update AS 
+BEGIN
+DECLARE @i int
+select @i= ThoiHanThe from THAMSO
+	UPDATE DOCGIA
+	SET NgHetHan =(
+		SELECT dateadd(MM,@i,NgLapThe)
+		FROM inserted
+		where MADOCGIA=DOCGIA.MADOCGIA
+	)
+	from DOCGIA
+join inserted on DOCGIA.MaDocGia=inserted.MaDocGia
+END
+GO
+CREATE TRIGGER trg6 ON DOCGIA for insert AS 
+BEGIN
+DECLARE @i int
+select @i= ThoiHanThe from ThamSo
+	UPDATE DOCGIA
+	SET NgHetHan =(
+		SELECT dateadd(mm,@i,NgLapThe)
+		FROM inserted
+		where MaDocGia=DOCGIA.MaDocGia
+	)
+	from DOCGIA
+	join inserted On DOCGIA.MaDocGia=inserted.MaDocGia 
+END
+GO
 	
 ----------------
 CREATE FUNCTION [dbo].[AUTO_IDLDG]()--
@@ -193,13 +220,9 @@ go
 CREATE TABLE PHIEUMUON (
 	MaPhieuMuonSach Varchar(50) primary key DEFAULT ([dbo].[AUTO_MPMS]()),
 	MaDocGia Varchar(50) not null,
-	NgMuon Smalldatetime not null,
-	HanTra Smalldatetime not null
+	NgMuon date not null,
+	HanTra date not null
 	)
-	alter table PHIEUMUON
-	ALTER COLUMN NgMuon smalldatetime SET DATEFORMAT DMY
-	alter table PHIEUMUON
-	ALTER COLUMN HanTra smalldatetime SET DATEFORMAT DMY
 	-----------------------------
 CREATE FUNCTION [dbo].[AUTO_MCTPM]()--
 RETURNS VARCHAR(8)
@@ -243,11 +266,9 @@ go
 CREATE TABLE PHIEUTRASACH (
 	MaPhieuTraSach Varchar(50) primary key default ([dbo].[AUTO_MPTS]()),
 	MaDocGia Varchar(50) not null,
-	NgTra Smalldatetime not null,
+	NgTra date not null,
 	TienPhatKyNay money not null
 	)
-	alter table phieutrasach
-	alter column NgTra smalldatetime set DATEFORMAT DMY
 	------------------
 CREATE FUNCTION [dbo].[AUTO_MCTPTS]()--
 RETURNS VARCHAR(8)
@@ -292,21 +313,21 @@ END
 go
 CREATE TABLE PHIEUNHAPSACH (
 	MaPhieuNhapSach Varchar(50) primary key default ([dbo].[AUTO_MPNS]()),
-	NgLap Smalldatetime not null,
-	TongTien money not null
+	NgLap date not null,
+	TongTien money default (0)
 	)
-	alter table PHIEUNHAPSACH 
-	alter column NgLap smalldatetime set dateformat DMY
+	alter table PHIEUNHAPSACH
+	add constraint macdinh default(0) for tongtien;
 	-------------------
 CREATE FUNCTION [dbo].[AUTO_MCTPN]()--
 RETURNS VARCHAR(8)
 AS
 BEGIN
 	DECLARE @ID VARCHAR(8)
-	IF (SELECT COUNT(MaCTPN) FROM CTPHIEUNHAP) = 0--
+	IF (SELECT COUNT(MaCTPN) FROM CT_PHIEUNHAP) = 0--
 		SET @ID = '0'
 	ELSE
-		SELECT @ID = MAX(RIGHT(MaCTPN, 3)) FROM CTPHIEUNHAP--
+		SELECT @ID = MAX(RIGHT(MaCTPN, 3)) FROM CT_PHIEUNHAP--
 		SELECT @ID = CASE
 			WHEN @ID >= 0 and @ID < 9 THEN 'MCTPN00' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
 			WHEN @ID >= 9 THEN 'MCTPN0' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
@@ -314,14 +335,15 @@ BEGIN
 	RETURN @ID
 END
 go
-CREATE TABLE CTPHIEUNHAP(
+CREATE TABLE CT_PHIEUNHAP(
 	MaCTPN Varchar(50) primary key default ([dbo].[AUTO_MCTPN]()),
 	MaPhieuNhapSach Varchar(50) not null,
 	MaSach Varchar(50) not null,
 	SoLuong int not null,
 	DonGia money not null,
-	ThanhTien money not null,
 	)
+	alter table CT_PHIEUNHAP
+add ThanhTien as (DonGia*SoLuong) 
 ----------------------------
 CREATE FUNCTION [dbo].[AUTO_MPT]()--
 RETURNS VARCHAR(6)
@@ -342,12 +364,10 @@ go
 CREATE TABLE PHIEUTHUTIEN (
 	MaPhieuThu Varchar(50) primary key default ([dbo].[AUTO_MPT]()),
 	MaDocGia Varchar(50) not null,
-	NgThu Smalldatetime not null,
+	NgThu date not null,
 	SoTienThu money not null,
 	ConLai money not null
 	)
-	alter table phieuthutien
-	alter column Ngthu smalldatetime set dateformat DMY
 	-----------------------------
 CREATE FUNCTION [dbo].[AUTO_MBCMS]()--
 RETURNS VARCHAR(8)
@@ -367,11 +387,9 @@ END
 go
 CREATE TABLE BAOCAOMUONSACH (
 	MaBaoCaoMuonSach Varchar(50) primary key default ([dbo].[AUTO_MBCMS]()),
-	ThangNam Smalldatetime not null,
+	ThangNam date not null,
 	TongSoLuotMuon int not null
 	)
-	alter table BAOCAOMUONSACH
-	alter column ThangNam smalldatetime set dateformat DMY
 	-----------------------
 CREATE FUNCTION [dbo].[AUTO_MCTBCMS]()--
 RETURNS VARCHAR(10)
@@ -389,6 +407,48 @@ BEGIN
 	RETURN @ID
 END
 go
+CREATE TRIGGER trig1 ON CT_PHIEUNHAP for INSERT AS 
+BEGIN
+	UPDATE PHIEUNHAPSACH
+	SET TongTien =TongTien+(
+		SELECT ThanhTien
+		FROM inserted,PHIEUNHAPSACH
+			where PHIEUNHAPSACH.MaPhieuNhapSach=inserted.MaPhieuNhapSach
+	)
+	from PHIEUNHAPSACH
+	join inserted On PHIEUNHAPSACH.MAPHIEUNHAPSACH=inserted.MAPHIEUNHAPSACH
+END
+GO
+CREATE TRIGGER trig2 ON CT_PHIEUNHAP for DELETE AS 
+BEGIN
+	UPDATE PHIEUNHAPSACH
+	SET TongTien =TongTien-(
+		SELECT ThanhTien
+		FROM deleted,PHIEUNHAPSACH
+			where PHIEUNHAPSACH.MaPhieuNhapSach=deleted.MaPhieuNhapSach
+	)
+	from PHIEUNHAPSACH
+	join inserted On PHIEUNHAPSACH.MAPHIEUNHAPSACH=inserted.MAPHIEUNHAPSACH
+END
+GO
+CREATE TRIGGER trig3 ON CT_PHIEUNHAP for update AS 
+BEGIN
+	UPDATE PHIEUNHAPSACH
+	SET TongTien =TongTien-(
+		SELECT ThanhTien
+		FROM deleted,PHIEUNHAPSACH
+			where PHIEUNHAPSACH.MaPhieuNhapSach=deleted.MaPhieuNhapSach
+	)+
+(
+		SELECT ThanhTien
+		FROM inserted,PHIEUNHAPSACH
+			where PHIEUNHAPSACH.MaPhieuNhapSach=inserted.MaPhieuNhapSach
+	)
+			
+	from PHIEUNHAPSACH
+	join inserted On PHIEUNHAPSACH.MAPHIEUNHAPSACH=inserted.MAPHIEUNHAPSACH
+END
+GO
 CREATE TABLE CTBCMS(
 	MaCTBCMS Varchar(50) primary key default ([dbo].[AUTO_MCTBCMS]()),
 	MaBaoCaoMuonSach Varchar(50) not null,
@@ -399,7 +459,7 @@ CREATE TABLE CTBCMS(
 ------------------------------------
 
 CREATE TABLE BCTRATRE(
-	NgayThangNam smalldatetime primary key default getdate(),
+	NgayThangNam date primary key default getdate(),
 	MaCuonSach Varchar(50) not null,
 	MaPhieuMuonSach Varchar(50) not null,
 	SoNgayTraTre int not null
@@ -427,14 +487,15 @@ ALTER TABLE PHIEUTRASACH ADD CONSTRAINT FK_PT FOREIGN KEY (MaDocGia) REFERENCES 
 ALTER TABLE CTPT ADD CONSTRAINT FK_CTPT FOREIGN KEY (MaCuonSach) REFERENCES CUONSACH(MaCuonSach)
 ALTER TABLE CTPT ADD CONSTRAINT FK_CTPT01 FOREIGN KEY (MaPhieuTraSach) REFERENCES PHIEUTRASACH(MaPhieuTraSach)
 ALTER TABLE CTPT ADD CONSTRAINT FK_CTPT02 FOREIGN KEY (MaPhieuMuonSach) REFERENCES PHIEUMUON(MaPhieuMuonSach)
-ALTER TABLE CTPHIEUNHAP ADD CONSTRAINT FK_CTPN FOREIGN KEY (MaPhieuNhapSach) REFERENCES PHIEUNHAPSACH(MaPhieuNhapSach)
-ALTER TABLE CTPHIEUNHAP ADD CONSTRAINT FK_CTPN01 FOREIGN KEY (MaSach) REFERENCES SACH(MaSach)
+ALTER TABLE CT_PHIEUNHAP ADD CONSTRAINT FK_CTPN FOREIGN KEY (MaPhieuNhapSach) REFERENCES PHIEUNHAPSACH(MaPhieuNhapSach)
+ALTER TABLE CT_PHIEUNHAP ADD CONSTRAINT FK_CTPN01 FOREIGN KEY (MaSach) REFERENCES SACH(MaSach)
 ALTER TABLE PHIEUTHUTIEN ADD CONSTRAINT FK_PTT FOREIGN KEY (MaDocGia) REFERENCES DOCGIA(MaDocGia)
 ALTER TABLE CTBCMS ADD CONSTRAINT FK_CTBCMS FOREIGN KEY (MaTheLoai) REFERENCES THELOAI(MaTheLoai)
 ALTER TABLE CTBCMS ADD CONSTRAINT FK_CTBCMS01 FOREIGN KEY (MaBaoCaoMuonSach) REFERENCES BAOCAOMUONSACH(MaBaoCaoMuonSach)
 ALTER TABLE BCTRATRE ADD CONSTRAINT FK_BCTT FOREIGN KEY (MaCuonSach) REFERENCES CUONSACH(MaCuonSach)
 ALTER TABLE BCTRATRE ADD CONSTRAINT FK_BCTT02 FOREIGN KEY (MaPhieuMuonSach) REFERENCES PHIEUMUON(MaPhieuMuonSach)
 ------------------
+
 ---------------------------------------------------------
 insert into TACGIA (TenTacGia) values (N'Nguyễn Nhật Ánh')
 insert into TACGIA (TenTacGia) values (N'Dale Caregie')
@@ -447,9 +508,9 @@ insert into TACGIA (TenTacGia) values (N'Andrew Matthews')
 insert into TACGIA (TenTacGia) values (N'Paulo Coelho')
 insert into TACGIA (TenTacGia) values (N'Xuân Diệu')
 ---------------------------------------------------------
-insert into THELOAI (TenTheLoai) values ('A')
-insert into THELOAI (TenTheLoai) values ('B')
-insert into THELOAI (TenTheLoai) values ('C')
+insert into THELOAI (TenTheLoai) values (N'Văn Học Nghệ Thuật')
+insert into THELOAI (TenTheLoai) values (N'Khoa Học')
+insert into THELOAI (TenTheLoai) values (N'Truyện')
 ---------------------------------------------------------
 insert into DAUSACH (TenDauSach,MaTheLoai) values (N'Đắc Nhân Tâm','MTL001')
 insert into DAUSACH (TenDauSach,MaTheLoai) values (N'Tắt Đèn','MTL002')
@@ -498,19 +559,21 @@ insert into CUONSACH (MaSach,TinhTrang) values ('MS009','1')
 insert into CUONSACH (MaSach,TinhTrang) values ('MS010','1')
 
 ---------------------------------------------------------
-insert into LOAIDOCGIA(TenLoaiDocGia) values ('X')
-insert into LOAIDOCGIA(TenLoaiDocGia) values ('Y')
+insert into THAMSO values ('6','18','55','8','4','5','1000')
+----------------------------------------------------------
+insert into LOAIDOCGIA(TenLoaiDocGia) values (N'Học Sinh')
+insert into LOAIDOCGIA(TenLoaiDocGia) values (N'Giảng Viên')
 ---------------------------------------------------------
-insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,NgHetHan,TongNo) values (N'Nguyễn Phúc Khang','MLDG001','10/5/2001',N'Hồ Chí Minh',N'Khang001@gmail.com','2-1-2022','2-7-2022','0')
-insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,NgHetHan,TongNo) values (N'Nguyễn Văn Pháp','MLDG001','22/5/2002',N'Đông Hòa, Dĩ An',N'PhapNguyen@gmail.com','12/3/2022','12/9/2022','0')
-insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,NgHetHan,TongNo) values (N'Nguyễn Khúc Thùy Tiên','MLDG001','1/2/2000',N'khu phố 9, Linh Trung, Thủ Đức',N'TienHoaHau@gmail.com','1/4/2022','1/10/2022','0')
-insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,NgHetHan,TongNo) values (N'Trần Đình Phúc','MLDG002','23/6/1999',N'Linh Trung, Thủ Đức',N'PhucBoy@gmail.com','13/4/2022','13/10/2022','0')
-insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,NgHetHan,TongNo) values (N'Nguyễn Thị Linh','MLDG002','2/1/1998',N'Bình Dương',N'LinhCute@gmail.com','10/4/2022','10/10/2022','0')
-insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,NgHetHan,TongNo) values (N'Trần Bảo Ngọc','MLDG001','1/1/2000',N'Hồ Chí Minh',N'NgocIUI@gmail.com','13/4/2022','13/10/2022','0')
-insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,NgHetHan,TongNo) values (N'Nguyễn Hoàng Linh Chi','MLDG002','1/10/1997',N'Khu phố 7,Linh Trung, Thủ Đức',N'LinhChi1997@gmail.com','1/5/2022','1/11/2022','0')
-insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,NgHetHan,TongNo) values (N'Trần Dư Gia Bảo','MLDG001','8/1/2002',N'Linh Trung, Thủ Đức',N'BaoVip@gmail.com','5/5/2022','5/11/2022','0')
-insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,NgHetHan,TongNo) values (N'Nguyễn Cát Thiên Di','MLDG001','20/02/2002',N'Hồ Chí Minh',N'DiThien00@gmail.com','6/5/2022','6/11/2022','0')
-insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,NgHetHan,TongNo) values (N'Hoàng Ngọc Bảo Tiên','MLDG002','1/2/1991',N'Hồ Chí Minh',N'TienTien@gmail.com','10/5/2022','10/11/2022','0')
+insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Nguyễn Phúc Khang','MLDG001','10/5/2001',N'Hồ Chí Minh',N'Khang001@gmail.com','2-1-2022','0')
+insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Nguyễn Văn Pháp','MLDG001','22/5/2002',N'Đông Hòa, Dĩ An',N'PhapNguyen@gmail.com','12/3/2022','0')
+insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Nguyễn Khúc Thùy Tiên','MLDG001','1/2/2000',N'khu phố 9, Linh Trung, Thủ Đức',N'TienHoaHau@gmail.com','1/4/2022','0')
+insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Trần Đình Phúc','MLDG002','23/6/1999',N'Linh Trung, Thủ Đức',N'PhucBoy@gmail.com','13/4/2022','0')
+insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Nguyễn Thị Linh','MLDG002','2/1/1998',N'Bình Dương',N'LinhCute@gmail.com','10/4/2022','0')
+insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Trần Bảo Ngọc','MLDG001','1/1/2000',N'Hồ Chí Minh',N'NgocIUI@gmail.com','13/4/2022','0')
+insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Nguyễn Hoàng Linh Chi','MLDG002','1/10/1997',N'Khu phố 7,Linh Trung, Thủ Đức',N'LinhChi1997@gmail.com','1/5/2022','0')
+insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Trần Dư Gia Bảo','MLDG001','8/1/2002',N'Linh Trung, Thủ Đức',N'BaoVip@gmail.com','5/5/2022','0')
+insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Nguyễn Cát Thiên Di','MLDG001','20/02/2002',N'Hồ Chí Minh',N'DiThien00@gmail.com','6/5/2022','0')
+insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Hoàng Ngọc Bảo Tiên','MLDG002','1/2/1991',N'Hồ Chí Minh',N'TienTien@gmail.com','10/5/2022','0')
 ---------------------------------------------------------
 insert into PHIEUMUON (MaDocgia,NgMuon,HanTra) values ('DG001','11/1/2022','15/1/2022')
 insert into PHIEUMUON (MaDocgia,NgMuon,HanTra) values ('DG002','15/3/2022','19/3/2022')
@@ -558,20 +621,20 @@ insert into CTPT (MaPhieuTraSach,MaCuonSach,MaPhieuMuonSach,SoNgayMuon,TienPhat)
 insert into CTPT (MaPhieuTraSach,MaCuonSach,MaPhieuMuonSach,SoNgayMuon,TienPhat) values 
 ('MPTS010','MCS010','MPMS010','1','0')
 ---------------------------------------------------------
-insert into PHIEUNHAPSACH (NgLap,TongTien) values ('1/1/2020','1295000')
----------------------------------------------------------
-insert into CTPHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia,ThanhTien) values ('MPNS001','MS001','1','100000','100000')
-insert into CTPHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia,ThanhTien) values ('MPNS001','MS002','1','100000','100000')
-insert into CTPHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia,ThanhTien) values ('MPNS001','MS003','1','200000','200000')
-insert into CTPHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia,ThanhTien) values ('MPNS001','MS004','1','150000','150000')
-insert into CTPHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia,ThanhTien) values ('MPNS001','MS005','1','100000','100000')
-insert into CTPHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia,ThanhTien) values ('MPNS001','MS006','1','105000','105000')
-insert into CTPHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia,ThanhTien) values ('MPNS001','MS007','1','100000','100000')
-insert into CTPHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia,ThanhTien) values ('MPNS001','MS008','1','120000','120000')
-insert into CTPHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia,ThanhTien) values ('MPNS001','MS009','1','170000','170000')
-insert into CTPHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia,ThanhTien) values ('MPNS001','MS010','1','150000','150000')
----------------------------------------------------------
 
+insert into PHIEUNHAPSACH (NgLap) values ('1/5/2015')
+---------------------------------------------------------
+insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS001','1','100000')
+insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS002','1','100000')
+insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS003','1','200000')
+insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS004','1','150000')
+insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS005','1','100000')
+insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS006','1','105000')
+insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS007','1','100000')
+insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS008','1','120000')
+insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS009','1','170000')
+insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS010','1','150000')
+---------------------------------------------------------
 insert into BAOCAOMUONSACH ( ThangNam,TongSoLuotMuon) values ('3/1/2022','1')
 insert into BAOCAOMUONSACH ( ThangNam,TongSoLuotMuon) values ('3/3/2022','1')
 insert into BAOCAOMUONSACH ( ThangNam,TongSoLuotMuon) values ('30/4/2022','3')
@@ -585,7 +648,7 @@ insert into CTBCMS (MaBaoCaoMuonSach,MaTheLoai,SoLuotMuon,TiLe) values ('MBCMS00
 insert into CTBCMS (MaBaoCaoMuonSach,MaTheLoai,SoLuotMuon,TiLe) values ('MBCMS004','MTL002','2','0.2')
 insert into CTBCMS (MaBaoCaoMuonSach,MaTheLoai,SoLuotMuon,TiLe) values ('MBCMS004','MTL003','1','0.1')
 ---------------------------------------------------------
-insert into THAMSO values ('6','18','55','8','4','5','1000')
+
 ---------------------------------------------------------
 
 ---------------------------------------------------------
