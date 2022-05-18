@@ -29,19 +29,22 @@ namespace TraCuuSach
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
+            this.but1 = new TraCuuSach.But();
             this.vbButton2 = new TraCuuSach.VBButton();
             this.label11 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.but2 = new TraCuuSach.But();
-            this.but1 = new TraCuuSach.But();
             this.vbButton1 = new TraCuuSach.VBButton();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -51,11 +54,8 @@ namespace TraCuuSach
             this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.comboBox11 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.vbButton2.SuspendLayout();
             this.vbButton1.SuspendLayout();
@@ -93,23 +93,23 @@ namespace TraCuuSach
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Chocolate;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Chocolate;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.Navy;
             this.dataGridView1.Location = new System.Drawing.Point(12, 457);
@@ -117,12 +117,12 @@ namespace TraCuuSach
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(90)))), ((int)(((byte)(114)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(90)))), ((int)(((byte)(114)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.Control;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView1.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -140,6 +140,29 @@ namespace TraCuuSach
             this.label3.Size = new System.Drawing.Size(94, 29);
             this.label3.TabIndex = 10;
             this.label3.Text = "Bộ Lọc";
+            // 
+            // but1
+            // 
+            this.but1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.but1.BackColor = System.Drawing.Color.LightCoral;
+            this.but1.BackgroundColor = System.Drawing.Color.LightCoral;
+            this.but1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.but1.BorderRadius = 20;
+            this.but1.BorderSize = 0;
+            this.but1.FlatAppearance.BorderSize = 0;
+            this.but1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.but1.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
+            this.but1.ForeColor = System.Drawing.Color.White;
+            this.but1.Location = new System.Drawing.Point(1044, 48);
+            this.but1.Name = "but1";
+            this.but1.Size = new System.Drawing.Size(156, 47);
+            this.but1.TabIndex = 1;
+            this.but1.Text = "Hủy";
+            this.but1.TextColor = System.Drawing.Color.White;
+            this.but1.UseVisualStyleBackColor = false;
+            this.but1.Click += new System.EventHandler(this.but1_Click);
             // 
             // vbButton2
             // 
@@ -171,6 +194,39 @@ namespace TraCuuSach
             this.label11.Size = new System.Drawing.Size(159, 23);
             this.label11.TabIndex = 22;
             this.label11.Text = "Tổng Số Tác Giả:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Navy;
+            this.label14.Location = new System.Drawing.Point(215, 164);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(21, 24);
+            this.label14.TabIndex = 20;
+            this.label14.Text = "0";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Navy;
+            this.label13.Location = new System.Drawing.Point(215, 96);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(21, 24);
+            this.label13.TabIndex = 20;
+            this.label13.Text = "0";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Navy;
+            this.label12.Location = new System.Drawing.Point(215, 31);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(21, 24);
+            this.label12.TabIndex = 20;
+            this.label12.Text = "0";
             // 
             // label7
             // 
@@ -217,29 +273,6 @@ namespace TraCuuSach
             this.but2.UseVisualStyleBackColor = false;
             this.but2.Click += new System.EventHandler(this.but2_Click);
             // 
-            // but1
-            // 
-            this.but1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.but1.BackColor = System.Drawing.Color.LightCoral;
-            this.but1.BackgroundColor = System.Drawing.Color.LightCoral;
-            this.but1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.but1.BorderRadius = 20;
-            this.but1.BorderSize = 0;
-            this.but1.FlatAppearance.BorderSize = 0;
-            this.but1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.but1.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Bold);
-            this.but1.ForeColor = System.Drawing.Color.White;
-            this.but1.Location = new System.Drawing.Point(1044, 48);
-            this.but1.Name = "but1";
-            this.but1.Size = new System.Drawing.Size(156, 47);
-            this.but1.TabIndex = 1;
-            this.but1.Text = "Hủy";
-            this.but1.TextColor = System.Drawing.Color.White;
-            this.but1.UseVisualStyleBackColor = false;
-            this.but1.Click += new System.EventHandler(this.but1_Click);
-            // 
             // vbButton1
             // 
             this.vbButton1.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -267,55 +300,55 @@ namespace TraCuuSach
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Navy;
-            this.label6.Location = new System.Drawing.Point(61, 100);
+            this.label6.Location = new System.Drawing.Point(66, 97);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 24);
+            this.label6.Size = new System.Drawing.Size(144, 32);
             this.label6.TabIndex = 19;
             this.label6.Text = "Tên Sách:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Navy;
-            this.label5.Location = new System.Drawing.Point(61, 39);
+            this.label5.Location = new System.Drawing.Point(71, 32);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 24);
+            this.label5.Size = new System.Drawing.Size(134, 32);
             this.label5.TabIndex = 18;
             this.label5.Text = "Mã Sách:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Navy;
-            this.label4.Location = new System.Drawing.Point(485, 100);
+            this.label4.Location = new System.Drawing.Point(499, 99);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 24);
+            this.label4.Size = new System.Drawing.Size(122, 32);
             this.label4.TabIndex = 17;
             this.label4.Text = "Tác Giả:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Navy;
-            this.label9.Location = new System.Drawing.Point(485, 36);
+            this.label9.Location = new System.Drawing.Point(497, 33);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(89, 24);
+            this.label9.Size = new System.Drawing.Size(134, 32);
             this.label9.TabIndex = 16;
             this.label9.Text = "Thể Loại:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Navy;
-            this.label8.Location = new System.Drawing.Point(280, 164);
+            this.label8.Location = new System.Drawing.Point(236, 162);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(108, 24);
+            this.label8.Size = new System.Drawing.Size(160, 32);
             this.label8.TabIndex = 15;
             this.label8.Text = "Tình Trạng:";
             // 
@@ -323,18 +356,19 @@ namespace TraCuuSach
             // 
             this.comboBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(185, 105);
+            this.comboBox6.ItemHeight = 22;
+            this.comboBox6.Location = new System.Drawing.Point(176, 98);
             this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(165, 30);
+            this.comboBox6.Size = new System.Drawing.Size(265, 30);
             this.comboBox6.TabIndex = 0;
             // 
             // comboBox5
             // 
             this.comboBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(609, 105);
+            this.comboBox5.Location = new System.Drawing.Point(599, 99);
             this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(165, 30);
+            this.comboBox5.Size = new System.Drawing.Size(235, 30);
             this.comboBox5.TabIndex = 0;
             // 
             // comboBox3
@@ -344,73 +378,39 @@ namespace TraCuuSach
             this.comboBox3.Items.AddRange(new object[] {
             "Đang Mượn",
             "Đã Trả"});
-            this.comboBox3.Location = new System.Drawing.Point(410, 168);
+            this.comboBox3.Location = new System.Drawing.Point(403, 163);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(165, 30);
+            this.comboBox3.Size = new System.Drawing.Size(241, 30);
             this.comboBox3.TabIndex = 0;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(609, 41);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(165, 30);
-            this.comboBox2.TabIndex = 0;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Navy;
-            this.label12.Location = new System.Drawing.Point(235, 31);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(21, 24);
-            this.label12.TabIndex = 20;
-            this.label12.Text = "0";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Navy;
-            this.label13.Location = new System.Drawing.Point(235, 96);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(21, 24);
-            this.label13.TabIndex = 20;
-            this.label13.Text = "0";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Navy;
-            this.label14.Location = new System.Drawing.Point(235, 164);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(21, 24);
-            this.label14.TabIndex = 20;
-            this.label14.Text = "0";
             // 
             // comboBox11
             // 
             this.comboBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.comboBox11.FormattingEnabled = true;
-            this.comboBox11.Location = new System.Drawing.Point(185, 41);
+            this.comboBox11.Location = new System.Drawing.Point(176, 33);
             this.comboBox11.Name = "comboBox11";
-            this.comboBox11.Size = new System.Drawing.Size(165, 30);
+            this.comboBox11.Size = new System.Drawing.Size(265, 30);
             this.comboBox11.TabIndex = 0;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(600, 34);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(234, 30);
+            this.comboBox2.TabIndex = 0;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1260, 724);
+            this.Controls.Add(this.but1);
             this.Controls.Add(this.vbButton2);
             this.Controls.Add(this.but2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.but1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.vbButton1);
             this.Controls.Add(this.label2);
@@ -419,6 +419,7 @@ namespace TraCuuSach
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.vbButton2.ResumeLayout(false);
@@ -439,7 +440,6 @@ namespace TraCuuSach
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox comboBox2;
-        private But but1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label7;
@@ -455,5 +455,6 @@ namespace TraCuuSach
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox comboBox11;
+        private But but1;
     }
 }
