@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dell\\OneDrive - Trường ĐH CNTT - University of Information Technology\\Máy tính\\testgit\\Library_Management\\nhapsach\\nhapsach\\nhapsach.csproj": {}
+    "C:\\Users\\Admin\\Desktop\\Library_Management\\nhapsach\\nhapsach\\nhapsach.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dell\\OneDrive - Trường ĐH CNTT - University of Information Technology\\Máy tính\\testgit\\Library_Management\\nhapsach\\nhapsach\\nhapsach.csproj": {
+    "C:\\Users\\Admin\\Desktop\\Library_Management\\nhapsach\\nhapsach\\nhapsach.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dell\\OneDrive - Trường ĐH CNTT - University of Information Technology\\Máy tính\\testgit\\Library_Management\\nhapsach\\nhapsach\\nhapsach.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Library_Management\\nhapsach\\nhapsach\\nhapsach.csproj",
         "projectName": "nhapsach",
-        "projectPath": "C:\\Users\\Dell\\OneDrive - Trường ĐH CNTT - University of Information Technology\\Máy tính\\testgit\\Library_Management\\nhapsach\\nhapsach\\nhapsach.csproj",
-        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dell\\OneDrive - Trường ĐH CNTT - University of Information Technology\\Máy tính\\testgit\\Library_Management\\nhapsach\\nhapsach\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\Library_Management\\nhapsach\\nhapsach\\nhapsach.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\Library_Management\\nhapsach\\nhapsach\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -57,7 +57,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

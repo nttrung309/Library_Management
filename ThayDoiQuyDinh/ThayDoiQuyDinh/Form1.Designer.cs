@@ -77,6 +77,7 @@ namespace ThayDoiQuyDinh
             this.nButton3 = new ThayDoiQuyDinh.nButton();
             this.nButton2 = new ThayDoiQuyDinh.nButton();
             this.nButton1 = new ThayDoiQuyDinh.nButton();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -713,12 +714,23 @@ namespace ThayDoiQuyDinh
             this.nButton1.UseVisualStyleBackColor = false;
             this.nButton1.Click += new System.EventHandler(this.nButton1_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(611, 20);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(205, 35);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1260, 724);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label9);
@@ -791,6 +803,7 @@ namespace ThayDoiQuyDinh
         private nButton nButton10;
         private nButton nButton9;
         private nButton nButton8;
+        private System.Windows.Forms.Button button1;
     }
 }
 

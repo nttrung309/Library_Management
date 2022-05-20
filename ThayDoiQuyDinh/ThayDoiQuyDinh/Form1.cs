@@ -384,5 +384,9 @@ namespace ThayDoiQuyDinh
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(this.Height.ToString() + " " + this.Width.ToString());
+        }
     }
 }

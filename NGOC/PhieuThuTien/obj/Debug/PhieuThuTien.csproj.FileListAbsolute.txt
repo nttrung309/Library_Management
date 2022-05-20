@@ -1,0 +1,10 @@
+C:\Users\Admin\source\repos\PhieuThuTien\PhieuThuTien\bin\Debug\PhieuThuTien.exe.config
+C:\Users\Admin\source\repos\PhieuThuTien\PhieuThuTien\bin\Debug\PhieuThuTien.exe
+C:\Users\Admin\source\repos\PhieuThuTien\PhieuThuTien\bin\Debug\PhieuThuTien.pdb
+C:\Users\Admin\source\repos\PhieuThuTien\PhieuThuTien\obj\Debug\PhieuThuTien.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\PhieuThuTien\PhieuThuTien\obj\Debug\PhieuThuTien.Properties.Resources.resources
+C:\Users\Admin\source\repos\PhieuThuTien\PhieuThuTien\obj\Debug\PhieuThuTien.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\PhieuThuTien\PhieuThuTien\obj\Debug\PhieuThuTien.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\PhieuThuTien\PhieuThuTien\obj\Debug\PhieuThuTien.exe
+C:\Users\Admin\source\repos\PhieuThuTien\PhieuThuTien\obj\Debug\PhieuThuTien.pdb
+C:\Users\Admin\source\repos\PhieuThuTien\PhieuThuTien\obj\Debug\PhieuThuTien.Form1.resources

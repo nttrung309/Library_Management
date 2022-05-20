@@ -10,3 +10,15 @@ C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technolo
 C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\DemoDesign\Meow\DemoDesign\obj\Debug\DemoDesign.csproj.CoreCompileInputs.cache
 C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\DemoDesign\Meow\DemoDesign\obj\Debug\DemoDesign.exe
 C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\DemoDesign\Meow\DemoDesign\obj\Debug\DemoDesign.pdb
+C:\Users\Admin\Desktop\Library_Management\DemoDesign\Meow\DemoDesign\bin\Debug\DemoDesign.exe.config
+C:\Users\Admin\Desktop\Library_Management\DemoDesign\Meow\DemoDesign\bin\Debug\DemoDesign.exe
+C:\Users\Admin\Desktop\Library_Management\DemoDesign\Meow\DemoDesign\bin\Debug\DemoDesign.pdb
+C:\Users\Admin\Desktop\Library_Management\DemoDesign\Meow\DemoDesign\obj\Debug\DemoDesign.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Library_Management\DemoDesign\Meow\DemoDesign\obj\Debug\DemoDesign.RecvBook.resources
+C:\Users\Admin\Desktop\Library_Management\DemoDesign\Meow\DemoDesign\obj\Debug\DemoDesign.LendBook.resources
+C:\Users\Admin\Desktop\Library_Management\DemoDesign\Meow\DemoDesign\obj\Debug\DemoDesign.Properties.Resources.resources
+C:\Users\Admin\Desktop\Library_Management\DemoDesign\Meow\DemoDesign\obj\Debug\DemoDesign.Report.resources
+C:\Users\Admin\Desktop\Library_Management\DemoDesign\Meow\DemoDesign\obj\Debug\DemoDesign.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Library_Management\DemoDesign\Meow\DemoDesign\obj\Debug\DemoDesign.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Library_Management\DemoDesign\Meow\DemoDesign\obj\Debug\DemoDesign.exe
+C:\Users\Admin\Desktop\Library_Management\DemoDesign\Meow\DemoDesign\obj\Debug\DemoDesign.pdb
