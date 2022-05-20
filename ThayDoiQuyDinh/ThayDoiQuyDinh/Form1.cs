@@ -226,6 +226,7 @@ namespace ThayDoiQuyDinh
             label9.Text = "Danh Sách Loại Độc Giả";
             loadDocGia();
             label24.Text = "Tên Loại Độc Giả";
+            textBox8.Text = "";
         }
 
         private void nButton5_Click(object sender, EventArgs e)
@@ -233,6 +234,7 @@ namespace ThayDoiQuyDinh
             label9.Text = "Danh Sách Thể Loại Sách";
             loadTheLoai();
             label24.Text = "Tên Thể Loại Sách";
+            textBox8.Text = "";
         }
 
         private void nButton6_Click(object sender, EventArgs e)
@@ -252,23 +254,46 @@ namespace ThayDoiQuyDinh
             { MessageBox.Show("Bạn không thể để trống ô này"); }
             else
             {
-                MessageBox.Show("Lưu Thành Công");
-                if (label24.Text == "Tên Thể Loại Sách")
+                DataTable table11 = new DataTable();
+                command = connection.CreateCommand();
+                if (label24.Text== "Tên Thể Loại Sách")
+                command.CommandText = "select count(*) from THELOAI where TenTheLoai=N'"+textBox8.Text+"'";
+                else
+                    if (label24.Text== "Tên Loại Độc Giả")
+                    command.CommandText = "select count(*) from LoaiDocGia where TenLoaiDocGia=N'" + textBox8.Text + "'";
+                adapter.SelectCommand = command;
+                table11.Clear();
+                adapter.Fill(table11);
+         int i=int.Parse((table11.Rows[0].ItemArray[0].ToString()));
+                DialogResult dlr = new DialogResult();
+                if (i > 0)
                 {
-                    command = connection.CreateCommand();
-                    command.CommandText = "insert into THELOAI (TenTheLoai) values (N'" + textBox8.Text + "') ";
-                    command.ExecuteNonQuery();
-                    loadTheLoai();
+                     dlr = MessageBox.Show("Loại này đã có trong thư viện,bạn có muốn thêm vào", "IceTea Việt", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                }
+                    if (dlr == DialogResult.No)
+                {
+                    MessageBox.Show("Mời bạn nhập lại");
+                    textBox8.Text = "";
                 }
                 else
-                     if (label24.Text == "Tên Loại Độc Giả")
                 {
-                    command = connection.CreateCommand();
-                    command.CommandText = "insert into LOAIDOCGIA (TenLoaiDocGia) values (N'" + textBox8.Text + "') ";
-                    command.ExecuteNonQuery();
-                    loadDocGia();
+                    MessageBox.Show("Lưu Thành Công");
+                    if (label24.Text == "Tên Thể Loại Sách")
+                    {
+                        command = connection.CreateCommand();
+                        command.CommandText = "insert into THELOAI (TenTheLoai) values (N'" + textBox8.Text + "') ";
+                        command.ExecuteNonQuery();
+                        loadTheLoai();
+                    }
+                    else
+                         if (label24.Text == "Tên Loại Độc Giả")
+                    {
+                        command = connection.CreateCommand();
+                        command.CommandText = "insert into LOAIDOCGIA (TenLoaiDocGia) values (N'" + textBox8.Text + "') ";
+                        command.ExecuteNonQuery();
+                        loadDocGia();
+                    }
                 }
-               
             }
         }
 
