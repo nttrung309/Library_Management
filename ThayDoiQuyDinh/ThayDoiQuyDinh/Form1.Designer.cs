@@ -29,8 +29,8 @@ namespace ThayDoiQuyDinh
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,6 +48,11 @@ namespace ThayDoiQuyDinh
             this.label4 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.nButton5 = new ThayDoiQuyDinh.nButton();
+            this.nButton4 = new ThayDoiQuyDinh.nButton();
+            this.nButton3 = new ThayDoiQuyDinh.nButton();
+            this.nButton2 = new ThayDoiQuyDinh.nButton();
+            this.nButton1 = new ThayDoiQuyDinh.nButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -72,12 +77,6 @@ namespace ThayDoiQuyDinh
             this.nButton10 = new ThayDoiQuyDinh.nButton();
             this.nButton9 = new ThayDoiQuyDinh.nButton();
             this.nButton8 = new ThayDoiQuyDinh.nButton();
-            this.nButton5 = new ThayDoiQuyDinh.nButton();
-            this.nButton4 = new ThayDoiQuyDinh.nButton();
-            this.nButton3 = new ThayDoiQuyDinh.nButton();
-            this.nButton2 = new ThayDoiQuyDinh.nButton();
-            this.nButton1 = new ThayDoiQuyDinh.nButton();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -122,6 +121,7 @@ namespace ThayDoiQuyDinh
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.nButton5);
             this.panel1.Controls.Add(this.nButton4);
@@ -161,7 +161,7 @@ namespace ThayDoiQuyDinh
             this.textBox7.Location = new System.Drawing.Point(142, 353);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(185, 30);
-            this.textBox7.TabIndex = 1;
+            this.textBox7.TabIndex = 7;
             this.textBox7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox7_KeyPress);
             // 
             // label8
@@ -182,7 +182,7 @@ namespace ThayDoiQuyDinh
             this.textBox6.Location = new System.Drawing.Point(256, 248);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(185, 30);
-            this.textBox6.TabIndex = 1;
+            this.textBox6.TabIndex = 6;
             this.textBox6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox6_KeyPress);
             // 
             // label7
@@ -203,7 +203,7 @@ namespace ThayDoiQuyDinh
             this.textBox5.Location = new System.Drawing.Point(256, 148);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(185, 30);
-            this.textBox5.TabIndex = 1;
+            this.textBox5.TabIndex = 4;
             this.textBox5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox5_KeyPress);
             // 
             // label6
@@ -224,7 +224,7 @@ namespace ThayDoiQuyDinh
             this.textBox4.Location = new System.Drawing.Point(15, 248);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(185, 30);
-            this.textBox4.TabIndex = 1;
+            this.textBox4.TabIndex = 5;
             this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox4_KeyPress);
             // 
             // label5
@@ -245,7 +245,7 @@ namespace ThayDoiQuyDinh
             this.textBox3.Location = new System.Drawing.Point(15, 148);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(185, 30);
-            this.textBox3.TabIndex = 1;
+            this.textBox3.TabIndex = 3;
             this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
             // label4
@@ -266,7 +266,7 @@ namespace ThayDoiQuyDinh
             this.textBox2.Location = new System.Drawing.Point(256, 51);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(185, 30);
-            this.textBox2.TabIndex = 1;
+            this.textBox2.TabIndex = 2;
             this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // label3
@@ -280,6 +280,106 @@ namespace ThayDoiQuyDinh
             this.label3.TabIndex = 0;
             this.label3.Text = "Tuổi Tối Thiểu";
             // 
+            // nButton5
+            // 
+            this.nButton5.BackColor = System.Drawing.Color.Goldenrod;
+            this.nButton5.BackgroundColor = System.Drawing.Color.Goldenrod;
+            this.nButton5.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.nButton5.BorderRadius = 0;
+            this.nButton5.BorderSize = 0;
+            this.nButton5.FlatAppearance.BorderSize = 0;
+            this.nButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nButton5.ForeColor = System.Drawing.Color.White;
+            this.nButton5.Location = new System.Drawing.Point(383, 60);
+            this.nButton5.Name = "nButton5";
+            this.nButton5.Size = new System.Drawing.Size(125, 33);
+            this.nButton5.TabIndex = 4;
+            this.nButton5.Text = "Sách";
+            this.nButton5.TextColor = System.Drawing.Color.White;
+            this.nButton5.UseVisualStyleBackColor = false;
+            this.nButton5.Click += new System.EventHandler(this.nButton5_Click);
+            // 
+            // nButton4
+            // 
+            this.nButton4.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.nButton4.BackgroundColor = System.Drawing.Color.LightSeaGreen;
+            this.nButton4.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.nButton4.BorderRadius = 0;
+            this.nButton4.BorderSize = 0;
+            this.nButton4.FlatAppearance.BorderSize = 0;
+            this.nButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nButton4.ForeColor = System.Drawing.Color.White;
+            this.nButton4.Location = new System.Drawing.Point(255, 61);
+            this.nButton4.Name = "nButton4";
+            this.nButton4.Size = new System.Drawing.Size(125, 33);
+            this.nButton4.TabIndex = 4;
+            this.nButton4.Text = "Độc Giả";
+            this.nButton4.TextColor = System.Drawing.Color.White;
+            this.nButton4.UseVisualStyleBackColor = false;
+            this.nButton4.Click += new System.EventHandler(this.nButton4_Click);
+            // 
+            // nButton3
+            // 
+            this.nButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+            this.nButton3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+            this.nButton3.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.nButton3.BorderRadius = 0;
+            this.nButton3.BorderSize = 0;
+            this.nButton3.FlatAppearance.BorderSize = 0;
+            this.nButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nButton3.ForeColor = System.Drawing.Color.White;
+            this.nButton3.Location = new System.Drawing.Point(255, -1);
+            this.nButton3.Name = "nButton3";
+            this.nButton3.Size = new System.Drawing.Size(256, 59);
+            this.nButton3.TabIndex = 4;
+            this.nButton3.Text = "Thay Đổi Thể Loại";
+            this.nButton3.TextColor = System.Drawing.Color.White;
+            this.nButton3.UseVisualStyleBackColor = false;
+            this.nButton3.Click += new System.EventHandler(this.nButton3_Click);
+            // 
+            // nButton2
+            // 
+            this.nButton2.BackColor = System.Drawing.Color.LightCoral;
+            this.nButton2.BackgroundColor = System.Drawing.Color.LightCoral;
+            this.nButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.nButton2.BorderRadius = 0;
+            this.nButton2.BorderSize = 0;
+            this.nButton2.FlatAppearance.BorderSize = 0;
+            this.nButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nButton2.ForeColor = System.Drawing.Color.White;
+            this.nButton2.Location = new System.Drawing.Point(-1, -1);
+            this.nButton2.Name = "nButton2";
+            this.nButton2.Size = new System.Drawing.Size(250, 59);
+            this.nButton2.TabIndex = 3;
+            this.nButton2.Text = "Thay Đổi Quy Định";
+            this.nButton2.TextColor = System.Drawing.Color.White;
+            this.nButton2.UseVisualStyleBackColor = false;
+            this.nButton2.Click += new System.EventHandler(this.nButton2_Click);
+            // 
+            // nButton1
+            // 
+            this.nButton1.BackColor = System.Drawing.Color.YellowGreen;
+            this.nButton1.BackgroundColor = System.Drawing.Color.YellowGreen;
+            this.nButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.nButton1.BorderRadius = 20;
+            this.nButton1.BorderSize = 0;
+            this.nButton1.FlatAppearance.BorderSize = 0;
+            this.nButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nButton1.ForeColor = System.Drawing.Color.White;
+            this.nButton1.Location = new System.Drawing.Point(181, 516);
+            this.nButton1.Name = "nButton1";
+            this.nButton1.Size = new System.Drawing.Size(155, 42);
+            this.nButton1.TabIndex = 8;
+            this.nButton1.Text = "Cập Nhật";
+            this.nButton1.TextColor = System.Drawing.Color.White;
+            this.nButton1.UseVisualStyleBackColor = false;
+            this.nButton1.Click += new System.EventHandler(this.nButton1_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -289,14 +389,14 @@ namespace ThayDoiQuyDinh
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaption;
@@ -304,12 +404,12 @@ namespace ThayDoiQuyDinh
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(90)))), ((int)(((byte)(114)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(90)))), ((int)(((byte)(114)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Control;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(708, 589);
             this.dataGridView1.TabIndex = 4;
@@ -529,7 +629,7 @@ namespace ThayDoiQuyDinh
             this.panel3.Controls.Add(this.nButton10);
             this.panel3.Controls.Add(this.nButton9);
             this.panel3.Controls.Add(this.nButton8);
-            this.panel3.Location = new System.Drawing.Point(740, 237);
+            this.panel3.Location = new System.Drawing.Point(3, 103);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(504, 396);
             this.panel3.TabIndex = 4;
@@ -614,124 +714,12 @@ namespace ThayDoiQuyDinh
             this.nButton8.UseVisualStyleBackColor = false;
             this.nButton8.Click += new System.EventHandler(this.nButton8_Click);
             // 
-            // nButton5
-            // 
-            this.nButton5.BackColor = System.Drawing.Color.Goldenrod;
-            this.nButton5.BackgroundColor = System.Drawing.Color.Goldenrod;
-            this.nButton5.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.nButton5.BorderRadius = 0;
-            this.nButton5.BorderSize = 0;
-            this.nButton5.FlatAppearance.BorderSize = 0;
-            this.nButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nButton5.ForeColor = System.Drawing.Color.White;
-            this.nButton5.Location = new System.Drawing.Point(383, 60);
-            this.nButton5.Name = "nButton5";
-            this.nButton5.Size = new System.Drawing.Size(125, 33);
-            this.nButton5.TabIndex = 4;
-            this.nButton5.Text = "Sách";
-            this.nButton5.TextColor = System.Drawing.Color.White;
-            this.nButton5.UseVisualStyleBackColor = false;
-            this.nButton5.Click += new System.EventHandler(this.nButton5_Click);
-            // 
-            // nButton4
-            // 
-            this.nButton4.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.nButton4.BackgroundColor = System.Drawing.Color.LightSeaGreen;
-            this.nButton4.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.nButton4.BorderRadius = 0;
-            this.nButton4.BorderSize = 0;
-            this.nButton4.FlatAppearance.BorderSize = 0;
-            this.nButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nButton4.ForeColor = System.Drawing.Color.White;
-            this.nButton4.Location = new System.Drawing.Point(255, 61);
-            this.nButton4.Name = "nButton4";
-            this.nButton4.Size = new System.Drawing.Size(125, 33);
-            this.nButton4.TabIndex = 4;
-            this.nButton4.Text = "Độc Giả";
-            this.nButton4.TextColor = System.Drawing.Color.White;
-            this.nButton4.UseVisualStyleBackColor = false;
-            this.nButton4.Click += new System.EventHandler(this.nButton4_Click);
-            // 
-            // nButton3
-            // 
-            this.nButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-            this.nButton3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-            this.nButton3.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.nButton3.BorderRadius = 0;
-            this.nButton3.BorderSize = 0;
-            this.nButton3.FlatAppearance.BorderSize = 0;
-            this.nButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nButton3.ForeColor = System.Drawing.Color.White;
-            this.nButton3.Location = new System.Drawing.Point(255, -1);
-            this.nButton3.Name = "nButton3";
-            this.nButton3.Size = new System.Drawing.Size(256, 59);
-            this.nButton3.TabIndex = 4;
-            this.nButton3.Text = "Thay Đổi Thể Loại";
-            this.nButton3.TextColor = System.Drawing.Color.White;
-            this.nButton3.UseVisualStyleBackColor = false;
-            this.nButton3.Click += new System.EventHandler(this.nButton3_Click);
-            // 
-            // nButton2
-            // 
-            this.nButton2.BackColor = System.Drawing.Color.LightCoral;
-            this.nButton2.BackgroundColor = System.Drawing.Color.LightCoral;
-            this.nButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.nButton2.BorderRadius = 0;
-            this.nButton2.BorderSize = 0;
-            this.nButton2.FlatAppearance.BorderSize = 0;
-            this.nButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nButton2.ForeColor = System.Drawing.Color.White;
-            this.nButton2.Location = new System.Drawing.Point(-1, -1);
-            this.nButton2.Name = "nButton2";
-            this.nButton2.Size = new System.Drawing.Size(250, 59);
-            this.nButton2.TabIndex = 3;
-            this.nButton2.Text = "Thay Đổi Quy Định";
-            this.nButton2.TextColor = System.Drawing.Color.White;
-            this.nButton2.UseVisualStyleBackColor = false;
-            this.nButton2.Click += new System.EventHandler(this.nButton2_Click);
-            // 
-            // nButton1
-            // 
-            this.nButton1.BackColor = System.Drawing.Color.YellowGreen;
-            this.nButton1.BackgroundColor = System.Drawing.Color.YellowGreen;
-            this.nButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.nButton1.BorderRadius = 20;
-            this.nButton1.BorderSize = 0;
-            this.nButton1.FlatAppearance.BorderSize = 0;
-            this.nButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nButton1.ForeColor = System.Drawing.Color.White;
-            this.nButton1.Location = new System.Drawing.Point(181, 516);
-            this.nButton1.Name = "nButton1";
-            this.nButton1.Size = new System.Drawing.Size(155, 42);
-            this.nButton1.TabIndex = 2;
-            this.nButton1.Text = "Cập Nhật";
-            this.nButton1.TextColor = System.Drawing.Color.White;
-            this.nButton1.UseVisualStyleBackColor = false;
-            this.nButton1.Click += new System.EventHandler(this.nButton1_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(611, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(205, 35);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1260, 724);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dataGridView1);
@@ -803,7 +791,6 @@ namespace ThayDoiQuyDinh
         private nButton nButton10;
         private nButton nButton9;
         private nButton nButton8;
-        private System.Windows.Forms.Button button1;
     }
 }
 

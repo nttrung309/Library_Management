@@ -335,5 +335,50 @@ namespace TraCuuSach
             // if (this.chkAutoComplete.Checked)
             this.AutoComplete(this.comboBox2, e, true);
         }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked == true)
+                comboBox11.Enabled = true;
+            else
+                comboBox11.Enabled = false;
+            comboBox11.Text = "";
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton4.Checked == true)
+                comboBox2.Enabled = true;
+            else
+                comboBox2.Enabled = false;
+            comboBox2.Text = "";
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton2.Checked == true)
+                comboBox6.Enabled = true;
+            else
+                comboBox6.Enabled = false;
+            comboBox6.Text = "";
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton3.Checked == true)
+                comboBox5.Enabled = true;
+            else
+                comboBox5.Enabled = false;
+            comboBox5.Text = "";
+        }
+
+        private void radioButton5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton5.Checked == true)
+                comboBox3.Enabled = true;
+            else
+                comboBox3.Enabled = false;
+            comboBox3.Text = "";
+        }
     }
 }
