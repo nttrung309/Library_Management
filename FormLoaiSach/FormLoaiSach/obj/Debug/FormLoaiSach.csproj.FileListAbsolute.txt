@@ -1,0 +1,9 @@
+C:\Users\Admin\source\repos\FormLoaiSach\FormLoaiSach\bin\Debug\FormLoaiSach.exe.config
+C:\Users\Admin\source\repos\FormLoaiSach\FormLoaiSach\bin\Debug\FormLoaiSach.exe
+C:\Users\Admin\source\repos\FormLoaiSach\FormLoaiSach\bin\Debug\FormLoaiSach.pdb
+C:\Users\Admin\source\repos\FormLoaiSach\FormLoaiSach\obj\Debug\FormLoaiSach.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\FormLoaiSach\FormLoaiSach\obj\Debug\FormLoaiSach.Properties.Resources.resources
+C:\Users\Admin\source\repos\FormLoaiSach\FormLoaiSach\obj\Debug\FormLoaiSach.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\FormLoaiSach\FormLoaiSach\obj\Debug\FormLoaiSach.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\FormLoaiSach\FormLoaiSach\obj\Debug\FormLoaiSach.exe
+C:\Users\Admin\source\repos\FormLoaiSach\FormLoaiSach\obj\Debug\FormLoaiSach.pdb

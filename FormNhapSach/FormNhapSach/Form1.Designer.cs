@@ -1,5 +1,5 @@
 ﻿
-namespace nhapsach
+namespace FormNhapSach
 {
     partial class Form1
     {
@@ -44,7 +44,7 @@ namespace nhapsach
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vbButton1 = new nhapsach.VBButton();
+            this.vbButton1 = new FormNhapSach.VBButton();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -66,9 +66,9 @@ namespace nhapsach
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.nButton3 = new nhapsach.nButton();
-            this.nButton2 = new nhapsach.nButton();
-            this.nButton4 = new nhapsach.nButton();
+            this.nButton3 = new FormNhapSach.nButton();
+            this.nButton2 = new FormNhapSach.nButton();
+            this.nButton4 = new FormNhapSach.nButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.vbButton1.SuspendLayout();
             this.SuspendLayout();
@@ -283,7 +283,7 @@ namespace nhapsach
             this.label12.Size = new System.Drawing.Size(131, 22);
             this.label12.TabIndex = 39;
             this.label12.Text = "Năm Xuất Bản:";
-     
+
             // 
             // label11
             // 
@@ -518,7 +518,7 @@ namespace nhapsach
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
-   
+
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.vbButton1.ResumeLayout(false);
             this.vbButton1.PerformLayout();
