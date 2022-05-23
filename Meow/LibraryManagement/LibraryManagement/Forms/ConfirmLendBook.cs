@@ -96,7 +96,6 @@ namespace LibraryManagement.Forms
         private void btnAccept_Click(object sender, EventArgs e)
         {
             UpdataData();
-            
         }
 
         private void UpdataData()
@@ -122,11 +121,32 @@ namespace LibraryManagement.Forms
             conn.Close();
             
             DemoDesign.LendBook.lendState = "Success";
+            SendMail();
             this.Close();
+        }
+
+        private void SendMail()
+        {
+            string slipTitle = "<b>THÔNG TIN PHIẾU MƯỢN</b><br/><br/>";
+            string readerCode = $"<b>Mã độc giả</b>: {borrowSlip.code}<br/>";
+            string readerName = $"<b>Họ tên</b>: {borrowSlip.name}<br/>";
+            string borrowDate = $"<b>Ngày mượn</b>: {FormatDate(borrowSlip.borrowDate)}<br/>";
+            string returnDate = $"<b>Ngày trả</b>: {FormatDate(borrowSlip.returnDate)}<br/>";
+            string borrowBooksTitle = $"<br/><b>SÁCH ĐÃ MƯỢN:</b><br/>";
+            string borrowBooks = "";
+            foreach (Book book in borrowSlip.chosenBooks)
+            {
+                string bookInfo = $"<b>Mã sách:</b> {book.code}&emsp;&emsp;<b>Tên sách:</b> {book.name}&emsp;&emsp;<b>Tác giả:</b> {book.author}<br/>";
+                borrowBooks += bookInfo;
+            }
+
+            string msg = slipTitle + readerCode + readerName + borrowDate + returnDate + borrowBooksTitle + borrowBooks;
+            MailService.SendMail(borrowSlip.email, msg, borrowSlip.name);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            DemoDesign.LendBook.lendState = "Cancelled";
             this.Close();
         }
     }

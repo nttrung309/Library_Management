@@ -26,7 +26,7 @@ namespace LibraryManagement.Models
             {
                 maxLendDay = (int)reader.GetInt32(4);
                 maxBorrowBook = (int)reader.GetInt32(5);
-                //finePerDay = (int)reader.GetDouble(6);
+                finePerDay = (int)reader.GetSqlMoney(6);
             }
         }
     }

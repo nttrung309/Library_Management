@@ -16,12 +16,17 @@ namespace LibraryManagement.Models
             AND SACH.MaSach = CUONSACH.MaSach AND TinhTrang = 0
 			ORDER BY SACH.MaSach";
         public static string parametersQueryCmd = @"SELECT * from THAMSO";
-        public static string readersQueryCmd = @"SELECT MaDocGia, HoTen, NgHetHan
+        public static string readersQueryCmd = @"SELECT MaDocGia, HoTen, NgHetHan, Email
             FROM DOCGIA
             WHERE NgHetHan >= GETDATE()";
         public static string getBookSlipCode = @"SELECT TOP (1) MAPHIEUMUONSACH
             FROM phieumuon
             ORDER BY maphieumuonsach DESC";
-
+        public static string GetNumOfBooksBorrowed(string bookCode)
+        {
+            return $@"SELECT count(*)
+                FROM PHIEUMUON, CTPHIEUMUON
+                WHERE MaDocGia = '{bookCode}' AND PHIEUMUON.MaPhieuMuonSach = CTPHIEUMUON.MaPhieuMuonSach";
+        }
     }
 }

@@ -107,6 +107,8 @@ namespace DemoDesign
                 }
             }
             conn.Close();
+            int stt = int.Parse(slipCode.Substring(4, 3)) + 1;
+            slipCode = $"MPMS{stt:000}";
         }
 
         private void LoadReaders()
@@ -118,7 +120,7 @@ namespace DemoDesign
             {
                 while (reader.Read())
                 {
-                    readers.Add(new Reader(reader.GetString(0), reader.GetString(1), reader.GetDateTime(2)));
+                    readers.Add(new Reader(reader.GetString(0), reader.GetString(1), reader.GetDateTime(2), reader.GetString(3)));
                 }
             }
             conn.Close();
@@ -322,6 +324,7 @@ namespace DemoDesign
                 bookUnchosen.name = dtgvBookChosen.SelectedRows[0].Cells[2].Value.ToString();
                 bookUnchosen.category = dtgvBookChosen.SelectedRows[0].Cells[3].Value.ToString();
                 bookUnchosen.author = dtgvBookChosen.SelectedRows[0].Cells[4].Value.ToString();
+                bookUnchosen.specCode = chosenBooks[dtgvBookChosen.SelectedRows[0].Index].specCode;
 
                 findBooks.Add(bookUnchosen);
                 stockBooks.Add(bookUnchosen);
@@ -391,6 +394,7 @@ namespace DemoDesign
                 bookUnchosen.name = dtgvBookChosen.SelectedRows[0].Cells[2].Value.ToString();
                 bookUnchosen.category = dtgvBookChosen.SelectedRows[0].Cells[3].Value.ToString();
                 bookUnchosen.author = dtgvBookChosen.SelectedRows[0].Cells[4].Value.ToString();
+                bookUnchosen.specCode = chosenBooks[dtgvBookChosen.SelectedRows[0].Index].specCode;
 
                 stockBooks.Add(bookUnchosen);
 
@@ -589,6 +593,7 @@ namespace DemoDesign
             Valid,
             MissingCode,
             MissingBook,
+            BorrowedMax,
             LendDayPast
         }
 
@@ -611,6 +616,11 @@ namespace DemoDesign
                         MessageBox.Show("Vui chọn 1 quyển sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         break;
                     }
+                case Valid.BorrowedMax:
+                    {
+                        MessageBox.Show($"Độc giả này đã mượn tối đa {Parameters.maxBorrowBook} quyển sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        break;
+                    }
             }
         }
 
@@ -624,21 +634,41 @@ namespace DemoDesign
             {
                 return Valid.MissingBook;
             }
+            else
+            {
+                int numborrowedBooks = -1;
+                Parameters.LoadParam();
+                SqlConnection conn = new SqlConnection(DatabaseInfo.connectionString);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(DatabaseInfo.GetNumOfBooksBorrowed(cbbReaderCode.Text), conn);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        numborrowedBooks = reader.GetInt32(0);
+                    }
+                }
+                conn.Close();
+                
+                if(numborrowedBooks >= Parameters.maxBorrowBook)
+                {
+                    return Valid.BorrowedMax;
+                }
+            }
             return Valid.Valid;
         }
 
         private void ShowConfirmForm()
         {
             tdGetBookSlip.Join();
-            int stt = int.Parse(slipCode.Substring(4, 3)) + 1;
-            slipCode = $"MPMS{stt:000}";
             string code = cbbReaderCode.Text.ToString();
             string name = txbReaderName.Text.ToString();
+            string email = readers[cbbReaderCode.SelectedIndex].email;
             string lendDate = borrowDate.Value.ToString("yyyy-MM-dd");
             string backDate = returnDate.Value.ToString("yyyy-MM-dd");
             string amount = chosenBooks.Count.ToString();
 
-            ConfirmLendBook.borrowSlip = new BorrowSlip(slipCode, code, name, lendDate, backDate, amount, chosenBooks);
+            ConfirmLendBook.borrowSlip = new BorrowSlip(slipCode, code, name, email, lendDate, backDate, amount, chosenBooks);
             new ConfirmLendBook().ShowDialog();
 
             if(lendState == "Success")
@@ -649,8 +679,17 @@ namespace DemoDesign
                 bindingChosen = new BindingSource();
                 bindingChosen.DataSource = chosenBooks;
                 dtgvBookChosen.DataSource = bindingChosen;
+
+                lendState = "";
+                tdGetBookSlip = new Thread(new ThreadStart(GetSlipCode));
+                tdGetBookSlip.Start();
             }
             //String returnDay = 
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            LibraryManagement.fHome.SwitchForm(new LendBook());
         }
     }
 }

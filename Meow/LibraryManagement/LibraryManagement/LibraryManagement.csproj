@@ -88,6 +88,7 @@
     </Compile>
     <Compile Include="Models\BorrowSlip.cs" />
     <Compile Include="Models\DatabaseInfo.cs" />
+    <Compile Include="Models\MailService.cs" />
     <Compile Include="Models\Parameters.cs" />
     <Compile Include="Models\Reader.cs" />
     <Compile Include="Models\Book.cs" />
