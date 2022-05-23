@@ -32,3 +32,19 @@ C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technolo
 C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.dll
 C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.pdb
 C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.genruntimeconfig.cache
+C:\Users\Admin\Desktop\Library_Management\nhapsach\nhapsach\bin\Debug\netcoreapp3.1\nhapsach.exe
+C:\Users\Admin\Desktop\Library_Management\nhapsach\nhapsach\bin\Debug\netcoreapp3.1\nhapsach.deps.json
+C:\Users\Admin\Desktop\Library_Management\nhapsach\nhapsach\bin\Debug\netcoreapp3.1\nhapsach.runtimeconfig.json
+C:\Users\Admin\Desktop\Library_Management\nhapsach\nhapsach\bin\Debug\netcoreapp3.1\nhapsach.runtimeconfig.dev.json
+C:\Users\Admin\Desktop\Library_Management\nhapsach\nhapsach\bin\Debug\netcoreapp3.1\nhapsach.dll
+C:\Users\Admin\Desktop\Library_Management\nhapsach\nhapsach\bin\Debug\netcoreapp3.1\nhapsach.pdb
+C:\Users\Admin\Desktop\Library_Management\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Library_Management\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.Form1.resources
+C:\Users\Admin\Desktop\Library_Management\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.Properties.Resources.resources
+C:\Users\Admin\Desktop\Library_Management\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Library_Management\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\Library_Management\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.AssemblyInfo.cs
+C:\Users\Admin\Desktop\Library_Management\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Library_Management\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.dll
+C:\Users\Admin\Desktop\Library_Management\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.pdb
+C:\Users\Admin\Desktop\Library_Management\nhapsach\nhapsach\obj\Debug\netcoreapp3.1\nhapsach.genruntimeconfig.cache

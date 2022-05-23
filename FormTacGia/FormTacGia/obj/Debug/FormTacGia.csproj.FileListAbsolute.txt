@@ -1,0 +1,10 @@
+C:\Users\Admin\source\repos\FormTacGia\FormTacGia\bin\Debug\FormTacGia.exe.config
+C:\Users\Admin\source\repos\FormTacGia\FormTacGia\bin\Debug\FormTacGia.exe
+C:\Users\Admin\source\repos\FormTacGia\FormTacGia\bin\Debug\FormTacGia.pdb
+C:\Users\Admin\source\repos\FormTacGia\FormTacGia\obj\Debug\FormTacGia.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\FormTacGia\FormTacGia\obj\Debug\FormTacGia.Form1.resources
+C:\Users\Admin\source\repos\FormTacGia\FormTacGia\obj\Debug\FormTacGia.Properties.Resources.resources
+C:\Users\Admin\source\repos\FormTacGia\FormTacGia\obj\Debug\FormTacGia.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\FormTacGia\FormTacGia\obj\Debug\FormTacGia.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\FormTacGia\FormTacGia\obj\Debug\FormTacGia.exe
+C:\Users\Admin\source\repos\FormTacGia\FormTacGia\obj\Debug\FormTacGia.pdb
