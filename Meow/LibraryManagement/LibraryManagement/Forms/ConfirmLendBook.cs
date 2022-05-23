@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using LibraryManagement.Models;
 using LibraryManagement.Reports;
 using LibraryManagement.Forms;
+using System.Drawing.Printing;
 
 namespace LibraryManagement.Forms
 {
@@ -84,6 +85,11 @@ namespace LibraryManagement.Forms
             bindingChosen = new BindingSource();
             bindingChosen.DataSource = borrowSlip.chosenBooks;
             dtgvChosenBook.DataSource = bindingChosen;
+
+            if(dtgvChosenBook.Rows.Count != 0)
+            {
+                dtgvChosenBook.Rows[0].Selected = false;
+            }
         }
         private string FormatDate(string date)
         {
@@ -95,7 +101,21 @@ namespace LibraryManagement.Forms
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
+            PrintSlip();
             UpdataData();
+        }
+
+        Bitmap bmp;
+
+        private void PrintSlip()
+        {
+            printDocument1.DefaultPageSettings.PaperSize = new PaperSize("MyPaper", this.Size.Width, 581 - 74);
+            Graphics g = this.CreateGraphics();
+            bmp = new Bitmap(this.Size.Width, 581 - 74, g);
+            Graphics mg = Graphics.FromImage(bmp);
+            Size size = new Size(this.Size.Width, 581 - 74);
+            mg.CopyFromScreen(this.Location.X, this.Location.Y + 25, 0, 0, size);
+            printPreviewDialog1.ShowDialog();
         }
 
         private void UpdataData()
@@ -121,7 +141,7 @@ namespace LibraryManagement.Forms
             conn.Close();
             
             DemoDesign.LendBook.lendState = "Success";
-            SendMail();
+            //SendMail();
             this.Close();
         }
 
@@ -148,6 +168,11 @@ namespace LibraryManagement.Forms
         {
             DemoDesign.LendBook.lendState = "Cancelled";
             this.Close();
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(bmp, 0, 0);
         }
     }
 }

@@ -16,5 +16,15 @@ namespace DemoDesign
         {
             InitializeComponent();
         }
+
+        private void RecvBook_Load(object sender, EventArgs e)
+        {
+            LoadReaders();
+        }
+
+        private void LoadReaders()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
