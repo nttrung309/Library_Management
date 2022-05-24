@@ -1,0 +1,10 @@
+C:\Users\Admin\Desktop\Library_Management\formloaidocgia\FormTacGia\bin\Debug\FormTacGia.exe.config
+C:\Users\Admin\Desktop\Library_Management\formloaidocgia\FormTacGia\bin\Debug\FormTacGia.exe
+C:\Users\Admin\Desktop\Library_Management\formloaidocgia\FormTacGia\bin\Debug\FormTacGia.pdb
+C:\Users\Admin\Desktop\Library_Management\formloaidocgia\FormTacGia\obj\Debug\FormLoaiDocgia.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Library_Management\formloaidocgia\FormTacGia\obj\Debug\FormLoaiDocGia.Form1.resources
+C:\Users\Admin\Desktop\Library_Management\formloaidocgia\FormTacGia\obj\Debug\FormTacGia.Properties.Resources.resources
+C:\Users\Admin\Desktop\Library_Management\formloaidocgia\FormTacGia\obj\Debug\FormLoaiDocgia.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Library_Management\formloaidocgia\FormTacGia\obj\Debug\FormLoaiDocgia.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Library_Management\formloaidocgia\FormTacGia\obj\Debug\FormTacGia.exe
+C:\Users\Admin\Desktop\Library_Management\formloaidocgia\FormTacGia\obj\Debug\FormTacGia.pdb
