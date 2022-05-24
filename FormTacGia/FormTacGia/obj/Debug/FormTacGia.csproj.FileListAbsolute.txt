@@ -8,3 +8,13 @@ C:\Users\Admin\source\repos\FormTacGia\FormTacGia\obj\Debug\FormTacGia.csproj.Ge
 C:\Users\Admin\source\repos\FormTacGia\FormTacGia\obj\Debug\FormTacGia.csproj.CoreCompileInputs.cache
 C:\Users\Admin\source\repos\FormTacGia\FormTacGia\obj\Debug\FormTacGia.exe
 C:\Users\Admin\source\repos\FormTacGia\FormTacGia\obj\Debug\FormTacGia.pdb
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\FormTacGia\FormTacGia\bin\Debug\FormTacGia.exe.config
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\FormTacGia\FormTacGia\bin\Debug\FormTacGia.exe
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\FormTacGia\FormTacGia\bin\Debug\FormTacGia.pdb
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\FormTacGia\FormTacGia\obj\Debug\FormTacGia.csproj.AssemblyReference.cache
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\FormTacGia\FormTacGia\obj\Debug\FormTacGia.Form1.resources
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\FormTacGia\FormTacGia\obj\Debug\FormTacGia.Properties.Resources.resources
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\FormTacGia\FormTacGia\obj\Debug\FormTacGia.csproj.GenerateResource.cache
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\FormTacGia\FormTacGia\obj\Debug\FormTacGia.csproj.CoreCompileInputs.cache
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\FormTacGia\FormTacGia\obj\Debug\FormTacGia.exe
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\FormTacGia\FormTacGia\obj\Debug\FormTacGia.pdb
