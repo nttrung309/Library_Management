@@ -221,7 +221,7 @@ namespace FormTacGia
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Xóa thất bại.\nTrong thư viện, hiện đang có sách của tác giả này này.", "Thông Báo");
+                    MessageBox.Show("Xóa thất bại.\nTrong thư viện, hiện đang có sách của tác giả này.", "Thông Báo");
                 }
             }
             loadDgv();
