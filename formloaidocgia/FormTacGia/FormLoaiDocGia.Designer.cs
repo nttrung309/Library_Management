@@ -41,14 +41,14 @@ namespace FormLoaiDocGia
             this.lbMaLoaiDocGia = new System.Windows.Forms.Label();
             this.lbTenLoaiDocGia = new System.Windows.Forms.Label();
             this.gbThongTinLoaiDocGia = new System.Windows.Forms.GroupBox();
+            this.errTenLDG = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnXoa = new ThayDoiQuyDinh.nButton();
             this.btnCapNhat = new ThayDoiQuyDinh.nButton();
             this.btnLuu = new ThayDoiQuyDinh.nButton();
             this.btnThemMoi = new ThayDoiQuyDinh.nButton();
-            this.errTenTG = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiDocGia)).BeginInit();
             this.gbThongTinLoaiDocGia.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errTenTG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errTenLDG)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvLoaiDocGia
@@ -97,6 +97,7 @@ namespace FormLoaiDocGia
             this.dgvLoaiDocGia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLoaiDocGia.Size = new System.Drawing.Size(719, 589);
             this.dgvLoaiDocGia.TabIndex = 6;
+            this.dgvLoaiDocGia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoaiDocGia_CellClick);
             // 
             // lbtieude1
             // 
@@ -180,6 +181,10 @@ namespace FormLoaiDocGia
             this.gbThongTinLoaiDocGia.TabStop = false;
             this.gbThongTinLoaiDocGia.Text = "Thông Tin Loại Độc Giả";
             // 
+            // errTenLDG
+            // 
+            this.errTenLDG.ContainerControl = this;
+            // 
             // btnXoa
             // 
             this.btnXoa.BackColor = System.Drawing.Color.LightCoral;
@@ -260,10 +265,6 @@ namespace FormLoaiDocGia
             this.btnThemMoi.UseVisualStyleBackColor = false;
             this.btnThemMoi.Click += new System.EventHandler(this.btnThemMoi_Click);
             // 
-            // errTenTG
-            // 
-            this.errTenTG.ContainerControl = this;
-            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -282,7 +283,7 @@ namespace FormLoaiDocGia
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiDocGia)).EndInit();
             this.gbThongTinLoaiDocGia.ResumeLayout(false);
             this.gbThongTinLoaiDocGia.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errTenTG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errTenLDG)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,7 +302,7 @@ namespace FormLoaiDocGia
         private ThayDoiQuyDinh.nButton btnLuu;
         private System.Windows.Forms.TextBox txbTenLoaiDocGia;
         private System.Windows.Forms.GroupBox gbThongTinLoaiDocGia;
-        private System.Windows.Forms.ErrorProvider errTenTG;
+        private System.Windows.Forms.ErrorProvider errTenLDG;
     }
 }
 
