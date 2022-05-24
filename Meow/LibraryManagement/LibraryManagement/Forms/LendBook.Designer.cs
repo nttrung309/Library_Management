@@ -71,6 +71,10 @@
             this.lbWName = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.tlTip = new System.Windows.Forms.ToolTip(this.components);
+            this.tgBtnAllowMax = new CustomControls.RJControls.ToggleButton();
+            this.tgBtnAskBeforePrint = new CustomControls.RJControls.ToggleButton();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.border)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBookChosen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvStock)).BeginInit();
@@ -93,7 +97,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Navy;
-            this.label2.Location = new System.Drawing.Point(85, 138);
+            this.label2.Location = new System.Drawing.Point(85, 135);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 20);
             this.label2.TabIndex = 4;
@@ -105,7 +109,7 @@
             this.border.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.border.Location = new System.Drawing.Point(28, 87);
             this.border.Name = "border";
-            this.border.Size = new System.Drawing.Size(1206, 185);
+            this.border.Size = new System.Drawing.Size(1206, 176);
             this.border.TabIndex = 0;
             this.border.TabStop = false;
             // 
@@ -147,7 +151,7 @@
             this.cbbReaderCode.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbbReaderCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cbbReaderCode.FormattingEnabled = true;
-            this.cbbReaderCode.Location = new System.Drawing.Point(212, 135);
+            this.cbbReaderCode.Location = new System.Drawing.Point(212, 132);
             this.cbbReaderCode.Name = "cbbReaderCode";
             this.cbbReaderCode.Size = new System.Drawing.Size(168, 28);
             this.cbbReaderCode.TabIndex = 0;
@@ -159,7 +163,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Navy;
-            this.label6.Location = new System.Drawing.Point(85, 193);
+            this.label6.Location = new System.Drawing.Point(85, 190);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(95, 20);
             this.label6.TabIndex = 13;
@@ -181,7 +185,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Navy;
-            this.label8.Location = new System.Drawing.Point(568, 138);
+            this.label8.Location = new System.Drawing.Point(568, 135);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(93, 20);
             this.label8.TabIndex = 16;
@@ -192,7 +196,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Navy;
-            this.label9.Location = new System.Drawing.Point(568, 193);
+            this.label9.Location = new System.Drawing.Point(568, 190);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(72, 20);
             this.label9.TabIndex = 17;
@@ -204,7 +208,7 @@
             this.borrowDate.CustomFormat = "dd/MM/yyyy";
             this.borrowDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.borrowDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.borrowDate.Location = new System.Drawing.Point(700, 133);
+            this.borrowDate.Location = new System.Drawing.Point(700, 130);
             this.borrowDate.Name = "borrowDate";
             this.borrowDate.Size = new System.Drawing.Size(152, 26);
             this.borrowDate.TabIndex = 2;
@@ -216,7 +220,7 @@
             this.returnDate.CustomFormat = "dd/MM/yyyy";
             this.returnDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.returnDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.returnDate.Location = new System.Drawing.Point(700, 188);
+            this.returnDate.Location = new System.Drawing.Point(700, 185);
             this.returnDate.Name = "returnDate";
             this.returnDate.Size = new System.Drawing.Size(152, 26);
             this.returnDate.TabIndex = 19;
@@ -316,7 +320,7 @@
             this.lbAmount.AutoSize = true;
             this.lbAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAmount.ForeColor = System.Drawing.Color.Navy;
-            this.lbAmount.Location = new System.Drawing.Point(991, 164);
+            this.lbAmount.Location = new System.Drawing.Point(991, 161);
             this.lbAmount.Name = "lbAmount";
             this.lbAmount.Size = new System.Drawing.Size(145, 29);
             this.lbAmount.TabIndex = 21;
@@ -508,7 +512,7 @@
             // txbReaderName
             // 
             this.txbReaderName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txbReaderName.Location = new System.Drawing.Point(212, 190);
+            this.txbReaderName.Location = new System.Drawing.Point(212, 187);
             this.txbReaderName.Name = "txbReaderName";
             this.txbReaderName.Size = new System.Drawing.Size(233, 26);
             this.txbReaderName.TabIndex = 28;
@@ -520,7 +524,7 @@
             this.lbWCode.AutoSize = true;
             this.lbWCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbWCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbWCode.Location = new System.Drawing.Point(211, 164);
+            this.lbWCode.Location = new System.Drawing.Point(211, 161);
             this.lbWCode.Name = "lbWCode";
             this.lbWCode.Size = new System.Drawing.Size(141, 16);
             this.lbWCode.TabIndex = 29;
@@ -532,7 +536,7 @@
             this.lbWName.AutoSize = true;
             this.lbWName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbWName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbWName.Location = new System.Drawing.Point(211, 219);
+            this.lbWName.Location = new System.Drawing.Point(211, 216);
             this.lbWName.Name = "lbWName";
             this.lbWName.Size = new System.Drawing.Size(141, 16);
             this.lbWName.TabIndex = 30;
@@ -557,6 +561,61 @@
             this.tlTip.InitialDelay = 100;
             this.tlTip.ReshowDelay = 100;
             // 
+            // tgBtnAllowMax
+            // 
+            this.tgBtnAllowMax.AutoSize = true;
+            this.tgBtnAllowMax.Checked = true;
+            this.tgBtnAllowMax.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tgBtnAllowMax.Location = new System.Drawing.Point(1162, 277);
+            this.tgBtnAllowMax.MinimumSize = new System.Drawing.Size(45, 22);
+            this.tgBtnAllowMax.Name = "tgBtnAllowMax";
+            this.tgBtnAllowMax.OffBackColor = System.Drawing.Color.Gray;
+            this.tgBtnAllowMax.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.tgBtnAllowMax.OnBackColor = System.Drawing.Color.MediumSlateBlue;
+            this.tgBtnAllowMax.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.tgBtnAllowMax.Size = new System.Drawing.Size(45, 22);
+            this.tgBtnAllowMax.TabIndex = 32;
+            this.tgBtnAllowMax.UseVisualStyleBackColor = true;
+            // 
+            // tgBtnAskBeforePrint
+            // 
+            this.tgBtnAskBeforePrint.AutoSize = true;
+            this.tgBtnAskBeforePrint.Checked = true;
+            this.tgBtnAskBeforePrint.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tgBtnAskBeforePrint.Location = new System.Drawing.Point(1162, 310);
+            this.tgBtnAskBeforePrint.MinimumSize = new System.Drawing.Size(45, 22);
+            this.tgBtnAskBeforePrint.Name = "tgBtnAskBeforePrint";
+            this.tgBtnAskBeforePrint.OffBackColor = System.Drawing.Color.Gray;
+            this.tgBtnAskBeforePrint.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.tgBtnAskBeforePrint.OnBackColor = System.Drawing.Color.MediumSlateBlue;
+            this.tgBtnAskBeforePrint.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.tgBtnAskBeforePrint.Size = new System.Drawing.Size(45, 22);
+            this.tgBtnAskBeforePrint.TabIndex = 33;
+            this.tgBtnAskBeforePrint.UseVisualStyleBackColor = true;
+            this.tgBtnAskBeforePrint.CheckedChanged += new System.EventHandler(this.tgBtnAskBeforePrint_CheckedChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Navy;
+            this.label5.Location = new System.Drawing.Point(893, 278);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(263, 20);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "Áp dụng số sách tối đa có thể mượn";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Navy;
+            this.label11.Location = new System.Drawing.Point(1046, 312);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(110, 20);
+            this.label11.TabIndex = 35;
+            this.label11.Text = "In phiếu mượn";
+            // 
             // LendBook
             // 
             this.AcceptButton = this.btnLend;
@@ -564,6 +623,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1260, 724);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.tgBtnAskBeforePrint);
+            this.Controls.Add(this.tgBtnAllowMax);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.lbWName);
             this.Controls.Add(this.lbWCode);
@@ -640,6 +703,10 @@
         private System.Windows.Forms.Label lbWName;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.ToolTip tlTip;
+        private CustomControls.RJControls.ToggleButton tgBtnAllowMax;
+        private CustomControls.RJControls.ToggleButton tgBtnAskBeforePrint;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label11;
     }
 }
 

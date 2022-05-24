@@ -27,6 +27,7 @@ namespace DemoDesign
         string readerName = "";
         bool lockReaderName = true;
         public static string lendState = "";
+        public static bool askBeforePrint = true;
 
         Thread tdGetBookSlip;
 
@@ -124,8 +125,6 @@ namespace DemoDesign
                 }
             }
             conn.Close();
-
-
             //dtgvStock.Refresh();
         }
 
@@ -690,6 +689,11 @@ namespace DemoDesign
         private void btnCancel_Click(object sender, EventArgs e)
         {
             LibraryManagement.fHome.SwitchForm(new LendBook());
+        }
+
+        private void tgBtnAskBeforePrint_CheckedChanged(object sender, EventArgs e)
+        {
+            askBeforePrint = false;
         }
     }
 }

@@ -36,11 +36,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lbSlipCode = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lbReaderCode = new System.Windows.Forms.Label();
+            this.lbReaderName = new System.Windows.Forms.Label();
+            this.lbBorrowDate = new System.Windows.Forms.Label();
+            this.lbReturnDate = new System.Windows.Forms.Label();
+            this.lbAmount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -123,66 +123,66 @@
             this.lbSlipCode.TabIndex = 7;
             this.lbSlipCode.Text = "MPMS012";
             // 
-            // label8
+            // lbReaderCode
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(138, 120);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 20);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "DG002";
+            this.lbReaderCode.AutoSize = true;
+            this.lbReaderCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbReaderCode.Location = new System.Drawing.Point(138, 120);
+            this.lbReaderCode.Name = "lbReaderCode";
+            this.lbReaderCode.Size = new System.Drawing.Size(61, 20);
+            this.lbReaderCode.TabIndex = 8;
+            this.lbReaderCode.Text = "DG002";
             // 
-            // label9
+            // lbReaderName
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(138, 151);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(158, 20);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "Nguyễn Thành Meow";
+            this.lbReaderName.AutoSize = true;
+            this.lbReaderName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbReaderName.Location = new System.Drawing.Point(138, 151);
+            this.lbReaderName.Name = "lbReaderName";
+            this.lbReaderName.Size = new System.Drawing.Size(158, 20);
+            this.lbReaderName.TabIndex = 9;
+            this.lbReaderName.Text = "Nguyễn Thành Meow";
             // 
-            // label10
+            // lbBorrowDate
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(424, 120);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(89, 20);
-            this.label10.TabIndex = 10;
-            this.label10.Text = "20/12/2022";
+            this.lbBorrowDate.AutoSize = true;
+            this.lbBorrowDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbBorrowDate.Location = new System.Drawing.Point(424, 120);
+            this.lbBorrowDate.Name = "lbBorrowDate";
+            this.lbBorrowDate.Size = new System.Drawing.Size(89, 20);
+            this.lbBorrowDate.TabIndex = 10;
+            this.lbBorrowDate.Text = "20/12/2022";
             // 
-            // label11
+            // lbReturnDate
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(424, 151);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(89, 20);
-            this.label11.TabIndex = 11;
-            this.label11.Text = "20/12/2022";
+            this.lbReturnDate.AutoSize = true;
+            this.lbReturnDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbReturnDate.Location = new System.Drawing.Point(424, 151);
+            this.lbReturnDate.Name = "lbReturnDate";
+            this.lbReturnDate.Size = new System.Drawing.Size(89, 20);
+            this.lbReturnDate.TabIndex = 11;
+            this.lbReturnDate.Text = "20/12/2022";
             // 
-            // label12
+            // lbAmount
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(499, 204);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(24, 25);
-            this.label12.TabIndex = 12;
-            this.label12.Text = "5";
+            this.lbAmount.AutoSize = true;
+            this.lbAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAmount.Location = new System.Drawing.Point(499, 204);
+            this.lbAmount.Name = "lbAmount";
+            this.lbAmount.Size = new System.Drawing.Size(24, 25);
+            this.lbAmount.TabIndex = 12;
+            this.lbAmount.Text = "5";
             // 
             // LendSlip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(565, 252);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lbAmount);
+            this.Controls.Add(this.lbReturnDate);
+            this.Controls.Add(this.lbBorrowDate);
+            this.Controls.Add(this.lbReaderName);
+            this.Controls.Add(this.lbReaderCode);
             this.Controls.Add(this.lbSlipCode);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -210,10 +210,10 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lbSlipCode;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lbReaderCode;
+        private System.Windows.Forms.Label lbReaderName;
+        private System.Windows.Forms.Label lbBorrowDate;
+        private System.Windows.Forms.Label lbReturnDate;
+        private System.Windows.Forms.Label lbAmount;
     }
 }

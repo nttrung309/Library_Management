@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using LibraryManagement.Models;
 using LibraryManagement.Reports;
 using LibraryManagement.Forms;
+using DemoDesign;
 using System.Drawing.Printing;
 
 namespace LibraryManagement.Forms
@@ -101,7 +102,10 @@ namespace LibraryManagement.Forms
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            PrintSlip();
+            if (LendBook.askBeforePrint)
+            {
+                PrintSlip();
+            }
             UpdataData();
         }
 
@@ -109,7 +113,7 @@ namespace LibraryManagement.Forms
 
         private void PrintSlip()
         {
-            printDocument1.DefaultPageSettings.PaperSize = new PaperSize("MyPaper", this.Size.Width, 581 - 74);
+            printDocument1.DefaultPageSettings.PaperSize = new PaperSize("MyPaper", this.Size.Width + 30, 581 - 74);
             Graphics g = this.CreateGraphics();
             bmp = new Bitmap(this.Size.Width, 581 - 74, g);
             Graphics mg = Graphics.FromImage(bmp);

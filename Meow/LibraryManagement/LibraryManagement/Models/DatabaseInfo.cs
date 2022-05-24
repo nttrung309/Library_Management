@@ -28,5 +28,9 @@ namespace LibraryManagement.Models
                 FROM PHIEUMUON, CTPHIEUMUON
                 WHERE MaDocGia = '{bookCode}' AND PHIEUMUON.MaPhieuMuonSach = CTPHIEUMUON.MaPhieuMuonSach";
         }
+        public static string borrowSlipQuery = @"SELECT DISTINCT PHIEUMUON.MaPhieuMuonSach, PHIEUMUON.MaDocGia, HoTen, HanTra, TongNo
+                FROM PHIEUMUON, CTPHIEUMUON, DOCGIA
+                WHERE PHIEUMUON.MaPhieuMuonSach = CTPHIEUMUON.MaPhieuMuonSach AND PHIEUMUON.MaDocGia = DOCGIA.MaDocGia
+                        AND TinhTrangPM = 0";
     }
 }

@@ -301,7 +301,7 @@
             this.txbReaderName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txbReaderName.Location = new System.Drawing.Point(204, 222);
             this.txbReaderName.Name = "txbReaderName";
-            this.txbReaderName.Size = new System.Drawing.Size(199, 26);
+            this.txbReaderName.Size = new System.Drawing.Size(225, 26);
             this.txbReaderName.TabIndex = 52;
             // 
             // label5
