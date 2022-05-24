@@ -61,9 +61,9 @@ namespace PhieuThuTien
         private void nButton2_Click(object sender, EventArgs e)
         {
             comboBox3.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
-            textBox5.Text = "";
+            txbTienThu.Text = "";
+            txbConLai.Text = "";
+            txbTongNo.Text = "";
             textBox4.Text = "";
             loadmagia();
             loadcbDocGia();
@@ -75,13 +75,13 @@ namespace PhieuThuTien
             a = dateTimePicker1.Value;
             string[] formattedStrings = a.GetDateTimeFormats();
 
-            if (comboBox3.Text==""||textBox2.Text==""||dateTimePicker1.Text=="")
+            if (comboBox3.Text==""||txbTienThu.Text==""||dateTimePicker1.Text=="")
             {
                 MessageBox.Show("Bạn không thể để trống ô nào cả");
             }
             else
             {
-                float k = float.Parse(textBox5.Text) - float.Parse(textBox2.Text);
+                float k = float.Parse(txbTongNo.Text) - float.Parse(txbTienThu.Text);
                 if (k < 0)
                 {
                     MessageBox.Show("Mời bạn nhập lại, số tiền thu không được lớn hơn số tiền nợ của độc giả");
@@ -89,17 +89,19 @@ namespace PhieuThuTien
               
                 else
                 {
-                    float c = float.Parse(textBox5.Text) - float.Parse(textBox2.Text);
+                    float c = float.Parse(txbTongNo.Text) - float.Parse(txbTienThu.Text);
                     command = connection.CreateCommand();
-                    command.CommandText = "insert into PhieuThuTien (MaDocGia,NgThu,SoTienThu,ConLai) values ('" + comboBox3.Text + "','" + formattedStrings[6] + "','" + float.Parse(textBox2.Text) + "','" + c + "')";
+                    command.CommandText = "insert into PhieuThuTien (MaDocGia,NgThu,SoTienThu,ConLai) values ('" + comboBox3.Text + "','" + formattedStrings[6] + "','" + float.Parse(txbTienThu.Text) + "','" + c + "')";
                     command.ExecuteNonQuery();
                     MessageBox.Show("Thanh toán thành công");
                     loadPhieuThu();
                     command = connection.CreateCommand();
-                    command.CommandText = "update docgia set TongNo='" + float.Parse(textBox3.Text) + "' where madocgia='" + comboBox3.Text + "'";
+                    command.CommandText = "update docgia set TongNo='" + float.Parse(txbConLai.Text) + "' where madocgia='" + comboBox3.Text + "'";
                     command.ExecuteNonQuery();
 
                 }            }
+            txbTongNo.Text = txbConLai.Text;
+            txbConLai.Text = (float.Parse(txbTongNo.Text) - float.Parse(txbTienThu.Text)).ToString();
 
         }
         void loadPhieuThu()
@@ -129,17 +131,17 @@ namespace PhieuThuTien
             DateTime a = new DateTime();
             a = dateTimePicker1.Value;
             string[] formattedStrings = a.GetDateTimeFormats();
-            float c = float.Parse(textBox5.Text) - float.Parse(textBox2.Text);
+            float c = float.Parse(txbTongNo.Text) - float.Parse(txbTienThu.Text);
             command = connection.CreateCommand();
             command.CommandText = "update docgia set TongNo+='" + own + "' where madocgia='" + cu + "'";
             command.ExecuteNonQuery();
 
             command = connection.CreateCommand();
-            command.CommandText = "update phieuthutien set MaDocGia='"+comboBox3.Text+"',SoTienThu='"+textBox2.Text+"',ConLai='"+c+"',ngthu='"+ formattedStrings[6] + "' where maphieuthu='"+textBox1.Text+"'";
+            command.CommandText = "update phieuthutien set MaDocGia='"+comboBox3.Text+"',SoTienThu='"+txbTienThu.Text+"',ConLai='"+c+"',ngthu='"+ formattedStrings[6] + "' where maphieuthu='"+textBox1.Text+"'";
             command.ExecuteNonQuery();
 
             command = connection.CreateCommand();
-            command.CommandText = "update docgia set TongNo='" + float.Parse(textBox3.Text) + "' where madocgia='" + comboBox3.Text + "'";
+            command.CommandText = "update docgia set TongNo='" + float.Parse(txbConLai.Text) + "' where madocgia='" + comboBox3.Text + "'";
             command.ExecuteNonQuery();
             loadPhieuThu();
 
@@ -147,26 +149,26 @@ namespace PhieuThuTien
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            if (textBox2.Text != "" && textBox5.Text != "")
+            if (txbTienThu.Text != "" && txbTongNo.Text != "")
             {
-                float k = float.Parse(textBox5.Text) - float.Parse(textBox2.Text);
+                float k = float.Parse(txbTongNo.Text) - float.Parse(txbTienThu.Text);
                 if (k<0)
                 {
                     MessageBox.Show("Mời bạn nhập lại, số tiền thu không được lớn hơn số tiền nợ của độc giả");
                 }    
                 else
-                textBox3.Text = k.ToString();
+                txbConLai.Text = k.ToString();
             }
         }
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
-            if (textBox5.Text!=""&&textBox2.Text!="")
-            textBox3.Text = (float.Parse(textBox5.Text) - float.Parse(textBox2.Text)).ToString();
+            if (txbTongNo.Text!=""&&txbTienThu.Text!="")
+            txbConLai.Text = (float.Parse(txbTongNo.Text) - float.Parse(txbTienThu.Text)).ToString();
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            textBox5.Text = "";
+            txbTongNo.Text = "";
             textBox4.Text = "";
             DataTable table3 = new DataTable();
             command = connection.CreateCommand();
@@ -177,7 +179,7 @@ namespace PhieuThuTien
 
             if (table3.Rows.Count != 0)
             {
-                textBox5.Text = table3.Rows[0].ItemArray[0].ToString();
+                txbTongNo.Text = table3.Rows[0].ItemArray[0].ToString();
                 textBox4.Text = comboBox3.SelectedValue.ToString();
             }
         }
@@ -196,11 +198,11 @@ namespace PhieuThuTien
 
                 row = dataGridView1.Rows[e.RowIndex];
                     textBox1.Text = Convert.ToString(row.Cells["Mã Phiếu Thu"].Value);
-                    textBox2.Text = Convert.ToString(row.Cells["Số Tiền Thu"].Value);
-                    textBox3.Text= Convert.ToString(row.Cells["Số Tiền Còn nợ"].Value);
+                    txbTienThu.Text = Convert.ToString(row.Cells["Số Tiền Thu"].Value);
+                    txbConLai.Text= Convert.ToString(row.Cells["Số Tiền Còn nợ"].Value);
                 comboBox3.Text= Convert.ToString(row.Cells["Mã Độc Giả"].Value);
                 dateTimePicker1.Value= Convert.ToDateTime(row.Cells["Ngày Thu"].Value);
-                textBox5.Text = (float.Parse(textBox3.Text) + float.Parse(textBox2.Text)).ToString();
+                txbTongNo.Text = (float.Parse(txbConLai.Text) + float.Parse(txbTienThu.Text)).ToString();
                 
                 DataTable table5 = new DataTable();
                 command = connection.CreateCommand();
@@ -210,7 +212,7 @@ namespace PhieuThuTien
                 adapter.Fill(table5);
                 textBox4.Text = table5.Rows[0].ItemArray[0].ToString();
                 cu = comboBox3.Text;
-                own = float.Parse(textBox2.Text);
+                own = float.Parse(txbTienThu.Text);
             }
         }
 
