@@ -95,6 +95,7 @@
     <Compile Include="Models\Parameters.cs" />
     <Compile Include="Models\Reader.cs" />
     <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\ReturnBook.cs" />
     <Compile Include="Models\ReturnSlip.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

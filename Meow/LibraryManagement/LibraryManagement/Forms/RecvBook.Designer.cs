@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,16 +51,23 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.nButton1 = new LibraryManagement.nButton();
-            this.nButton2 = new LibraryManagement.nButton();
             this.txbReaderCode = new System.Windows.Forms.TextBox();
             this.txbReaderName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cbbSlipCode = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.lbLateDays = new System.Windows.Forms.Label();
+            this.nButton2 = new LibraryManagement.nButton();
+            this.nButton1 = new LibraryManagement.nButton();
+            this.dtgvStock = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.border)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvStock)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -80,7 +90,7 @@
             this.borrowDays,
             this.fine});
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(34, 370);
+            this.dataGridView1.Location = new System.Drawing.Point(35, 370);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 40;
@@ -171,7 +181,7 @@
             // border
             // 
             this.border.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.border.Location = new System.Drawing.Point(12, 82);
+            this.border.Location = new System.Drawing.Point(12, 90);
             this.border.Name = "border";
             this.border.Size = new System.Drawing.Size(1236, 218);
             this.border.TabIndex = 21;
@@ -250,44 +260,6 @@
             this.label1.TabIndex = 48;
             this.label1.Text = "Nhập thông tin";
             // 
-            // nButton1
-            // 
-            this.nButton1.BackColor = System.Drawing.Color.YellowGreen;
-            this.nButton1.BackgroundColor = System.Drawing.Color.YellowGreen;
-            this.nButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.nButton1.BorderRadius = 20;
-            this.nButton1.BorderSize = 0;
-            this.nButton1.FlatAppearance.BorderSize = 0;
-            this.nButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.nButton1.ForeColor = System.Drawing.Color.White;
-            this.nButton1.Location = new System.Drawing.Point(957, 23);
-            this.nButton1.Name = "nButton1";
-            this.nButton1.Size = new System.Drawing.Size(123, 40);
-            this.nButton1.TabIndex = 49;
-            this.nButton1.Text = "Trả sách";
-            this.nButton1.TextColor = System.Drawing.Color.White;
-            this.nButton1.UseVisualStyleBackColor = false;
-            // 
-            // nButton2
-            // 
-            this.nButton2.BackColor = System.Drawing.Color.LightCoral;
-            this.nButton2.BackgroundColor = System.Drawing.Color.LightCoral;
-            this.nButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.nButton2.BorderRadius = 20;
-            this.nButton2.BorderSize = 0;
-            this.nButton2.FlatAppearance.BorderSize = 0;
-            this.nButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.nButton2.ForeColor = System.Drawing.Color.White;
-            this.nButton2.Location = new System.Drawing.Point(1094, 23);
-            this.nButton2.Name = "nButton2";
-            this.nButton2.Size = new System.Drawing.Size(123, 40);
-            this.nButton2.TabIndex = 50;
-            this.nButton2.Text = "Hủy";
-            this.nButton2.TextColor = System.Drawing.Color.White;
-            this.nButton2.UseVisualStyleBackColor = false;
-            // 
             // txbReaderCode
             // 
             this.txbReaderCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -347,12 +319,140 @@
             this.lbLateDays.TabIndex = 56;
             this.lbLateDays.Text = "0";
             // 
+            // nButton2
+            // 
+            this.nButton2.BackColor = System.Drawing.Color.LightCoral;
+            this.nButton2.BackgroundColor = System.Drawing.Color.LightCoral;
+            this.nButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.nButton2.BorderRadius = 20;
+            this.nButton2.BorderSize = 0;
+            this.nButton2.FlatAppearance.BorderSize = 0;
+            this.nButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.nButton2.ForeColor = System.Drawing.Color.White;
+            this.nButton2.Location = new System.Drawing.Point(1094, 23);
+            this.nButton2.Name = "nButton2";
+            this.nButton2.Size = new System.Drawing.Size(123, 40);
+            this.nButton2.TabIndex = 50;
+            this.nButton2.Text = "Hủy";
+            this.nButton2.TextColor = System.Drawing.Color.White;
+            this.nButton2.UseVisualStyleBackColor = false;
+            // 
+            // nButton1
+            // 
+            this.nButton1.BackColor = System.Drawing.Color.YellowGreen;
+            this.nButton1.BackgroundColor = System.Drawing.Color.YellowGreen;
+            this.nButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.nButton1.BorderRadius = 20;
+            this.nButton1.BorderSize = 0;
+            this.nButton1.FlatAppearance.BorderSize = 0;
+            this.nButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.nButton1.ForeColor = System.Drawing.Color.White;
+            this.nButton1.Location = new System.Drawing.Point(957, 23);
+            this.nButton1.Name = "nButton1";
+            this.nButton1.Size = new System.Drawing.Size(123, 40);
+            this.nButton1.TabIndex = 49;
+            this.nButton1.Text = "Trả sách";
+            this.nButton1.TextColor = System.Drawing.Color.White;
+            this.nButton1.UseVisualStyleBackColor = false;
+            // 
+            // dtgvStock
+            // 
+            this.dtgvStock.AllowUserToAddRows = false;
+            this.dtgvStock.AllowUserToResizeRows = false;
+            this.dtgvStock.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvStock.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dtgvStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvStock.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10});
+            this.dtgvStock.EnableHeadersVisualStyles = false;
+            this.dtgvStock.Location = new System.Drawing.Point(35, 33);
+            this.dtgvStock.MultiSelect = false;
+            this.dtgvStock.Name = "dtgvStock";
+            this.dtgvStock.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightSalmon;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvStock.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dtgvStock.RowHeadersVisible = false;
+            this.dtgvStock.RowHeadersWidth = 40;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.dtgvStock.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dtgvStock.RowTemplate.Height = 26;
+            this.dtgvStock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgvStock.Size = new System.Drawing.Size(1187, 308);
+            this.dtgvStock.TabIndex = 57;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "stt";
+            this.dataGridViewTextBoxColumn6.HeaderText = "STT";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 40;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "code";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Mã sách";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 99;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "name";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Tên sách";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 180;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "category";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Thể loại";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "author";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Tác giả";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Width = 112;
+            // 
             // RecvBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1260, 724);
+            this.Controls.Add(this.dtgvStock);
             this.Controls.Add(this.lbLateDays);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cbbSlipCode);
@@ -382,6 +482,7 @@
             this.Load += new System.EventHandler(this.RecvBook_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.border)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvStock)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -415,5 +516,11 @@
         private System.Windows.Forms.ComboBox cbbSlipCode;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lbLateDays;
+        private System.Windows.Forms.DataGridView dtgvStock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
     }
 }

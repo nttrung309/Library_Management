@@ -15,7 +15,7 @@ namespace DemoDesign
 {
     public partial class RecvBook : Form
     {
-
+        public List<ReturnSlip> returnSlip;
 
         public RecvBook()
         {
@@ -29,6 +29,8 @@ namespace DemoDesign
 
         private void LoadBorrowSlip()
         {
+            returnSlip = new List<ReturnSlip>();
+
             SqlConnection conn = new SqlConnection(DatabaseInfo.connectionString);
             conn.Open();
             SqlCommand cmd = new SqlCommand(DatabaseInfo.borrowSlipQuery, conn);
@@ -36,10 +38,23 @@ namespace DemoDesign
             {
                 while (reader.Read())
                 {
-                    
+                    DateTime dt = reader.GetDateTime(3);
+                    string returnDate = dt.ToString("dd/MM/yyyy");
+                    ReturnSlip slip = new ReturnSlip(reader.GetString(0), reader.GetString(1), reader.GetString(2), returnDate, reader.GetSqlMoney(4).Value.ToString());
+                    slip.lateReturnDays = DateTime.Now.Subtract(dt).Days;
+                    slip.fineThisPeriod = CalFineThisPeriod(slip.lateReturnDays);
                 }
             }
+            cmd.CommandText = DatabaseInfo.borrowedBooksQuery;
+
             conn.Close();
+        }
+
+        private long CalFineThisPeriod(int lateReturnDays)
+        {
+            Parameters.LoadParam();
+            long fine = Parameters.finePerDay * lateReturnDays;
+            return fine;
         }
     }
 }

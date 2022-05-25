@@ -172,6 +172,11 @@ namespace LibraryManagement
                             SwitchForm(new LendBook());
                             break;
                         }
+                    case "btnRecvBook":
+                        {
+                            SwitchForm(new RecvBook());
+                            break;
+                        }
                     default:
                         {
                             break;

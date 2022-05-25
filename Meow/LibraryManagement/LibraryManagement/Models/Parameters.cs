@@ -11,7 +11,7 @@ namespace LibraryManagement.Models
     {
         public static int maxLendDay;
         public static int maxBorrowBook;
-        public static int finePerDay;
+        public static long finePerDay;
         public Parameters()
         {
             
@@ -26,7 +26,7 @@ namespace LibraryManagement.Models
             {
                 maxLendDay = (int)reader.GetInt32(4);
                 maxBorrowBook = (int)reader.GetInt32(5);
-                finePerDay = (int)reader.GetSqlMoney(6);
+                finePerDay = (long)reader.GetSqlMoney(6);
             }
         }
     }
