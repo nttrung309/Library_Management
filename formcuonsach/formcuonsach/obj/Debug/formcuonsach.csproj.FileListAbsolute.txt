@@ -1,0 +1,10 @@
+C:\Users\NGOC\source\repos\formcuonsach\formcuonsach\bin\Debug\formcuonsach.exe.config
+C:\Users\NGOC\source\repos\formcuonsach\formcuonsach\bin\Debug\formcuonsach.exe
+C:\Users\NGOC\source\repos\formcuonsach\formcuonsach\bin\Debug\formcuonsach.pdb
+C:\Users\NGOC\source\repos\formcuonsach\formcuonsach\obj\Debug\formcuonsach.csproj.AssemblyReference.cache
+C:\Users\NGOC\source\repos\formcuonsach\formcuonsach\obj\Debug\formcuonsach.Form1.resources
+C:\Users\NGOC\source\repos\formcuonsach\formcuonsach\obj\Debug\formcuonsach.Properties.Resources.resources
+C:\Users\NGOC\source\repos\formcuonsach\formcuonsach\obj\Debug\formcuonsach.csproj.GenerateResource.cache
+C:\Users\NGOC\source\repos\formcuonsach\formcuonsach\obj\Debug\formcuonsach.csproj.CoreCompileInputs.cache
+C:\Users\NGOC\source\repos\formcuonsach\formcuonsach\obj\Debug\formcuonsach.exe
+C:\Users\NGOC\source\repos\formcuonsach\formcuonsach\obj\Debug\formcuonsach.pdb
