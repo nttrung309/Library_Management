@@ -10,21 +10,21 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 namespace TraCuuSach
 {
-    public partial class Form1 : Form
+    public partial class FormTraCuu : Form
     {
         SqlConnection connection;
         SqlCommand command;
         DataTable table = new DataTable();
         string str = @"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=QLTV;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
-        public Form1()
+        public FormTraCuu()
         {
             InitializeComponent();
 
         }
         private void disableSortHeader()
         {
-            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            foreach (DataGridViewColumn column in dgvDanhSachCuonSach.Columns)
             {
                 column.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
@@ -33,7 +33,7 @@ namespace TraCuuSach
         private void comboBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             // if (this.chkAutoComplete.Checked)
-            this.AutoComplete(this.comboBox11, e, true);
+            this.AutoComplete(this.cbMaSach, e, true);
         }
 
 
@@ -100,36 +100,36 @@ namespace TraCuuSach
             adapter.SelectCommand = command;
             table1.Clear();
             adapter.Fill(table1);
-            comboBox11.DataSource = table1;
-            comboBox11.DisplayMember = "MS";
-            comboBox11.SelectedIndex = -1;
+            cbMaSach.DataSource = table1;
+            cbMaSach.DisplayMember = "MS";
+            cbMaSach.SelectedIndex = -1;
             //------------------------- load combox theloai
             command.CommandText = "select * from TheLoai";
             adapter.SelectCommand = command;
             table2.Clear();
             adapter.Fill(table2);
-            comboBox2.DataSource = table2;
-            comboBox2.DisplayMember = "TenTheLoai";
-            comboBox2.ValueMember = "MaTheLoai";
-            comboBox2.SelectedIndex = -1;
+            cbTheLoai.DataSource = table2;
+            cbTheLoai.DisplayMember = "TenTheLoai";
+            cbTheLoai.ValueMember = "MaTheLoai";
+            cbTheLoai.SelectedIndex = -1;
             //------------------load combox TenSach
             command.CommandText = "select MaDauSach,TenDauSach from DauSach";
             adapter.SelectCommand = command;
             table3.Clear();
             adapter.Fill(table3);
-            comboBox6.DataSource = table3;
-            comboBox6.DisplayMember = "TenDauSach";
-            comboBox6.ValueMember = "MaDauSach";
-            comboBox6.SelectedIndex = -1;
+            cbTenSach.DataSource = table3;
+            cbTenSach.DisplayMember = "TenDauSach";
+            cbTenSach.ValueMember = "MaDauSach";
+            cbTenSach.SelectedIndex = -1;
             //---------------- load combox TacGia
             command.CommandText = "select MaTacGia,TenTacGia from TacGia";
             adapter.SelectCommand = command;
             table4.Clear();
             adapter.Fill(table4);
-            comboBox5.DataSource = table4;
-            comboBox5.DisplayMember = "TenTacGia";
-            comboBox5.ValueMember = "MaTacGia";
-            comboBox5.SelectedIndex = -1;
+            cbTacGia.DataSource = table4;
+            cbTacGia.DisplayMember = "TenTacGia";
+            cbTacGia.ValueMember = "MaTacGia";
+            cbTacGia.SelectedIndex = -1;
             //--------------------- load combox TinhTrang
           
         }
@@ -144,8 +144,8 @@ namespace TraCuuSach
             adapter.SelectCommand = command;
             table11.Clear();
             adapter.Fill(table11);
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = table11;
+            dgvDanhSachCuonSach.DataSource = null;
+            dgvDanhSachCuonSach.DataSource = table11;
 
             command = connection.CreateCommand();
             command.CommandText = "select count (*) from TraCuu";
@@ -168,10 +168,10 @@ namespace TraCuuSach
         }
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            for (int i = 0; i < dataGridView1.RowCount; i++)
+            for (int i = 0; i < dgvDanhSachCuonSach.RowCount; i++)
             {
-                dataGridView1.AutoResizeRow(i);
-                dataGridView1.Columns[0].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dgvDanhSachCuonSach.AutoResizeRow(i);
+                dgvDanhSachCuonSach.Columns[0].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             }
         }
 
@@ -179,8 +179,8 @@ namespace TraCuuSach
         {
             connection = new SqlConnection(str);
             connection.Open();
-            this.but1.BorderRadius = 20;
-            this.but2.BorderRadius = 20; 
+            this.btnHuy.BorderRadius = 20;
+            this.btnApDung.BorderRadius = 20; 
             loadCombobox();
             disableSortHeader();
             command = connection.CreateCommand();
@@ -209,16 +209,16 @@ namespace TraCuuSach
         private void but2_Click(object sender, EventArgs e)
         {
             string s1 = "", s2 = "", s3 = "", s4 = "", s5 = "";
-            if (comboBox11.Text != "")
-                s1 = comboBox11.Text;//MaSach
-            if (comboBox2.Text != "")
-                s2 = comboBox2.Text;//MaTheLoai
-            if (comboBox6.Text != "")
-                s3 = comboBox6.Text; //MaDauSach
-            if (comboBox5.Text != "")//
-                s4 = comboBox5.Text;//MaTacGia
-            if (comboBox3.Text != "")
-                s5 = comboBox3.Text;//TenTinhTrang
+            if (cbMaSach.Text != "")
+                s1 = cbMaSach.Text;//MaSach
+            if (cbTheLoai.Text != "")
+                s2 = cbTheLoai.Text;//MaTheLoai
+            if (cbTenSach.Text != "")
+                s3 = cbTenSach.Text; //MaDauSach
+            if (cbTacGia.Text != "")//
+                s4 = cbTacGia.Text;//MaTacGia
+            if (cbTinhTrang.Text != "")
+                s5 = cbTinhTrang.Text;//TenTinhTrang
             command.CommandText = "insert into Tracuu2 select *from Tracuu";
             command.ExecuteNonQuery();
             if (s1 != "")
@@ -295,7 +295,7 @@ namespace TraCuuSach
             adapter.SelectCommand = command;
             table.Clear();
             adapter.Fill(table);
-            dataGridView1.DataSource = table;
+            dgvDanhSachCuonSach.DataSource = table;
 
       
             command.CommandText = "delete TraCuu2";
@@ -309,19 +309,19 @@ namespace TraCuuSach
         private void but1_Click(object sender, EventArgs e)
         {
             //   this.Close();
-            comboBox11.Text = "";
-            comboBox2.Text = "";
-            comboBox3.Text = "";
-            comboBox5.Text = "";
-            comboBox6.Text = "";
+            cbMaSach.Text = "";
+            cbTheLoai.Text = "";
+            cbTinhTrang.Text = "";
+            cbTacGia.Text = "";
+            cbTenSach.Text = "";
             MessageBox.Show("Bạn đã hủy áp dụng bộ lọc thành công");
             command.CommandText = "Select ROW_NUMBER() OVER (ORDER BY MaCuonSach) AS [Số thứ tự],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from TraCuu";
             adapter.SelectCommand = command;
             DataTable a = new DataTable();
             a.Clear();
             adapter.Fill(a);
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = a;
+            dgvDanhSachCuonSach.DataSource = null;
+            dgvDanhSachCuonSach.DataSource = a;
 
         }
 
@@ -333,52 +333,52 @@ namespace TraCuuSach
         private void comboBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
             // if (this.chkAutoComplete.Checked)
-            this.AutoComplete(this.comboBox2, e, true);
+            this.AutoComplete(this.cbTheLoai, e, true);
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton1.Checked == true)
-                comboBox11.Enabled = true;
+                cbMaSach.Enabled = true;
             else
-                comboBox11.Enabled = false;
-            comboBox11.Text = "";
+                cbMaSach.Enabled = false;
+            cbMaSach.Text = "";
         }
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton4.Checked == true)
-                comboBox2.Enabled = true;
+                cbTheLoai.Enabled = true;
             else
-                comboBox2.Enabled = false;
-            comboBox2.Text = "";
+                cbTheLoai.Enabled = false;
+            cbTheLoai.Text = "";
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton2.Checked == true)
-                comboBox6.Enabled = true;
+                cbTenSach.Enabled = true;
             else
-                comboBox6.Enabled = false;
-            comboBox6.Text = "";
+                cbTenSach.Enabled = false;
+            cbTenSach.Text = "";
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton3.Checked == true)
-                comboBox5.Enabled = true;
+                cbTacGia.Enabled = true;
             else
-                comboBox5.Enabled = false;
-            comboBox5.Text = "";
+                cbTacGia.Enabled = false;
+            cbTacGia.Text = "";
         }
 
         private void radioButton5_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButton5.Checked == true)
-                comboBox3.Enabled = true;
+                cbTinhTrang.Enabled = true;
             else
-                comboBox3.Enabled = false;
-            comboBox3.Text = "";
+                cbTinhTrang.Enabled = false;
+            cbTinhTrang.Text = "";
         }
     }
 }

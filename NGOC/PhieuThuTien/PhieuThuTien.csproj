@@ -49,11 +49,11 @@
     <Compile Include="butcs.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormThuTien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormThuTien.Designer.cs">
+      <DependentUpon>FormThuTien.cs</DependentUpon>
     </Compile>
     <Compile Include="panels.cs">
       <SubType>Component</SubType>
@@ -63,8 +63,8 @@
     <Compile Include="Vien.cs">
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FormThuTien.resx">
+      <DependentUpon>FormThuTien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
