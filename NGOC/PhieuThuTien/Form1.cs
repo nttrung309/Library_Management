@@ -52,7 +52,7 @@ namespace PhieuThuTien
             adapter.SelectCommand = command;
             table1.Clear();
             adapter.Fill(table1);
-            textBox1.Text = table1.Rows[0].ItemArray[0].ToString();
+            txbMaPhieuthu.Text = table1.Rows[0].ItemArray[0].ToString();
 
             command = connection.CreateCommand();
             command.CommandText = " delete PhieuThuTien where MaPhieuThu in ( select top 1 MaPhieuThu from PhieuThuTien order by MaPhieuthu desc)";
@@ -71,38 +71,53 @@ namespace PhieuThuTien
 
         private void nButton1_Click(object sender, EventArgs e)
         {
-            DateTime a= new DateTime();
-            a = dateTimePicker1.Value;
-            string[] formattedStrings = a.GetDateTimeFormats();
-
-            if (comboBox3.Text==""||txbTienThu.Text==""||dateTimePicker1.Text=="")
+            int tr = 0;
+            for (int i = 0; i < dataGridView1.RowCount; i++)
             {
-                MessageBox.Show("Bạn không thể để trống ô nào cả");
+                if (txbMaPhieuthu.Text == dataGridView1.Rows[i].Cells[0].Value.ToString())
+                {       tr = 1;
+                break;
+            }
+            }
+            if (tr == 1)
+            {
+                MessageBox.Show("Mã Phiếu thu này đã tồn tại, vui lòng chọn tạo mã mới để có thể lưu");
             }
             else
             {
-                float k = float.Parse(txbTongNo.Text) - float.Parse(txbTienThu.Text);
-                if (k < 0)
+                DateTime a = new DateTime();
+                a = dateTimePicker1.Value;
+                string[] formattedStrings = a.GetDateTimeFormats();
+
+                if (comboBox3.Text == "" || txbTienThu.Text == "" || dateTimePicker1.Text == "")
                 {
-                    MessageBox.Show("Mời bạn nhập lại, số tiền thu không được lớn hơn số tiền nợ của độc giả");
+                    MessageBox.Show("Bạn không thể để trống ô nào cả");
                 }
-              
                 else
                 {
-                    float c = float.Parse(txbTongNo.Text) - float.Parse(txbTienThu.Text);
-                    command = connection.CreateCommand();
-                    command.CommandText = "insert into PhieuThuTien (MaDocGia,NgThu,SoTienThu,ConLai) values ('" + comboBox3.Text + "','" + formattedStrings[6] + "','" + float.Parse(txbTienThu.Text) + "','" + c + "')";
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("Thanh toán thành công");
-                    loadPhieuThu();
-                    command = connection.CreateCommand();
-                    command.CommandText = "update docgia set TongNo='" + float.Parse(txbConLai.Text) + "' where madocgia='" + comboBox3.Text + "'";
-                    command.ExecuteNonQuery();
 
-                }            }
-            txbTongNo.Text = txbConLai.Text;
-            txbConLai.Text = (float.Parse(txbTongNo.Text) - float.Parse(txbTienThu.Text)).ToString();
+                    float k = float.Parse(txbTongNo.Text) - float.Parse(txbTienThu.Text);
+                    if (k < 0)
+                    {
+                        MessageBox.Show("Mời bạn nhập lại, số tiền thu không được lớn hơn số tiền nợ của độc giả");
+                    }
 
+                    else
+                    {
+
+                        command = connection.CreateCommand();
+                        command.CommandText = "insert into PhieuThuTien (MaDocGia,NgThu,SoTienThu,ConLai) values ('" + comboBox3.Text + "','" + formattedStrings[6] + "','" + float.Parse(txbTienThu.Text) + "','" + k + "')";
+                        command.ExecuteNonQuery();
+                        MessageBox.Show("Thanh toán thành công");
+                        loadPhieuThu();
+                        command = connection.CreateCommand();
+                        command.CommandText = "update docgia set TongNo-='" + float.Parse(txbTienThu.Text) + "' where madocgia='" + comboBox3.Text + "'";
+                        command.ExecuteNonQuery();
+
+                    }
+                }
+
+            }
         }
         void loadPhieuThu()
         {
@@ -137,7 +152,7 @@ namespace PhieuThuTien
             command.ExecuteNonQuery();
 
             command = connection.CreateCommand();
-            command.CommandText = "update phieuthutien set MaDocGia='"+comboBox3.Text+"',SoTienThu='"+txbTienThu.Text+"',ConLai='"+c+"',ngthu='"+ formattedStrings[6] + "' where maphieuthu='"+textBox1.Text+"'";
+            command.CommandText = "update phieuthutien set MaDocGia='"+comboBox3.Text+"',SoTienThu='"+txbTienThu.Text+"',ConLai='"+c+"',ngthu='"+ formattedStrings[6] + "' where maphieuthu='"+txbMaPhieuthu.Text+"'";
             command.ExecuteNonQuery();
 
             command = connection.CreateCommand();
@@ -197,7 +212,7 @@ namespace PhieuThuTien
             {
 
                 row = dataGridView1.Rows[e.RowIndex];
-                    textBox1.Text = Convert.ToString(row.Cells["Mã Phiếu Thu"].Value);
+                    txbMaPhieuthu.Text = Convert.ToString(row.Cells["Mã Phiếu Thu"].Value);
                     txbTienThu.Text = Convert.ToString(row.Cells["Số Tiền Thu"].Value);
                     txbConLai.Text= Convert.ToString(row.Cells["Số Tiền Còn nợ"].Value);
                 comboBox3.Text= Convert.ToString(row.Cells["Mã Độc Giả"].Value);
@@ -231,9 +246,14 @@ namespace PhieuThuTien
             e.Handled = true;
         }
 
-        private void nButton3_Click(object sender, EventArgs e)
+        private void comboBox3_KeyPress(object sender, KeyPressEventArgs e)
         {
+            e.Handled = true;
+        }
 
+        private void txbMaPhieuthu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }
