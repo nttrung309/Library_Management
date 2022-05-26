@@ -255,5 +255,50 @@ namespace PhieuThuTien
         {
             e.Handled = true;
         }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            if (txbMaPhieuthu.Text == "" || txbHoTen.Text == "" || txbTienThu.Text == "" || txbTongNo.Text == "" || txbConLai.Text == "" || cbMaDocGia.Text == "" || dtpNgayThu.Text == "")
+            {
+                MessageBox.Show("vui lòng chọn 1 bộ dữ liệu bên dưới để tiến hành in");
+            }
+            else
+            {
+                e.Graphics.DrawString("Phiếu Thu Tiền", new Font("Arial", 25, FontStyle.Bold), Brushes.Blue, new Point(320, 80));
+                e.Graphics.DrawString(lbMaPhieuThu.Text+" "+ txbMaPhieuthu.Text, new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(150, 190));
+                e.Graphics.DrawString( "...................................................................." , new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(332, 196));
+
+                e.Graphics.DrawString(lbMaDocGia.Text + "      " + cbMaDocGia.Text, new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(150, 260));
+                e.Graphics.DrawString(".......................................................................", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(300, 272));
+
+                e.Graphics.DrawString(lbSoTienThu.Text + "    " + txbTienThu.Text, new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(150, 330));
+                e.Graphics.DrawString(".....................................................................", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(315, 340));
+
+                e.Graphics.DrawString(lbConLai.Text + "            " + txbConLai.Text, new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(150, 400));
+                e.Graphics.DrawString("................................................................................", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(250, 410));
+                
+                e.Graphics.DrawString(lbNgayThu.Text + "        " +dtpNgayThu.Text, new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(150, 470));
+                e.Graphics.DrawString("..............................................................................", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(270, 476));
+                e.Graphics.DrawString("Người Đóng Tiền", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(90, 700));
+                e.Graphics.DrawString("(Ký ghi rõ họ tên)", new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(105, 735));
+                e.Graphics.DrawString("Người Lập Phiếu", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(550, 700));
+                e.Graphics.DrawString("(Ký ghi rõ họ tên)", new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(565, 735));
+            }
+        }
+        [System.ComponentModel.Browsable(false)]
+   
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.Height = this.Height;
+            printPreviewDialog1.Width = this.Width;
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
+          
+        }
+
+        private void printPreviewDialog1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

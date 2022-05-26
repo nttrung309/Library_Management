@@ -22,7 +22,6 @@ C:\Users\Admin\Desktop\Library_Management\TraCuuSach\TraCuuSach\bin\Debug\TraCuu
 C:\Users\Admin\Desktop\Library_Management\TraCuuSach\TraCuuSach\bin\Debug\TraCuuSach.exe
 C:\Users\Admin\Desktop\Library_Management\TraCuuSach\TraCuuSach\bin\Debug\TraCuuSach.pdb
 C:\Users\Admin\Desktop\Library_Management\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.csprojAssemblyReference.cache
-C:\Users\Admin\Desktop\Library_Management\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.Form1.resources
 C:\Users\Admin\Desktop\Library_Management\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.Properties.Resources.resources
 C:\Users\Admin\Desktop\Library_Management\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.csproj.GenerateResource.cache
 C:\Users\Admin\Desktop\Library_Management\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.csproj.CoreCompileInputs.cache
@@ -38,3 +37,4 @@ C:\Users\Admin\Desktop\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.csproj.Generat
 C:\Users\Admin\Desktop\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.exe
 C:\Users\Admin\Desktop\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.pdb
+C:\Users\Admin\Desktop\Library_Management\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.FormTraCuu.resources

@@ -8,19 +8,44 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Microsoft.Office.Interop.Excel;
+using app = Microsoft.Office.Interop.Excel.Application;
 namespace TraCuuSach
 {
     public partial class FormTraCuu : Form
     {
         SqlConnection connection;
         SqlCommand command;
-        DataTable table = new DataTable();
+  System.Data.DataTable table = new System.Data.DataTable();
         string str = @"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=QLTV;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
         public FormTraCuu()
         {
             InitializeComponent();
 
+        }
+        private void export(DataGridView g,string DuongDan, string TenTep)
+        {
+            app obj = new app();
+            obj.Application.Workbooks.Add(Type.Missing);
+            obj.Columns.ColumnWidth = 25;
+for (int i=1;i<=g.Columns.Count;i++)
+           {
+                obj.Cells[1, i] = g.Columns[i - 1].HeaderText;
+
+            }    
+        for (int i=0;i<g.Rows.Count;i++)
+            {
+                for (int j=0;j<g.Columns.Count;j++)
+                {
+                    if (g.Rows[i].Cells[j].Value != null)
+                        obj.Cells[i + 2, j + 1] = g.Rows[i].Cells[j].Value.ToString();
+
+                }    
+            }
+            obj.ActiveWorkbook.SaveCopyAs(DuongDan + TenTep + ".xlsx");
+            obj.ActiveWorkbook.Saved = true;
+            MessageBox.Show("Xuất Excel Thành Công");
         }
         private void disableSortHeader()
         {
@@ -90,11 +115,11 @@ namespace TraCuuSach
         void loadCombobox()
         {
             //-------------------- load combox mã sách
-            DataTable table1 = new DataTable();
-            DataTable table2 = new DataTable();
-            DataTable table3 = new DataTable();
-            DataTable table4 = new DataTable();
-            DataTable table5 = new DataTable();
+            System.Data.DataTable table1 = new System.Data.DataTable();
+            System.Data.DataTable table2 = new System.Data.DataTable();
+            System.Data.DataTable table3 = new System.Data.DataTable();
+            System.Data.DataTable table4 = new System.Data.DataTable();
+            System.Data.DataTable table5 = new System.Data.DataTable();
             command = connection.CreateCommand();
             command.CommandText = "select LEFT(MaCuonSach,6) as MS from CuonSach";
             adapter.SelectCommand = command;
@@ -135,10 +160,10 @@ namespace TraCuuSach
         }
         void LoadDataGridView()
         {
-            DataTable table11 = new DataTable();
-            DataTable table12 = new DataTable();
-            DataTable table13 = new DataTable();
-            DataTable table14 = new DataTable();
+            System.Data.DataTable table11 = new System.Data.DataTable();
+            System.Data.DataTable table12 = new System.Data.DataTable();
+            System.Data.DataTable table13 = new System.Data.DataTable();
+            System.Data.DataTable table14 = new System.Data.DataTable();
             command = connection.CreateCommand();
             command.CommandText = "select ROW_NUMBER() OVER (ORDER BY MaCuonSach) AS [Số thứ tự],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from Tracuu ";
             adapter.SelectCommand = command;
@@ -180,7 +205,8 @@ namespace TraCuuSach
             connection = new SqlConnection(str);
             connection.Open();
             this.btnHuy.BorderRadius = 20;
-            this.btnApDung.BorderRadius = 20; 
+            this.btnApDung.BorderRadius = 20;
+            this.btnXuatExcel.BorderRadius = 20;
             loadCombobox();
             disableSortHeader();
             command = connection.CreateCommand();
@@ -281,7 +307,7 @@ namespace TraCuuSach
                 command.CommandText = "delete TraCuu3";
                 command.ExecuteNonQuery();
             }
-            DataTable table10 = new DataTable();
+            System.Data.DataTable table10 = new System.Data.DataTable();
             command = connection.CreateCommand();
             command.CommandText = "select count (*) from TraCuu2";
             adapter.SelectCommand = command;
@@ -317,7 +343,7 @@ namespace TraCuuSach
             MessageBox.Show("Bạn đã hủy áp dụng bộ lọc thành công");
             command.CommandText = "Select ROW_NUMBER() OVER (ORDER BY MaCuonSach) AS [Số thứ tự],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from TraCuu";
             adapter.SelectCommand = command;
-            DataTable a = new DataTable();
+            System.Data.DataTable a = new System.Data.DataTable();
             a.Clear();
             adapter.Fill(a);
             dgvDanhSachCuonSach.DataSource = null;
@@ -379,6 +405,23 @@ namespace TraCuuSach
             else
                 cbTinhTrang.Enabled = false;
             cbTinhTrang.Text = "";
+        }
+
+        private void btnXuatExcel_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "xlsx files (.xlsx)|.xlsx|All files (.)|*.*";
+                sfd.Title = "Save an Excel File";
+                sfd.ShowDialog();
+
+                string DuongDan;
+                DuongDan = sfd.FileName;
+
+                export(dgvDanhSachCuonSach, DuongDan, "");
+
+            }
+       
         }
     }
 }
