@@ -210,12 +210,12 @@ for (int i=1;i<=g.Columns.Count;i++)
             loadCombobox();
             disableSortHeader();
             command = connection.CreateCommand();
-            command.CommandText = "drop table TraCuu ";
+            command.CommandText = "drop table if exists TraCuu ";
             command.ExecuteNonQuery();
             command = connection.CreateCommand();
-            command.CommandText = "drop table TraCuu2 ";
+            command.CommandText = "drop table if exists TraCuu2 ";
             command.ExecuteNonQuery();
-            command.CommandText = "drop table TraCuu3 ";
+            command.CommandText = "drop table if exists TraCuu3 ";
             command.ExecuteNonQuery();
 
             command = connection.CreateCommand();
