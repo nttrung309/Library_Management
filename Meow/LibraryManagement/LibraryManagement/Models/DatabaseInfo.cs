@@ -32,5 +32,9 @@ namespace LibraryManagement.Models
                 FROM PHIEUMUON, CTPHIEUMUON, DOCGIA
                 WHERE PHIEUMUON.MaPhieuMuonSach = CTPHIEUMUON.MaPhieuMuonSach AND PHIEUMUON.MaDocGia = DOCGIA.MaDocGia
                         AND TinhTrangPM = 0";
+        public static string borrowedBooksQuery = @"SELECT PHIEUMUON.MaPhieuMuonSach, SACH.MaSach, TenDauSach, NgMuon
+            FROM SACH, CUONSACH, PHIEUMUON, CTPHIEUMUON, DAUSACH
+            WHERE PHIEUMUON.MaPhieuMuonSach = CTPHIEUMUON.MaPhieuMuonSach AND CTPHIEUMUON.MaCuonSach = CUONSACH.MaCuonSach
+		            AND CUONSACH.MaSach = SACH.MaSach AND SACH.MaDauSach = DAUSACH.MaDauSach";
     }
 }

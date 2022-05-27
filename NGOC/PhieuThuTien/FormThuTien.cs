@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 namespace PhieuThuTien
 {
-    public partial class Form1 : Form
+    public partial class FormThuTien : Form
     {
         SqlConnection connection;
         SqlCommand command;
@@ -20,7 +20,7 @@ namespace PhieuThuTien
         string cu = "";
         float own = 0;
         ToolTip tip = new ToolTip() { IsBalloon = true };
-        public Form1()
+        public FormThuTien()
         {
             InitializeComponent();
           
@@ -34,10 +34,10 @@ namespace PhieuThuTien
             adapter.SelectCommand = command;
             table4.Clear();
             adapter.Fill(table4);
-            comboBox3.DataSource = table4;
-            comboBox3.DisplayMember = "MaDocGia";
-            comboBox3.ValueMember = "HoTen";
-            comboBox3.SelectedIndex = -1;
+            cbMaDocGia.DataSource = table4;
+            cbMaDocGia.DisplayMember = "MaDocGia";
+            cbMaDocGia.ValueMember = "HoTen";
+            cbMaDocGia.SelectedIndex = -1;
         }
         void loadmagia ()
         {
@@ -60,11 +60,11 @@ namespace PhieuThuTien
         }
         private void nButton2_Click(object sender, EventArgs e)
         {
-            comboBox3.Text = "";
+            cbMaDocGia.Text = "";
             txbTienThu.Text = "";
             txbConLai.Text = "";
             txbTongNo.Text = "";
-            textBox4.Text = "";
+            txbHoTen.Text = "";
             loadmagia();
             loadcbDocGia();
         }
@@ -72,9 +72,9 @@ namespace PhieuThuTien
         private void nButton1_Click(object sender, EventArgs e)
         {
             int tr = 0;
-            for (int i = 0; i < dataGridView1.RowCount; i++)
+            for (int i = 0; i < dgvDLPhieuThuTienPhat.RowCount; i++)
             {
-                if (txbMaPhieuthu.Text == dataGridView1.Rows[i].Cells[0].Value.ToString())
+                if (txbMaPhieuthu.Text == dgvDLPhieuThuTienPhat.Rows[i].Cells[0].Value.ToString())
                 {       tr = 1;
                 break;
             }
@@ -86,10 +86,10 @@ namespace PhieuThuTien
             else
             {
                 DateTime a = new DateTime();
-                a = dateTimePicker1.Value;
+                a = dtpNgayThu.Value;
                 string[] formattedStrings = a.GetDateTimeFormats();
 
-                if (comboBox3.Text == "" || txbTienThu.Text == "" || dateTimePicker1.Text == "")
+                if (cbMaDocGia.Text == "" || txbTienThu.Text == "" || dtpNgayThu.Text == "")
                 {
                     MessageBox.Show("Bạn không thể để trống ô nào cả");
                 }
@@ -106,12 +106,12 @@ namespace PhieuThuTien
                     {
 
                         command = connection.CreateCommand();
-                        command.CommandText = "insert into PhieuThuTien (MaDocGia,NgThu,SoTienThu,ConLai) values ('" + comboBox3.Text + "','" + formattedStrings[6] + "','" + float.Parse(txbTienThu.Text) + "','" + k + "')";
+                        command.CommandText = "insert into PhieuThuTien (MaDocGia,NgThu,SoTienThu,ConLai) values ('" + cbMaDocGia.Text + "','" + formattedStrings[6] + "','" + float.Parse(txbTienThu.Text) + "','" + k + "')";
                         command.ExecuteNonQuery();
                         MessageBox.Show("Thanh toán thành công");
                         loadPhieuThu();
                         command = connection.CreateCommand();
-                        command.CommandText = "update docgia set TongNo-='" + float.Parse(txbTienThu.Text) + "' where madocgia='" + comboBox3.Text + "'";
+                        command.CommandText = "update docgia set TongNo-='" + float.Parse(txbTienThu.Text) + "' where madocgia='" + cbMaDocGia.Text + "'";
                         command.ExecuteNonQuery();
 
                     }
@@ -127,7 +127,7 @@ namespace PhieuThuTien
             adapter.SelectCommand = command;
             table.Clear();
             adapter.Fill(table);
-            dataGridView1.DataSource = table;
+            dgvDLPhieuThuTienPhat.DataSource = table;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -144,7 +144,7 @@ namespace PhieuThuTien
         private void nButton4_Click(object sender, EventArgs e)
         {
             DateTime a = new DateTime();
-            a = dateTimePicker1.Value;
+            a = dtpNgayThu.Value;
             string[] formattedStrings = a.GetDateTimeFormats();
             float c = float.Parse(txbTongNo.Text) - float.Parse(txbTienThu.Text);
             command = connection.CreateCommand();
@@ -152,11 +152,11 @@ namespace PhieuThuTien
             command.ExecuteNonQuery();
 
             command = connection.CreateCommand();
-            command.CommandText = "update phieuthutien set MaDocGia='"+comboBox3.Text+"',SoTienThu='"+txbTienThu.Text+"',ConLai='"+c+"',ngthu='"+ formattedStrings[6] + "' where maphieuthu='"+txbMaPhieuthu.Text+"'";
+            command.CommandText = "update phieuthutien set MaDocGia='"+cbMaDocGia.Text+"',SoTienThu='"+txbTienThu.Text+"',ConLai='"+c+"',ngthu='"+ formattedStrings[6] + "' where maphieuthu='"+txbMaPhieuthu.Text+"'";
             command.ExecuteNonQuery();
 
             command = connection.CreateCommand();
-            command.CommandText = "update docgia set TongNo='" + float.Parse(txbConLai.Text) + "' where madocgia='" + comboBox3.Text + "'";
+            command.CommandText = "update docgia set TongNo='" + float.Parse(txbConLai.Text) + "' where madocgia='" + cbMaDocGia.Text + "'";
             command.ExecuteNonQuery();
             loadPhieuThu();
 
@@ -184,10 +184,10 @@ namespace PhieuThuTien
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             txbTongNo.Text = "";
-            textBox4.Text = "";
+            txbHoTen.Text = "";
             DataTable table3 = new DataTable();
             command = connection.CreateCommand();
-            command.CommandText = "select TongNo from DocGia where MaDocGia='" + comboBox3.Text + "' ";
+            command.CommandText = "select TongNo from DocGia where MaDocGia='" + cbMaDocGia.Text + "' ";
             adapter.SelectCommand = command;
             table3.Clear();
             adapter.Fill(table3);
@@ -195,7 +195,7 @@ namespace PhieuThuTien
             if (table3.Rows.Count != 0)
             {
                 txbTongNo.Text = table3.Rows[0].ItemArray[0].ToString();
-                textBox4.Text = comboBox3.SelectedValue.ToString();
+                txbHoTen.Text = cbMaDocGia.SelectedValue.ToString();
             }
         }
 
@@ -211,22 +211,22 @@ namespace PhieuThuTien
             if (e.RowIndex.ToString() != "-1")
             {
 
-                row = dataGridView1.Rows[e.RowIndex];
+                row = dgvDLPhieuThuTienPhat.Rows[e.RowIndex];
                     txbMaPhieuthu.Text = Convert.ToString(row.Cells["Mã Phiếu Thu"].Value);
                     txbTienThu.Text = Convert.ToString(row.Cells["Số Tiền Thu"].Value);
                     txbConLai.Text= Convert.ToString(row.Cells["Số Tiền Còn nợ"].Value);
-                comboBox3.Text= Convert.ToString(row.Cells["Mã Độc Giả"].Value);
-                dateTimePicker1.Value= Convert.ToDateTime(row.Cells["Ngày Thu"].Value);
+                cbMaDocGia.Text= Convert.ToString(row.Cells["Mã Độc Giả"].Value);
+                dtpNgayThu.Value= Convert.ToDateTime(row.Cells["Ngày Thu"].Value);
                 txbTongNo.Text = (float.Parse(txbConLai.Text) + float.Parse(txbTienThu.Text)).ToString();
                 
                 DataTable table5 = new DataTable();
                 command = connection.CreateCommand();
-                command.CommandText = "select hoten from docgia where madocgia='"+comboBox3.Text+"'";
+                command.CommandText = "select hoten from docgia where madocgia='"+cbMaDocGia.Text+"'";
                 adapter.SelectCommand = command;
                 table5.Clear();
                 adapter.Fill(table5);
-                textBox4.Text = table5.Rows[0].ItemArray[0].ToString();
-                cu = comboBox3.Text;
+                txbHoTen.Text = table5.Rows[0].ItemArray[0].ToString();
+                cu = cbMaDocGia.Text;
                 own = float.Parse(txbTienThu.Text);
             }
         }
@@ -254,6 +254,51 @@ namespace PhieuThuTien
         private void txbMaPhieuthu_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            if (txbMaPhieuthu.Text == "" || txbHoTen.Text == "" || txbTienThu.Text == "" || txbTongNo.Text == "" || txbConLai.Text == "" || cbMaDocGia.Text == "" || dtpNgayThu.Text == "")
+            {
+                MessageBox.Show("vui lòng chọn 1 bộ dữ liệu bên dưới để tiến hành in");
+            }
+            else
+            {
+                e.Graphics.DrawString("Phiếu Thu Tiền", new Font("Arial", 25, FontStyle.Bold), Brushes.Blue, new Point(320, 80));
+                e.Graphics.DrawString(lbMaPhieuThu.Text+" "+ txbMaPhieuthu.Text, new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(150, 190));
+                e.Graphics.DrawString( "...................................................................." , new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(332, 196));
+
+                e.Graphics.DrawString(lbMaDocGia.Text + "      " + cbMaDocGia.Text, new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(150, 260));
+                e.Graphics.DrawString(".......................................................................", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(300, 272));
+
+                e.Graphics.DrawString(lbSoTienThu.Text + "    " + txbTienThu.Text, new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(150, 330));
+                e.Graphics.DrawString(".....................................................................", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(315, 340));
+
+                e.Graphics.DrawString(lbConLai.Text + "            " + txbConLai.Text, new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(150, 400));
+                e.Graphics.DrawString("................................................................................", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(250, 410));
+                
+                e.Graphics.DrawString(lbNgayThu.Text + "        " +dtpNgayThu.Text, new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(150, 470));
+                e.Graphics.DrawString("..............................................................................", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(270, 476));
+                e.Graphics.DrawString("Người Đóng Tiền", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(90, 700));
+                e.Graphics.DrawString("(Ký ghi rõ họ tên)", new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(105, 735));
+                e.Graphics.DrawString("Người Lập Phiếu", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(550, 700));
+                e.Graphics.DrawString("(Ký ghi rõ họ tên)", new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(565, 735));
+            }
+        }
+        [System.ComponentModel.Browsable(false)]
+   
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.Height = this.Height;
+            printPreviewDialog1.Width = this.Width;
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
+          
+        }
+
+        private void printPreviewDialog1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

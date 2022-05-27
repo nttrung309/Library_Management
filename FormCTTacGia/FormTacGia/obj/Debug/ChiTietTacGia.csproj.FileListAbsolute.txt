@@ -1,0 +1,10 @@
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\FormCTTacGia\FormTacGia\bin\Debug\FormTacGia.exe.config
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\FormCTTacGia\FormTacGia\bin\Debug\FormTacGia.exe
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\FormCTTacGia\FormTacGia\bin\Debug\FormTacGia.pdb
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\FormCTTacGia\FormTacGia\obj\Debug\ChiTietTacGia.csproj.AssemblyReference.cache
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\FormCTTacGia\FormTacGia\obj\Debug\FormChiTietTacGia.ChiTietTacGia.resources
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\FormCTTacGia\FormTacGia\obj\Debug\FormTacGia.Properties.Resources.resources
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\FormCTTacGia\FormTacGia\obj\Debug\ChiTietTacGia.csproj.GenerateResource.cache
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\FormCTTacGia\FormTacGia\obj\Debug\ChiTietTacGia.csproj.CoreCompileInputs.cache
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\FormCTTacGia\FormTacGia\obj\Debug\FormTacGia.exe
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\FormCTTacGia\FormTacGia\obj\Debug\FormTacGia.pdb
