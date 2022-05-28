@@ -14,7 +14,7 @@ namespace FormLoaiDocGia
     public partial class Form1 : Form
     {
         // Khai báo 
-        string chuoiKetNoi = @"Data Source=LAPTOP-281DQ5C3\SQLEXPRESS;Initial Catalog=QLTV;Integrated Security=True";
+        string chuoiKetNoi = @"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=QLTV;Integrated Security=True";
         private SqlConnection myConnection; // kết nối tới csdl
         private SqlDataAdapter myDataAdapter;   // Vận chuyển csdl qa DataSet
         private DataTable myTable;  // Dùng để lưu bảng lấy từ c#
@@ -124,7 +124,7 @@ namespace FormLoaiDocGia
                 if (xuly == 0)
                 {
                     themLoaiDG();
-                    query = "SELECT TOP 1 MaTacGia FROM TACGIA ORDER BY MaTacGia DESC ";
+                    query = "SELECT TOP 1 MaLoaiDocGia FROM LOAIDOCGIA ORDER BY MaLoaiDocGia DESC ";
                     ketnoi(query);
                     txbMaLoaiDocGia.Text = Convert.ToString(myCommand.ExecuteScalar());
                 }
