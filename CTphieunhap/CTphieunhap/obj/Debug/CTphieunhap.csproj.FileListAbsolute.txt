@@ -8,3 +8,13 @@ C:\Users\NGOC\source\repos\CTphieunhap\CTphieunhap\obj\Debug\CTphieunhap.csproj.
 C:\Users\NGOC\source\repos\CTphieunhap\CTphieunhap\obj\Debug\CTphieunhap.csproj.CoreCompileInputs.cache
 C:\Users\NGOC\source\repos\CTphieunhap\CTphieunhap\obj\Debug\CTphieunhap.exe
 C:\Users\NGOC\source\repos\CTphieunhap\CTphieunhap\obj\Debug\CTphieunhap.pdb
+C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\CTphieunhap\CTphieunhap\bin\Debug\CTphieunhap.exe.config
+C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\CTphieunhap\CTphieunhap\bin\Debug\CTphieunhap.exe
+C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\CTphieunhap\CTphieunhap\bin\Debug\CTphieunhap.pdb
+C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\CTphieunhap\CTphieunhap\obj\Debug\CTphieunhap.csproj.AssemblyReference.cache
+C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\CTphieunhap\CTphieunhap\obj\Debug\CTphieunhap.Form1.resources
+C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\CTphieunhap\CTphieunhap\obj\Debug\CTphieunhap.Properties.Resources.resources
+C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\CTphieunhap\CTphieunhap\obj\Debug\CTphieunhap.csproj.GenerateResource.cache
+C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\CTphieunhap\CTphieunhap\obj\Debug\CTphieunhap.csproj.CoreCompileInputs.cache
+C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\CTphieunhap\CTphieunhap\obj\Debug\CTphieunhap.exe
+C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\CTphieunhap\CTphieunhap\obj\Debug\CTphieunhap.pdb
