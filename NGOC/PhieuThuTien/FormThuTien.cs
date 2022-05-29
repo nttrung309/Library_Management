@@ -19,6 +19,8 @@ namespace PhieuThuTien
         SqlDataAdapter adapter = new SqlDataAdapter();
         string cu = "";
         float own = 0;
+        int Docgia = 0;
+        int tienthu = 0;
         ToolTip tip = new ToolTip() { IsBalloon = true };
         public FormThuTien()
         {
@@ -60,6 +62,7 @@ namespace PhieuThuTien
         }
         private void nButton2_Click(object sender, EventArgs e)
         {
+            cbMaDocGia.Enabled = true;
             cbMaDocGia.Text = "";
             txbTienThu.Text = "";
             txbConLai.Text = "";
@@ -91,6 +94,7 @@ namespace PhieuThuTien
                     if (k < 0)
                     {
                         MessageBox.Show("Mời bạn nhập lại, số tiền thu không được lớn hơn số tiền nợ của độc giả");
+                    txbTienThu.Text = "";
                     }
 
                     else
@@ -114,7 +118,7 @@ namespace PhieuThuTien
         {
             DataTable table = new DataTable();
             command = connection.CreateCommand();
-            command.CommandText = "select MaPhieuThu as [Mã Phiếu Thu],MaDocGia as [Mã Độc Giả],NgThu as [Ngày Thu],SoTienThu as [Số Tiền Thu],ConLai as [Số Tiền Còn Nợ] from PhieuThuTien";
+            command.CommandText = "select MaPhieuThu as [Mã Phiếu Thu],MaDocGia as [Mã Độc Giả],NgThu as [Ngày Thu],format(SoTienThu,'#.') as [Số Tiền Thu],format(ConLai,'#.') as [Số Tiền Còn Nợ] from PhieuThuTien";
             adapter.SelectCommand = command;
             table.Clear();
             adapter.Fill(table);
@@ -122,7 +126,7 @@ namespace PhieuThuTien
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-         
+            btnCapNhat.Enabled = false;
             connection = new SqlConnection(str);
             connection.Open();
             loadPhieuThu();
@@ -134,35 +138,30 @@ namespace PhieuThuTien
 
         private void nButton4_Click(object sender, EventArgs e)
         {
-            DateTime a = new DateTime();
-            a = dtpNgayThu.Value;
-            string[] formattedStrings = a.GetDateTimeFormats();
-            float c = float.Parse(txbTongNo.Text) - float.Parse(txbTienThu.Text);
-      
+
                 command = connection.CreateCommand();
                 command.CommandText = "update docgia set TongNo+='" + own + "' where madocgia='" + cu + "'";
                 command.ExecuteNonQuery();
+            cu = "";
 
-                command = connection.CreateCommand();
-                command.CommandText = "update phieuthutien set MaDocGia='" + cbMaDocGia.Text + "',SoTienThu='" + txbTienThu.Text + "',ConLai='" + c + "',ngthu='" + formattedStrings[6] + "' where maphieuthu='" + txbMaPhieuthu.Text + "'";
-                command.ExecuteNonQuery();
-
-                command = connection.CreateCommand();
-                command.CommandText = "update docgia set TongNo='" + float.Parse(txbConLai.Text) + "' where madocgia='" + cbMaDocGia.Text + "'";
-                command.ExecuteNonQuery();
-                loadPhieuThu();
-     
-      
+            command = connection.CreateCommand();
+            command.CommandText = "delete phieuthutien where maphieuthu='"+txbMaPhieuthu.Text+"'";
+            command.ExecuteNonQuery();
+            loadPhieuThu();
+            cbMaDocGia.Enabled = true;
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
+            if (txbTienThu.Text == "")
+                txbConLai.Text = "";
             if (txbTienThu.Text != "" && txbTongNo.Text != "")
             {
                 float k = float.Parse(txbTongNo.Text) - float.Parse(txbTienThu.Text);
                 if (k<0)
                 {
                     MessageBox.Show("Mời bạn nhập lại, số tiền thu không được lớn hơn số tiền nợ của độc giả");
+                    txbTienThu.Text = "";
                 }    
                 else
                 txbConLai.Text = k.ToString();
@@ -180,7 +179,7 @@ namespace PhieuThuTien
             txbHoTen.Text = "";
             DataTable table3 = new DataTable();
             command = connection.CreateCommand();
-            command.CommandText = "select TongNo from DocGia where MaDocGia='" + cbMaDocGia.Text + "' ";
+            command.CommandText = "select format(TongNo,'#.') from DocGia where MaDocGia='" + cbMaDocGia.Text + "' ";
             adapter.SelectCommand = command;
             table3.Clear();
             adapter.Fill(table3);
@@ -194,8 +193,16 @@ namespace PhieuThuTien
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
                 e.Handled = true;
+            }
+
+            // Nếu bạn muốn, bạn có thể cho phép nhập số thực với dấu chấm
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -224,6 +231,7 @@ namespace PhieuThuTien
                 cu = cbMaDocGia.Text;
                 own = float.Parse(txbTienThu.Text);
             }
+            cbMaDocGia.Enabled = false;
         }
 
         private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
@@ -297,11 +305,6 @@ namespace PhieuThuTien
         }
 
         private void dgvDLPhieuThuTienPhat_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dgvDLPhieuThuTienPhat_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
         }
