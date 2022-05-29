@@ -300,5 +300,10 @@ namespace PhieuThuTien
         {
 
         }
+
+        private void dgvDLPhieuThuTienPhat_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
