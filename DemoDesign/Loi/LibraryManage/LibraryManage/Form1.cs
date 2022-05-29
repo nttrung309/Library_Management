@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace LibraryManage
 {
     public partial class Form1 : Form
     {
         // Khai báo 
-        string chuoiKetNoi = @"Data Source=LAPTOP-281DQ5C3\SQLEXPRESS;Initial Catalog=QLTV;Integrated Security=True";
+        string chuoiKetNoi = Properties.Resources.stringQuery;
         private SqlConnection myConnection; // kết nối tới csdl
         private SqlDataAdapter myDataAdapter;   // Vận chuyển csdl qa DataSet
         private DataTable myTable;  // Dùng để lưu bảng lấy từ c#
@@ -67,6 +68,13 @@ namespace LibraryManage
             dgvDSDocGia.Columns[6].Width = 120;
             dgvDSDocGia.Columns[7].Width = 120;
         }
+        //check email
+        public bool checkIsMail(string email)
+        {
+            string match = @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
+            Regex reg = new Regex(match);
+            return reg.IsMatch(email);
+        }
         // lấy mã độc giả kế tiếp trước khi thêm 
         private string getNextIdDG()
         {
@@ -112,6 +120,10 @@ namespace LibraryManage
             dtpNgLapThe.Text = dgvDSDocGia.CurrentRow.Cells[6].Value.ToString();
             txbNgayHetHan.Text = tranferFormatTextBox(dgvDSDocGia.CurrentRow.Cells[7].Value.ToString());
             txbTongNo.Text = dgvDSDocGia.CurrentRow.Cells[8].Value.ToString();
+            errDC.Clear();
+            errEmail.Clear();
+            errLoaiDG.Clear();
+            errTenDG.Clear();
             btnLuu.Enabled = false;
             btnThemMoi.Enabled = true;
             btnXoa.Enabled = true;
@@ -197,7 +209,16 @@ namespace LibraryManage
                 {
                     errEmail.Clear();
                 }
-
+                if (!checkIsMail(txbEmail.Text))
+                {
+                    errEmail.SetError(txbEmail, "Vui lòng nhập Email");
+                    MessageBox.Show("Vui lòng nhập đúng định dạng email!", "Thông báo");
+                    return;
+                }
+                else
+                {
+                    errEmail.Clear();
+                }
                 if (txbDChi.Text == "")
                 {
                     errDC.SetError(txbDChi, "Vui lòng nhập Địa chỉ");
@@ -217,7 +238,7 @@ namespace LibraryManage
                 }
             }
 
-            if (txbHoTen.Text.Length > 0 && txbDChi.Text.Length > 0 && dtpNgSinh.Text.Length > 0 && cbLoaiDG.Text.Length > 0 && dtpNgLapThe.Text.Length > 0)
+            if (txbHoTen.Text.Length > 0 && txbDChi.Text.Length > 0 && txbEmail.Text.Length > 0 && dtpNgSinh.Text.Length > 0 && cbLoaiDG.Text.Length > 0 && dtpNgLapThe.Text.Length > 0)
             {
                 string query = "SELECT TuoiToiThieu FROM THAMSO ";
                 ketnoi(query);
@@ -298,6 +319,16 @@ namespace LibraryManage
                 {
                     errEmail.SetError(txbEmail, "Vui lòng nhập Email");
                 }
+                else
+                {
+                    errEmail.Clear();
+                }
+                if(!checkIsMail(txbEmail.Text))
+                {
+                    errEmail.SetError(txbEmail, "Vui lòng nhập Email");
+                    MessageBox.Show("Vui lòng nhập đúng định dạng email!", "Thông báo");
+                    return;
+                }    
                 else
                 {
                     errEmail.Clear();
