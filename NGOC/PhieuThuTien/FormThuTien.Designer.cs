@@ -120,6 +120,7 @@ namespace PhieuThuTien
             this.dgvDLPhieuThuTienPhat.Size = new System.Drawing.Size(1215, 304);
             this.dgvDLPhieuThuTienPhat.TabIndex = 29;
             this.dgvDLPhieuThuTienPhat.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dgvDLPhieuThuTienPhat.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDLPhieuThuTienPhat_CellContentClick);
             // 
             // label4
             // 

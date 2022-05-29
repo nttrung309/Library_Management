@@ -200,6 +200,8 @@ namespace PhieuThuTien
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            btnCapNhat.Enabled = true;
+            btnLuu.Enabled = false;
             DataGridViewRow row = new DataGridViewRow();
             if (e.RowIndex.ToString() != "-1")
             {
@@ -290,6 +292,11 @@ namespace PhieuThuTien
         }
 
         private void printPreviewDialog1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvDLPhieuThuTienPhat_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
