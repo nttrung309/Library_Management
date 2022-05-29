@@ -65,26 +65,17 @@ namespace PhieuThuTien
             txbConLai.Text = "";
             txbTongNo.Text = "";
             txbHoTen.Text = "";
+            btnCapNhat.Enabled = false;
+            btnLuu.Enabled = true;
             loadmagia();
             loadcbDocGia();
         }
 
         private void nButton1_Click(object sender, EventArgs e)
         {
-            int tr = 0;
-            for (int i = 0; i < dgvDLPhieuThuTienPhat.RowCount; i++)
-            {
-                if (txbMaPhieuthu.Text == dgvDLPhieuThuTienPhat.Rows[i].Cells[0].Value.ToString())
-                {       tr = 1;
-                break;
-            }
-            }
-            if (tr == 1)
-            {
-                MessageBox.Show("Mã Phiếu thu này đã tồn tại, vui lòng chọn tạo mã mới để có thể lưu");
-            }
-            else
-            {
+
+            btnCapNhat.Enabled = true;
+            btnLuu.Enabled = false;
                 DateTime a = new DateTime();
                 a = dtpNgayThu.Value;
                 string[] formattedStrings = a.GetDateTimeFormats();
@@ -117,7 +108,7 @@ namespace PhieuThuTien
                     }
                 }
 
-            }
+            
         }
         void loadPhieuThu()
         {
@@ -147,19 +138,21 @@ namespace PhieuThuTien
             a = dtpNgayThu.Value;
             string[] formattedStrings = a.GetDateTimeFormats();
             float c = float.Parse(txbTongNo.Text) - float.Parse(txbTienThu.Text);
-            command = connection.CreateCommand();
-            command.CommandText = "update docgia set TongNo+='" + own + "' where madocgia='" + cu + "'";
-            command.ExecuteNonQuery();
+      
+                command = connection.CreateCommand();
+                command.CommandText = "update docgia set TongNo+='" + own + "' where madocgia='" + cu + "'";
+                command.ExecuteNonQuery();
 
-            command = connection.CreateCommand();
-            command.CommandText = "update phieuthutien set MaDocGia='"+cbMaDocGia.Text+"',SoTienThu='"+txbTienThu.Text+"',ConLai='"+c+"',ngthu='"+ formattedStrings[6] + "' where maphieuthu='"+txbMaPhieuthu.Text+"'";
-            command.ExecuteNonQuery();
+                command = connection.CreateCommand();
+                command.CommandText = "update phieuthutien set MaDocGia='" + cbMaDocGia.Text + "',SoTienThu='" + txbTienThu.Text + "',ConLai='" + c + "',ngthu='" + formattedStrings[6] + "' where maphieuthu='" + txbMaPhieuthu.Text + "'";
+                command.ExecuteNonQuery();
 
-            command = connection.CreateCommand();
-            command.CommandText = "update docgia set TongNo='" + float.Parse(txbConLai.Text) + "' where madocgia='" + cbMaDocGia.Text + "'";
-            command.ExecuteNonQuery();
-            loadPhieuThu();
-
+                command = connection.CreateCommand();
+                command.CommandText = "update docgia set TongNo='" + float.Parse(txbConLai.Text) + "' where madocgia='" + cbMaDocGia.Text + "'";
+                command.ExecuteNonQuery();
+                loadPhieuThu();
+     
+      
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)

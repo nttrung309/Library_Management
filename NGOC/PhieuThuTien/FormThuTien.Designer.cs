@@ -251,7 +251,7 @@ namespace PhieuThuTien
             this.btnIn.Name = "btnIn";
             this.btnIn.Size = new System.Drawing.Size(117, 42);
             this.btnIn.TabIndex = 50;
-            this.btnIn.Text = "in";
+            this.btnIn.Text = "In Phiếu thu";
             this.btnIn.TextColor = System.Drawing.Color.White;
             this.btnIn.UseVisualStyleBackColor = false;
             this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
