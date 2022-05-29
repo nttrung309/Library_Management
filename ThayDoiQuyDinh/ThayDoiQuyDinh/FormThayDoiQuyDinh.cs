@@ -108,65 +108,81 @@ namespace ThayDoiQuyDinh
 
         private void textBox7_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
                 e.Handled = true;
+            }
+
+            // Nếu bạn muốn, bạn có thể cho phép nhập số thực với dấu chấm
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
 
         private void nButton1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Cập nhật quy định thành công");
-            if (txbThoiHanThe.Text != "")
+
+            if (txbMucThuTienPhat.Text != "" || txbSoNgayMuonMax.Text != "" || txbSoSachMuonMax.Text != "" || txbThoiGianLuuHanh.Text != "" || txbThoiHanThe.Text != "" || txbTuoiToiDa.Text != "" || txbTuoiToiThieu.Text != "")
             {
-                command = connection.CreateCommand();
-                command.CommandText = "update Thamso set ThoiHanThe='" + txbThoiHanThe.Text + "' ";
-                command.ExecuteNonQuery();
+                MessageBox.Show("Cập nhật quy định thành công");
+                if (txbThoiHanThe.Text != "")
+                {
+                    command = connection.CreateCommand();
+                    command.CommandText = "update Thamso set ThoiHanThe='" + txbThoiHanThe.Text + "' ";
+                    command.ExecuteNonQuery();
+                }
+                if (txbThoiGianLuuHanh.Text != "")
+                {
+                    command = connection.CreateCommand();
+                    command.CommandText = "update Thamso set ThoiGianLuuHanh='" + txbThoiGianLuuHanh.Text + "' ";
+                    command.ExecuteNonQuery();
+                }
+                if (txbTuoiToiDa.Text != "")
+                {
+                    command = connection.CreateCommand();
+                    command.CommandText = "update Thamso set TuoiToiDa='" + txbTuoiToiDa.Text + "' ";
+                    command.ExecuteNonQuery();
+                }
+                if (txbTuoiToiThieu.Text != "")
+                {
+                    command = connection.CreateCommand();
+                    command.CommandText = "update Thamso set TuoiToiThieu='" + txbTuoiToiThieu.Text + "' ";
+                    command.ExecuteNonQuery();
+                }
+                if (txbSoNgayMuonMax.Text != "")
+                {
+                    command = connection.CreateCommand();
+                    command.CommandText = "update Thamso set SoNgayMuonMax='" + txbSoNgayMuonMax.Text + "' ";
+                    command.ExecuteNonQuery();
+                }
+                if (txbSoSachMuonMax.Text != "")
+                {
+                    command = connection.CreateCommand();
+                    command.CommandText = "update Thamso set SoSachMuonMax='" + txbSoSachMuonMax.Text + "' ";
+                    command.ExecuteNonQuery();
+                }
+                if (txbMucThuTienPhat.Text != "")
+                {
+                    command = connection.CreateCommand();
+                    command.CommandText = "update Thamso set MucThuTienPhat='" + txbMucThuTienPhat.Text + "' ";
+                    command.ExecuteNonQuery();
+                }
+                txbThoiHanThe.Text = "";
+                txbThoiGianLuuHanh.Text = "";
+                txbTuoiToiDa.Text = "";
+                txbSoNgayMuonMax.Text = "";
+                txbTuoiToiThieu.Text = "";
+                txbSoSachMuonMax.Text = "";
+                txbMucThuTienPhat.Text = "";
+                loadQD();
             }
-            if (txbThoiGianLuuHanh.Text != "")
-            {
-                command = connection.CreateCommand();
-                command.CommandText = "update Thamso set ThoiGianLuuHanh='" + txbThoiGianLuuHanh.Text + "' ";
-                command.ExecuteNonQuery();
-            }
-            if (txbTuoiToiDa.Text != "")
-            {
-                command = connection.CreateCommand();
-                command.CommandText = "update Thamso set TuoiToiDa='" + txbTuoiToiDa.Text + "' ";
-                command.ExecuteNonQuery();
-            }
-            if (txbTuoiToiThieu.Text != "")
-            {
-                command = connection.CreateCommand();
-                command.CommandText = "update Thamso set TuoiToiThieu='" + txbTuoiToiThieu.Text + "' ";
-                command.ExecuteNonQuery();
-            }
-            if (txbSoNgayMuonMax.Text != "")
-            {
-                command = connection.CreateCommand();
-                command.CommandText = "update Thamso set SoNgayMuonMax='" + txbSoNgayMuonMax.Text + "' ";
-                command.ExecuteNonQuery();
-            }
-            if (txbSoSachMuonMax.Text != "")
-            {
-                command = connection.CreateCommand();
-                command.CommandText = "update Thamso set SoSachMuonMax='" + txbSoSachMuonMax.Text + "' ";
-                command.ExecuteNonQuery();
-            }
-            if (txbMucThuTienPhat.Text != "")
-            {
-                command = connection.CreateCommand();
-                command.CommandText = "update Thamso set MucThuTienPhat='" + txbMucThuTienPhat.Text + "' ";
-                command.ExecuteNonQuery();
-            }
-            txbThoiHanThe.Text = "";
-            txbThoiGianLuuHanh.Text = "";
-            txbTuoiToiDa.Text = "";
-            txbSoNgayMuonMax.Text = "";
-            txbTuoiToiThieu.Text = "";
-            txbSoSachMuonMax.Text = "";
-            txbMucThuTienPhat.Text = "";
-            loadQD();
-        
+            else
+                MessageBox.Show("Tất Cả Các ô đều đang trống, không thể cập nhật");
+
         }
+       
+        
 
         private void nButton3_Click(object sender, EventArgs e)
         {
@@ -174,7 +190,7 @@ namespace ThayDoiQuyDinh
           
             btnCapNhat.Hide();
         
-            panel2.Hide();
+
             label9.Text = "Danh Sách Loại Độc Giả";
             DataTable table1 = new DataTable();
             command = connection.CreateCommand();
@@ -192,7 +208,7 @@ namespace ThayDoiQuyDinh
            
             btnCapNhat.Show();
           
-            panel2.Show();
+  
             label9.Text = "Quy Định Hiện Hành ";
             gbQuyDinhHienHanh.DataSource = null;
         }
@@ -251,9 +267,76 @@ namespace ThayDoiQuyDinh
 
        
 
-        private void button1_Click(object sender, EventArgs e)
+    
+
+        private void txbSoNgayMuonMax_TextChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(this.Height.ToString() + " " + this.Width.ToString());
+            try
+            {
+                if (int.Parse(txbSoNgayMuonMax.Text) == 0)
+                {
+                    MessageBox.Show("Số Ngày mượn tối đa không được bằng 0");
+                }
+            }
+            catch
+            { }
+            txbSoNgayMuonMax.Text ="";
+        }
+
+        private void txbThoiHanThe_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (int.Parse(txbThoiHanThe.Text) == 0)
+                {
+                    MessageBox.Show("Giá Trị của thời gian thẻ không được bằng 0");
+                }
+            }
+            catch
+            { }
+            txbThoiHanThe.Text = "";
+        }
+
+        private void txbThoiGianLuuHanh_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (int.Parse(txbThoiGianLuuHanh.Text) == 0)
+                {
+                    MessageBox.Show("Thời gian lưu hành của sách không được bằng 0");
+                }
+            }
+            catch
+            { }
+            txbThoiGianLuuHanh.Text = "";
+        }
+
+        private void txbTuoiToiDa_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (int.Parse(txbTuoiToiDa.Text) == 0)
+                {
+                    MessageBox.Show("Tuổi tối đa của độc giả mượn sách không được bằng 0");
+                }
+            }
+            catch
+            { }
+            txbTuoiToiDa.Text = "";
+        }
+
+        private void txbSoSachMuonMax_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (int.Parse(txbSoSachMuonMax.Text) == 0)
+                {
+                    MessageBox.Show("Số sách mượn tối đa không được phép bằng 0");
+                }
+            }
+            catch
+            { }
+            txbSoSachMuonMax.Text = "";
         }
     }
 }
