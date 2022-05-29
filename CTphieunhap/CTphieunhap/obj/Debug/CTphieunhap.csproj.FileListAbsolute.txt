@@ -18,3 +18,13 @@ C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\CTphieunhap\CTphieunhap\
 C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\CTphieunhap\CTphieunhap\obj\Debug\CTphieunhap.csproj.CoreCompileInputs.cache
 C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\CTphieunhap\CTphieunhap\obj\Debug\CTphieunhap.exe
 C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\CTphieunhap\CTphieunhap\obj\Debug\CTphieunhap.pdb
+C:\Users\Admin\Desktop\Library_Management\CTphieunhap\CTphieunhap\bin\Debug\CTphieunhap.exe.config
+C:\Users\Admin\Desktop\Library_Management\CTphieunhap\CTphieunhap\bin\Debug\CTphieunhap.exe
+C:\Users\Admin\Desktop\Library_Management\CTphieunhap\CTphieunhap\bin\Debug\CTphieunhap.pdb
+C:\Users\Admin\Desktop\Library_Management\CTphieunhap\CTphieunhap\obj\Debug\CTphieunhap.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Library_Management\CTphieunhap\CTphieunhap\obj\Debug\CTphieunhap.Form1.resources
+C:\Users\Admin\Desktop\Library_Management\CTphieunhap\CTphieunhap\obj\Debug\CTphieunhap.Properties.Resources.resources
+C:\Users\Admin\Desktop\Library_Management\CTphieunhap\CTphieunhap\obj\Debug\CTphieunhap.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Library_Management\CTphieunhap\CTphieunhap\obj\Debug\CTphieunhap.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Library_Management\CTphieunhap\CTphieunhap\obj\Debug\CTphieunhap.exe
+C:\Users\Admin\Desktop\Library_Management\CTphieunhap\CTphieunhap\obj\Debug\CTphieunhap.pdb

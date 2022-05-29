@@ -15,7 +15,7 @@ namespace CTphieunhap
     {
 
         // Khai báo 
-        string chuoiKetNoi = @"Data Source=LAPTOP-281DQ5C3\SQLEXPRESS;Initial Catalog=QLTV;Integrated Security=True";
+        string chuoiKetNoi = @"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=QLTV;Integrated Security=True";
         private SqlConnection myConnection; // kết nối tới csdl
         private SqlDataAdapter myDataAdapter;   // Vận chuyển csdl qa DataSet
         private DataTable myTable;  // Dùng để lưu bảng lấy từ c#
@@ -150,6 +150,8 @@ namespace CTphieunhap
             btnCapNhat.Enabled = false;
             btnXoa.Enabled = false;
             btnLuu.Enabled = true;
+            loadMaPN();
+
         }
         private void themCuonSach(string maSach, string maCTPN)
         {
@@ -249,7 +251,7 @@ namespace CTphieunhap
              ketnoi(query);
              int tgXB = Convert.ToInt32(myCommand.ExecuteScalar());
 
-             if (DateTime.Now.Year - Convert.ToInt32(txbNamXB.Text) > tgXB)
+             if (txbNamXB.Text!=""&& DateTime.Now.Year - Convert.ToInt32(txbNamXB.Text) > tgXB)
              {
                  MessageBox.Show("Sách đã quá hạn thời gian lưu hành!");
                  return;
@@ -460,6 +462,42 @@ namespace CTphieunhap
                 else if (txbDonGia.Text.Length == 0)
                     txbDonGia.Focus();
 
+            }
+        }
+
+        private void txbSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txbDonGia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // Nếu bạn muốn, bạn có thể cho phép nhập số thực với dấu chấm
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txbSoLuong_TextChanged(object sender, EventArgs e)
+        {
+            if (txbDonGia.Text!=""&&txbSoLuong.Text!="")
+            {
+                txbThanhTien.Text = (float.Parse(txbDonGia.Text) * float.Parse(txbSoLuong.Text)).ToString();
+            }    
+        }
+
+        private void txbDonGia_TextChanged(object sender, EventArgs e)
+        {
+            if (txbDonGia.Text != "" && txbSoLuong.Text != "")
+            {
+                txbThanhTien.Text = (float.Parse(txbDonGia.Text) * float.Parse(txbSoLuong.Text)).ToString();
             }
         }
     }

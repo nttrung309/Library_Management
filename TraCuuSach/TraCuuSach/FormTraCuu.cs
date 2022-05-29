@@ -121,7 +121,7 @@ for (int i=1;i<=g.Columns.Count;i++)
             System.Data.DataTable table4 = new System.Data.DataTable();
             System.Data.DataTable table5 = new System.Data.DataTable();
             command = connection.CreateCommand();
-            command.CommandText = "select LEFT(MaCuonSach,6) as MS from CuonSach";
+            command.CommandText = "select LEFT(MaSach,6) as MS from Sach";
             adapter.SelectCommand = command;
             table1.Clear();
             adapter.Fill(table1);
@@ -165,13 +165,22 @@ for (int i=1;i<=g.Columns.Count;i++)
             System.Data.DataTable table13 = new System.Data.DataTable();
             System.Data.DataTable table14 = new System.Data.DataTable();
             command = connection.CreateCommand();
-            command.CommandText = "select ROW_NUMBER() OVER (ORDER BY MaCuonSach) AS [Số thứ tự],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from Tracuu ";
+            command.CommandText = "select ROW_NUMBER() OVER (ORDER BY MaSach) AS [Số thứ tự],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from Tracuu ";
             adapter.SelectCommand = command;
-            table11.Clear();
-            adapter.Fill(table11);
+            table.Clear();
+            adapter.Fill(table);
             dgvDanhSachCuonSach.DataSource = null;
-            dgvDanhSachCuonSach.DataSource = table11;
-
+            dgvDanhSachCuonSach.DataSource = table;
+            for (int i=0;i<dgvDanhSachCuonSach.Rows.Count;i++)
+            {
+                if (dgvDanhSachCuonSach.Rows[i].Cells[4].Value.ToString()=="1")
+                {
+                    dgvDanhSachCuonSach.Rows[i].Cells[4].Value = "Đang Mượn";
+                }    
+                else
+                    dgvDanhSachCuonSach.Rows[i].Cells[4].Value = "Chưa Mượn";
+            }    
+          
             command = connection.CreateCommand();
             command.CommandText = "select count (*) from TraCuu";
             adapter.SelectCommand = command;
@@ -202,6 +211,8 @@ for (int i=1;i<=g.Columns.Count;i++)
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            btnApDung.Enabled = false;
+            btnHuy.Enabled = false;
             connection = new SqlConnection(str);
             connection.Open();
             this.btnHuy.BorderRadius = 20;
@@ -212,29 +223,20 @@ for (int i=1;i<=g.Columns.Count;i++)
             command = connection.CreateCommand();
             command.CommandText = "drop table if exists TraCuu ";
             command.ExecuteNonQuery();
+          
             command = connection.CreateCommand();
-            command.CommandText = "drop table if exists TraCuu2 ";
+            command.CommandText = "create table TraCuu(MaSach varchar(50),TenDauSach nvarchar(100),TenTheLoai nvarchar(100),TenTacGia nvarchar(100),TinhTrang varchar(50)) ";
             command.ExecuteNonQuery();
-            command.CommandText = "drop table if exists TraCuu3 ";
+            command.CommandText = "insert into TraCuu select left(CS.MaSach, 6) , TenDauSach,TenTheLoai , TenTacGia ,TinhTrang from SACH as S, DAUSACH as DS,CuonSach as CS, TheLoai as TL,TacGia as TG, CTTacGia as CT where CT.MaTacGia=TG.MaTacGia and CT.MaDauSach=DS.MaDauSach and DS.MaTheLoai=TL.MaTheLoai and S.MaSach=CS.MaSach and S.MaDauSach=DS.MaDauSach  ";
             command.ExecuteNonQuery();
-
-            command = connection.CreateCommand();
-            command.CommandText = "create table TraCuu(MaCuonSach varchar(50),TenDauSach nvarchar(100),TenTheLoai nvarchar(100),TenTacGia nvarchar(100),TinhTrang bit) ";
-            command.ExecuteNonQuery();
-            command.CommandText = "insert into TraCuu select left(CS.MaCuonSach, 6) , TenDauSach,TenTheLoai , TenTacGia ,TinhTrang from SACH as S, DAUSACH as DS,CuonSach as CS, TheLoai as TL,TacGia as TG, CTTacGia as CT where CT.MaTacGia=TG.MaTacGia and CT.MaDauSach=DS.MaDauSach and DS.MaTheLoai=TL.MaTheLoai and S.MaSach=CS.MaSach and S.MaDauSach=DS.MaDauSach  ";
-            command.ExecuteNonQuery();
-            command = connection.CreateCommand();
-            command.CommandText = "create table TraCuu2(MaCuonSach varchar(50),TenDauSach nvarchar(100),TenTheLoai nvarchar(100),TenTacGia nvarchar(100),TinhTrang bit) ";
-            command.ExecuteNonQuery();
-            command = connection.CreateCommand();
-            command.CommandText = "create table TraCuu3(MaCuonSach varchar(50),TenDauSach nvarchar(100),TenTheLoai nvarchar(100),TenTacGia nvarchar(100),TinhTrang bit) ";
-            command.ExecuteNonQuery();
+           
             LoadDataGridView();
         }
       
         private void but2_Click(object sender, EventArgs e)
         {
-            string s1 = "", s2 = "", s3 = "", s4 = "", s5 = "";
+             
+                string s1 = "", s2 = "", s3 = "", s4 = "", s5 = "";
             if (cbMaSach.Text != "")
                 s1 = cbMaSach.Text;//MaSach
             if (cbTheLoai.Text != "")
@@ -245,91 +247,61 @@ for (int i=1;i<=g.Columns.Count;i++)
                 s4 = cbTacGia.Text;//MaTacGia
             if (cbTinhTrang.Text != "")
                 s5 = cbTinhTrang.Text;//TenTinhTrang
-            command.CommandText = "insert into Tracuu2 select *from Tracuu";
             command.ExecuteNonQuery();
+            if ((radioButton1.Checked==true && s1 == "") || (radioButton2.Checked == true && s3 == "") || (radioButton4.Checked == true && s2 == "") || (radioButton3.Checked == true && s4 == "") || (radioButton5.Checked == true && s5 == ""))
+            {
+                MessageBox.Show("Bạn đang để trống giá trị Lọc");
+            }
             if (s1 != "")
             {
-                command.CommandText = "insert into Tracuu3 select *from Tracuu where MaCuonSach='"+s1+"'intersect select * from TraCuu2";
+                command.CommandText = "Select ROW_NUMBER() OVER (ORDER BY MaSach) AS [Số thứ tự],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from TraCuu where MaSach='"+s1+"'";
                 command.ExecuteNonQuery();
-                command.CommandText = "delete TraCuu2";
-                command.ExecuteNonQuery();
-                command.CommandText = "insert into TraCuu2 select * from TraCuu3";
-                command.ExecuteNonQuery();
-                command.CommandText = "delete TraCuu3";
-                command.ExecuteNonQuery();
+
             }
             if (s2 != "")
             {
-                command.CommandText = "insert into Tracuu3 select *from Tracuu2 intersect select * from TraCuu where TenTheLoai=N'" + s2 + "' ";
-                command.ExecuteNonQuery();
-                command.CommandText = "delete TraCuu2";
-                command.ExecuteNonQuery();
-                command.CommandText = "insert into TraCuu2 select * from TraCuu3";
-                command.ExecuteNonQuery();
-                command.CommandText = "delete TraCuu3";
+                command.CommandText = "Select ROW_NUMBER() OVER (ORDER BY MaSach) AS [Số thứ tự],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from TraCuu where TenTheLoai=N'" + s2 + "'";
                 command.ExecuteNonQuery();
 
             }
             if (s3 != "")
             {
-                command.CommandText = "insert into Tracuu3 select *from Tracuu2 intersect select * from TraCuu where TenDauSach=N'" + s3 + "' ";
-                command.ExecuteNonQuery();
-                command.CommandText = "delete TraCuu2";
-                command.ExecuteNonQuery();
-                command.CommandText = "insert into TraCuu2 select * from TraCuu3";
-                command.ExecuteNonQuery();
-                command.CommandText = "delete TraCuu3";
+                command.CommandText = "Select ROW_NUMBER() OVER (ORDER BY MaSach) AS [Số thứ tự],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from TraCuu where TenDauSach=N'" + s3 + "'";
                 command.ExecuteNonQuery();
             }
             if (s4 != "")
             {
-                command.CommandText = "insert into Tracuu3 select *from Tracuu2 intersect select * from TraCuu where TenTacGia=N'" + s4 + "' ";
-                command.ExecuteNonQuery();
-                command.CommandText = "delete TraCuu2";
-                command.ExecuteNonQuery();
-                command.CommandText = "insert into TraCuu2 select * from TraCuu3";
-                command.ExecuteNonQuery();
-                command.CommandText = "delete TraCuu3";
+                command.CommandText = "Select ROW_NUMBER() OVER (ORDER BY MaSach) AS [Số thứ tự],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from TraCuu where TenTacGia=N'" + s4 + "'";
                 command.ExecuteNonQuery();
             }
             if (s5 != "")
             {
-                if (s5 == "Đang Mượn")
-                    command.CommandText = "insert into Tracuu3 select *from Tracuu2 intersect select * from TraCuu where TinhTrang='1' ";
+                if (s5=="Đang Mượn")
+                command.CommandText = "Select ROW_NUMBER() OVER (ORDER BY MaSach) AS [Số thứ tự],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from TraCuu where TinhTrang='1'";
                 else
-                    if (s5 == "Đã Trả")
-                    command.CommandText = "insert into Tracuu3 select *from Tracuu2 intersect select * from TraCuu where TinhTrang='0' ";
-                command.ExecuteNonQuery();
-                command.CommandText = "delete TraCuu2";
-                command.ExecuteNonQuery();
-                command.CommandText = "insert into TraCuu2 select * from TraCuu3";
-                command.ExecuteNonQuery();
-                command.CommandText = "delete TraCuu3";
+                    if (s5=="Chưa Mượn")
+                    command.CommandText = "Select ROW_NUMBER() OVER (ORDER BY MaSach) AS [Số thứ tự],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from TraCuu where TinhTrang='0'";
                 command.ExecuteNonQuery();
             }
-            System.Data.DataTable table10 = new System.Data.DataTable();
-            command = connection.CreateCommand();
-            command.CommandText = "select count (*) from TraCuu2";
-            adapter.SelectCommand = command;
-            table10.Clear();
-            adapter.Fill(table10);
-            if (table10.Rows[0].ItemArray[0].ToString() == "0")
-                MessageBox.Show("Không tìm thấy nội dung thỏa yêu cầu");
-            else
+  
+           
+            if (s1 != "" || s3 != "" || s2 != "" || s4 != "" || s5 != "")
+            {
                 MessageBox.Show("Đây là kết quả dựa trên bộ lộc bạn đã chọn");
-            command.CommandText = "Select ROW_NUMBER() OVER (ORDER BY MaCuonSach) AS [Số thứ tự],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from TraCuu2";
-            adapter.SelectCommand = command;
-            table.Clear();
-            adapter.Fill(table);
-            dgvDanhSachCuonSach.DataSource = table;
+                table.Clear();
+                adapter.Fill(table);
 
-      
-            command.CommandText = "delete TraCuu2";
-            command.ExecuteNonQuery();
-            command.CommandText = "delete TraCuu3";
-            command.ExecuteNonQuery();
-
-          
+                dgvDanhSachCuonSach.DataSource = table;
+                for (int i = 0; i < dgvDanhSachCuonSach.Rows.Count; i++)
+                {
+                    if (dgvDanhSachCuonSach.Rows[i].Cells[4].Value.ToString() == "1")
+                    {
+                        dgvDanhSachCuonSach.Rows[i].Cells[4].Value = "Đang Mượn";
+                    }
+                    else
+                        dgvDanhSachCuonSach.Rows[i].Cells[4].Value = "Chưa Mượn";
+                }
+            }
         }
 
         private void but1_Click(object sender, EventArgs e)
@@ -341,14 +313,25 @@ for (int i=1;i<=g.Columns.Count;i++)
             cbTacGia.Text = "";
             cbTenSach.Text = "";
             MessageBox.Show("Bạn đã hủy áp dụng bộ lọc thành công");
-            command.CommandText = "Select ROW_NUMBER() OVER (ORDER BY MaCuonSach) AS [Số thứ tự],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from TraCuu";
+            command.CommandText = "Select ROW_NUMBER() OVER (ORDER BY MaSach) AS [Số thứ tự],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from TraCuu";
             adapter.SelectCommand = command;
             System.Data.DataTable a = new System.Data.DataTable();
             a.Clear();
             adapter.Fill(a);
             dgvDanhSachCuonSach.DataSource = null;
             dgvDanhSachCuonSach.DataSource = a;
+        
 
+
+                for (int i = 0; i < dgvDanhSachCuonSach.Rows.Count; i++)
+                {
+                    if (dgvDanhSachCuonSach.Rows[i].Cells[4].Value.ToString() == "1")
+                    {
+                        dgvDanhSachCuonSach.Rows[i].Cells[4].Value = "Đang Mượn";
+                    }
+                    else
+                        dgvDanhSachCuonSach.Rows[i].Cells[4].Value = "Chưa Mượn";
+                }
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -364,6 +347,8 @@ for (int i=1;i<=g.Columns.Count;i++)
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
+            btnApDung.Enabled = true;
+            btnHuy.Enabled = true;
             if (radioButton1.Checked == true)
                 cbMaSach.Enabled = true;
             else
@@ -373,6 +358,8 @@ for (int i=1;i<=g.Columns.Count;i++)
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
+            btnApDung.Enabled = true;
+            btnHuy.Enabled = true;
             if (radioButton4.Checked == true)
                 cbTheLoai.Enabled = true;
             else
@@ -382,6 +369,8 @@ for (int i=1;i<=g.Columns.Count;i++)
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
+            btnApDung.Enabled = true;
+            btnHuy.Enabled = true;
             if (radioButton2.Checked == true)
                 cbTenSach.Enabled = true;
             else
@@ -391,6 +380,8 @@ for (int i=1;i<=g.Columns.Count;i++)
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
+            btnApDung.Enabled = true;
+            btnHuy.Enabled = true;
             if (radioButton3.Checked == true)
                 cbTacGia.Enabled = true;
             else
@@ -400,6 +391,8 @@ for (int i=1;i<=g.Columns.Count;i++)
 
         private void radioButton5_CheckedChanged(object sender, EventArgs e)
         {
+            btnApDung.Enabled = true;
+            btnHuy.Enabled = true;
             if (radioButton5.Checked == true)
                 cbTinhTrang.Enabled = true;
             else
@@ -422,6 +415,11 @@ for (int i=1;i<=g.Columns.Count;i++)
 
             }
        
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
