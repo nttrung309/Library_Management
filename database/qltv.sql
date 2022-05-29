@@ -104,9 +104,81 @@ CREATE TABLE SACH (
 	MaDauSach Varchar(50) not null,
 	NhaXuatBan Nvarchar(100) not null,
 	NamXuatBan int not null,
-	SoLuong int not null,
+	SoLuong int default (0),
 	TriGia money not null
 	)
+
+	CREATE FUNCTION [dbo].[AUTO_MCTPN]()--
+RETURNS VARCHAR(8)
+AS
+BEGIN
+	DECLARE @ID VARCHAR(8)
+	IF (SELECT COUNT(MaCTPN) FROM CT_PHIEUNHAP) = 0--
+		SET @ID = '0'
+	ELSE
+		SELECT @ID = MAX(RIGHT(MaCTPN, 3)) FROM CT_PHIEUNHAP--
+		SELECT @ID = CASE
+			WHEN @ID >= 0 and @ID < 9 THEN 'MCTPN00' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
+			WHEN @ID >= 9 THEN 'MCTPN0' + CONVERT(CHAR, CONVERT(INT, @ID) + 1)--
+		END
+	RETURN @ID
+END
+go
+CREATE TABLE CT_PHIEUNHAP(
+	MaCTPN Varchar(50) primary key default ([dbo].[AUTO_MCTPN]()),
+	MaPhieuNhapSach Varchar(50) not null,
+	MaSach Varchar(50) not null,
+	SoLuong int not null,
+	DonGia money not null,
+	)
+	alter table CT_PHIEUNHAP
+add ThanhTien as (DonGia*SoLuong) 
+
+
+CREATE TRIGGER trig7 ON CT_PHIEUNHAP for INSERT AS 
+BEGIN
+	UPDATE SACH
+	SET soluong =SACH.soluong+(
+		SELECT inserted.soluong
+		FROM inserted,SACH
+			where SACH.MaSach=inserted.MaSach
+	)
+	from SACH
+	join inserted On SACH.MaSach=inserted.MaSach
+END
+GO
+
+CREATE TRIGGER trig8 ON CT_PHIEUNHAP for DELETE AS 
+BEGIN
+	UPDATE SACH
+	SET soluong =SACH.soluong-(
+		SELECT deleted.soluong
+		FROM deleted,SACH
+			where SACH.MaSach=deleted.MaSach
+	)
+	from SACH
+	join deleted On SACH.MaSach=deleted.MaSach
+END
+GO
+
+CREATE TRIGGER trig9 ON CT_PHIEUNHAP for update AS 
+BEGIN
+	UPDATE SACH
+	SET soluong =SACH.soluong-(
+		SELECT deleted.soluong
+		FROM deleted,SACH
+			where SACH.MaSach=deleted.MaSach
+	)+
+(
+		SELECT inserted.soluong
+		FROM inserted,SACH
+			where SACH.MaSach=inserted.MaSach
+	)
+			
+	from SACH
+	join deleted On SACH.MaSach=deleted.MaSach
+END
+GO
 	-----------------
 	CREATE FUNCTION [dbo].[AUTO_CS]()--
 RETURNS VARCHAR(6)
@@ -316,8 +388,6 @@ CREATE TABLE PHIEUNHAPSACH (
 	NgLap date not null,
 	TongTien money default (0)
 	)
-	alter table PHIEUNHAPSACH
-	add constraint macdinh default(0) for tongtien;
 	-------------------
 CREATE FUNCTION [dbo].[AUTO_MCTPN]()--
 RETURNS VARCHAR(8)
@@ -428,7 +498,7 @@ BEGIN
 			where PHIEUNHAPSACH.MaPhieuNhapSach=deleted.MaPhieuNhapSach
 	)
 	from PHIEUNHAPSACH
-	join inserted On PHIEUNHAPSACH.MAPHIEUNHAPSACH=inserted.MAPHIEUNHAPSACH
+	join deleted On PHIEUNHAPSACH.MAPHIEUNHAPSACH=deleted.MAPHIEUNHAPSACH
 END
 GO
 CREATE TRIGGER trig3 ON CT_PHIEUNHAP for update AS 
@@ -446,7 +516,7 @@ BEGIN
 	)
 			
 	from PHIEUNHAPSACH
-	join inserted On PHIEUNHAPSACH.MAPHIEUNHAPSACH=inserted.MAPHIEUNHAPSACH
+	join deleted On PHIEUNHAPSACH.MAPHIEUNHAPSACH=deleted.MAPHIEUNHAPSACH
 END
 GO
 CREATE TABLE CTBCMS(
@@ -517,7 +587,7 @@ insert into DAUSACH (TenDauSach,MaTheLoai) values (N'Tắt Đèn','MTL002')
 insert into DAUSACH (TenDauSach,MaTheLoai) values (N'Số Đỏ','MTL003')
 insert into DAUSACH (TenDauSach,MaTheLoai) values (N'Chí Phèo','MTL002')
 insert into DAUSACH (TenDauSach,MaTheLoai) values (N'Nhà Giả Kim','MTL002')
-insert into DAUSACH (TenDauSach,MaTheLoai) values (N'Đời Thay Đổi Khi Chúng Ta Thay Đổi','MTL001')
+insert into DAUSACH (TenDauSach,MaTheLoai) values (N'Đời Thay Đổi','MTL001')
 insert into DAUSACH (TenDauSach,MaTheLoai) values (N'Vợ Nhặt','MTL002')
 insert into DAUSACH (TenDauSach,MaTheLoai) values (N'Sống Mòn','MTL001')
 insert into DAUSACH (TenDauSach,MaTheLoai) values (N'Thơ Thơ','MTL003')
@@ -536,16 +606,16 @@ insert into CTTACGIA values ('MDS009','MTG010')
 insert into CTTACGIA values ('MDS010','MTG007')
 
 ---------------------------------------------------------
-insert into SACH (MaDauSach,NhaXuatBan,NamXuatBan,SoLuong,TriGia) values ('MDS001',N'Nhà Xuất Bản Trẻ','2018','1','100000')
-insert into SACH (MaDauSach,NhaXuatBan,NamXuatBan,SoLuong,TriGia) values ('MDS002',N'Nhà Xuất Bản Văn Học','2019','1','100000')
-insert into SACH (MaDauSach,NhaXuatBan,NamXuatBan,SoLuong,TriGia) values ('MDS003',N'Nhà Xuất Bản Văn Học','2019','1','200000')
-insert into SACH (MaDauSach,NhaXuatBan,NamXuatBan,SoLuong,TriGia) values ('MDS004',N'Nhà Xuất Bản Văn Học','2018','1','150000')
-insert into SACH (MaDauSach,NhaXuatBan,NamXuatBan,SoLuong,TriGia) values ('MDS005',N'Nhà Xuất Bản Văn Học','2019','1','100000')
-insert into SACH (MaDauSach,NhaXuatBan,NamXuatBan,SoLuong,TriGia) values ('MDS006',N'Nhà Xuất Bản Trẻ','2020','1','105000')
-insert into SACH (MaDauSach,NhaXuatBan,NamXuatBan,SoLuong,TriGia) values ('MDS007',N'Nhà Xuất Bản Văn Học','2021','1','100000')
-insert into SACH (MaDauSach,NhaXuatBan,NamXuatBan,SoLuong,TriGia) values ('MDS008',N'Nhà Xuất Bản Văn Học','2020','1','120000')
-insert into SACH (MaDauSach,NhaXuatBan,NamXuatBan,SoLuong,TriGia) values ('MDS009',N'Nhà Xuất Bản Văn Học','2019','1','170000')
-insert into SACH (MaDauSach,NhaXuatBan,NamXuatBan,SoLuong,TriGia) values ('MDS010',N'Nhà Xuất Bản Văn Học','2020','1','150000')
+insert into SACH (MaDauSach,NhaXuatBan,NamXuatBan,TriGia) values ('MDS001',N'NXB Trẻ','2018','100000')
+insert into SACH (MaDauSach,NhaXuatBan,NamXuatBan,TriGia) values ('MDS002',N'NXB Văn Học','2019','100000')
+insert into SACH (MaDauSach,NhaXuatBan,NamXuatBan,TriGia) values ('MDS003',N'NXB Văn Học','2019','200000')
+insert into SACH (MaDauSach,NhaXuatBan,NamXuatBan,TriGia) values ('MDS004',N'NXB Văn Học','2018','150000')
+insert into SACH (MaDauSach,NhaXuatBan,NamXuatBan,TriGia) values ('MDS005',N'NXB Văn Học','2019','100000')
+insert into SACH (MaDauSach,NhaXuatBan,NamXuatBan,TriGia) values ('MDS006',N'NXB Trẻ','2020','105000')
+insert into SACH (MaDauSach,NhaXuatBan,NamXuatBan,TriGia) values ('MDS007',N'NXB Văn Học','2021','100000')
+insert into SACH (MaDauSach,NhaXuatBan,NamXuatBan,TriGia) values ('MDS008',N'NXB Văn Học','2020','120000')
+insert into SACH (MaDauSach,NhaXuatBan,NamXuatBan,TriGia) values ('MDS009',N'NXB Văn Học','2019','170000')
+insert into SACH (MaDauSach,NhaXuatBan,NamXuatBan,TriGia) values ('MDS010',N'NXB Văn Học','2020','150000')
 ---------------------------------------------------------
 insert into CUONSACH (MaSach,TinhTrang) values ('MS001','1')
 insert into CUONSACH (MaSach,TinhTrang) values ('MS002','1')
@@ -561,19 +631,19 @@ insert into CUONSACH (MaSach,TinhTrang) values ('MS010','1')
 ---------------------------------------------------------
 insert into THAMSO values ('6','18','55','8','4','5','1000')
 ----------------------------------------------------------
-insert into LOAIDOCGIA(TenLoaiDocGia) values (N'Học Sinh')
+insert into LOAIDOCGIA(TenLoaiDocGia) values (N'Sinh Viên')
 insert into LOAIDOCGIA(TenLoaiDocGia) values (N'Giảng Viên')
 ---------------------------------------------------------
-insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Nguyễn Phúc Khang','MLDG001','10/5/2001',N'Hồ Chí Minh',N'Khang001@gmail.com','2-1-2022','0')
-insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Nguyễn Văn Pháp','MLDG001','22/5/2002',N'Đông Hòa, Dĩ An',N'PhapNguyen@gmail.com','12/3/2022','0')
-insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Nguyễn Khúc Thùy Tiên','MLDG001','1/2/2000',N'khu phố 9, Linh Trung, Thủ Đức',N'TienHoaHau@gmail.com','1/4/2022','0')
-insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Trần Đình Phúc','MLDG002','23/6/1999',N'Linh Trung, Thủ Đức',N'PhucBoy@gmail.com','13/4/2022','0')
-insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Nguyễn Thị Linh','MLDG002','2/1/1998',N'Bình Dương',N'LinhCute@gmail.com','10/4/2022','0')
-insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Trần Bảo Ngọc','MLDG001','1/1/2000',N'Hồ Chí Minh',N'NgocIUI@gmail.com','13/4/2022','0')
-insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Nguyễn Hoàng Linh Chi','MLDG002','1/10/1997',N'Khu phố 7,Linh Trung, Thủ Đức',N'LinhChi1997@gmail.com','1/5/2022','0')
-insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Trần Dư Gia Bảo','MLDG001','8/1/2002',N'Linh Trung, Thủ Đức',N'BaoVip@gmail.com','5/5/2022','0')
-insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Nguyễn Cát Thiên Di','MLDG001','20/02/2002',N'Hồ Chí Minh',N'DiThien00@gmail.com','6/5/2022','0')
-insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Hoàng Ngọc Bảo Tiên','MLDG002','1/2/1991',N'Hồ Chí Minh',N'TienTien@gmail.com','10/5/2022','0')
+insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Nguyễn Phúc Khang','MLDG001','10/5/2001',N'Hồ Chí Minh',N'NguyenVanA@gmail.com','2-1-2022','0')
+insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Nguyễn Văn Pháp','MLDG001','22/5/2002',N'Bình Dương',N'NguyenVanB@gmail.com','12/3/2022','0')
+insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Nguyễn Khúc Thùy Tiên','MLDG001','1/2/2000',N'Thủ Đức',N'NguyenVanC@gmail.com','1/4/2022','0')
+insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Trần Đình Phúc','MLDG002','23/6/1999',N'Thủ Đức',N'NguyenVanD@gmail.com','13/4/2022','0')
+insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Nguyễn Thị Linh','MLDG002','2/1/1998',N'Bình Dương',N'NguyenVanE@gmail.com','10/4/2022','0')
+insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Trần Bảo Ngọc','MLDG001','1/1/2000',N'Hồ Chí Minh',N'NguyenVanF@gmail.com','13/4/2022','0')
+insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Nguyễn Hoàng Linh Chi','MLDG002','1/10/1997',N'Thủ Đức',N'NguyenVanG@gmail.com','1/5/2022','0')
+insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Trần Dư Gia Bảo','MLDG001','8/1/2002',N'Thủ Đức',N'NGuyenVanH@gmail.com','5/5/2022','0')
+insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Nguyễn Cát Thiên Di','MLDG001','20/02/2002',N'Hồ Chí Minh',N'NguyenVanI@gmail.com','6/5/2022','0')
+insert into DOCGIA (Hoten,MaLoaiDocGia,NgSinh,DChi,Email,NgLapThe,TongNo) values (N'Hoàng Ngọc Bảo Tiên','MLDG002','1/2/1991',N'Hồ Chí Minh',N'NguyenVanK@gmail.com','10/5/2022','0')
 ---------------------------------------------------------
 insert into PHIEUMUON (MaDocgia,NgMuon,HanTra) values ('DG001','11/1/2022','15/1/2022')
 insert into PHIEUMUON (MaDocgia,NgMuon,HanTra) values ('DG002','15/3/2022','19/3/2022')
@@ -648,7 +718,6 @@ insert into CTBCMS (MaBaoCaoMuonSach,MaTheLoai,SoLuotMuon,TiLe) values ('MBCMS00
 insert into CTBCMS (MaBaoCaoMuonSach,MaTheLoai,SoLuotMuon,TiLe) values ('MBCMS004','MTL002','2','0.2')
 insert into CTBCMS (MaBaoCaoMuonSach,MaTheLoai,SoLuotMuon,TiLe) values ('MBCMS004','MTL003','1','0.1')
 ---------------------------------------------------------
-
 ---------------------------------------------------------
 
 ---------------------------------------------------------
