@@ -37,6 +37,10 @@ namespace formdausach
             this.cbTenTL = new System.Windows.Forms.ComboBox();
             this.cbMaTL = new System.Windows.Forms.ComboBox();
             this.lbMaTL = new System.Windows.Forms.Label();
+            this.btnXoa = new CustomButton.VBButton();
+            this.btnCapNhat = new CustomButton.VBButton();
+            this.btnLuu = new CustomButton.VBButton();
+            this.btnThemMoi = new CustomButton.VBButton();
             this.txb_MaDauSach = new System.Windows.Forms.TextBox();
             this.lb_TenTheLoai = new System.Windows.Forms.Label();
             this.txb_TenDauSach = new System.Windows.Forms.TextBox();
@@ -48,10 +52,6 @@ namespace formdausach
             this.errMaTL = new System.Windows.Forms.ErrorProvider(this.components);
             this.errTenTL = new System.Windows.Forms.ErrorProvider(this.components);
             this.dgvDauSach = new System.Windows.Forms.DataGridView();
-            this.btnXoa = new CustomButton.VBButton();
-            this.btnCapNhat = new CustomButton.VBButton();
-            this.btnLuu = new CustomButton.VBButton();
-            this.btnThemMoi = new CustomButton.VBButton();
             this.gb_TtDauSach.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errTenDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errMaTL)).BeginInit();
@@ -115,6 +115,88 @@ namespace formdausach
             this.lbMaTL.TabIndex = 13;
             this.lbMaTL.Text = "Mã Thể Loại:";
             // 
+            // btnXoa
+            // 
+            this.btnXoa.BackColor = System.Drawing.Color.LightCoral;
+            this.btnXoa.BackgroundColor = System.Drawing.Color.LightCoral;
+            this.btnXoa.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnXoa.BorderRadius = 20;
+            this.btnXoa.BorderSize = 0;
+            this.btnXoa.FlatAppearance.BorderSize = 0;
+            this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXoa.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.btnXoa.ForeColor = System.Drawing.Color.White;
+            this.btnXoa.Location = new System.Drawing.Point(280, 425);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(175, 50);
+            this.btnXoa.TabIndex = 12;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.TextColor = System.Drawing.Color.White;
+            this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // btnCapNhat
+            // 
+            this.btnCapNhat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+            this.btnCapNhat.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+            this.btnCapNhat.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCapNhat.BorderRadius = 20;
+            this.btnCapNhat.BorderSize = 0;
+            this.btnCapNhat.FlatAppearance.BorderSize = 0;
+            this.btnCapNhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCapNhat.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.btnCapNhat.ForeColor = System.Drawing.Color.White;
+            this.btnCapNhat.Location = new System.Drawing.Point(67, 425);
+            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.Size = new System.Drawing.Size(175, 50);
+            this.btnCapNhat.TabIndex = 11;
+            this.btnCapNhat.Text = "Cập Nhật";
+            this.btnCapNhat.TextColor = System.Drawing.Color.White;
+            this.btnCapNhat.UseVisualStyleBackColor = false;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click_1);
+            // 
+            // btnLuu
+            // 
+            this.btnLuu.AccessibleName = "BtLuu";
+            this.btnLuu.BackColor = System.Drawing.Color.Violet;
+            this.btnLuu.BackgroundColor = System.Drawing.Color.Violet;
+            this.btnLuu.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnLuu.BorderRadius = 20;
+            this.btnLuu.BorderSize = 0;
+            this.btnLuu.FlatAppearance.BorderSize = 0;
+            this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLuu.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.btnLuu.ForeColor = System.Drawing.Color.White;
+            this.btnLuu.Location = new System.Drawing.Point(280, 330);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(175, 50);
+            this.btnLuu.TabIndex = 10;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.TextColor = System.Drawing.Color.White;
+            this.btnLuu.UseVisualStyleBackColor = false;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            // 
+            // btnThemMoi
+            // 
+            this.btnThemMoi.AccessibleName = "BtThemmoi";
+            this.btnThemMoi.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnThemMoi.BackgroundColor = System.Drawing.Color.YellowGreen;
+            this.btnThemMoi.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnThemMoi.BorderRadius = 20;
+            this.btnThemMoi.BorderSize = 0;
+            this.btnThemMoi.FlatAppearance.BorderSize = 0;
+            this.btnThemMoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThemMoi.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.btnThemMoi.ForeColor = System.Drawing.Color.White;
+            this.btnThemMoi.Location = new System.Drawing.Point(67, 330);
+            this.btnThemMoi.Name = "btnThemMoi";
+            this.btnThemMoi.Size = new System.Drawing.Size(175, 50);
+            this.btnThemMoi.TabIndex = 9;
+            this.btnThemMoi.Text = "Thêm mới";
+            this.btnThemMoi.TextColor = System.Drawing.Color.White;
+            this.btnThemMoi.UseVisualStyleBackColor = false;
+            this.btnThemMoi.Click += new System.EventHandler(this.btnThemMoi_Click);
+            // 
             // txb_MaDauSach
             // 
             this.txb_MaDauSach.BackColor = System.Drawing.Color.LightGray;
@@ -143,6 +225,7 @@ namespace formdausach
             this.txb_TenDauSach.Name = "txb_TenDauSach";
             this.txb_TenDauSach.Size = new System.Drawing.Size(296, 34);
             this.txb_TenDauSach.TabIndex = 4;
+            this.txb_TenDauSach.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_TenDauSach_KeyPress);
             // 
             // lb_MaDauSach
             // 
@@ -247,88 +330,6 @@ namespace formdausach
             this.dgvDauSach.Size = new System.Drawing.Size(719, 589);
             this.dgvDauSach.TabIndex = 58;
             this.dgvDauSach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDauSach_CellClick);
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.BackColor = System.Drawing.Color.LightCoral;
-            this.btnXoa.BackgroundColor = System.Drawing.Color.LightCoral;
-            this.btnXoa.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnXoa.BorderRadius = 20;
-            this.btnXoa.BorderSize = 0;
-            this.btnXoa.FlatAppearance.BorderSize = 0;
-            this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnXoa.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(280, 425);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(175, 50);
-            this.btnXoa.TabIndex = 12;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.TextColor = System.Drawing.Color.White;
-            this.btnXoa.UseVisualStyleBackColor = false;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-            // 
-            // btnCapNhat
-            // 
-            this.btnCapNhat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-            this.btnCapNhat.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-            this.btnCapNhat.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnCapNhat.BorderRadius = 20;
-            this.btnCapNhat.BorderSize = 0;
-            this.btnCapNhat.FlatAppearance.BorderSize = 0;
-            this.btnCapNhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCapNhat.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.btnCapNhat.ForeColor = System.Drawing.Color.White;
-            this.btnCapNhat.Location = new System.Drawing.Point(67, 425);
-            this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(175, 50);
-            this.btnCapNhat.TabIndex = 11;
-            this.btnCapNhat.Text = "Cập Nhật";
-            this.btnCapNhat.TextColor = System.Drawing.Color.White;
-            this.btnCapNhat.UseVisualStyleBackColor = false;
-            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click_1);
-            // 
-            // btnLuu
-            // 
-            this.btnLuu.AccessibleName = "BtLuu";
-            this.btnLuu.BackColor = System.Drawing.Color.Violet;
-            this.btnLuu.BackgroundColor = System.Drawing.Color.Violet;
-            this.btnLuu.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnLuu.BorderRadius = 20;
-            this.btnLuu.BorderSize = 0;
-            this.btnLuu.FlatAppearance.BorderSize = 0;
-            this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLuu.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.Location = new System.Drawing.Point(280, 330);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(175, 50);
-            this.btnLuu.TabIndex = 10;
-            this.btnLuu.Text = "Lưu";
-            this.btnLuu.TextColor = System.Drawing.Color.White;
-            this.btnLuu.UseVisualStyleBackColor = false;
-            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
-            // 
-            // btnThemMoi
-            // 
-            this.btnThemMoi.AccessibleName = "BtThemmoi";
-            this.btnThemMoi.BackColor = System.Drawing.Color.YellowGreen;
-            this.btnThemMoi.BackgroundColor = System.Drawing.Color.YellowGreen;
-            this.btnThemMoi.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnThemMoi.BorderRadius = 20;
-            this.btnThemMoi.BorderSize = 0;
-            this.btnThemMoi.FlatAppearance.BorderSize = 0;
-            this.btnThemMoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThemMoi.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.btnThemMoi.ForeColor = System.Drawing.Color.White;
-            this.btnThemMoi.Location = new System.Drawing.Point(67, 330);
-            this.btnThemMoi.Name = "btnThemMoi";
-            this.btnThemMoi.Size = new System.Drawing.Size(175, 50);
-            this.btnThemMoi.TabIndex = 9;
-            this.btnThemMoi.Text = "Thêm mới";
-            this.btnThemMoi.TextColor = System.Drawing.Color.White;
-            this.btnThemMoi.UseVisualStyleBackColor = false;
-            this.btnThemMoi.Click += new System.EventHandler(this.btnThemMoi_Click);
             // 
             // Form1
             // 

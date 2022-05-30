@@ -41,11 +41,11 @@ namespace FormTacGia
             this.label1 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.errTenTG = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnXoa = new ThayDoiQuyDinh.nButton();
             this.btnCapNhat = new ThayDoiQuyDinh.nButton();
             this.btnLuu = new ThayDoiQuyDinh.nButton();
             this.btnThemMoi = new ThayDoiQuyDinh.nButton();
+            this.errTenTG = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTacGia)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errTenTG)).BeginInit();
@@ -129,6 +129,7 @@ namespace FormTacGia
             this.txbTenTG.Name = "txbTenTG";
             this.txbTenTG.Size = new System.Drawing.Size(296, 34);
             this.txbTenTG.TabIndex = 4;
+            this.txbTenTG.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbTenTG_KeyPress);
             // 
             // txbMaTG
             // 
@@ -180,10 +181,6 @@ namespace FormTacGia
             this.groupBox1.TabIndex = 48;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin Tác Giả";
-            // 
-            // errTenTG
-            // 
-            this.errTenTG.ContainerControl = this;
             // 
             // btnXoa
             // 
@@ -264,6 +261,10 @@ namespace FormTacGia
             this.btnThemMoi.TextColor = System.Drawing.Color.White;
             this.btnThemMoi.UseVisualStyleBackColor = false;
             this.btnThemMoi.Click += new System.EventHandler(this.btnThemMoi_Click);
+            // 
+            // errTenTG
+            // 
+            this.errTenTG.ContainerControl = this;
             // 
             // Form1
             // 

@@ -565,7 +565,11 @@ ALTER TABLE CTBCMS ADD CONSTRAINT FK_CTBCMS01 FOREIGN KEY (MaBaoCaoMuonSach) REF
 ALTER TABLE BCTRATRE ADD CONSTRAINT FK_BCTT FOREIGN KEY (MaCuonSach) REFERENCES CUONSACH(MaCuonSach)
 ALTER TABLE BCTRATRE ADD CONSTRAINT FK_BCTT02 FOREIGN KEY (MaPhieuMuonSach) REFERENCES PHIEUMUON(MaPhieuMuonSach)
 ------------------
-
+ALTER TABLE dbo.CUONSACH ADD MaCTPN VARCHAR(50)
+ALTER TABLE dbo.CUONSACH ADD CONSTRAINT cs_fk FOREIGN KEY (MaCTPN) REFERENCES dbo.CT_PHIEUNHAP(MaCTPN)
+exec sp_DeleteAllData
+---------------------------------------------------------
+insert into PHIEUNHAPSACH (NgLap) values ('1/5/2015')
 ---------------------------------------------------------
 insert into TACGIA (TenTacGia) values (N'Nguyễn Nhật Ánh')
 insert into TACGIA (TenTacGia) values (N'Dale Caregie')
@@ -616,18 +620,28 @@ insert into SACH (MaDauSach,NhaXuatBan,NamXuatBan,TriGia) values ('MDS007',N'NXB
 insert into SACH (MaDauSach,NhaXuatBan,NamXuatBan,TriGia) values ('MDS008',N'NXB Văn Học','2020','120000')
 insert into SACH (MaDauSach,NhaXuatBan,NamXuatBan,TriGia) values ('MDS009',N'NXB Văn Học','2019','170000')
 insert into SACH (MaDauSach,NhaXuatBan,NamXuatBan,TriGia) values ('MDS010',N'NXB Văn Học','2020','150000')
+insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS001','1','100000')
+insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS002','1','100000')
+insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS003','1','200000')
+insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS004','1','150000')
+insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS005','1','100000')
+insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS006','1','105000')
+insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS007','1','100000')
+insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS008','1','120000')
+insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS009','1','170000')
+insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS010','1','150000')
 ---------------------------------------------------------
-insert into CUONSACH (MaSach,TinhTrang) values ('MS001','1')
-insert into CUONSACH (MaSach,TinhTrang) values ('MS002','1')
-insert into CUONSACH (MaSach,TinhTrang) values ('MS003','1')
-insert into CUONSACH (MaSach,TinhTrang) values ('MS004','1')
-insert into CUONSACH (MaSach,TinhTrang) values ('MS005','1')
-insert into CUONSACH (MaSach,TinhTrang) values ('MS006','1')
-insert into CUONSACH (MaSach,TinhTrang) values ('MS007','1')
-insert into CUONSACH (MaSach,TinhTrang) values ('MS008','1')
-insert into CUONSACH (MaSach,TinhTrang) values ('MS009','1')
-insert into CUONSACH (MaSach,TinhTrang) values ('MS010','1')
-
+insert into CUONSACH (MaSach,TinhTrang,MaCTPN) values ('MS001','1','MCTPN001')
+insert into CUONSACH (MaSach,TinhTrang,MaCTPN) values ('MS002','1','MCTPN002')
+insert into CUONSACH (MaSach,TinhTrang,MaCTPN) values ('MS003','1','MCTPN003')
+insert into CUONSACH (MaSach,TinhTrang,MaCTPN) values ('MS004','1','MCTPN004')
+insert into CUONSACH (MaSach,TinhTrang,MaCTPN) values ('MS005','1','MCTPN005')
+insert into CUONSACH (MaSach,TinhTrang,MaCTPN) values ('MS006','1','MCTPN006')
+insert into CUONSACH (MaSach,TinhTrang,MaCTPN) values ('MS007','1','MCTPN007')
+insert into CUONSACH (MaSach,TinhTrang,MaCTPN) values ('MS008','1','MCTPN008')
+insert into CUONSACH (MaSach,TinhTrang,MaCTPN) values ('MS009','1','MCTPN009')
+insert into CUONSACH (MaSach,TinhTrang,MaCTPN) values ('MS010','1','MCTPN010')
+---------------------------------------------------------
 ---------------------------------------------------------
 insert into THAMSO values ('6','18','55','8','4','5','1000')
 ----------------------------------------------------------
@@ -692,19 +706,6 @@ insert into CTPT (MaPhieuTraSach,MaCuonSach,MaPhieuMuonSach,SoNgayMuon,TienPhat)
 ('MPTS010','MCS010','MPMS010','1','0')
 ---------------------------------------------------------
 
-insert into PHIEUNHAPSACH (NgLap) values ('1/5/2015')
----------------------------------------------------------
-insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS001','1','100000')
-insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS002','1','100000')
-insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS003','1','200000')
-insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS004','1','150000')
-insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS005','1','100000')
-insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS006','1','105000')
-insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS007','1','100000')
-insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS008','1','120000')
-insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS009','1','170000')
-insert into CT_PHIEUNHAP (MaPhieuNhapSach,MaSach,SoLuong,DonGia) values ('MPNS001','MS010','1','150000')
----------------------------------------------------------
 insert into BAOCAOMUONSACH ( ThangNam,TongSoLuotMuon) values ('3/1/2022','1')
 insert into BAOCAOMUONSACH ( ThangNam,TongSoLuotMuon) values ('3/3/2022','1')
 insert into BAOCAOMUONSACH ( ThangNam,TongSoLuotMuon) values ('30/4/2022','3')
@@ -719,6 +720,8 @@ insert into CTBCMS (MaBaoCaoMuonSach,MaTheLoai,SoLuotMuon,TiLe) values ('MBCMS00
 insert into CTBCMS (MaBaoCaoMuonSach,MaTheLoai,SoLuotMuon,TiLe) values ('MBCMS004','MTL003','1','0.1')
 ---------------------------------------------------------
 ---------------------------------------------------------
+
+
 
 ---------------------------------------------------------
 

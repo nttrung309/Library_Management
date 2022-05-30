@@ -188,13 +188,13 @@ for (int i=1;i<=g.Columns.Count;i++)
             adapter.Fill(table12);
             label12.Text = table12.Rows[0].ItemArray[0].ToString();
 
-            command.CommandText = "select count (*) as sl from (select count(*) as SH from TRACUU group by TenTheLoai) as B";
+            command.CommandText = "select count (*) from dausach";
             adapter.SelectCommand = command;
             table13.Clear();
             adapter.Fill(table13);
             label13.Text = table13.Rows[0].ItemArray[0].ToString();
 
-            command.CommandText = "select count (*) as sl1 from (select count(*) as SH1 from TRACUU group by TenTacGia) as T";
+            command.CommandText = "select count(*) from tracuu where TinhTrang=1";
             adapter.SelectCommand = command;
             table14.Clear();
             adapter.Fill(table14);
@@ -420,6 +420,20 @@ for (int i=1;i<=g.Columns.Count;i++)
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbTenSach_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.AutoComplete(this.cbTenSach, e, true);
+        }
+
+        private void cbTacGia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.AutoComplete(this.cbTacGia, e, true);
+        }
+
+        private void cbTinhTrang_KeyPress(object sender, KeyPressEventArgs e)
+        {
         }
     }
 }

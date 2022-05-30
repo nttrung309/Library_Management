@@ -14,7 +14,7 @@ namespace FormTacGia
     public partial class Form1 : Form
     {
         // Khai báo 
-        string chuoiKetNoi = @"Data Source=LAPTOP-281DQ5C3\SQLEXPRESS;Initial Catalog=QLTV;Integrated Security=True";
+        string chuoiKetNoi = @"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=QLTV;Integrated Security=True";
         private SqlConnection myConnection; // kết nối tới csdl
         private SqlDataAdapter myDataAdapter;   // Vận chuyển csdl qa DataSet
         private DataTable myTable;  // Dùng để lưu bảng lấy từ c#
@@ -230,6 +230,14 @@ namespace FormTacGia
         private void btnXoa_Click(object sender, EventArgs e)
         {
             xoaTG();
+        }
+
+        private void txbTenTG_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) ||char.IsSurrogate(e.KeyChar))
+                e.Handled = true;
+            if (e.KeyChar == 8||e.KeyChar==13)
+                e.Handled = false;
         }
     }
 }

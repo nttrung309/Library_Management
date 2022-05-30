@@ -32,32 +32,32 @@ namespace ThayDoiQuyDinh
          
                 s += " tháng";
             
-            label17.Text = s;
+            lbthoihan.Text = s;
             s = "";
             s += table.Rows[0].ItemArray[3].ToString();
             s += " năm";
-            label18.Text = s;
+            lbLuuHanh.Text = s;
             s = "";
             s += table.Rows[0].ItemArray[2].ToString();
             s += " tuổi";
-            label19.Text = s;
+            lbTuoiMax.Text = s;
             s = "";
             s += table.Rows[0].ItemArray[1].ToString();
             s += " tuổi";
-            label20.Text = s;
+            lbTuoiMin.Text = s;
             s = "";
             s += table.Rows[0].ItemArray[4].ToString();
             s += " ngày";
-            label21.Text = s;
+            lbNgayMax.Text = s;
             s = "";
             s += table.Rows[0].ItemArray[5].ToString();
             s += " cuốn";
-            label22.Text = s;
+            lbSachMax.Text = s;
 
             s = "";
             s += table.Rows[0].ItemArray[6].ToString();
             s += " đồng";
-            label23.Text = s;
+            lbTien.Text = s;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -125,48 +125,74 @@ namespace ThayDoiQuyDinh
 
             if (txbMucThuTienPhat.Text != "" || txbSoNgayMuonMax.Text != "" || txbSoSachMuonMax.Text != "" || txbThoiGianLuuHanh.Text != "" || txbThoiHanThe.Text != "" || txbTuoiToiDa.Text != "" || txbTuoiToiThieu.Text != "")
             {
-                MessageBox.Show("Cập nhật quy định thành công");
+           
                 if (txbThoiHanThe.Text != "")
                 {
-                    command = connection.CreateCommand();
-                    command.CommandText = "update Thamso set ThoiHanThe='" + txbThoiHanThe.Text + "' ";
-                    command.ExecuteNonQuery();
+                        command = connection.CreateCommand();
+                        command.CommandText = "update Thamso set ThoiHanThe='" + txbThoiHanThe.Text + "' ";
+                        command.ExecuteNonQuery(); MessageBox.Show("Cập nhật quy định thành công");
                 }
                 if (txbThoiGianLuuHanh.Text != "")
                 {
                     command = connection.CreateCommand();
                     command.CommandText = "update Thamso set ThoiGianLuuHanh='" + txbThoiGianLuuHanh.Text + "' ";
-                    command.ExecuteNonQuery();
+                    command.ExecuteNonQuery(); MessageBox.Show("Cập nhật quy định thành công");
                 }
                 if (txbTuoiToiDa.Text != "")
                 {
+                    DataTable a = new DataTable();
                     command = connection.CreateCommand();
-                    command.CommandText = "update Thamso set TuoiToiDa='" + txbTuoiToiDa.Text + "' ";
-                    command.ExecuteNonQuery();
+                    command.CommandText = "select Tuoitoithieu from thamso";
+                    adapter.SelectCommand = command;
+                    a.Clear();
+                    adapter.Fill(a);
+                    if (int.Parse(a.Rows[0].ItemArray[0].ToString()) > int.Parse(txbTuoiToiDa.Text))
+                    {
+                        MessageBox.Show("quy định về tuổi tối đa không được phép nhỏ hơn tuổi tối thiểu");
+                    }
+                    else
+                    {
+                        command = connection.CreateCommand();
+                        command.CommandText = "update Thamso set TuoiToiDa='" + txbTuoiToiDa.Text + "' ";
+                        command.ExecuteNonQuery();
+                        MessageBox.Show("Cập nhật quy định thành công");
+                    }
                 }
                 if (txbTuoiToiThieu.Text != "")
                 {
+                    DataTable b = new DataTable();
                     command = connection.CreateCommand();
+                    command.CommandText = "select TuoiToiDa from thamso";
+                    adapter.SelectCommand = command;
+                    b.Clear();
+                    adapter.Fill(b);
+                    if (int.Parse(b.Rows[0].ItemArray[0].ToString()) < int.Parse(txbTuoiToiThieu.Text))
+                    {
+                        MessageBox.Show("quy định về tuổi tối đa không được phép nhỏ hơn tuổi tối thiểu");
+                    }
+                   else 
+                    {   command = connection.CreateCommand();
                     command.CommandText = "update Thamso set TuoiToiThieu='" + txbTuoiToiThieu.Text + "' ";
-                    command.ExecuteNonQuery();
+                    command.ExecuteNonQuery(); MessageBox.Show("Cập nhật quy định thành công");
+                }
                 }
                 if (txbSoNgayMuonMax.Text != "")
                 {
                     command = connection.CreateCommand();
                     command.CommandText = "update Thamso set SoNgayMuonMax='" + txbSoNgayMuonMax.Text + "' ";
-                    command.ExecuteNonQuery();
+                    command.ExecuteNonQuery(); MessageBox.Show("Cập nhật quy định thành công");
                 }
                 if (txbSoSachMuonMax.Text != "")
                 {
                     command = connection.CreateCommand();
                     command.CommandText = "update Thamso set SoSachMuonMax='" + txbSoSachMuonMax.Text + "' ";
-                    command.ExecuteNonQuery();
+                    command.ExecuteNonQuery(); MessageBox.Show("Cập nhật quy định thành công");
                 }
                 if (txbMucThuTienPhat.Text != "")
                 {
                     command = connection.CreateCommand();
-                    command.CommandText = "update Thamso set MucThuTienPhat='" + txbMucThuTienPhat.Text + "' ";
-                    command.ExecuteNonQuery();
+                    command.CommandText = "update Thamso set MucThuTienPhat='" + double.Parse(txbMucThuTienPhat.Text) + "' ";
+                    command.ExecuteNonQuery(); MessageBox.Show("Cập nhật quy định thành công");
                 }
                 txbThoiHanThe.Text = "";
                 txbThoiGianLuuHanh.Text = "";
@@ -191,7 +217,7 @@ namespace ThayDoiQuyDinh
             btnCapNhat.Hide();
         
 
-            label9.Text = "Danh Sách Loại Độc Giả";
+            lbTieuDe1.Text = "Danh Sách Loại Độc Giả";
             DataTable table1 = new DataTable();
             command = connection.CreateCommand();
             command.CommandText = "select MaLoaiDocGia as [Mã Loại],TenLoaiDocGia as [Tên Loại Độc Giả] from LoaiDocGia";
@@ -209,7 +235,7 @@ namespace ThayDoiQuyDinh
             btnCapNhat.Show();
           
   
-            label9.Text = "Quy Định Hiện Hành ";
+            lbTieuDe1.Text = "Quy Định Hiện Hành ";
             gbQuyDinhHienHanh.DataSource = null;
         }
 
@@ -235,7 +261,7 @@ namespace ThayDoiQuyDinh
         }
         private void nButton4_Click(object sender, EventArgs e)
         {
-            label9.Text = "Danh Sách Loại Độc Giả";
+            lbTieuDe1.Text = "Danh Sách Loại Độc Giả";
             loadDocGia();
             label24.Text = "Tên Loại Độc Giả";
       
@@ -243,7 +269,7 @@ namespace ThayDoiQuyDinh
 
         private void nButton5_Click(object sender, EventArgs e)
         {
-            label9.Text = "Danh Sách Thể Loại Sách";
+            lbTieuDe1.Text = "Danh Sách Thể Loại Sách";
             loadTheLoai();
             label24.Text = "Tên Thể Loại Sách";
        
@@ -290,11 +316,12 @@ namespace ThayDoiQuyDinh
                 if (int.Parse(txbThoiHanThe.Text) == 0)
                 {
                     MessageBox.Show("Giá Trị của thời gian thẻ không được bằng 0");
+                    txbThoiHanThe.Text = "";
                 }
             }
             catch
             { }
-            txbThoiHanThe.Text = "";
+        
         }
 
         private void txbThoiGianLuuHanh_TextChanged(object sender, EventArgs e)
@@ -303,12 +330,12 @@ namespace ThayDoiQuyDinh
             {
                 if (int.Parse(txbThoiGianLuuHanh.Text) == 0)
                 {
-                    MessageBox.Show("Thời gian lưu hành của sách không được bằng 0");
+                    MessageBox.Show("Thời gian lưu hành của sách không được bằng 0"); txbThoiGianLuuHanh.Text = "";
                 }
             }
             catch
             { }
-            txbThoiGianLuuHanh.Text = "";
+          
         }
 
         private void txbTuoiToiDa_TextChanged(object sender, EventArgs e)
@@ -317,12 +344,12 @@ namespace ThayDoiQuyDinh
             {
                 if (int.Parse(txbTuoiToiDa.Text) == 0)
                 {
-                    MessageBox.Show("Tuổi tối đa của độc giả mượn sách không được bằng 0");
+                    MessageBox.Show("Tuổi tối đa của độc giả mượn sách không được bằng 0"); txbTuoiToiDa.Text = "";
                 }
             }
             catch
             { }
-            txbTuoiToiDa.Text = "";
+           
         }
 
         private void txbSoSachMuonMax_TextChanged(object sender, EventArgs e)
@@ -331,12 +358,12 @@ namespace ThayDoiQuyDinh
             {
                 if (int.Parse(txbSoSachMuonMax.Text) == 0)
                 {
-                    MessageBox.Show("Số sách mượn tối đa không được phép bằng 0");
+                    MessageBox.Show("Số sách mượn tối đa không được phép bằng 0"); txbSoSachMuonMax.Text = "";
                 }
             }
             catch
             { }
-            txbSoSachMuonMax.Text = "";
+      
         }
     }
 }

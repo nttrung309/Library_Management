@@ -14,7 +14,7 @@ namespace formdausach
     public partial class Form1 : Form
     {
         // Khai báo 
-        string chuoiKetNoi = @"Data Source=LAPTOP-281DQ5C3\SQLEXPRESS;Initial Catalog=QLTV;Integrated Security=True";
+        string chuoiKetNoi = @"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=QLTV;Integrated Security=True";
         private SqlConnection myConnection; // kết nối tới csdl
         private SqlDataAdapter myDataAdapter;   // Vận chuyển csdl qa DataSet
         private DataTable myTable;  // Dùng để lưu bảng lấy từ c#
@@ -308,6 +308,12 @@ namespace formdausach
             ketnoi(cauTruyVan);
             string maTL = Convert.ToString(myCommand.ExecuteScalar());
             cbMaTL.Text = maTL;
+        }
+
+        private void txb_TenDauSach_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar))
+                e.Handled = true;
         }
     }
 }
