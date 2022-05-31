@@ -165,7 +165,8 @@ for (int i=1;i<=g.Columns.Count;i++)
             System.Data.DataTable table13 = new System.Data.DataTable();
             System.Data.DataTable table14 = new System.Data.DataTable();
             command = connection.CreateCommand();
-            command.CommandText = "select ROW_NUMBER() OVER (ORDER BY MaSach) AS [Số thứ tự],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from Tracuu ";
+            command.CommandText = "select ROW_NUMBER() OVER (ORDER BY MaSach) AS [Số thứ tự],masach as [Mã Cuốn " +
+                "Sách],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from Tracuu ";
             adapter.SelectCommand = command;
             table.Clear();
             adapter.Fill(table);
@@ -173,12 +174,12 @@ for (int i=1;i<=g.Columns.Count;i++)
             dgvDanhSachCuonSach.DataSource = table;
             for (int i=0;i<dgvDanhSachCuonSach.Rows.Count;i++)
             {
-                if (dgvDanhSachCuonSach.Rows[i].Cells[4].Value.ToString()=="1")
+                if (dgvDanhSachCuonSach.Rows[i].Cells[5].Value.ToString()=="1")
                 {
-                    dgvDanhSachCuonSach.Rows[i].Cells[4].Value = "Đang Mượn";
+                    dgvDanhSachCuonSach.Rows[i].Cells[5].Value = "Đang Mượn";
                 }    
                 else
-                    dgvDanhSachCuonSach.Rows[i].Cells[4].Value = "Chưa Mượn";
+                    dgvDanhSachCuonSach.Rows[i].Cells[5].Value = "Chưa Mượn";
             }    
           
             command = connection.CreateCommand();
@@ -227,7 +228,7 @@ for (int i=1;i<=g.Columns.Count;i++)
             command = connection.CreateCommand();
             command.CommandText = "create table TraCuu(MaSach varchar(50),TenDauSach nvarchar(100),TenTheLoai nvarchar(100),TenTacGia nvarchar(100),TinhTrang varchar(50)) ";
             command.ExecuteNonQuery();
-            command.CommandText = "insert into TraCuu select left(CS.MaSach, 6) , TenDauSach,TenTheLoai , TenTacGia ,TinhTrang from SACH as S, DAUSACH as DS,CuonSach as CS, TheLoai as TL,TacGia as TG, CTTacGia as CT where CT.MaTacGia=TG.MaTacGia and CT.MaDauSach=DS.MaDauSach and DS.MaTheLoai=TL.MaTheLoai and S.MaSach=CS.MaSach and S.MaDauSach=DS.MaDauSach  ";
+            command.CommandText = "insert into TraCuu select left(CS.MaCuonSach, 6) , TenDauSach,TenTheLoai , TenTacGia ,TinhTrang from SACH as S, DAUSACH as DS,CuonSach as CS, TheLoai as TL,TacGia as TG, CTTacGia as CT where CT.MaTacGia=TG.MaTacGia and CT.MaDauSach=DS.MaDauSach and DS.MaTheLoai=TL.MaTheLoai and S.MaSach=CS.MaSach and S.MaDauSach=DS.MaDauSach  ";
             command.ExecuteNonQuery();
            
             LoadDataGridView();
@@ -254,33 +255,33 @@ for (int i=1;i<=g.Columns.Count;i++)
             }
             if (s1 != "")
             {
-                command.CommandText = "Select ROW_NUMBER() OVER (ORDER BY MaSach) AS [Số thứ tự],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from TraCuu where MaSach='"+s1+"'";
+                command.CommandText = "Select ROW_NUMBER() OVER (ORDER BY t.MaSach) AS [Số thứ tự],t.masach as [Mã Cuốn Sách],t.TenDauSach as [Tên Sách],t.TenTheLoai as [Thể Loại],t.TenTacGia as [Tác Giả],t.TinhTrang as [Tình Trạng] from TraCuu as t,sach as s,cuonsach as cs where s.MaSach='"+s1+"' and cs.masach=s.masach and t.masach=cs.macuonsach";
                 command.ExecuteNonQuery();
 
             }
             if (s2 != "")
             {
-                command.CommandText = "Select ROW_NUMBER() OVER (ORDER BY MaSach) AS [Số thứ tự],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from TraCuu where TenTheLoai=N'" + s2 + "'";
+                command.CommandText = "Select ROW_NUMBER() OVER (ORDER BY MaSach) AS [Số thứ tự],masach as [Mã Cuốn Sách],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from TraCuu where TenTheLoai=N'" + s2 + "'";
                 command.ExecuteNonQuery();
 
             }
             if (s3 != "")
             {
-                command.CommandText = "Select ROW_NUMBER() OVER (ORDER BY MaSach) AS [Số thứ tự],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from TraCuu where TenDauSach=N'" + s3 + "'";
+                command.CommandText = "Select ROW_NUMBER() OVER (ORDER BY MaSach) AS [Số thứ tự],masach as [Mã Cuốn Sách],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from TraCuu where TenDauSach=N'" + s3 + "'";
                 command.ExecuteNonQuery();
             }
             if (s4 != "")
             {
-                command.CommandText = "Select ROW_NUMBER() OVER (ORDER BY MaSach) AS [Số thứ tự],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from TraCuu where TenTacGia=N'" + s4 + "'";
+                command.CommandText = "Select ROW_NUMBER() OVER (ORDER BY MaSach) AS [Số thứ tự],masach as [Mã Cuốn Sách],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from TraCuu where TenTacGia=N'" + s4 + "'";
                 command.ExecuteNonQuery();
             }
             if (s5 != "")
             {
                 if (s5=="Đang Mượn")
-                command.CommandText = "Select ROW_NUMBER() OVER (ORDER BY MaSach) AS [Số thứ tự],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from TraCuu where TinhTrang='1'";
+                command.CommandText = "Select ROW_NUMBER() OVER (ORDER BY MaSach) AS [Số thứ tự],masach as [Mã Cuốn Sách],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from TraCuu where TinhTrang='1'";
                 else
                     if (s5=="Chưa Mượn")
-                    command.CommandText = "Select ROW_NUMBER() OVER (ORDER BY MaSach) AS [Số thứ tự],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from TraCuu where TinhTrang='0'";
+                    command.CommandText = "Select ROW_NUMBER() OVER (ORDER BY MaSach) AS [Số thứ tự],masach as [Mã Cuốn Sách],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from TraCuu where TinhTrang='0'";
                 command.ExecuteNonQuery();
             }
   
@@ -294,12 +295,12 @@ for (int i=1;i<=g.Columns.Count;i++)
                 dgvDanhSachCuonSach.DataSource = table;
                 for (int i = 0; i < dgvDanhSachCuonSach.Rows.Count; i++)
                 {
-                    if (dgvDanhSachCuonSach.Rows[i].Cells[4].Value.ToString() == "1")
+                    if (dgvDanhSachCuonSach.Rows[i].Cells[5].Value.ToString() == "1")
                     {
-                        dgvDanhSachCuonSach.Rows[i].Cells[4].Value = "Đang Mượn";
+                        dgvDanhSachCuonSach.Rows[i].Cells[5].Value = "Đang Mượn";
                     }
                     else
-                        dgvDanhSachCuonSach.Rows[i].Cells[4].Value = "Chưa Mượn";
+                        dgvDanhSachCuonSach.Rows[i].Cells[5].Value = "Chưa Mượn";
                 }
             }
         }
@@ -313,7 +314,7 @@ for (int i=1;i<=g.Columns.Count;i++)
             cbTacGia.Text = "";
             cbTenSach.Text = "";
             MessageBox.Show("Bạn đã hủy áp dụng bộ lọc thành công");
-            command.CommandText = "Select ROW_NUMBER() OVER (ORDER BY MaSach) AS [Số thứ tự],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from TraCuu";
+            command.CommandText = "Select ROW_NUMBER() OVER (ORDER BY MaSach) AS [Số thứ tự],masach as [Mã Cuốn Sách],TenDauSach as [Tên Sách],TenTheLoai as [Thể Loại],TenTacGia as [Tác Giả],TinhTrang as [Tình Trạng] from TraCuu";
             adapter.SelectCommand = command;
             System.Data.DataTable a = new System.Data.DataTable();
             a.Clear();
@@ -325,12 +326,12 @@ for (int i=1;i<=g.Columns.Count;i++)
 
                 for (int i = 0; i < dgvDanhSachCuonSach.Rows.Count; i++)
                 {
-                    if (dgvDanhSachCuonSach.Rows[i].Cells[4].Value.ToString() == "1")
+                    if (dgvDanhSachCuonSach.Rows[i].Cells[5].Value.ToString() == "1")
                     {
-                        dgvDanhSachCuonSach.Rows[i].Cells[4].Value = "Đang Mượn";
+                        dgvDanhSachCuonSach.Rows[i].Cells[5].Value = "Đang Mượn";
                     }
                     else
-                        dgvDanhSachCuonSach.Rows[i].Cells[4].Value = "Chưa Mượn";
+                        dgvDanhSachCuonSach.Rows[i].Cells[5].Value = "Chưa Mượn";
                 }
         }
 

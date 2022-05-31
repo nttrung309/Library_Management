@@ -29,9 +29,9 @@ namespace TraCuuSach
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle79 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle80 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle81 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbTieude1 = new System.Windows.Forms.Label();
             this.lbTieuDe = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,6 +44,11 @@ namespace TraCuuSach
             this.lbTongSoTheLoai = new System.Windows.Forms.Label();
             this.lbTongSoTacGia = new System.Windows.Forms.Label();
             this.gbBoLoc = new TraCuuSach.VBButton();
+            this.radioButton5 = new TraCuuSach.RJRadioButton();
+            this.radioButton3 = new TraCuuSach.RJRadioButton();
+            this.radioButton2 = new TraCuuSach.RJRadioButton();
+            this.radioButton1 = new TraCuuSach.RJRadioButton();
+            this.radioButton4 = new TraCuuSach.RJRadioButton();
             this.cbTenSach = new System.Windows.Forms.ComboBox();
             this.btnXuatExcel = new TraCuuSach.But();
             this.btnHuy = new TraCuuSach.But();
@@ -57,11 +62,6 @@ namespace TraCuuSach
             this.cbMaSach = new System.Windows.Forms.ComboBox();
             this.cbTheLoai = new System.Windows.Forms.ComboBox();
             this.lbTinhTrang = new System.Windows.Forms.Label();
-            this.radioButton4 = new TraCuuSach.RJRadioButton();
-            this.radioButton3 = new TraCuuSach.RJRadioButton();
-            this.radioButton1 = new TraCuuSach.RJRadioButton();
-            this.radioButton2 = new TraCuuSach.RJRadioButton();
-            this.radioButton5 = new TraCuuSach.RJRadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachCuonSach)).BeginInit();
             this.gbThongKe.SuspendLayout();
             this.gbBoLoc.SuspendLayout();
@@ -82,11 +82,11 @@ namespace TraCuuSach
             // 
             this.lbTieuDe.AutoSize = true;
             this.lbTieuDe.BackColor = System.Drawing.Color.Transparent;
-            this.lbTieuDe.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold);
+            this.lbTieuDe.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTieuDe.ForeColor = System.Drawing.Color.Navy;
-            this.lbTieuDe.Location = new System.Drawing.Point(532, 19);
+            this.lbTieuDe.Location = new System.Drawing.Point(515, 10);
             this.lbTieuDe.Name = "lbTieuDe";
-            this.lbTieuDe.Size = new System.Drawing.Size(250, 51);
+            this.lbTieuDe.Size = new System.Drawing.Size(293, 60);
             this.lbTieuDe.TabIndex = 3;
             this.lbTieuDe.Text = "Tra Cứu Sách";
             // 
@@ -115,23 +115,23 @@ namespace TraCuuSach
             this.dgvDanhSachCuonSach.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvDanhSachCuonSach.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvDanhSachCuonSach.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle79.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle79.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle79.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle79.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle79.SelectionBackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle79.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle79.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDanhSachCuonSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle79;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Cyan;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDanhSachCuonSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDanhSachCuonSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle80.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle80.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle80.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle80.ForeColor = System.Drawing.Color.Chocolate;
-            dataGridViewCellStyle80.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle80.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle80.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDanhSachCuonSach.DefaultCellStyle = dataGridViewCellStyle80;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Chocolate;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDanhSachCuonSach.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDanhSachCuonSach.EnableHeadersVisualStyles = false;
             this.dgvDanhSachCuonSach.GridColor = System.Drawing.Color.Navy;
             this.dgvDanhSachCuonSach.Location = new System.Drawing.Point(42, 436);
@@ -139,12 +139,13 @@ namespace TraCuuSach
             this.dgvDanhSachCuonSach.ReadOnly = true;
             this.dgvDanhSachCuonSach.RowHeadersVisible = false;
             this.dgvDanhSachCuonSach.RowHeadersWidth = 51;
-            dataGridViewCellStyle81.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle81.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle81.ForeColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle81.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(90)))), ((int)(((byte)(114)))));
-            dataGridViewCellStyle81.SelectionForeColor = System.Drawing.SystemColors.Control;
-            this.dgvDanhSachCuonSach.RowsDefaultCellStyle = dataGridViewCellStyle81;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(90)))), ((int)(((byte)(114)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDanhSachCuonSach.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDanhSachCuonSach.RowTemplate.Height = 24;
             this.dgvDanhSachCuonSach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDanhSachCuonSach.Size = new System.Drawing.Size(1176, 276);
@@ -268,6 +269,91 @@ namespace TraCuuSach
             this.gbBoLoc.Size = new System.Drawing.Size(847, 294);
             this.gbBoLoc.TabIndex = 8;
             this.gbBoLoc.TextColor = System.Drawing.Color.White;
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.radioButton5.CheckedColor = System.Drawing.Color.MidnightBlue;
+            this.radioButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton5.Location = new System.Drawing.Point(211, 169);
+            this.radioButton5.MinimumSize = new System.Drawing.Size(0, 21);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.radioButton5.Size = new System.Drawing.Size(27, 21);
+            this.radioButton5.TabIndex = 23;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.UnCheckedColor = System.Drawing.Color.Black;
+            this.radioButton5.UseVisualStyleBackColor = false;
+            this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.radioButton3.CheckedColor = System.Drawing.Color.MidnightBlue;
+            this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton3.Location = new System.Drawing.Point(474, 99);
+            this.radioButton3.MinimumSize = new System.Drawing.Size(0, 21);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.radioButton3.Size = new System.Drawing.Size(27, 21);
+            this.radioButton3.TabIndex = 23;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.UnCheckedColor = System.Drawing.Color.Black;
+            this.radioButton3.UseVisualStyleBackColor = false;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.radioButton2.CheckedColor = System.Drawing.Color.MidnightBlue;
+            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton2.Location = new System.Drawing.Point(38, 99);
+            this.radioButton2.MinimumSize = new System.Drawing.Size(0, 21);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.radioButton2.Size = new System.Drawing.Size(27, 21);
+            this.radioButton2.TabIndex = 23;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.UnCheckedColor = System.Drawing.Color.Black;
+            this.radioButton2.UseVisualStyleBackColor = false;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.radioButton1.CheckedColor = System.Drawing.Color.MidnightBlue;
+            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton1.Location = new System.Drawing.Point(38, 32);
+            this.radioButton1.MinimumSize = new System.Drawing.Size(0, 21);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.radioButton1.Size = new System.Drawing.Size(27, 21);
+            this.radioButton1.TabIndex = 23;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.UnCheckedColor = System.Drawing.Color.Black;
+            this.radioButton1.UseVisualStyleBackColor = false;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.radioButton4.CheckedColor = System.Drawing.Color.MidnightBlue;
+            this.radioButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton4.Location = new System.Drawing.Point(474, 34);
+            this.radioButton4.MinimumSize = new System.Drawing.Size(0, 21);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.radioButton4.Size = new System.Drawing.Size(27, 21);
+            this.radioButton4.TabIndex = 23;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.UnCheckedColor = System.Drawing.Color.Black;
+            this.radioButton4.UseVisualStyleBackColor = false;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
             // 
             // cbTenSach
             // 
@@ -451,91 +537,6 @@ namespace TraCuuSach
             this.lbTinhTrang.Size = new System.Drawing.Size(160, 32);
             this.lbTinhTrang.TabIndex = 15;
             this.lbTinhTrang.Text = "Tình Trạng:";
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.radioButton4.CheckedColor = System.Drawing.Color.MidnightBlue;
-            this.radioButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton4.Location = new System.Drawing.Point(474, 34);
-            this.radioButton4.MinimumSize = new System.Drawing.Size(0, 21);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.radioButton4.Size = new System.Drawing.Size(27, 21);
-            this.radioButton4.TabIndex = 23;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.UnCheckedColor = System.Drawing.Color.Black;
-            this.radioButton4.UseVisualStyleBackColor = false;
-            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.radioButton3.CheckedColor = System.Drawing.Color.MidnightBlue;
-            this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.Location = new System.Drawing.Point(474, 99);
-            this.radioButton3.MinimumSize = new System.Drawing.Size(0, 21);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.radioButton3.Size = new System.Drawing.Size(27, 21);
-            this.radioButton3.TabIndex = 23;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.UnCheckedColor = System.Drawing.Color.Black;
-            this.radioButton3.UseVisualStyleBackColor = false;
-            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.radioButton1.CheckedColor = System.Drawing.Color.MidnightBlue;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(38, 32);
-            this.radioButton1.MinimumSize = new System.Drawing.Size(0, 21);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.radioButton1.Size = new System.Drawing.Size(27, 21);
-            this.radioButton1.TabIndex = 23;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.UnCheckedColor = System.Drawing.Color.Black;
-            this.radioButton1.UseVisualStyleBackColor = false;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.radioButton2.CheckedColor = System.Drawing.Color.MidnightBlue;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(38, 99);
-            this.radioButton2.MinimumSize = new System.Drawing.Size(0, 21);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.radioButton2.Size = new System.Drawing.Size(27, 21);
-            this.radioButton2.TabIndex = 23;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.UnCheckedColor = System.Drawing.Color.Black;
-            this.radioButton2.UseVisualStyleBackColor = false;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.radioButton5.CheckedColor = System.Drawing.Color.MidnightBlue;
-            this.radioButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton5.Location = new System.Drawing.Point(211, 169);
-            this.radioButton5.MinimumSize = new System.Drawing.Size(0, 21);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.radioButton5.Size = new System.Drawing.Size(27, 21);
-            this.radioButton5.TabIndex = 23;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.UnCheckedColor = System.Drawing.Color.Black;
-            this.radioButton5.UseVisualStyleBackColor = false;
-            this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
             // 
             // FormTraCuu
             // 
