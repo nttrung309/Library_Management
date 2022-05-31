@@ -302,11 +302,12 @@ namespace ThayDoiQuyDinh
                 if (int.Parse(txbSoNgayMuonMax.Text) == 0)
                 {
                     MessageBox.Show("Số Ngày mượn tối đa không được bằng 0");
+                    txbSoNgayMuonMax.Text = "";
                 }
             }
             catch
             { }
-            txbSoNgayMuonMax.Text ="";
+            
         }
 
         private void txbThoiHanThe_TextChanged(object sender, EventArgs e)
