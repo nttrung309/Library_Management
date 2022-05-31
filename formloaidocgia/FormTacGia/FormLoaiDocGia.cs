@@ -105,50 +105,75 @@ namespace FormLoaiDocGia
         int xuly;
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            xuly = 0;
+            int ck = 0;
+            for (int i = 0; i < dgvLoaiDocGia.RowCount; i++)
             {
-                if (txbTenLoaiDocGia.Text == "")
+
+                if (txbTenLoaiDocGia.Text.ToUpper() == dgvLoaiDocGia.Rows[i].Cells[1].Value.ToString().ToUpper())
                 {
-                    errTenLDG.SetError(txbTenLoaiDocGia, "Vui lòng nhập Tên DG");
+                    ck = 1;
+                }
+            }
+            if (ck == 0)
+            {
+                xuly = 0;
+                {
+                    if (txbTenLoaiDocGia.Text == "")
+                    {
+                        errTenLDG.SetError(txbTenLoaiDocGia, "Vui lòng nhập Tên DG");
+                    }
+                    else
+                    {
+                        errTenLDG.Clear();
+                    }
+
+                }
+
+                if (txbTenLoaiDocGia.Text.Length > 0)
+                {
+                    string query = null;
+                    if (xuly == 0)
+                    {
+                        themLoaiDG();
+                        query = "SELECT TOP 1 MaLoaiDocGia FROM LOAIDOCGIA ORDER BY MaLoaiDocGia DESC ";
+                        ketnoi(query);
+                        txbMaLoaiDocGia.Text = Convert.ToString(myCommand.ExecuteScalar());
+                    }
+
+                    dgvLoaiDocGia.AutoGenerateColumns = false;
+                    myConnection.Close();
+                    btnLuu.Enabled = false;
+                    btnThemMoi.Enabled = true;
+                    btnCapNhat.Enabled = true;
+                    btnXoa.Enabled = true;
+                    dgvLoaiDocGia.Enabled = true;
+                    dgvLoaiDocGia.FirstDisplayedScrollingRowIndex = dgvLoaiDocGia.RowCount - 1;
                 }
                 else
                 {
-                    errTenLDG.Clear();
+                    MessageBox.Show("Vui lòng nhập đủ thông tin.", "Thông Báo");
+                    if (txbTenLoaiDocGia.Text.Length == 0)
+                        txbTenLoaiDocGia.Focus();
                 }
-
-            }
-
-            if (txbTenLoaiDocGia.Text.Length > 0)
-            {
-                string query = null;
-                if (xuly == 0)
-                {
-                    themLoaiDG();
-                    query = "SELECT TOP 1 MaLoaiDocGia FROM LOAIDOCGIA ORDER BY MaLoaiDocGia DESC ";
-                    ketnoi(query);
-                    txbMaLoaiDocGia.Text = Convert.ToString(myCommand.ExecuteScalar());
-                }
-
-                dgvLoaiDocGia.AutoGenerateColumns = false;
-                myConnection.Close();
-                btnLuu.Enabled = false;
-                btnThemMoi.Enabled = true;
-                btnCapNhat.Enabled = true;
-                btnXoa.Enabled = true;
-                dgvLoaiDocGia.Enabled = true;
-                dgvLoaiDocGia.FirstDisplayedScrollingRowIndex = dgvLoaiDocGia.RowCount - 1;
             }
             else
-            {
-                MessageBox.Show("Vui lòng nhập đủ thông tin.", "Thông Báo");
-                if (txbTenLoaiDocGia.Text.Length == 0)
-                    txbTenLoaiDocGia.Focus();
-            }
+                MessageBox.Show("Tên loại độc giả này đã có, bạn không thể lưu mới");
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            xuly = 1;
+            int ck = 0;
+            for (int i = 0; i < dgvLoaiDocGia.RowCount; i++)
+            {
+
+                if (txbTenLoaiDocGia.Text.ToUpper() == dgvLoaiDocGia.Rows[i].Cells[1].Value.ToString().ToUpper())
+                {
+                    ck = 1;
+                }
+            }
+            if (ck == 0)
+            {
+                xuly = 1;
             {
                 if (txbTenLoaiDocGia.Text == "")
                 {
@@ -193,7 +218,9 @@ namespace FormLoaiDocGia
                 if (txbTenLoaiDocGia.Text.Length == 0)
                     txbTenLoaiDocGia.Focus();
             }
-
+            }
+            else
+                MessageBox.Show("Tên loại độc giả này đã có, bạn không thể lưu mới");
         }
 
 
