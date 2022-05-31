@@ -484,22 +484,25 @@ namespace DemoDesign
 
         private void cbbReaderCode_TextChanged(object sender, EventArgs e)
         {
-            ComboBox cbb = (ComboBox)sender;
-            string text = cbb.Text.ToString();
-            cbb.Text = text.ToUpper();
-            cbb.Select(cbb.Text.Length,0);
-
-            string readerCode = cbbReaderCode.Text;
-            bool isFound = false;
-            foreach(Reader reader in readers)
+            if(cbbReaderCode.Text != "")
             {
-                if(readerCode == reader.code)
+                ComboBox cbb = (ComboBox)sender;
+                string text = cbb.Text.ToString();
+                cbb.Text = text.ToUpper();
+                cbb.Select(cbb.Text.Length, 0);
+
+                string readerCode = cbbReaderCode.Text;
+                bool isFound = false;
+                foreach (Reader reader in readers)
                 {
-                    isFound = true;
-                    break;
+                    if (readerCode == reader.code)
+                    {
+                        isFound = true;
+                        break;
+                    }
                 }
+                lbWCode.Visible = (isFound) ? false : true;
             }
-            lbWCode.Visible = (isFound) ? false : true;
         }
         public static string RemoveUnicode(string text)
         {

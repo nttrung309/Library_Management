@@ -229,6 +229,7 @@
             // dtgvBookChosen
             // 
             this.dtgvBookChosen.AllowUserToAddRows = false;
+            this.dtgvBookChosen.AllowUserToDeleteRows = false;
             this.dtgvBookChosen.AllowUserToResizeRows = false;
             this.dtgvBookChosen.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -329,6 +330,8 @@
             // dtgvStock
             // 
             this.dtgvStock.AllowUserToAddRows = false;
+            this.dtgvStock.AllowUserToDeleteRows = false;
+            this.dtgvStock.AllowUserToOrderColumns = true;
             this.dtgvStock.AllowUserToResizeRows = false;
             this.dtgvStock.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
