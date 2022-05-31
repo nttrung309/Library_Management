@@ -173,6 +173,17 @@ namespace FormLoaiSach
 
         private void btnCapNhat_Click(object sender, EventArgs e)
             {
+            int ck = 0;
+            for (int i = 0; i < dgvTLSach.RowCount; i++)
+            {
+
+                if (txbTenTLS.Text.ToUpper() == dgvTLSach.Rows[i].Cells[1].Value.ToString().ToUpper())
+                {
+                    ck = 1;
+                }
+            }
+            if (ck == 0)
+            {
                 xuly = 1;
                 {
                     if (txbTenTLS.Text == "")
@@ -218,7 +229,9 @@ namespace FormLoaiSach
                     if (txbTenTLS.Text.Length == 0)
                         txbTenTLS.Focus();
                 }
-
+            }
+            else
+                MessageBox.Show("Tên thể loại đã có, bạn không thể lưu mới");
             
         }
         // Phương thức xóa tác giả
