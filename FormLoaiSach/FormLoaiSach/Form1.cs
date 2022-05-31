@@ -114,94 +114,112 @@ namespace FormLoaiSach
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            xuly = 0;
+            int ck = 0;
+            for (int i=0;i<dgvTLSach.RowCount;i++)
             {
-                if (txbTenTLS.Text == "")
+               
+                if (txbTenTLS.Text==dgvTLSach.Rows[i].Cells[1].Value.ToString())
                 {
-                    errTenTLS.SetError(txbTenTLS, "Vui lòng nhập Tên DG");
+                    ck = 1;
+                }    
+            }
+            if (ck == 0)
+            {
+                xuly = 0;
+                {
+                    if (txbTenTLS.Text == "")
+                    {
+                        errTenTLS.SetError(txbTenTLS, "Vui lòng nhập Tên Thể Loại Sách");
+                    }
+                    else
+                    {
+                        errTenTLS.Clear();
+                    }
+
+                }
+
+                if (txbTenTLS.Text.Length > 0)
+                {
+                    string query = null;
+                    if (xuly == 0)
+                    {
+                        themTheLoai();
+                        query = "SELECT TOP 1 MaTheLoai FROM THELOAI ORDER BY MaTheLoai DESC ";
+                        ketnoi(query);
+                        txbMaTLS.Text = Convert.ToString(myCommand.ExecuteScalar());
+                    }
+
+                    dgvTLSach.AutoGenerateColumns = false;
+                    myConnection.Close();
+                    btnLuu.Enabled = false;
+                    btnThemMoi.Enabled = true;
+                    btnCapNhat.Enabled = true;
+                    btnXoa.Enabled = true;
+                    dgvTLSach.Enabled = true;
+                    dgvTLSach.FirstDisplayedScrollingRowIndex = dgvTLSach.RowCount - 1;
                 }
                 else
                 {
-                    errTenTLS.Clear();
+                    MessageBox.Show("Vui lòng nhập đủ thông tin.", "Thông Báo");
+                    if (txbTenTLS.Text.Length == 0)
+                        txbTenTLS.Focus();
                 }
-
-            }
-
-            if (txbTenTLS.Text.Length > 0)
-            {
-                string query = null;
-                if (xuly == 0)
-                {
-                    themTheLoai();
-                    query = "SELECT TOP 1 MaTheLoai FROM THELOAI ORDER BY MaTheLoai DESC ";
-                    ketnoi(query);
-                    txbMaTLS.Text = Convert.ToString(myCommand.ExecuteScalar());
-                }
-
-                dgvTLSach.AutoGenerateColumns = false;
-                myConnection.Close();
-                btnLuu.Enabled = false;
-                btnThemMoi.Enabled = true;
-                btnCapNhat.Enabled = true;
-                btnXoa.Enabled = true;
-                dgvTLSach.Enabled = true;
-                dgvTLSach.FirstDisplayedScrollingRowIndex = dgvTLSach.RowCount - 1;
             }
             else
             {
-                MessageBox.Show("Vui lòng nhập đủ thông tin.", "Thông Báo");
-                if (txbTenTLS.Text.Length == 0)
-                    txbTenTLS.Focus();
+                MessageBox.Show("Tên thể loại đã có, bạn không thể lưu mới");
             }
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
-        {
-            xuly = 1;
             {
-                if (txbTenTLS.Text == "")
+                xuly = 1;
                 {
-                    errTenTLS.SetError(txbTenTLS, "Vui lòng nhập Tên DG");
+                    if (txbTenTLS.Text == "")
+                    {
+                        errTenTLS.SetError(txbTenTLS, "Vui lòng nhập Tên DG");
+                    }
+                    else
+                    {
+                        errTenTLS.Clear();
+                    }
+
+                }
+
+                if (txbTenTLS.Text.Length > 0)
+                {
+                    if (xuly == 1)
+                    {
+                        try
+                        {
+                            string capnhatdongsql;
+                            capnhatdongsql = "UPDATE THELOAI " +
+                                "SET TenTheLoai = N'" + txbTenTLS.Text + "'" +
+                                "WHERE MaTheLoai = '" + txbMaTLS.Text + "'";
+                            ketnoi(capnhatdongsql);
+                            myCommand.ExecuteNonQuery();
+                            MessageBox.Show("Sửa thành công.", "Thông Báo");
+                            loadDgv();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Sửa thất bại.\nVui lòng kiểm tra lại dữ liệu.", "Thông Báo");
+                        }
+                    }
+                    btnLuu.Enabled = false;
+                    btnThemMoi.Enabled = true;
+                    btnCapNhat.Enabled = true;
+                    btnXoa.Enabled = true;
+                    dgvTLSach.Enabled = true;
                 }
                 else
                 {
-                    errTenTLS.Clear();
+                    MessageBox.Show("Vui lòng nhập đủ thông tin.", "Thông Báo");
+                    if (txbTenTLS.Text.Length == 0)
+                        txbTenTLS.Focus();
                 }
 
-            }
-
-            if (txbTenTLS.Text.Length > 0)
-            {
-                if (xuly == 1)
-                {
-                    try
-                    {
-                        string capnhatdongsql;
-                        capnhatdongsql = "UPDATE THELOAI " +
-                            "SET TenTheLoai = N'" + txbTenTLS.Text + "'" +
-                            "WHERE MaTheLoai = '" + txbMaTLS.Text + "'";
-                        ketnoi(capnhatdongsql);
-                        myCommand.ExecuteNonQuery();
-                        MessageBox.Show("Sửa thành công.", "Thông Báo");
-                        loadDgv();
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Sửa thất bại.\nVui lòng kiểm tra lại dữ liệu.", "Thông Báo");
-                    }
-                }
-                btnLuu.Enabled = false;
-                btnThemMoi.Enabled = true;
-                btnCapNhat.Enabled = true;
-                btnXoa.Enabled = true;
-                dgvTLSach.Enabled = true;
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng nhập đủ thông tin.", "Thông Báo");
-                if (txbTenTLS.Text.Length == 0)
-                    txbTenTLS.Focus();
-            }
+            
         }
         // Phương thức xóa tác giả
         private void xoaTheLoai()
