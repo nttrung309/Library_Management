@@ -118,7 +118,7 @@ namespace FormLoaiSach
             for (int i=0;i<dgvTLSach.RowCount;i++)
             {
                
-                if (txbTenTLS.Text==dgvTLSach.Rows[i].Cells[1].Value.ToString())
+                if (txbTenTLS.Text.ToUpper()==dgvTLSach.Rows[i].Cells[1].Value.ToString().ToUpper())
                 {
                     ck = 1;
                 }    
