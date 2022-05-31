@@ -113,7 +113,18 @@ namespace FormTacGia
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            xuly = 0;
+            int ck = 0;
+            for (int i = 0; i < dgvTacGia.RowCount; i++)
+            {
+
+                if (txbTenTG.Text.ToUpper() == dgvTacGia.Rows[i].Cells[1].Value.ToString().ToUpper())
+                {
+                    ck = 1;
+                }
+            }
+            if (ck == 0)
+            {
+                xuly = 0;
             {
                 if (txbTenTG.Text == "")
                 {
@@ -151,12 +162,28 @@ namespace FormTacGia
                 MessageBox.Show("Vui lòng nhập đủ thông tin.", "Thông Báo");
                 if (txbTenTG.Text.Length == 0)
                     txbTenTG.Focus();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Tên tác giả đã có, bạn không thể lưu mới");
             }
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            xuly = 1;
+            int ck = 0;
+            for (int i = 0; i < dgvTacGia.RowCount; i++)
+            {
+
+                if (txbTenTG.Text.ToUpper() == dgvTacGia.Rows[i].Cells[1].Value.ToString().ToUpper())
+                {
+                    ck = 1;
+                }
+            }
+            if (ck == 0)
+            {
+                xuly = 1;
             {
                 if (txbTenTG.Text == "")
                 {
@@ -200,6 +227,11 @@ namespace FormTacGia
                 MessageBox.Show("Vui lòng nhập đủ thông tin.", "Thông Báo");
                 if (txbTenTG.Text.Length == 0)
                     txbTenTG.Focus();
+            }
+            }
+            else
+            {
+                MessageBox.Show("Tên tác giả đã có, bạn không thể lưu mới");
             }
         }
         // Phương thức xóa tác giả
