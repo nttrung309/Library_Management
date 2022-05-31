@@ -29,13 +29,12 @@ namespace PhieuThuTien
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormThuTien));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.d = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvDLPhieuThuTienPhat = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.lbTieuDe = new System.Windows.Forms.Label();
             this.lbTieuDe2 = new System.Windows.Forms.Label();
@@ -60,8 +59,9 @@ namespace PhieuThuTien
             this.lbSoTienThu = new System.Windows.Forms.Label();
             this.txbMaPhieuthu = new System.Windows.Forms.TextBox();
             this.lbMaPhieuThu = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDLPhieuThuTienPhat)).BeginInit();
+            this.dgvDLPhieuThuTienPhat = new System.Windows.Forms.DataGridView();
             this.gbThongTinPhieu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDLPhieuThuTienPhat)).BeginInit();
             this.SuspendLayout();
             // 
             // d
@@ -77,50 +77,6 @@ namespace PhieuThuTien
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.Width = 125;
-            // 
-            // dgvDLPhieuThuTienPhat
-            // 
-            this.dgvDLPhieuThuTienPhat.AllowUserToAddRows = false;
-            this.dgvDLPhieuThuTienPhat.AllowUserToDeleteRows = false;
-            this.dgvDLPhieuThuTienPhat.AllowUserToResizeColumns = false;
-            this.dgvDLPhieuThuTienPhat.AllowUserToResizeRows = false;
-            this.dgvDLPhieuThuTienPhat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvDLPhieuThuTienPhat.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDLPhieuThuTienPhat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.dgvDLPhieuThuTienPhat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDLPhieuThuTienPhat.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dgvDLPhieuThuTienPhat.EnableHeadersVisualStyles = false;
-            this.dgvDLPhieuThuTienPhat.GridColor = System.Drawing.Color.Navy;
-            this.dgvDLPhieuThuTienPhat.Location = new System.Drawing.Point(33, 364);
-            this.dgvDLPhieuThuTienPhat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvDLPhieuThuTienPhat.Name = "dgvDLPhieuThuTienPhat";
-            this.dgvDLPhieuThuTienPhat.RowHeadersVisible = false;
-            this.dgvDLPhieuThuTienPhat.RowHeadersWidth = 51;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(90)))), ((int)(((byte)(114)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.Control;
-            this.dgvDLPhieuThuTienPhat.RowsDefaultCellStyle = dataGridViewCellStyle12;
-            this.dgvDLPhieuThuTienPhat.RowTemplate.Height = 29;
-            this.dgvDLPhieuThuTienPhat.Size = new System.Drawing.Size(1215, 304);
-            this.dgvDLPhieuThuTienPhat.TabIndex = 29;
-            this.dgvDLPhieuThuTienPhat.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dgvDLPhieuThuTienPhat.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDLPhieuThuTienPhat_CellContentClick);
             // 
             // label4
             // 
@@ -446,12 +402,61 @@ namespace PhieuThuTien
             this.lbMaPhieuThu.TabIndex = 27;
             this.lbMaPhieuThu.Text = "Mã Phiếu Thu:";
             // 
+            // dgvDLPhieuThuTienPhat
+            // 
+            this.dgvDLPhieuThuTienPhat.AllowUserToAddRows = false;
+            this.dgvDLPhieuThuTienPhat.AllowUserToDeleteRows = false;
+            this.dgvDLPhieuThuTienPhat.AllowUserToResizeRows = false;
+            this.dgvDLPhieuThuTienPhat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDLPhieuThuTienPhat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDLPhieuThuTienPhat.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvDLPhieuThuTienPhat.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvDLPhieuThuTienPhat.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Cyan;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDLPhieuThuTienPhat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvDLPhieuThuTienPhat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Chocolate;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDLPhieuThuTienPhat.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvDLPhieuThuTienPhat.EnableHeadersVisualStyles = false;
+            this.dgvDLPhieuThuTienPhat.GridColor = System.Drawing.Color.Navy;
+            this.dgvDLPhieuThuTienPhat.Location = new System.Drawing.Point(34, 378);
+            this.dgvDLPhieuThuTienPhat.Name = "dgvDLPhieuThuTienPhat";
+            this.dgvDLPhieuThuTienPhat.ReadOnly = true;
+            this.dgvDLPhieuThuTienPhat.RowHeadersVisible = false;
+            this.dgvDLPhieuThuTienPhat.RowHeadersWidth = 51;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(90)))), ((int)(((byte)(114)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Control;
+            this.dgvDLPhieuThuTienPhat.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvDLPhieuThuTienPhat.RowTemplate.Height = 24;
+            this.dgvDLPhieuThuTienPhat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDLPhieuThuTienPhat.Size = new System.Drawing.Size(1191, 326);
+            this.dgvDLPhieuThuTienPhat.TabIndex = 53;
+            this.dgvDLPhieuThuTienPhat.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
             // FormThuTien
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1260, 724);
+            this.Controls.Add(this.dgvDLPhieuThuTienPhat);
             this.Controls.Add(this.btnCapNhat);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.btnThem);
@@ -460,15 +465,14 @@ namespace PhieuThuTien
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lbTieuDe);
             this.Controls.Add(this.gbThongTinPhieu);
-            this.Controls.Add(this.dgvDLPhieuThuTienPhat);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormThuTien";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDLPhieuThuTienPhat)).EndInit();
             this.gbThongTinPhieu.ResumeLayout(false);
             this.gbThongTinPhieu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDLPhieuThuTienPhat)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -477,7 +481,6 @@ namespace PhieuThuTien
         #endregion
         private System.Windows.Forms.DataGridViewTextBoxColumn d;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridView dgvDLPhieuThuTienPhat;
         private VBButton gbThongTinPhieu;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txbTienThu;
@@ -502,5 +505,6 @@ namespace PhieuThuTien
         private System.Windows.Forms.Label lbHoTen;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.DataGridView dgvDLPhieuThuTienPhat;
     }
 }

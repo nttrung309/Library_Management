@@ -118,7 +118,7 @@ namespace PhieuThuTien
         {
             DataTable table = new DataTable();
             command = connection.CreateCommand();
-            command.CommandText = "select MaPhieuThu as [Mã Phiếu Thu],MaDocGia as [Mã Độc Giả],NgThu as [Ngày Thu],format(SoTienThu,'#.') as [Số Tiền Thu],format(ConLai,'#.') as [Số Tiền Còn Nợ] from PhieuThuTien";
+            command.CommandText = "select MaPhieuThu as [Mã Phiếu Thu],MaDocGia as [Mã Độc Giả],NgThu as [Ngày Thu],format(SoTienThu,'#.') as [Số Tiền Thu],format(conlai,'0.') as [Số Tiền Còn Nợ] from PhieuThuTien";
             adapter.SelectCommand = command;
             table.Clear();
             adapter.Fill(table);
@@ -149,6 +149,7 @@ namespace PhieuThuTien
             command.ExecuteNonQuery();
             loadPhieuThu();
             cbMaDocGia.Enabled = true;
+
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -219,7 +220,10 @@ namespace PhieuThuTien
                     txbConLai.Text= Convert.ToString(row.Cells["Số Tiền Còn nợ"].Value);
                 cbMaDocGia.Text= Convert.ToString(row.Cells["Mã Độc Giả"].Value);
                 dtpNgayThu.Value= Convert.ToDateTime(row.Cells["Ngày Thu"].Value);
+                try { 
                 txbTongNo.Text = (float.Parse(txbConLai.Text) + float.Parse(txbTienThu.Text)).ToString();
+                }
+                catch {}
                 
                 DataTable table5 = new DataTable();
                 command = connection.CreateCommand();
