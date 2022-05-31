@@ -14,7 +14,7 @@ namespace formdausach
     public partial class Form1 : Form
     {
         // Khai báo 
-        string chuoiKetNoi = @"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=QLTV;Integrated Security=True";
+        string chuoiKetNoi = @"Data Source=LAPTOP-281DQ5C3\SQLEXPRESS;Initial Catalog=QLTV;Integrated Security=True";
         private SqlConnection myConnection; // kết nối tới csdl
         private SqlDataAdapter myDataAdapter;   // Vận chuyển csdl qa DataSet
         private DataTable myTable;  // Dùng để lưu bảng lấy từ c#
@@ -24,6 +24,8 @@ namespace formdausach
             InitializeComponent();
 
         }
+        DataTable dt = new DataTable();
+         
         private DataTable ketnoi(string truyvan)
         {
             myConnection = new SqlConnection(chuoiKetNoi);
@@ -46,7 +48,7 @@ namespace formdausach
         }
         void loadDgv()
         {
-            string cauTruyVan = "SELECT MaDauSach AS [Mã Đầu Sách], TenDauSach AS [Tên Đầu Sách], DAUSACH.MaTheLoai AS [Mã Thể Loại], TenTheLoai AS [Thể Loại]" +
+            string cauTruyVan = "SELECT MaDauSach AS [Mã ĐS], TenDauSach AS [Tên Đầu Sách], DAUSACH.MaTheLoai AS [Mã Thể Loại], TenTheLoai AS [Thể Loại]" +
                "FROM DAUSACH, THELOAI WHERE DAUSACH.MaTheLoai = THELOAI.MaTheLoai ";
             dgvDauSach.DataSource = ketnoi(cauTruyVan);
             dgvDauSach.AutoGenerateColumns = false;
@@ -66,6 +68,21 @@ namespace formdausach
             cbTenTL.DisplayMember = "TenTheLoai";
             cbTenTL.SelectedIndex = -1;
         }
+        void loadTenTG()
+        {
+            string cauTruyVan = "SELECT TenTacGia, MaTacGia FROM TACGIA";
+            cbTacGia.DataSource = ketnoi(cauTruyVan);
+            cbTacGia.DisplayMember = "TenTacGia";
+            cbTacGia.ValueMember = "MaTacGia";
+            cbTacGia.SelectedIndex = -1;
+        }
+        void setSizeCol()
+        {
+            dgvDauSach.Columns[0].Width = 60;
+            dgvDauSach.Columns[1].Width = 200;
+            dgvDauSach.Columns[2].Width = 80;
+            dgvDauSach.Columns[3].Width = 200;
+        }
         private string getNextIdDS()
         {
             string queryGetId = "SELECT TOP 1 MaDauSach FROM DAUSACH ORDER BY MaDauSach DESC";
@@ -82,6 +99,10 @@ namespace formdausach
             loadDgv();
             loadMaTheLoai();
             loadTenTheLoai();
+            setSizeCol();
+            loadTenTG();
+            //label2.Text = "Tác Giả \n Của Sách:";
+            dt.Columns.Add("MaTacGia");
             cbTenTL.SelectedIndex = -1;
             cbMaTL.SelectedIndex = -1;
             dgvDauSach.Enabled = true;
@@ -94,13 +115,32 @@ namespace formdausach
 
         private void dgvDauSach_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            DataTable data = new DataTable();
             txb_MaDauSach.Text = dgvDauSach.CurrentRow.Cells[0].Value.ToString();
             txb_TenDauSach.Text = dgvDauSach.CurrentRow.Cells[1].Value.ToString();
             cbMaTL.Text = dgvDauSach.CurrentRow.Cells[2].Value.ToString();
             cbTenTL.Text = dgvDauSach.CurrentRow.Cells[3].Value.ToString();
+            string cauTruyVan = "SELECT TacGia.MaTacGia AS [MaTG], TenTacGia " +
+                                "FROM DAUSACH, TACGIA, CTTACGIA " +
+                                "WHERE DAUSACH.MaDauSach = CTTACGIA.MaDauSach AND "+
+                                "CTTACGIA.MaTacGia = TACGIA.MaTacGia AND "+
+                                "CTTACGIA.MaDauSach = '" + txb_MaDauSach.Text + "'";
+            ketnoi(cauTruyVan);
+            /*lbxTacGia.DataSource = ketnoi(cauTruyVan);
+            lbxTacGia.DisplayMember = "TenTacGia";
+            lbxTacGia.ValueMember = "MaTG";*/
+            dt.Clear();
+            myDataAdapter.Fill(dt);
+            for(int i =0; i< dt.Rows.Count; i++)
+            {
+                lbxTacGia.Items.Add(dt.Rows[i].ItemArray[2].ToString());
+            }    
+            MessageBox.Show(dt.Rows[0].ItemArray[1].ToString());
+            dataGridView1.DataSource = dt;
             errMaTL.Clear();
             errTenTL.Clear();
             errTenDS.Clear();
+            errTacGia.Clear();
             btnLuu.Enabled = false;
             btnThemMoi.Enabled = true;
             btnXoa.Enabled = true;
@@ -112,6 +152,10 @@ namespace formdausach
             errMaTL.Clear();
             errTenDS.Clear();
             errTenTL.Clear();
+            errTacGia.Clear();
+            loadTenTG();
+            loadMaTheLoai();
+            loadTenTheLoai();
             txb_MaDauSach.Text = getNextIdDS();
             cbMaTL.SelectedIndex = -1;
             cbTenTL.SelectedIndex = -1;
@@ -166,6 +210,15 @@ namespace formdausach
                 else
                 {
                     errTenTL.Clear();
+                }
+                if(lbxTacGia.Items.Count==0)
+                {
+                    errTacGia.SetError(lbxTacGia, "Vui lòng chọn tác giả cho sách");
+                    return;
+                } 
+                else
+                {
+                    errTacGia.Clear();
                 }
 
             }
@@ -250,6 +303,15 @@ namespace formdausach
                 {
                     errMaTL.Clear();
                 }
+                if (lbxTacGia.Items.Count == 0)
+                {
+                    errTacGia.SetError(lbxTacGia, "Vui lòng chọn tác giả cho sách");
+                    return;
+                }
+                else
+                {
+                    errTacGia.Clear();
+                }
                 if (cbTenTL.Text == "")
                 {
                     errTenTL.SetError(cbTenTL, "Vui lòng chọn Tên Thể Loại Sách");
@@ -310,10 +372,45 @@ namespace formdausach
             cbMaTL.Text = maTL;
         }
 
-        private void txb_TenDauSach_KeyPress(object sender, KeyPressEventArgs e)
+        private void btnDown_Click(object sender, EventArgs e)
         {
-            if (Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar))
-                e.Handled = true;
+            if(lbxTacGia.Items.Count == 0)
+            {
+                lbxTacGia.Items.Add(cbTacGia.Text);
+                dt.Rows.Add(cbTacGia.SelectedValue.ToString()); 
+            }
+            else
+            { 
+                for (int i = 0; i < lbxTacGia.Items.Count; i++)
+                {
+                    if (lbxTacGia.Items[i].ToString() == cbTacGia.Text)
+                    {
+                        MessageBox.Show(string.Format("{0} đã có!", cbTacGia.Text));
+                        return;
+                    }
+                   
+                }
+                dt.Rows.Add(cbTacGia.SelectedValue.ToString());
+                lbxTacGia.Items.Add(cbTacGia.Text);
+            }
+
+        }
+
+        private void btnUp_Click(object sender, EventArgs e)
+        {
+            if (lbxTacGia.SelectedIndex >= 0)
+            {
+                
+                dt.Rows.RemoveAt(lbxTacGia.SelectedIndex);
+                lbxTacGia.Items.RemoveAt(lbxTacGia.SelectedIndex);
+            }
+            
+        }
+
+        private void vbButton1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(lbxTacGia.ValueMember[2].ToString());
+
         }
     }
 }
