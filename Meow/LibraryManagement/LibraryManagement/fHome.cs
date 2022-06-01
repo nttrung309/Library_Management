@@ -87,6 +87,8 @@ namespace LibraryManagement
             SetStyle(ControlStyles.UserPaint, true);
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             SetStyle(ControlStyles.DoubleBuffer, true);
+            UpdateDateTime();
+            clock.Start();
         }
         #endregion
 
@@ -177,6 +179,11 @@ namespace LibraryManagement
                             SwitchForm(new RecvBook());
                             break;
                         }
+                    case "btnReport":
+                        {
+                            SwitchForm(new Report());
+                            break;
+                        }
                     default:
                         {
                             break;
@@ -229,5 +236,73 @@ namespace LibraryManagement
         }
 
         #endregion
+
+        private void clock_Tick(object sender, EventArgs e)
+        {
+            UpdateDateTime();
+        }
+        private void UpdateDateTime()
+        {
+            string dayOfWeek = Translate(DateTime.Now.DayOfWeek.ToString());
+            string date = DateTime.Now.ToString("dd/MM/yyyy");
+            string time = DateTime.Now.ToString("HH:mm:ss");
+
+            lbClock.Text = dayOfWeek + ", " + date + " - " + time;
+        }
+        private string Translate(string dayOfWeek)
+        {
+            string trans = "";
+            string[] dayOfWeeks = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+            int index = 0;
+            foreach(string day in dayOfWeeks)
+            {
+                if(dayOfWeek == day)
+                {
+                    break;
+                }
+                index++;
+            }
+
+            switch (index)
+            {
+                case 0:
+                    {
+                        trans = "Thứ 2";
+                        break;
+                    }
+                case 1:
+                    {
+                        trans = "Thứ 3";
+                        break;
+                    }
+                case 2:
+                    {
+                        trans = "Thứ 4";
+                        break;
+                    }
+                case 3:
+                    {
+                        trans = "Thứ 5";
+                        break;
+                    }
+                case 4:
+                    {
+                        trans = "Thứ 6";
+                        break;
+                    }
+                case 5:
+                    {
+                        trans = "Thứ 7";
+                        break;
+                    }
+                case 6:
+                    {
+                        trans = "Chủ Nhật";
+                        break;
+                    }
+            }
+
+            return trans;
+        }
     }
 }

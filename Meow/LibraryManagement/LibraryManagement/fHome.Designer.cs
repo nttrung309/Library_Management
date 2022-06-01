@@ -29,6 +29,7 @@ namespace LibraryManagement
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fHome));
             this.pnlTop = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
@@ -46,9 +47,13 @@ namespace LibraryManagement
             this.lbTitle = new System.Windows.Forms.Label();
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.pnlUser = new System.Windows.Forms.Panel();
+            this.lbClock = new System.Windows.Forms.Label();
+            this.clock = new System.Windows.Forms.Timer(this.components);
+            this.nButton1 = new LibraryManagement.nButton();
             this.pnlTop.SuspendLayout();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
+            this.pnlUser.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTop
@@ -265,11 +270,45 @@ namespace LibraryManagement
             // pnlUser
             // 
             this.pnlUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(232)))), ((int)(((byte)(232)))));
+            this.pnlUser.Controls.Add(this.lbClock);
             this.pnlUser.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlUser.Location = new System.Drawing.Point(155, 25);
             this.pnlUser.Name = "pnlUser";
             this.pnlUser.Size = new System.Drawing.Size(1260, 47);
             this.pnlUser.TabIndex = 2;
+            // 
+            // lbClock
+            // 
+            this.lbClock.AutoSize = true;
+            this.lbClock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbClock.Location = new System.Drawing.Point(16, 14);
+            this.lbClock.Name = "lbClock";
+            this.lbClock.Size = new System.Drawing.Size(51, 20);
+            this.lbClock.TabIndex = 4;
+            this.lbClock.Text = "label1";
+            // 
+            // clock
+            // 
+            this.clock.Interval = 1000;
+            this.clock.Tick += new System.EventHandler(this.clock_Tick);
+            // 
+            // nButton1
+            // 
+            this.nButton1.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.nButton1.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.nButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.nButton1.BorderRadius = 20;
+            this.nButton1.BorderSize = 0;
+            this.nButton1.FlatAppearance.BorderSize = 0;
+            this.nButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nButton1.ForeColor = System.Drawing.Color.White;
+            this.nButton1.Location = new System.Drawing.Point(609, 197);
+            this.nButton1.Name = "nButton1";
+            this.nButton1.Size = new System.Drawing.Size(49, 51);
+            this.nButton1.TabIndex = 3;
+            this.nButton1.Text = "nButton1";
+            this.nButton1.TextColor = System.Drawing.Color.White;
+            this.nButton1.UseVisualStyleBackColor = false;
             // 
             // fHome
             // 
@@ -278,6 +317,7 @@ namespace LibraryManagement
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1415, 796);
             this.ControlBox = false;
+            this.Controls.Add(this.nButton1);
             this.Controls.Add(this.pnlUser);
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.pnlTop);
@@ -289,6 +329,8 @@ namespace LibraryManagement
             this.pnlTop.ResumeLayout(false);
             this.pnlMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
+            this.pnlUser.ResumeLayout(false);
+            this.pnlUser.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -312,6 +354,9 @@ namespace LibraryManagement
         private System.Windows.Forms.Button btnFine;
         private System.Windows.Forms.Button btnRecvBook;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label lbClock;
+        private nButton nButton1;
+        private System.Windows.Forms.Timer clock;
     }
 }
 

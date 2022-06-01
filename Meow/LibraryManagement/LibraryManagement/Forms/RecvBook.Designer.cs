@@ -537,7 +537,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(123, 40);
             this.btnCancel.TabIndex = 50;
-            this.btnCancel.Text = "Hủy";
+            this.btnCancel.Text = "Cập Nhật";
             this.btnCancel.TextColor = System.Drawing.Color.White;
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);

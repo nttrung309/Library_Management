@@ -48,7 +48,9 @@ namespace DemoDesign
         private void LendBook_Load(object sender, EventArgs e)
         {
             Parameters.LoadParam();
+
             returnDate.Value = borrowDate.Value.AddDays(Parameters.maxLendDay);
+            lbMaxBorrow.Text = $"Số sách được mượn tối đa: {Parameters.maxBorrowBook}";
             LoadData();
         }
 
@@ -164,7 +166,7 @@ namespace DemoDesign
         private void btnChooseBook_Click(object sender, EventArgs e)
         {
             Parameters.LoadParam();
-            if (chosenBooks.Count == Parameters.maxBorrowBook)
+            if ((chosenBooks.Count + 1 > Parameters.maxBorrowBook) && (tgBtnAllowMax.CheckState == CheckState.Checked))
             {
                 MessageBox.Show($"Không được mượn quá {Parameters.maxBorrowBook} quyển sách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -638,23 +640,26 @@ namespace DemoDesign
             }
             else
             {
-                int numborrowedBooks = -1;
-                Parameters.LoadParam();
-                SqlConnection conn = new SqlConnection(DatabaseInfo.connectionString);
-                conn.Open();
-                SqlCommand cmd = new SqlCommand(DatabaseInfo.GetNumOfBooksBorrowed(cbbReaderCode.Text), conn);
-                using (SqlDataReader reader = cmd.ExecuteReader())
+                if(tgBtnAllowMax.CheckState == CheckState.Checked)
                 {
-                    while (reader.Read())
+                    int numborrowedBooks = -1;
+                    Parameters.LoadParam();
+                    SqlConnection conn = new SqlConnection(DatabaseInfo.connectionString);
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(DatabaseInfo.GetNumOfBooksBorrowed(cbbReaderCode.Text), conn);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        numborrowedBooks = reader.GetInt32(0);
+                        while (reader.Read())
+                        {
+                            numborrowedBooks = reader.GetInt32(0);
+                        }
                     }
-                }
-                conn.Close();
-                
-                if(numborrowedBooks >= Parameters.maxBorrowBook)
-                {
-                    return Valid.BorrowedMax;
+                    conn.Close();
+
+                    if (numborrowedBooks >= Parameters.maxBorrowBook)
+                    {
+                        return Valid.BorrowedMax;
+                    }
                 }
             }
             return Valid.Valid;
@@ -696,7 +701,20 @@ namespace DemoDesign
 
         private void tgBtnAskBeforePrint_CheckedChanged(object sender, EventArgs e)
         {
-            askBeforePrint = false;
+            askBeforePrint = (tgBtnAskBeforePrint.CheckState == CheckState.Checked) ? true : false;
+        }
+
+        private void tgBtnAllowMax_CheckedChanged(object sender, EventArgs e)
+        {
+            string temp = "Số sách được mượn tối đa: ";
+            if(tgBtnAllowMax.CheckState == CheckState.Checked)
+            {
+                lbMaxBorrow.Text = temp + $"{Parameters.maxBorrowBook}";
+            }
+            else
+            {
+                lbMaxBorrow.Text = temp + "Không";
+            }
         }
     }
 }
