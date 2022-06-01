@@ -130,13 +130,13 @@ namespace ThayDoiQuyDinh
                 {
                         command = connection.CreateCommand();
                         command.CommandText = "update Thamso set ThoiHanThe='" + txbThoiHanThe.Text + "' ";
-                        command.ExecuteNonQuery(); MessageBox.Show("Cập nhật quy định thành công");
+                        command.ExecuteNonQuery(); 
                 }
                 if (txbThoiGianLuuHanh.Text != "")
                 {
                     command = connection.CreateCommand();
                     command.CommandText = "update Thamso set ThoiGianLuuHanh='" + txbThoiGianLuuHanh.Text + "' ";
-                    command.ExecuteNonQuery(); MessageBox.Show("Cập nhật quy định thành công");
+                    command.ExecuteNonQuery(); 
                 }
                 if (txbTuoiToiDa.Text != "")
                 {
@@ -155,7 +155,7 @@ namespace ThayDoiQuyDinh
                         command = connection.CreateCommand();
                         command.CommandText = "update Thamso set TuoiToiDa='" + txbTuoiToiDa.Text + "' ";
                         command.ExecuteNonQuery();
-                        MessageBox.Show("Cập nhật quy định thành công");
+                     
                     }
                 }
                 if (txbTuoiToiThieu.Text != "")
@@ -173,26 +173,26 @@ namespace ThayDoiQuyDinh
                    else 
                     {   command = connection.CreateCommand();
                     command.CommandText = "update Thamso set TuoiToiThieu='" + txbTuoiToiThieu.Text + "' ";
-                    command.ExecuteNonQuery(); MessageBox.Show("Cập nhật quy định thành công");
+                    command.ExecuteNonQuery();
                 }
                 }
                 if (txbSoNgayMuonMax.Text != "")
                 {
                     command = connection.CreateCommand();
                     command.CommandText = "update Thamso set SoNgayMuonMax='" + txbSoNgayMuonMax.Text + "' ";
-                    command.ExecuteNonQuery(); MessageBox.Show("Cập nhật quy định thành công");
+                    command.ExecuteNonQuery();
                 }
                 if (txbSoSachMuonMax.Text != "")
                 {
                     command = connection.CreateCommand();
                     command.CommandText = "update Thamso set SoSachMuonMax='" + txbSoSachMuonMax.Text + "' ";
-                    command.ExecuteNonQuery(); MessageBox.Show("Cập nhật quy định thành công");
+                    command.ExecuteNonQuery();
                 }
                 if (txbMucThuTienPhat.Text != "")
                 {
                     command = connection.CreateCommand();
                     command.CommandText = "update Thamso set MucThuTienPhat='" + double.Parse(txbMucThuTienPhat.Text) + "' ";
-                    command.ExecuteNonQuery(); MessageBox.Show("Cập nhật quy định thành công");
+                    command.ExecuteNonQuery(); 
                 }
                 txbThoiHanThe.Text = "";
                 txbThoiGianLuuHanh.Text = "";
@@ -201,6 +201,7 @@ namespace ThayDoiQuyDinh
                 txbTuoiToiThieu.Text = "";
                 txbSoSachMuonMax.Text = "";
                 txbMucThuTienPhat.Text = "";
+                MessageBox.Show("Cập nhật quy định thành công");
                 loadQD();
             }
             else
@@ -302,7 +303,7 @@ namespace ThayDoiQuyDinh
                 if (int.Parse(txbSoNgayMuonMax.Text) == 0)
                 {
                     MessageBox.Show("Số Ngày mượn tối đa không được bằng 0");
-                    txbSoNgayMuonMax.Text = "";
+                   txbSoNgayMuonMax.Text = "";
                 }
             }
             catch
