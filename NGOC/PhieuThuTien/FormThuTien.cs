@@ -156,22 +156,22 @@ namespace PhieuThuTien
         {
             if (txbTienThu.Text == "")
                 txbConLai.Text = "";
-            if (txbTienThu.Text != "" && txbTongNo.Text != "")
+            if (txbTienThu.Text != "" && txbTongNo.Text != ""&&txbTienThu.Text!=".")
             {
                 float k = float.Parse(txbTongNo.Text) - float.Parse(txbTienThu.Text);
-                if (k<0)
+                if (k < 0)
                 {
                     MessageBox.Show("Mời bạn nhập lại, số tiền thu không được lớn hơn số tiền nợ của độc giả");
                     txbTienThu.Text = "";
-                }    
+                }
                 else
-                txbConLai.Text = k.ToString();
+                    txbConLai.Text = k.ToString();
             }
         }
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
-            if (txbTongNo.Text!=""&&txbTienThu.Text!="")
-            txbConLai.Text = (float.Parse(txbTongNo.Text) - float.Parse(txbTienThu.Text)).ToString();
+            //if (txbTongNo.Text!=""&&txbTienThu.Text!="")
+            //txbConLai.Text = (float.Parse(txbTongNo.Text) - float.Parse(txbTienThu.Text)).ToString();
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
@@ -204,10 +204,30 @@ namespace PhieuThuTien
             {
                 e.Handled = true;
             }
+
+            //MessageBox.Show(txbTienThu.Text);
+            //if (txbTienThu.Text == "")
+            //    txbConLai.Text = "";
+            //if (txbTienThu.Text != "" && txbTongNo.Text != "")
+            //{
+            //    float k = float.Parse(txbTongNo.Text) - float.Parse(txbTienThu.Text);
+            //    if (k < 0)
+            //    {
+            //        MessageBox.Show("Mời bạn nhập lại, số tiền thu không được lớn hơn số tiền nợ của độc giả");
+            //        txbTienThu.Text = "";
+            //    }
+            //    else
+            //        txbConLai.Text = k.ToString();
+            //}
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            cbMaDocGia.Text = "";
+            txbTienThu.Text = "";
+            txbConLai.Text = "";
+            txbTongNo.Text = "";
+            txbHoTen.Text = "";
             btnCapNhat.Enabled = true;
             btnLuu.Enabled = false;
             DataGridViewRow row = new DataGridViewRow();
@@ -215,26 +235,27 @@ namespace PhieuThuTien
             {
 
                 row = dgvDLPhieuThuTienPhat.Rows[e.RowIndex];
-                    txbMaPhieuthu.Text = Convert.ToString(row.Cells["Mã Phiếu Thu"].Value);
-                    txbTienThu.Text = Convert.ToString(row.Cells["Số Tiền Thu"].Value);
-                    txbConLai.Text= Convert.ToString(row.Cells["Số Tiền Còn nợ"].Value);
-                cbMaDocGia.Text= Convert.ToString(row.Cells["Mã Độc Giả"].Value);
-                dtpNgayThu.Value= Convert.ToDateTime(row.Cells["Ngày Thu"].Value);
-                try { 
-                txbTongNo.Text = (float.Parse(txbConLai.Text) + float.Parse(txbTienThu.Text)).ToString();
-                }
-                catch {}
-                
+                txbMaPhieuthu.Text = Convert.ToString(row.Cells["Mã Phiếu Thu"].Value);
+                txbTienThu.Text = Convert.ToString(row.Cells["Số Tiền Thu"].Value);
+                txbConLai.Text = Convert.ToString(row.Cells["Số Tiền Còn nợ"].Value);
+                cbMaDocGia.Text = Convert.ToString(row.Cells["Mã Độc Giả"].Value);
+                dtpNgayThu.Value = Convert.ToDateTime(row.Cells["Ngày Thu"].Value);
+
+                    txbTongNo.Text = (float.Parse(Convert.ToString(row.Cells["Số Tiền Thu"].Value)) + float.Parse(Convert.ToString(row.Cells["Số Tiền Còn nợ"].Value))).ToString();
+
                 DataTable table5 = new DataTable();
                 command = connection.CreateCommand();
-                command.CommandText = "select hoten from docgia where madocgia='"+cbMaDocGia.Text+"'";
+                command.CommandText = "select hoten from docgia where madocgia='" + cbMaDocGia.Text + "'";
                 adapter.SelectCommand = command;
                 table5.Clear();
                 adapter.Fill(table5);
                 txbHoTen.Text = table5.Rows[0].ItemArray[0].ToString();
-                cu = cbMaDocGia.Text;
-                own = float.Parse(txbTienThu.Text);
-            }
+                try {
+                    cu = cbMaDocGia.Text;
+                    own = float.Parse(txbTienThu.Text);
+                }
+                catch { }
+                }
             cbMaDocGia.Enabled = false;
         }
 
