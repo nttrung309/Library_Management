@@ -44,3 +44,4 @@ D:\Trung\#Study\CODE\CNPM\Mine\LibraryManagement\LibraryManagement\obj\Debug\Dem
 D:\Trung\#Study\CODE\CNPM\Mine\LibraryManagement\LibraryManagement\obj\Debug\DemoDesign.Report.resources
 D:\Trung\#Study\CODE\CNPM\Mine\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Forms.ConfirmLendBook.resources
 D:\Trung\#Study\CODE\CNPM\Mine\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Reports.LendSlip.resources
+D:\Trung\#Study\CODE\CNPM\Mine\LibraryManagement\LibraryManagement\obj\Debug\LibraryManagement.Forms.ConfirmRecvBook.resources

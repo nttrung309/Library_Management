@@ -10,25 +10,38 @@ namespace LibraryManagement.Models
     public class ReturnSlip
     {
         public string borrowSlipCode;
+        public string recvSlipCode;
         public string readerCode;
         public string readerName;
+        public string email;
         public string returnDate;
         public int lateReturnDays;
         public long fineThisPeriod;
         public string totalFine;
-        public List<Book> borrowedBooks;
+        public List<ReturnBook> returnBooks;
 
-        public ReturnSlip() { borrowedBooks = new List<Book>(); }
+        public ReturnSlip() { returnBooks = new List<ReturnBook>(); }
 
-        public ReturnSlip(string borrowSlipCode, string readerCode, string readerName, string returnDate, string totalFine)
+        public ReturnSlip(string borrowSlipCode, string readerCode, string readerName, string returnDate, string totalFine, string fineThisPeriod = "", List<ReturnBook> chosenBooks = null)
         {
             this.borrowSlipCode = borrowSlipCode;
             this.readerCode = readerCode;
             this.readerName = readerName;
             this.returnDate = returnDate;
+            if(fineThisPeriod != "")
+            {
+                this.fineThisPeriod = long.Parse(fineThisPeriod);
+            }
             this.totalFine = totalFine;
 
-            borrowedBooks = new List<Book>();
+            if(chosenBooks != null)
+            {
+                returnBooks = new List<ReturnBook>();
+                foreach (ReturnBook book in chosenBooks)
+                {
+                    returnBooks.Add(new ReturnBook(book));
+                }
+            }
         }
     }
 }

@@ -17,11 +17,12 @@ using System.Drawing.Printing;
 
 namespace LibraryManagement.Forms
 {
-    public partial class ConfirmLendBook : Form
+    public partial class ConfirmRecvBook : Form
     {
         BindingSource bindingChosen;
 
-        public static BorrowSlip borrowSlip;
+        public static ReturnSlip returnSlip;
+
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
         (
@@ -45,7 +46,7 @@ namespace LibraryManagement.Forms
         }
 
 
-        public ConfirmLendBook()
+        public ConfirmRecvBook()
         {
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 12, 12));
@@ -70,22 +71,22 @@ namespace LibraryManagement.Forms
 
         private void ConfirmLendBook_Load(object sender, EventArgs e)
         {
-            lbSlipCode.Text = borrowSlip.slipCode;
-            lbReaderCode.Text = borrowSlip.code;
-            lbReaderName.Text = borrowSlip.name;
-            lbBorrowDate.Text = FormatDate(borrowSlip.borrowDate);
-            lbReturnDay.Text = FormatDate(borrowSlip.returnDate);
-            lbAmount.Text = borrowSlip.amount;
+            lbSlipCode.Text = returnSlip.recvSlipCode;
+            lbReaderCode.Text = returnSlip.readerCode;
+            lbReaderName.Text = returnSlip.readerName;
+            lbReturnDate.Text = FormatDate(returnSlip.returnDate);
+            lbFineThisPeriod.Text = returnSlip.fineThisPeriod.ToString();
+            lbTotalFine.Text = returnSlip.totalFine.ToString();
 
             pnlSlipCode.Width = lbSlipCode.Width - 6;
             pnlCode.Width = lbReaderCode.Width - 6;
             pnlName.Width = lbReaderName.Width - 6;
-            pnlBorrowDate.Width = lbBorrowDate.Width - 6;
-            pnlReturnDate.Width = lbReturnDay.Width - 6;
-            pnlAmount.Width = lbAmount.Width - 8;
+            pnlReturnDate.Width = lbReturnDate.Width - 6;
+            pnlFineThisPeriod.Width = lbFineThisPeriod.Width - 8;
+            pnlTotalFine.Width = lbTotalFine.Width - 8;
 
             bindingChosen = new BindingSource();
-            bindingChosen.DataSource = borrowSlip.chosenBooks;
+            bindingChosen.DataSource = returnSlip.returnBooks;
             dtgvChosenBook.DataSource = bindingChosen;
 
             if(dtgvChosenBook.Rows.Count != 0)
@@ -125,53 +126,52 @@ namespace LibraryManagement.Forms
 
         private void UpdataData()
         {
-            string createBorrowSlipCmd = $@"INSERT INTO PHIEUMUON (MaDocGia, NgMuon, HanTra) VALUES('{borrowSlip.code}','{borrowSlip.borrowDate}','{borrowSlip.returnDate}')";
-            string insertSlipDetail = "";
-            string updateBookState = "";
+            string createReturnSlip = $@"INSERT INTO PHIEUTRASACH(MaDocGia, NgTra, TienPhatKyNay) VALUES('{returnSlip.readerCode}', '{returnSlip.returnDate}', {returnSlip.fineThisPeriod})";
+            string createReturnSlipDetail = @"";
+            string setBookAndSlipDetailStatus = @"";
 
-            foreach(Book book in borrowSlip.chosenBooks)
+            foreach (ReturnBook book in returnSlip.returnBooks)
             {
-                insertSlipDetail = insertSlipDetail + $@"INSERT INTO CTPHIEUMUON(MaPhieuMuonSach, MaCuonSach, TinhTrangPM) VALUES('{borrowSlip.slipCode}','{book.specCode}', 0)" + "\n";
-                updateBookState = updateBookState + $@"UPDATE CUONSACH SET TinhTrang = 0 WHERE MaCuonSach = '{book.specCode}'" + "\n";
+                createReturnSlipDetail += $@"INSERT INTO CTPT(MaPhieuTraSach, MaCuonSach, MaPhieuMuonSach, SoNgayMuon, TienPhat) VALUES('{returnSlip.recvSlipCode}','{book.specBookCode}','{returnSlip.borrowSlipCode}','{book.borrowedDays}','{book.fine}')" + "\n";
+                setBookAndSlipDetailStatus += $@"UPDATE CTPHIEUMUON SET TinhTrangPM = 1  WHERE MaChiTietPhieuMuon = '{book.detailSlipCode}'" + "\n" + $@"UPDATE CUONSACH SET TinhTrang = 1 WHERE MaCuonSach = '{book.specBookCode}'";
             }
-            
+
             SqlConnection conn = new SqlConnection(DatabaseInfo.connectionString);
             conn.Open();
-            SqlCommand cmd = new SqlCommand(createBorrowSlipCmd, conn);
+            SqlCommand cmd = new SqlCommand(createReturnSlip, conn);
             cmd.ExecuteNonQuery();
-            cmd.CommandText = insertSlipDetail;
+            cmd.CommandText = createReturnSlipDetail;
             cmd.ExecuteNonQuery();
-            cmd.CommandText = updateBookState;
+            cmd.CommandText = setBookAndSlipDetailStatus;
             cmd.ExecuteNonQuery();
-            conn.Close();
-            
-            DemoDesign.LendBook.lendState = "Success";
+
+            DemoDesign.RecvBook.recvState = "Success";
             //SendMail();
             this.Close();
         }
 
         private void SendMail()
         {
-            string slipTitle = "<b>THÔNG TIN PHIẾU MƯỢN</b><br/><br/>";
-            string readerCode = $"<b>Mã độc giả</b>: {borrowSlip.code}<br/>";
-            string readerName = $"<b>Họ tên</b>: {borrowSlip.name}<br/>";
-            string borrowDate = $"<b>Ngày mượn</b>: {FormatDate(borrowSlip.borrowDate)}<br/>";
-            string returnDate = $"<b>Ngày trả</b>: {FormatDate(borrowSlip.returnDate)}<br/>";
-            string borrowBooksTitle = $"<br/><b>SÁCH ĐÃ MƯỢN:</b><br/>";
-            string borrowBooks = "";
-            foreach (Book book in borrowSlip.chosenBooks)
-            {
-                string bookInfo = $"<b>Mã sách:</b> {book.code}&emsp;&emsp;<b>Tên sách:</b> {book.name}&emsp;&emsp;<b>Tác giả:</b> {book.author}<br/>";
-                borrowBooks += bookInfo;
-            }
+            //string slipTitle = "<b>THÔNG TIN PHIẾU MƯỢN</b><br/><br/>";
+            //string readerCode = $"<b>Mã độc giả</b>: {returnSlip.code}<br/>";
+            //string readerName = $"<b>Họ tên</b>: {returnSlip.name}<br/>";
+            //string borrowDate = $"<b>Ngày mượn</b>: {FormatDate(returnSlip.borrowDate)}<br/>";
+            //string returnDate = $"<b>Ngày trả</b>: {FormatDate(returnSlip.returnDate)}<br/>";
+            //string borrowBooksTitle = $"<br/><b>SÁCH ĐÃ MƯỢN:</b><br/>";
+            //string borrowBooks = "";
+            //foreach (ReturnBook book in returnSlip.returnBooks)
+            //{
+            //    string bookInfo = $"<b>Mã sách:</b> {book.bookCode}&emsp;&emsp;<b>Tên sách:</b> {book.bookName}&emsp;&emsp;<b>Tác giả:</b> {book.author}<br/>";
+            //    borrowBooks += bookInfo;
+            //}
 
-            string msg = slipTitle + readerCode + readerName + borrowDate + returnDate + borrowBooksTitle + borrowBooks;
-            MailService.SendMail(borrowSlip.email, msg, borrowSlip.name);
+            //string msg = slipTitle + readerCode + readerName + borrowDate + returnDate + borrowBooksTitle + borrowBooks;
+            //MailService.SendMail(returnSlip.email, msg, returnSlip.readerName);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            DemoDesign.LendBook.lendState = "Cancelled";
+            DemoDesign.RecvBook.recvState = "Cancelled";
             this.Close();
         }
 

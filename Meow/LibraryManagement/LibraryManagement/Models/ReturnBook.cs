@@ -9,6 +9,8 @@ namespace LibraryManagement.Models
     public class ReturnBook
     {
         public string borrowSlipCode;
+        public string specBookCode;
+        public string detailSlipCode;
         public int stt { get; set; }
         public string bookCode { get; set; }
         public string bookName { get; set; }
@@ -33,6 +35,9 @@ namespace LibraryManagement.Models
             this.borrowDate = returnBook.borrowDate;
             this.borrowedDays = returnBook.borrowedDays;
             this.fine = returnBook.fine;
+            this.stt = returnBook.stt;
+            this.specBookCode = returnBook.specBookCode;
+            this.detailSlipCode = returnBook.detailSlipCode;
         }
     }
 }
