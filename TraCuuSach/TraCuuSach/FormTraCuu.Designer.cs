@@ -86,7 +86,7 @@ namespace TraCuuSach
             this.lbTieuDe.ForeColor = System.Drawing.Color.Navy;
             this.lbTieuDe.Location = new System.Drawing.Point(515, 10);
             this.lbTieuDe.Name = "lbTieuDe";
-            this.lbTieuDe.Size = new System.Drawing.Size(293, 60);
+            this.lbTieuDe.Size = new System.Drawing.Size(287, 59);
             this.lbTieuDe.TabIndex = 3;
             this.lbTieuDe.Text = "Tra Cứu Sách";
             // 
@@ -100,7 +100,7 @@ namespace TraCuuSach
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 32);
             this.label3.TabIndex = 10;
-            this.label3.Text = "Bộ Lộc";
+            this.label3.Text = "Bộ Loc";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // dgvDanhSachCuonSach

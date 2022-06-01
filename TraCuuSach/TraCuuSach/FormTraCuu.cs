@@ -436,5 +436,9 @@ for (int i=1;i<=g.Columns.Count;i++)
         private void cbTinhTrang_KeyPress(object sender, KeyPressEventArgs e)
         {
         }
+
+    
+
+  
     }
 }
