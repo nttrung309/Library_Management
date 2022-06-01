@@ -122,7 +122,7 @@ namespace ThayDoiQuyDinh
 
         private void nButton1_Click(object sender, EventArgs e)
         {
-
+            int i = 0;
             if (txbMucThuTienPhat.Text != "" || txbSoNgayMuonMax.Text != "" || txbSoSachMuonMax.Text != "" || txbThoiGianLuuHanh.Text != "" || txbThoiHanThe.Text != "" || txbTuoiToiDa.Text != "" || txbTuoiToiThieu.Text != "")
             {
            
@@ -149,6 +149,7 @@ namespace ThayDoiQuyDinh
                     if (int.Parse(a.Rows[0].ItemArray[0].ToString()) > int.Parse(txbTuoiToiDa.Text))
                     {
                         MessageBox.Show("quy định về tuổi tối đa không được phép nhỏ hơn tuổi tối thiểu");
+                        i = 1;
                     }
                     else
                     {
@@ -169,6 +170,7 @@ namespace ThayDoiQuyDinh
                     if (int.Parse(b.Rows[0].ItemArray[0].ToString()) < int.Parse(txbTuoiToiThieu.Text))
                     {
                         MessageBox.Show("quy định về tuổi tối đa không được phép nhỏ hơn tuổi tối thiểu");
+                        i = 1;
                     }
                    else 
                     {   command = connection.CreateCommand();
@@ -201,6 +203,7 @@ namespace ThayDoiQuyDinh
                 txbTuoiToiThieu.Text = "";
                 txbSoSachMuonMax.Text = "";
                 txbMucThuTienPhat.Text = "";
+                if (i==0)
                 MessageBox.Show("Cập nhật quy định thành công");
                 loadQD();
             }
