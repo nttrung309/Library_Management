@@ -45,7 +45,7 @@ for (int i=1;i<=g.Columns.Count;i++)
             }
             obj.ActiveWorkbook.SaveCopyAs(DuongDan + TenTep + ".xlsx");
             obj.ActiveWorkbook.Saved = true;
-            MessageBox.Show("Xuất Excel Thành Công");
+           
         }
         private void disableSortHeader()
         {
@@ -407,14 +407,18 @@ for (int i=1;i<=g.Columns.Count;i++)
             {
                 sfd.Filter = "xlsx files (.xlsx)|.xlsx|All files (.)|*.*";
                 sfd.Title = "Save an Excel File";
-                sfd.ShowDialog();
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    MessageBox.Show("Xuất File Excel thành công");
+                }
 
                 string DuongDan;
                 DuongDan = sfd.FileName;
 
                 export(dgvDanhSachCuonSach, DuongDan, "");
-
+            
             }
+        
        
         }
 
