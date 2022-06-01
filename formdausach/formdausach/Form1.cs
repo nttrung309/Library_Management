@@ -115,28 +115,25 @@ namespace formdausach
 
         private void dgvDauSach_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataTable data = new DataTable();
+            lbxTacGia.DataSource = null;
+            lbxTacGia.Items.Clear();
             txb_MaDauSach.Text = dgvDauSach.CurrentRow.Cells[0].Value.ToString();
             txb_TenDauSach.Text = dgvDauSach.CurrentRow.Cells[1].Value.ToString();
             cbMaTL.Text = dgvDauSach.CurrentRow.Cells[2].Value.ToString();
             cbTenTL.Text = dgvDauSach.CurrentRow.Cells[3].Value.ToString();
-            string cauTruyVan = "SELECT TacGia.MaTacGia AS [MaTG], TenTacGia " +
+            string cauTruyVan = "SELECT TacGia.MaTacGia AS [MaTacGia], TenTacGia " +
                                 "FROM DAUSACH, TACGIA, CTTACGIA " +
                                 "WHERE DAUSACH.MaDauSach = CTTACGIA.MaDauSach AND "+
                                 "CTTACGIA.MaTacGia = TACGIA.MaTacGia AND "+
                                 "CTTACGIA.MaDauSach = '" + txb_MaDauSach.Text + "'";
             ketnoi(cauTruyVan);
-            /*lbxTacGia.DataSource = ketnoi(cauTruyVan);
-            lbxTacGia.DisplayMember = "TenTacGia";
-            lbxTacGia.ValueMember = "MaTG";*/
+            cbTacGia.SelectedIndex = -1;
             dt.Clear();
             myDataAdapter.Fill(dt);
             for(int i =0; i< dt.Rows.Count; i++)
             {
-                lbxTacGia.Items.Add(dt.Rows[i].ItemArray[2].ToString());
+                lbxTacGia.Items.Add(dt.Rows[i].ItemArray[1].ToString());
             }    
-            MessageBox.Show(dt.Rows[0].ItemArray[1].ToString());
-            dataGridView1.DataSource = dt;
             errMaTL.Clear();
             errTenTL.Clear();
             errTenDS.Clear();
@@ -156,6 +153,8 @@ namespace formdausach
             loadTenTG();
             loadMaTheLoai();
             loadTenTheLoai();
+            lbxTacGia.DataSource = null;
+            lbxTacGia.Items.Clear();
             txb_MaDauSach.Text = getNextIdDS();
             cbMaTL.SelectedIndex = -1;
             cbTenTL.SelectedIndex = -1;
@@ -180,6 +179,17 @@ namespace formdausach
             {
 
             }
+        }
+        private void xoaCTTacGia(string maDS)
+        {
+            string nonquery = "DELETE FROM CTTACGIA WHERE MaDauSach = '" + maDS + "'";
+            ketnoiNonQuery(nonquery);
+
+        }
+        private void ThemCTTacGia(string maDS, string maTG)
+        {
+            string nonquery = "INSERT INTO CTTacGia(MaDauSach, MaTacGia) VALUES ('" + maDS + "', '" + maTG + "')";
+            ketnoiNonQuery(nonquery);
         }
         public int xuly;
 
@@ -214,7 +224,6 @@ namespace formdausach
                 if(lbxTacGia.Items.Count==0)
                 {
                     errTacGia.SetError(lbxTacGia, "Vui lòng chọn tác giả cho sách");
-                    return;
                 } 
                 else
                 {
@@ -223,7 +232,7 @@ namespace formdausach
 
             }
 
-            if (txb_TenDauSach.Text.Length > 0 && cbMaTL.Text.Length > 0 && cbTenTL.Text.Length > 0)
+            if (txb_TenDauSach.Text.Length > 0 && cbMaTL.Text.Length > 0 && cbTenTL.Text.Length > 0 && lbxTacGia.Items.Count > 0)
             {
                 string query = null;
                 if (xuly == 0)
@@ -232,6 +241,10 @@ namespace formdausach
                     query = "SELECT TOP 1 MaDauSach FROM DAUSACH ORDER BY MaDauSach DESC ";
                     ketnoi(query);
                     txb_MaDauSach .Text = Convert.ToString(myCommand.ExecuteScalar());
+                    for(int i = 0; i < lbxTacGia.Items.Count; i++)
+                    {
+                        ThemCTTacGia(txb_MaDauSach.Text, dt.Rows[i].ItemArray[0].ToString());
+                    }    
                 }
 
                 dgvDauSach.AutoGenerateColumns = false;
@@ -259,13 +272,29 @@ namespace formdausach
             {
                 try
                 {
-                    string xoadongsql = "DELETE FROM DAUSACH WHERE MaDauSach = '" + txb_MaDauSach.Text + "'";
-                    ketnoiNonQuery(xoadongsql);
-                    MessageBox.Show("Xóa thành công.", "Thông Báo");
-                    btnLuu.Enabled = true;
-                    btnXoa.Enabled = false;
-                    btnThemMoi.Enabled = true;
-                    btnCapNhat.Enabled = false;
+                    //string xoadongsql = "DELETE FROM DAUSACH WHERE MaDauSach = '" + txb_MaDauSach.Text + "'";
+                    string xoadongsql = "IF EXISTS(SELECT * FROM SACH WHERE MaDauSach = '" +txb_MaDauSach.Text + "' AND SoLuong > 0) " +
+                                         "BEGIN SELECT 1 END ELSE BEGIN SELECT 2 END";
+                    ketnoi(xoadongsql);
+                    int number = Convert.ToInt32(myCommand.ExecuteScalar());
+                    if (number == 1)
+                    {
+                        MessageBox.Show("Xóa thất bại.\nTrong thư viện, hiện đang có sách của đầu sách này.", "Thông Báo");
+                    }
+                    else
+                    {
+                        xoadongsql = "DELETE FROM CTTACGIA WHERE MaDauSach = '" + txb_MaDauSach.Text + "'";
+                        ketnoiNonQuery(xoadongsql);
+                        xoadongsql = "DELETE FROM SACH WHERE MaDauSach = '" + txb_MaDauSach.Text + "'";
+                        ketnoiNonQuery(xoadongsql);
+                        xoadongsql = "DELETE FROM DAUSACH WHERE MaDauSach = '" + txb_MaDauSach.Text + "'";
+                        ketnoiNonQuery(xoadongsql);
+                        MessageBox.Show("Xóa thành công.", "Thông Báo");
+                        btnLuu.Enabled = true;
+                        btnXoa.Enabled = false;
+                        btnThemMoi.Enabled = true;
+                        btnCapNhat.Enabled = false;
+                    }
                 }
                 catch (Exception)
                 {
@@ -306,7 +335,6 @@ namespace formdausach
                 if (lbxTacGia.Items.Count == 0)
                 {
                     errTacGia.SetError(lbxTacGia, "Vui lòng chọn tác giả cho sách");
-                    return;
                 }
                 else
                 {
@@ -322,18 +350,23 @@ namespace formdausach
                 }
             }
 
-            if (txb_TenDauSach.Text.Length > 0 && cbMaTL.Text.Length > 0 && cbTenTL.Text.Length > 0)
+            if (txb_TenDauSach.Text.Length > 0 && cbMaTL.Text.Length > 0 && cbTenTL.Text.Length > 0 && lbxTacGia.Items.Count > 0)
             {
                 if (xuly == 1)
                 {
                     try
                     {
+                        xoaCTTacGia(txb_MaDauSach.Text);
                         string capnhatdongsql;
                         capnhatdongsql = "UPDATE DAUSACH " +
                             "SET TenDauSach = N'" + txb_TenDauSach.Text + "', MaTheLoai = '" + cbMaTL.Text + "'" +
                             "WHERE MaDauSach = '" + txb_MaDauSach.Text + "'";
                         ketnoi(capnhatdongsql);
                         myCommand.ExecuteNonQuery();
+                        for (int i = 0; i < lbxTacGia.Items.Count; i++)
+                        {
+                            ThemCTTacGia(txb_MaDauSach.Text, dt.Rows[i].ItemArray[0].ToString());
+                        }
                         MessageBox.Show("Sửa thành công.", "Thông Báo");
                         loadDgv();
                     }
@@ -403,6 +436,10 @@ namespace formdausach
                 
                 dt.Rows.RemoveAt(lbxTacGia.SelectedIndex);
                 lbxTacGia.Items.RemoveAt(lbxTacGia.SelectedIndex);
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn tác giả bên dưới!", "Thông báo");
             }
             
         }
