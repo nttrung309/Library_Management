@@ -72,6 +72,8 @@
             this.btnCancel = new LibraryManagement.nButton();
             this.btnReturn = new LibraryManagement.nButton();
             this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tgBtnPrint = new CustomControls.RJControls.ToggleButton();
             ((System.ComponentModel.ISupportInitialize)(this.border)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvReturnBook)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvChosen)).BeginInit();
@@ -574,12 +576,42 @@
             this.label11.TabIndex = 62;
             this.label11.Text = "Sách đã chọn";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Navy;
+            this.label12.Location = new System.Drawing.Point(1072, 274);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(110, 20);
+            this.label12.TabIndex = 64;
+            this.label12.Text = "In phiếu mượn";
+            // 
+            // tgBtnPrint
+            // 
+            this.tgBtnPrint.AutoSize = true;
+            this.tgBtnPrint.Checked = true;
+            this.tgBtnPrint.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tgBtnPrint.Location = new System.Drawing.Point(1183, 273);
+            this.tgBtnPrint.MinimumSize = new System.Drawing.Size(45, 22);
+            this.tgBtnPrint.Name = "tgBtnPrint";
+            this.tgBtnPrint.OffBackColor = System.Drawing.Color.Gray;
+            this.tgBtnPrint.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.tgBtnPrint.OnBackColor = System.Drawing.Color.MediumSlateBlue;
+            this.tgBtnPrint.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.tgBtnPrint.Size = new System.Drawing.Size(45, 22);
+            this.tgBtnPrint.TabIndex = 63;
+            this.tgBtnPrint.UseVisualStyleBackColor = true;
+            this.tgBtnPrint.CheckedChanged += new System.EventHandler(this.tgBtnPrint_CheckedChanged);
+            // 
             // RecvBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1260, 724);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.tgBtnPrint);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnUnchooseBook);
             this.Controls.Add(this.btnChooseBook);
@@ -659,5 +691,7 @@
         private LibraryManagement.nButton btnUnchooseBook;
         private LibraryManagement.nButton btnChooseBook;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private CustomControls.RJControls.ToggleButton tgBtnPrint;
     }
 }

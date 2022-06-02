@@ -331,9 +331,9 @@ namespace formdausach
             for (int i = 0; i < dgvDauSach.RowCount; i++)
             {
 
-                if (txb_TenDauSach.Text.ToUpper() == dgvDauSach.Rows[i].Cells[1].Value.ToString().ToUpper())
+                if (txb_TenDauSach.Text.ToUpper() == dgvDauSach.Rows[i].Cells[1].Value.ToString().ToUpper()&&txb_MaDauSach.Text!=dgvDauSach.Rows[i].Cells[0].Value.ToString())
                 {
-                    ck = 1;
+                    ck=1 ;
                 }
             }
             if (ck == 0)
@@ -416,6 +416,7 @@ namespace formdausach
             else
                 MessageBox.Show("Tên đầu sách đã có, bạn không thể cập nhật");
             
+            
 
         }
 
@@ -481,10 +482,6 @@ namespace formdausach
             
         }
 
-        private void vbButton1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(lbxTacGia.ValueMember[2].ToString());
-
-        }
+        
     }
 }

@@ -65,6 +65,12 @@
     <Compile Include="fHome.Designer.cs">
       <DependentUpon>fHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ViewBorrowSlip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ViewBorrowSlip.Designer.cs">
+      <DependentUpon>ViewBorrowSlip.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ConfirmRecvBook.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </Compile>
     <EmbeddedResource Include="fHome.resx">
       <DependentUpon>fHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ViewBorrowSlip.resx">
+      <DependentUpon>ViewBorrowSlip.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ConfirmRecvBook.resx">
       <DependentUpon>ConfirmRecvBook.cs</DependentUpon>

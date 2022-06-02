@@ -15,7 +15,7 @@ namespace FormSach
     {
 
         // Khai báo 
-        string chuoiKetNoi = @"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=QLTV;Integrated Security=True";
+        string chuoiKetNoi = @"Data Source=LAPTOP-281DQ5C3\SQLEXPRESS;Initial Catalog=QLTV;Integrated Security=True";
         private SqlConnection myConnection; // kết nối tới csdl
         private SqlDataAdapter myDataAdapter;   // Vận chuyển csdl qa DataSet
         private DataTable myTable;  // Dùng để lưu bảng lấy từ c#
@@ -44,13 +44,25 @@ namespace FormSach
             myCommand.ExecuteNonQuery();
 
         }
+        private void setSizeCol()
+        {
+            dgvSach.Columns[0].Width = 80;
+            dgvSach.Columns[1].Width = 105;
+            dgvSach.Columns[2].Width = 250;
+            dgvSach.Columns[3].Width = 170;
+            dgvSach.Columns[4].Width = 70;
+            dgvSach.Columns[5].Width = 200;
+            dgvSach.Columns[6].Width = 60;
+            dgvSach.Columns[7].Width = 140;
+
+
+        }
         void loadDgv()
         {
-            string cauTruyVan = "SELECT MaSach AS [Mã Sách], SACH.MaDauSach AS [Mã Đầu Sách], TenDauSach AS [Tên Đầu Sách], TenTacGia AS [Tác Giả], NamXuatBan AS [Năm XB], NhaXuatBan AS [Nhà XB], SoLuong AS [Số Lượng Tồn], TriGia AS [Giá tiền] " +
-                    "FROM SACH, DAUSACH, TACGIA, CTTACGIA " +
-                    "WHERE SACH.MaDauSach = DAUSACH.MaDauSach " +
-                    "AND DAUSACH.MaDauSach = CTTACGIA.MaDauSach " +
-                    "AND TACGIA.MaTacGia = CTTACGIA.MaTacGia";
+            string cauTruyVan = "SELECT MaSach AS[Mã Sách], DAUSACH.MaDauSach AS [Mã ĐS], TenDauSach AS [Tên ĐS], STRING_AGG(TenTacGia, ', ') AS [Tác Giả], NamXuatBan AS [Năm XB], NhaXuatBan AS [Nhà XB], SoLuong AS [SL Tồn], TriGia AS [Giá Tiền]" +
+                        " FROM TACGIA, CTTACGIA, DAUSACH, SACH" +
+                        " WHERE TACGIA.MaTacGia = CTTACGIA.MaTacGia AND CTTACGIA.MaDauSach = DAUSACH.MaDauSach AND SACH.MaDauSach = DAUSACH.MaDauSach" +
+                        " GROUP BY DAUSACH.TenDauSach, DAUSACH.MaDauSach, MaSach, NamXuatBan, NhaXuatBan, SoLuong, TriGia";
             dgvSach.DataSource = ketnoi(cauTruyVan);
             dgvSach.AutoGenerateColumns = false;
             myConnection.Close();
@@ -60,6 +72,7 @@ namespace FormSach
         private void Form1_Load(object sender, EventArgs e)
         {
             loadDgv();
+            setSizeCol();
             dgvSach.Enabled = true;
             btnLuu.Enabled = true;
             btnThemMoi.Enabled = true;
@@ -119,6 +132,7 @@ namespace FormSach
             btnLuu.Enabled = true;
 
         }
+        
         private void themSach()
         {
             try
@@ -150,201 +164,231 @@ namespace FormSach
         int xuly;
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            xuly = 0;
-            if (cbMaDS.Text == "")
+            int ck = 0;
+            for (int i = 0; i < dgvSach.RowCount; i++)
             {
-                errMaDS.SetError(cbMaDS, "Vui lòng nhập Mã Đầu Sách");
-            }
-            else
-            {
-                errMaDS.Clear();
-            }
-            if (cbTenSach.Text == "")
-            {
-                errTenDS.SetError(cbTenSach, "Vui lòng nhập Chủ Đề");
-            }
-            else
-            {
-                errTenDS.Clear();
-            }
-            
-            if (txbNhaXuatBan.Text == "")
-            {
-                errNXB.SetError(txbNhaXuatBan, "Vui lòng nhập NXB");
-            }
-            else
-            {
-                errNXB.Clear();
-            }
-            if (txbGiaTien.Text == "")
-            {
-                errGiaTien.SetError(txbGiaTien, "Vui lòng nhập Năm XB");
-            }
-            else
-            {
-                errGiaTien.Clear();
-            }
 
-            string query = "SELECT  ThoiGianLuuHanh FROM THAMSO";
-            ketnoi(query);
-            int tgXB = Convert.ToInt32(myCommand.ExecuteScalar());
-
-            if (DateTime.Now.Year - Convert.ToInt32(dtpNamXuatBan.Text) > tgXB)
-            {
-                MessageBox.Show("Năm xuất bản không hợp lệ!");
-                return;
-            }
-
-
-            float ktTriGia;
-            bool isNumberTriGia = float.TryParse(txbGiaTien.Text, out ktTriGia);
-
-            if (isNumberTriGia == false || ktTriGia <= 0)
-            {
-                MessageBox.Show("Vui lòng nhập số dương lớn hơn 0 trong ô:\nGiá Tiền.", "Thông Báo");
-                return;
-            }
-            if (cbMaDS.Text.Length > 0 && cbTenSach.Text.Length > 0 && txbTenTG.Text.Length > 0 && txbNhaXuatBan.Text.Length > 0 && txbGiaTien.Text.Length > 0 && isNumberTriGia == true && ktTriGia > 0)
-            {
-                if (xuly == 0)
+                if (cbMaDS.Text == dgvSach.Rows[i].Cells[1].Value.ToString() && txbNhaXuatBan.Text.ToUpper() == dgvSach.Rows[i].Cells[5].Value.ToString().ToUpper() &&
+                    dtpNamXuatBan.Text == dgvSach.Rows[i].Cells[4].Value.ToString())
                 {
-                    themSach();
+                    ck = 1;
                 }
-                else if (xuly == 1)
-                {
-                    suaSach();
-
-                }
-                loadDgv();
-                dgvSach.AutoGenerateColumns = false;
-                myConnection.Close();
-                btnLuu.Enabled = false;
-                btnThemMoi.Enabled = true;
-                btnCapNhat.Enabled = true;
-                btnXoa.Enabled = true;
-                dgvSach.Enabled = true;
-                dgvSach.FirstDisplayedScrollingRowIndex = dgvSach.RowCount - 1;
-
-                errGiaTien.Clear();
-                errMaDS.Clear();
-                errNXB.Clear();
-                errTenDS.Clear();
-
-
-
             }
-            else
+            if (ck == 0)
             {
-                MessageBox.Show("Vui lòng nhập đủ thông tin.", "Thông Báo");
-                if (cbMaDS.Text.Length == 0)
-                    cbMaDS.Focus();
-                else if (cbTenSach.Text.Length == 0)
-                    cbTenSach.Focus();
-                else if (txbNhaXuatBan.Text.Length == 0)
-                    txbNhaXuatBan.Focus();
-                else if (txbGiaTien.Text.Length == 0)
-                    txbGiaTien.Focus();
-                
-            }
+                xuly = 0;
+                if (cbMaDS.Text == "")
+                {
+                    errMaDS.SetError(cbMaDS, "Vui lòng nhập Mã Đầu Sách");
+                }
+                else
+                {
+                    errMaDS.Clear();
+                }
+                if (cbTenSach.Text == "")
+                {
+                    errTenDS.SetError(cbTenSach, "Vui lòng nhập Chủ Đề");
+                }
+                else
+                {
+                    errTenDS.Clear();
+                }
+
+                if (txbNhaXuatBan.Text == "")
+                {
+                    errNXB.SetError(txbNhaXuatBan, "Vui lòng nhập NXB");
+                }
+                else
+                {
+                    errNXB.Clear();
+                }
+                if (txbGiaTien.Text == "")
+                {
+                    errGiaTien.SetError(txbGiaTien, "Vui lòng nhập Năm XB");
+                }
+                else
+                {
+                    errGiaTien.Clear();
+                }
+
+                string query = "SELECT  ThoiGianLuuHanh FROM THAMSO";
+                ketnoi(query);
+                int tgXB = Convert.ToInt32(myCommand.ExecuteScalar());
+
+                if (DateTime.Now.Year - Convert.ToInt32(dtpNamXuatBan.Text) > tgXB)
+                {
+                    MessageBox.Show("Năm xuất bản không hợp lệ!");
+                    return;
+                }
+
+
+                float ktTriGia;
+                bool isNumberTriGia = float.TryParse(txbGiaTien.Text, out ktTriGia);
+
+                if (isNumberTriGia == false || ktTriGia <= 0)
+                {
+                    MessageBox.Show("Vui lòng nhập số dương lớn hơn 0 trong ô:\nGiá Tiền.", "Thông Báo");
+                    return;
+                }
+                if (cbMaDS.Text.Length > 0 && cbTenSach.Text.Length > 0 && txbTenTG.Text.Length > 0 && txbNhaXuatBan.Text.Length > 0 && txbGiaTien.Text.Length > 0 && isNumberTriGia == true && ktTriGia > 0)
+                {
+                    if (xuly == 0)
+                    {
+                        themSach();
+                    }
+                    else if (xuly == 1)
+                    {
+                        suaSach();
+
+                    }
+                    loadDgv();
+                    dgvSach.AutoGenerateColumns = false;
+                    myConnection.Close();
+                    btnLuu.Enabled = false;
+                    btnThemMoi.Enabled = true;
+                    btnCapNhat.Enabled = true;
+                    btnXoa.Enabled = true;
+                    dgvSach.Enabled = true;
+                    dgvSach.FirstDisplayedScrollingRowIndex = dgvSach.RowCount - 1;
+
+                    errGiaTien.Clear();
+                    errMaDS.Clear();
+                    errNXB.Clear();
+                    errTenDS.Clear();
+
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập đủ thông tin.", "Thông Báo");
+                    if (cbMaDS.Text.Length == 0)
+                        cbMaDS.Focus();
+                    else if (cbTenSach.Text.Length == 0)
+                        cbTenSach.Focus();
+                    else if (txbNhaXuatBan.Text.Length == 0)
+                        txbNhaXuatBan.Focus();
+                    else if (txbGiaTien.Text.Length == 0)
+                        txbGiaTien.Focus();
+
+                }
+            } 
+            else { MessageBox.Show("Phiên bản sách này đã có trong thư viện, bạn không thể lưu mới"); }
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            xuly = 1;
-            if (cbMaDS.Text == "")
+            int ck = 0;
+            for (int i = 0; i < dgvSach.RowCount; i++)
             {
-                errMaDS.SetError(cbMaDS, "Vui lòng nhập Mã Đầu Sách");
-            }
-            else
-            {
-                errMaDS.Clear();
-            }
-            if (cbTenSach.Text == "")
-            {
-                errTenDS.SetError(cbTenSach, "Vui lòng nhập Chủ Đề");
-            }
-            else
-            {
-                errTenDS.Clear();
-            }
-           
-            if (txbNhaXuatBan.Text.Length == 0)
-            {
-                errNXB.SetError(txbNhaXuatBan, "Vui lòng nhập NXB");
-            }
-            else
-            {
-                errNXB.Clear();
-            }
-            if (txbGiaTien.Text == "")
-            {
-                errGiaTien.SetError(txbGiaTien, "Vui lòng nhập Năm XB");
-            }
-            else
-            {
-                errGiaTien.Clear();
-            }
 
-            string query = "SELECT  ThoiGianLuuHanh FROM THAMSO";
-            ketnoi(query);
-            int tgXB = Convert.ToInt32(myCommand.ExecuteScalar());
-
-            if (DateTime.Now.Year - Convert.ToInt32(dtpNamXuatBan.Text) > tgXB)
-            {
-                MessageBox.Show("Năm xuất bản không hợp lệ!");
-                return;
-            }
-
-
-            float ktTriGia;
-            bool isNumberTriGia = float.TryParse(txbGiaTien.Text, out ktTriGia);
-
-            if (isNumberTriGia == false || ktTriGia <= 0)
-            {
-                MessageBox.Show("Vui lòng nhập số dương lớn hơn 0 trong ô:\nGiá Tiền.", "Thông Báo");
-                return;
-            }
-            if (cbMaDS.Text.Length > 0 && cbTenSach.Text.Length > 0 && txbTenTG.Text.Length > 0 && txbNhaXuatBan.Text.Length > 0 && txbGiaTien.Text.Length > 0 && isNumberTriGia == true && ktTriGia > 0)
-            {
-                if (xuly == 0)
+                if (cbMaDS.Text == dgvSach.Rows[i].Cells[1].Value.ToString() && txbNhaXuatBan.Text.ToUpper() == dgvSach.Rows[i].Cells[5].Value.ToString().ToUpper() &&
+                    dtpNamXuatBan.Text == dgvSach.Rows[i].Cells[4].Value.ToString())
                 {
-                    themSach();
+                    ck = 1;
                 }
-                else if (xuly == 1)
+            }
+            if (ck == 0)
+            {
+                xuly = 1;
+                if (cbMaDS.Text == "")
                 {
-                    suaSach();
+                    errMaDS.SetError(cbMaDS, "Vui lòng nhập Mã Đầu Sách");
+                }
+                else
+                {
+                    errMaDS.Clear();
+                }
+                if (cbTenSach.Text == "")
+                {
+                    errTenDS.SetError(cbTenSach, "Vui lòng nhập Chủ Đề");
+                }
+                else
+                {
+                    errTenDS.Clear();
+                }
+
+                if (txbNhaXuatBan.Text.Length == 0)
+                {
+                    errNXB.SetError(txbNhaXuatBan, "Vui lòng nhập NXB");
+                }
+                else
+                {
+                    errNXB.Clear();
+                }
+                if (txbGiaTien.Text == "")
+                {
+                    errGiaTien.SetError(txbGiaTien, "Vui lòng nhập Năm XB");
+                }
+                else
+                {
+                    errGiaTien.Clear();
+                }
+
+                string query = "SELECT  ThoiGianLuuHanh FROM THAMSO";
+                ketnoi(query);
+                int tgXB = Convert.ToInt32(myCommand.ExecuteScalar());
+
+                if (DateTime.Now.Year - Convert.ToInt32(dtpNamXuatBan.Text) > tgXB)
+                {
+                    MessageBox.Show("Năm xuất bản không hợp lệ!");
+                    return;
+                }
+
+
+                float ktTriGia;
+                bool isNumberTriGia = float.TryParse(txbGiaTien.Text, out ktTriGia);
+
+                if (isNumberTriGia == false || ktTriGia <= 0)
+                {
+                    MessageBox.Show("Vui lòng nhập số dương lớn hơn 0 trong ô:\nGiá Tiền.", "Thông Báo");
+                    return;
+                }
+                if (cbMaDS.Text.Length > 0 && cbTenSach.Text.Length > 0 && txbTenTG.Text.Length > 0 && txbNhaXuatBan.Text.Length > 0 && txbGiaTien.Text.Length > 0 && isNumberTriGia == true && ktTriGia > 0)
+                {
+                    if (xuly == 0)
+                    {
+                        themSach();
+                    }
+                    else if (xuly == 1)
+                    {
+                        suaSach();
+
+                    }
+                    loadDgv();
+                    dgvSach.AutoGenerateColumns = false;
+                    myConnection.Close();
+                    btnLuu.Enabled = false;
+                    btnThemMoi.Enabled = true;
+                    btnCapNhat.Enabled = true;
+                    btnXoa.Enabled = true;
+                    dgvSach.Enabled = true;
+                    dgvSach.FirstDisplayedScrollingRowIndex = dgvSach.RowCount - 1;
+
+                    errGiaTien.Clear();
+                    errMaDS.Clear();
+                    errNXB.Clear();
+                    errTenDS.Clear();
+
 
                 }
-                loadDgv();
-                dgvSach.AutoGenerateColumns = false;
-                myConnection.Close();
-                btnLuu.Enabled = false;
-                btnThemMoi.Enabled = true;
-                btnCapNhat.Enabled = true;
-                btnXoa.Enabled = true;
-                dgvSach.Enabled = true;
-                dgvSach.FirstDisplayedScrollingRowIndex = dgvSach.RowCount - 1;
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập đủ thông tin.", "Thông Báo");
+                    if (cbMaDS.Text.Length == 0)
+                        cbMaDS.Focus();
+                    else if (cbTenSach.Text.Length == 0)
+                        cbTenSach.Focus();
+                    else if (txbNhaXuatBan.Text.Length == 0)
+                        txbNhaXuatBan.Focus();
+                    else if (txbGiaTien.Text.Length == 0)
+                        txbGiaTien.Focus();
 
-                errGiaTien.Clear();
-                errMaDS.Clear();
-                errNXB.Clear();
-                errTenDS.Clear();
-
-
+                }
             }
             else
-            {
-                MessageBox.Show("Vui lòng nhập đủ thông tin.", "Thông Báo");
-                if (cbMaDS.Text.Length == 0)
-                    cbMaDS.Focus();
-                else if (cbTenSach.Text.Length == 0)
-                    cbTenSach.Focus();
-                else if (txbNhaXuatBan.Text.Length == 0)
-                    txbNhaXuatBan.Focus();
-                else if (txbGiaTien.Text.Length == 0)
-                    txbGiaTien.Focus();
+                MessageBox.Show("Phiên bản sách này đã có trong thư viện, bạn không thể cập nhật");
 
-            }
 
         }
 
@@ -408,7 +452,7 @@ namespace FormSach
             ketnoi(cauTruyVan);
             string tenDS = Convert.ToString(myCommand.ExecuteScalar());
             cbTenSach.Text = tenDS;
-            cauTruyVan = " SELECT TenTacGia FROM TACGIA, CTTACGIA WHERE TACGIA.MaTacGia = CTTACGIA.MaTacGia AND MaDauSach = '" + this.cbMaDS.GetItemText(this.cbMaDS.SelectedItem) + "'";
+            cauTruyVan = "SELECT STRING_AGG(TenTacGia, ', ') AS TenTG FROM TACGIA, CTTACGIA, DAUSACH WHERE DAUSACH.MaDauSach = CTTACGIA.MaDauSach  AND TACGIA.MaTacGia = CTTACGIA.MaTacGia AND DAUSACH.MaDauSach = '" + this.cbMaDS.GetItemText(this.cbMaDS.SelectedItem) + "'";
             ketnoi(cauTruyVan);
             string tenTG = Convert.ToString(myCommand.ExecuteScalar());
             txbTenTG.Text = tenTG;
@@ -421,12 +465,23 @@ namespace FormSach
             ketnoi(cauTruyVan);
             string maDS = Convert.ToString(myCommand.ExecuteScalar());
             cbMaDS.Text = maDS;
-            /* cauTruyVan = " SELECT TenTacGia FROM TACGIA, CTTACGIA WHERE TACGIA.MaTacGia = CTTACGIA.MaTacGia AND MaDauSach = '" + this.cbMaDS.GetItemText(this.cbMaDS.SelectedItem) + "'";
-             ketnoi(cauTruyVan);
-             string tenTG = Convert.ToString(myCommand.ExecuteScalar());
-             txbTenTG.Text = tenTG;*/
+            
            cbMaDS_SelectedValueChanged(this, e);
         }
 
+        private void txbTenTG_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void txbMaSach_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void txbSoLuongTon_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }
