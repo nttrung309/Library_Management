@@ -440,7 +440,8 @@ namespace formdausach
             if(lbxTacGia.Items.Count == 0)
             {
                 lbxTacGia.Items.Add(cbTacGia.Text);
-                dt.Rows.Add(cbTacGia.SelectedValue.ToString()); 
+                dt.Rows.Add(cbTacGia.SelectedValue.ToString());
+                cbTacGia.SelectedIndex = -1;
             }
             else
             { 
@@ -455,6 +456,7 @@ namespace formdausach
                 }
                 dt.Rows.Add(cbTacGia.SelectedValue.ToString());
                 lbxTacGia.Items.Add(cbTacGia.Text);
+                cbTacGia.SelectedIndex = -1;
             }
 
         }
