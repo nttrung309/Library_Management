@@ -195,73 +195,86 @@ namespace formdausach
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            xuly = 0;
+            int ck = 0;
+            for (int i = 0; i < dgvDauSach.RowCount; i++)
             {
-                if (txb_TenDauSach.Text == "")
-                {
-                    errTenDS.SetError(txb_TenDauSach, "Vui lòng nhập Tên Đầu Sách");
-                }
-                else
-                {
-                    errTenDS.Clear();
-                }
-                if (cbMaTL.Text == "")
-                {
-                    errMaTL.SetError(cbMaTL, "Vui lòng chọn Mã Thể Loại Sách");
-                }
-                else
-                {
-                    errMaTL.Clear();
-                }
-                if (cbTenTL.Text == "")
-                {
-                    errTenTL.SetError(cbTenTL, "Vui lòng chọn Tên Thể Loại Sách");
-                }
-                else
-                {
-                    errTenTL.Clear();
-                }
-                if(lbxTacGia.Items.Count==0)
-                {
-                    errTacGia.SetError(lbxTacGia, "Vui lòng chọn tác giả cho sách");
-                } 
-                else
-                {
-                    errTacGia.Clear();
-                }
 
+                if (txb_TenDauSach.Text.ToUpper() == dgvDauSach.Rows[i].Cells[1].Value.ToString().ToUpper())
+                {
+                    ck = 1;
+                }
             }
-
-            if (txb_TenDauSach.Text.Length > 0 && cbMaTL.Text.Length > 0 && cbTenTL.Text.Length > 0 && lbxTacGia.Items.Count > 0)
+            if (ck == 0)
             {
-                string query = null;
-                if (xuly == 0)
+                xuly = 0;
                 {
-                    themDauSach();
-                    query = "SELECT TOP 1 MaDauSach FROM DAUSACH ORDER BY MaDauSach DESC ";
-                    ketnoi(query);
-                    txb_MaDauSach .Text = Convert.ToString(myCommand.ExecuteScalar());
-                    for(int i = 0; i < lbxTacGia.Items.Count; i++)
+                    if (txb_TenDauSach.Text == "")
                     {
-                        ThemCTTacGia(txb_MaDauSach.Text, dt.Rows[i].ItemArray[0].ToString());
-                    }    
+                        errTenDS.SetError(txb_TenDauSach, "Vui lòng nhập Tên Đầu Sách");
+                    }
+                    else
+                    {
+                        errTenDS.Clear();
+                    }
+                    if (cbMaTL.Text == "")
+                    {
+                        errMaTL.SetError(cbMaTL, "Vui lòng chọn Mã Thể Loại Sách");
+                    }
+                    else
+                    {
+                        errMaTL.Clear();
+                    }
+                    if (cbTenTL.Text == "")
+                    {
+                        errTenTL.SetError(cbTenTL, "Vui lòng chọn Tên Thể Loại Sách");
+                    }
+                    else
+                    {
+                        errTenTL.Clear();
+                    }
+                    if (lbxTacGia.Items.Count == 0)
+                    {
+                        errTacGia.SetError(lbxTacGia, "Vui lòng chọn tác giả cho sách");
+                    }
+                    else
+                    {
+                        errTacGia.Clear();
+                    }
+
                 }
 
-                dgvDauSach.AutoGenerateColumns = false;
-                myConnection.Close();
-                btnLuu.Enabled = false;
-                btnThemMoi.Enabled = true;
-                btnCapNhat.Enabled = true;
-                btnXoa.Enabled = true;
-                dgvDauSach.Enabled = true;
-                dgvDauSach.FirstDisplayedScrollingRowIndex = dgvDauSach.RowCount - 1;
+                if (txb_TenDauSach.Text.Length > 0 && cbMaTL.Text.Length > 0 && cbTenTL.Text.Length > 0 && lbxTacGia.Items.Count > 0)
+                {
+                    string query = null;
+                    if (xuly == 0)
+                    {
+                        themDauSach();
+                        query = "SELECT TOP 1 MaDauSach FROM DAUSACH ORDER BY MaDauSach DESC ";
+                        ketnoi(query);
+                        txb_MaDauSach.Text = Convert.ToString(myCommand.ExecuteScalar());
+                        for (int i = 0; i < lbxTacGia.Items.Count; i++)
+                        {
+                            ThemCTTacGia(txb_MaDauSach.Text, dt.Rows[i].ItemArray[0].ToString());
+                        }
+                    }
+
+                    dgvDauSach.AutoGenerateColumns = false;
+                    myConnection.Close();
+                    btnLuu.Enabled = false;
+                    btnThemMoi.Enabled = true;
+                    btnCapNhat.Enabled = true;
+                    btnXoa.Enabled = true;
+                    dgvDauSach.Enabled = true;
+                    dgvDauSach.FirstDisplayedScrollingRowIndex = dgvDauSach.RowCount - 1;
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập đủ thông tin.", "Thông Báo");
+                    if (txb_TenDauSach.Text.Length == 0)
+                        txb_TenDauSach.Focus();
+                }
             }
-            else
-            {
-                MessageBox.Show("Vui lòng nhập đủ thông tin.", "Thông Báo");
-                if (txb_TenDauSach.Text.Length == 0)
-                    txb_TenDauSach.Focus();
-            }
+            else MessageBox.Show("Tên đầu sách đã có, bạn không thể lưu mới");
         }
         // Phương thức xóa đầu sách
         private void xoaDauSach()
@@ -314,79 +327,96 @@ namespace formdausach
 
         private void btnCapNhat_Click_1(object sender, EventArgs e)
         {
-            xuly = 1;
+            int ck = 0;
+            for (int i = 0; i < dgvDauSach.RowCount; i++)
             {
-                if (txb_TenDauSach.Text == "")
+
+                if (txb_TenDauSach.Text.ToUpper() == dgvDauSach.Rows[i].Cells[1].Value.ToString().ToUpper())
                 {
-                    errTenDS.SetError(txb_TenDauSach, "Vui lòng nhập Tên Đầu Sách");
-                }
-                else
-                {
-                    errTenDS.Clear();
-                }
-                if (cbMaTL.Text == "")
-                {
-                    errMaTL.SetError(cbMaTL, "Vui lòng chọn Mã Thể Loại Sách");
-                }
-                else
-                {
-                    errMaTL.Clear();
-                }
-                if (lbxTacGia.Items.Count == 0)
-                {
-                    errTacGia.SetError(lbxTacGia, "Vui lòng chọn tác giả cho sách");
-                }
-                else
-                {
-                    errTacGia.Clear();
-                }
-                if (cbTenTL.Text == "")
-                {
-                    errTenTL.SetError(cbTenTL, "Vui lòng chọn Tên Thể Loại Sách");
-                }
-                else
-                {
-                    errTenTL.Clear();
+                    ck = 1;
                 }
             }
-
-            if (txb_TenDauSach.Text.Length > 0 && cbMaTL.Text.Length > 0 && cbTenTL.Text.Length > 0 && lbxTacGia.Items.Count > 0)
+            if (ck == 0)
             {
-                if (xuly == 1)
+                xuly = 1;
                 {
-                    try
+                    if (txb_TenDauSach.Text == "")
                     {
-                        xoaCTTacGia(txb_MaDauSach.Text);
-                        string capnhatdongsql;
-                        capnhatdongsql = "UPDATE DAUSACH " +
-                            "SET TenDauSach = N'" + txb_TenDauSach.Text + "', MaTheLoai = '" + cbMaTL.Text + "'" +
-                            "WHERE MaDauSach = '" + txb_MaDauSach.Text + "'";
-                        ketnoi(capnhatdongsql);
-                        myCommand.ExecuteNonQuery();
-                        for (int i = 0; i < lbxTacGia.Items.Count; i++)
-                        {
-                            ThemCTTacGia(txb_MaDauSach.Text, dt.Rows[i].ItemArray[0].ToString());
-                        }
-                        MessageBox.Show("Sửa thành công.", "Thông Báo");
-                        loadDgv();
+                        errTenDS.SetError(txb_TenDauSach, "Vui lòng nhập Tên Đầu Sách");
                     }
-                    catch
+                    else
                     {
-                        MessageBox.Show("Sửa thất bại.\nVui lòng kiểm tra lại dữ liệu.", "Thông Báo");
+                        errTenDS.Clear();
+                    }
+                    if (cbMaTL.Text == "")
+                    {
+                        errMaTL.SetError(cbMaTL, "Vui lòng chọn Mã Thể Loại Sách");
+                    }
+                    else
+                    {
+                        errMaTL.Clear();
+                    }
+                    if (lbxTacGia.Items.Count == 0)
+                    {
+                        errTacGia.SetError(lbxTacGia, "Vui lòng chọn tác giả cho sách");
+                    }
+                    else
+                    {
+                        errTacGia.Clear();
+                    }
+                    if (cbTenTL.Text == "")
+                    {
+                        errTenTL.SetError(cbTenTL, "Vui lòng chọn Tên Thể Loại Sách");
+                    }
+                    else
+                    {
+                        errTenTL.Clear();
                     }
                 }
-                btnLuu.Enabled = false;
-                btnThemMoi.Enabled = true;
-                btnCapNhat.Enabled = true;
-                btnXoa.Enabled = true;
-                dgvDauSach.Enabled = true;
+
+                if (txb_TenDauSach.Text.Length > 0 && cbMaTL.Text.Length > 0 && cbTenTL.Text.Length > 0 && lbxTacGia.Items.Count > 0)
+                {
+                    if (xuly == 1)
+                    {
+                        try
+                        {
+                            xoaCTTacGia(txb_MaDauSach.Text);
+                            string capnhatdongsql;
+                            capnhatdongsql = "UPDATE DAUSACH " +
+                                "SET TenDauSach = N'" + txb_TenDauSach.Text + "', MaTheLoai = '" + cbMaTL.Text + "'" +
+                                "WHERE MaDauSach = '" + txb_MaDauSach.Text + "'";
+                            ketnoi(capnhatdongsql);
+                            myCommand.ExecuteNonQuery();
+                            for (int i = 0; i < lbxTacGia.Items.Count; i++)
+                            {
+                                ThemCTTacGia(txb_MaDauSach.Text, dt.Rows[i].ItemArray[0].ToString());
+                            }
+                            MessageBox.Show("Sửa thành công.", "Thông Báo");
+                            loadDgv();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Sửa thất bại.\nVui lòng kiểm tra lại dữ liệu.", "Thông Báo");
+                        }
+                    }
+                    btnLuu.Enabled = false;
+                    btnThemMoi.Enabled = true;
+                    btnCapNhat.Enabled = true;
+                    btnXoa.Enabled = true;
+                    dgvDauSach.Enabled = true;
+                }
+
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập đủ thông tin.", "Thông Báo");
+                    if (txb_TenDauSach.Text.Length == 0)
+                        txb_TenDauSach.Focus();
+                }
             }
             else
-            {
-                MessageBox.Show("Vui lòng nhập đủ thông tin.", "Thông Báo");
-                if (txb_TenDauSach.Text.Length == 0)
-                    txb_TenDauSach.Focus();
-            }
+                MessageBox.Show("Tên đầu sách đã có, bạn không thể cập nhật");
+            
+
         }
 
         private void cbMaTL_SelectedValueChanged(object sender, EventArgs e)
