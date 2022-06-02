@@ -28,3 +28,13 @@ C:\Users\Admin\Desktop\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debu
 C:\Users\Admin\Desktop\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.exe
 C:\Users\Admin\Desktop\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.pdb
 C:\Users\Admin\Desktop\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.FormThayDoiQuyDinh.resources
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\bin\Debug\ThayDoiQuyDinh.exe.config
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\bin\Debug\ThayDoiQuyDinh.exe
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\bin\Debug\ThayDoiQuyDinh.pdb
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.csproj.AssemblyReference.cache
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.FormThayDoiQuyDinh.resources
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.Properties.Resources.resources
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.csproj.GenerateResource.cache
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.csproj.CoreCompileInputs.cache
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.exe
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.pdb

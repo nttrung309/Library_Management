@@ -28,6 +28,10 @@ namespace PhieuThuTien
           
 
         }
+        void setFormatDMY()
+        {
+            dgvDLPhieuThuTienPhat.Columns[2].DefaultCellStyle.Format = "dd/MM/yyyy";
+        }
         void loadcbDocGia ()
         {
             DataTable table4 = new DataTable();
@@ -129,9 +133,11 @@ namespace PhieuThuTien
             btnCapNhat.Enabled = false;
             connection = new SqlConnection(str);
             connection.Open();
+            
             loadPhieuThu();
             loadcbDocGia();
             loadmagia();
+            setFormatDMY();
         }
 
       
@@ -330,6 +336,11 @@ namespace PhieuThuTien
         }
 
         private void dgvDLPhieuThuTienPhat_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvDLPhieuThuTienPhat_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
         }
