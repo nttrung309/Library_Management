@@ -151,7 +151,7 @@ namespace FormSach
             try
             {
                 string capnhatdong;
-                capnhatdong = "UPDATE  SACH SET MaDauSach = '" + cbMaDS.Text + "', NhaXuatBan = N'" + txbNhaXuatBan.Text + "', NamXuatBan = " + dtpNamXuatBan.Text + ", SoLuong = 0, TriGia = " + txbGiaTien.Text +
+                capnhatdong = "UPDATE  SACH SET MaDauSach = '" + cbMaDS.Text + "', NhaXuatBan = N'" + txbNhaXuatBan.Text + "', NamXuatBan = " + dtpNamXuatBan.Text + ", TriGia = " + txbGiaTien.Text +
                                 "WHERE MaSach = '" + txbMaSach.Text + "'";
                 ketnoiNonQuery(capnhatdong);
                 MessageBox.Show("Sửa thành công.", "Thông Báo");
@@ -217,7 +217,7 @@ namespace FormSach
 
                 if (DateTime.Now.Year - Convert.ToInt32(dtpNamXuatBan.Text) > tgXB)
                 {
-                    MessageBox.Show("Năm xuất bản không hợp lệ!");
+                    MessageBox.Show("Chỉ nhận sách xuất bản trong vòng " + tgXB.ToString() + " năm!");
                     return;
                 }
 
@@ -331,7 +331,7 @@ namespace FormSach
 
                 if (DateTime.Now.Year - Convert.ToInt32(dtpNamXuatBan.Text) > tgXB)
                 {
-                    MessageBox.Show("Năm xuất bản không hợp lệ!");
+                    MessageBox.Show("Chỉ nhận sách xuất bản trong vòng " +tgXB.ToString() + " năm!");
                     return;
                 }
 

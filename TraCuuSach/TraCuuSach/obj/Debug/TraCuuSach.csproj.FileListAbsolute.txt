@@ -48,3 +48,13 @@ C:\Users\Admin\Desktop\Library_Management - Copy\TraCuuSach\TraCuuSach\obj\Debug
 C:\Users\Admin\Desktop\Library_Management - Copy\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\Library_Management - Copy\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.exe
 C:\Users\Admin\Desktop\Library_Management - Copy\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.pdb
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\TraCuuSach\TraCuuSach\bin\Debug\TraCuuSach.exe.config
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\TraCuuSach\TraCuuSach\bin\Debug\TraCuuSach.exe
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\TraCuuSach\TraCuuSach\bin\Debug\TraCuuSach.pdb
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.csproj.AssemblyReference.cache
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.FormTraCuu.resources
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.Properties.Resources.resources
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.csproj.GenerateResource.cache
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.csproj.CoreCompileInputs.cache
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.exe
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\TraCuuSach\TraCuuSach\obj\Debug\TraCuuSach.pdb

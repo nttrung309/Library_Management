@@ -17,7 +17,7 @@ namespace TraCuuSach
         SqlConnection connection;
         SqlCommand command;
   System.Data.DataTable table = new System.Data.DataTable();
-        string str = @"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=QLTV;Integrated Security=True";
+        string str = @"Data Source=LAPTOP-281DQ5C3\SQLEXPRESS;Initial Catalog=QLTV_re;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
         public FormTraCuu()
         {
