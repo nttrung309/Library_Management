@@ -437,27 +437,32 @@ namespace formdausach
 
         private void btnDown_Click(object sender, EventArgs e)
         {
-            if(lbxTacGia.Items.Count == 0)
+            if (cbTacGia.Text != "")
             {
-                lbxTacGia.Items.Add(cbTacGia.Text);
-                dt.Rows.Add(cbTacGia.SelectedValue.ToString());
-                cbTacGia.SelectedIndex = -1;
+                if (lbxTacGia.Items.Count == 0)
+                {
+                    lbxTacGia.Items.Add(cbTacGia.Text);
+                    dt.Rows.Add(cbTacGia.SelectedValue.ToString());
+                    cbTacGia.SelectedIndex = -1;
+                }
+                else
+                {
+                    for (int i = 0; i < lbxTacGia.Items.Count; i++)
+                    {
+                        if (lbxTacGia.Items[i].ToString() == cbTacGia.Text)
+                        {
+                            MessageBox.Show(string.Format("{0} đã có!", cbTacGia.Text));
+                            return;
+                        }
+
+                    }
+                    dt.Rows.Add(cbTacGia.SelectedValue.ToString());
+                    lbxTacGia.Items.Add(cbTacGia.Text);
+                    cbTacGia.SelectedIndex = -1;
+                }
             }
             else
-            { 
-                for (int i = 0; i < lbxTacGia.Items.Count; i++)
-                {
-                    if (lbxTacGia.Items[i].ToString() == cbTacGia.Text)
-                    {
-                        MessageBox.Show(string.Format("{0} đã có!", cbTacGia.Text));
-                        return;
-                    }
-                   
-                }
-                dt.Rows.Add(cbTacGia.SelectedValue.ToString());
-                lbxTacGia.Items.Add(cbTacGia.Text);
-                cbTacGia.SelectedIndex = -1;
-            }
+                MessageBox.Show("Vui lòng chọn tác giả trước");
 
         }
 
