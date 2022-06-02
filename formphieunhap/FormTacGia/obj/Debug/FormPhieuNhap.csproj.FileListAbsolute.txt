@@ -18,3 +18,4 @@ C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\formphieunhap\FormTacGia
 C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\formphieunhap\FormTacGia\obj\Debug\FormPhieuNhap.csproj.CoreCompileInputs.cache
 C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\formphieunhap\FormTacGia\obj\Debug\FormTacGia.exe
 C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\formphieunhap\FormTacGia\obj\Debug\FormTacGia.pdb
+C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\formphieunhap\FormTacGia\obj\Debug\FormNhapSach.formCTPN.resources
