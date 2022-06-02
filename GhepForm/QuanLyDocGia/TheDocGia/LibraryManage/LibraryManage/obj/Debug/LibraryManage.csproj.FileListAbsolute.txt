@@ -1,0 +1,70 @@
+C:\Users\ACER\Study\TAI LIEU HK2_NAM2\SE104 NMCNPM\DoAn\LibraryManage\LibraryManage\bin\Debug\LibraryManage.exe.config
+C:\Users\ACER\Study\TAI LIEU HK2_NAM2\SE104 NMCNPM\DoAn\LibraryManage\LibraryManage\bin\Debug\LibraryManage.exe
+C:\Users\ACER\Study\TAI LIEU HK2_NAM2\SE104 NMCNPM\DoAn\LibraryManage\LibraryManage\bin\Debug\LibraryManage.pdb
+C:\Users\ACER\Study\TAI LIEU HK2_NAM2\SE104 NMCNPM\DoAn\LibraryManage\LibraryManage\obj\Debug\LibraryManage.csproj.AssemblyReference.cache
+C:\Users\ACER\Study\TAI LIEU HK2_NAM2\SE104 NMCNPM\DoAn\LibraryManage\LibraryManage\obj\Debug\LibraryManage.Form1.resources
+C:\Users\ACER\Study\TAI LIEU HK2_NAM2\SE104 NMCNPM\DoAn\LibraryManage\LibraryManage\obj\Debug\LibraryManage.Properties.Resources.resources
+C:\Users\ACER\Study\TAI LIEU HK2_NAM2\SE104 NMCNPM\DoAn\LibraryManage\LibraryManage\obj\Debug\LibraryManage.csproj.GenerateResource.cache
+C:\Users\ACER\Study\TAI LIEU HK2_NAM2\SE104 NMCNPM\DoAn\LibraryManage\LibraryManage\obj\Debug\LibraryManage.csproj.CoreCompileInputs.cache
+C:\Users\ACER\Study\TAI LIEU HK2_NAM2\SE104 NMCNPM\DoAn\LibraryManage\LibraryManage\obj\Debug\LibraryManage.exe
+C:\Users\ACER\Study\TAI LIEU HK2_NAM2\SE104 NMCNPM\DoAn\LibraryManage\LibraryManage\obj\Debug\LibraryManage.pdb
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\DemoDesign\Loi\ThemDocGia\LibraryManage\LibraryManage\bin\Debug\LibraryManage.exe.config
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\DemoDesign\Loi\ThemDocGia\LibraryManage\LibraryManage\bin\Debug\LibraryManage.exe
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\DemoDesign\Loi\ThemDocGia\LibraryManage\LibraryManage\bin\Debug\LibraryManage.pdb
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\DemoDesign\Loi\ThemDocGia\LibraryManage\LibraryManage\obj\Debug\LibraryManage.csproj.AssemblyReference.cache
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\DemoDesign\Loi\ThemDocGia\LibraryManage\LibraryManage\obj\Debug\LibraryManage.Form1.resources
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\DemoDesign\Loi\ThemDocGia\LibraryManage\LibraryManage\obj\Debug\LibraryManage.Properties.Resources.resources
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\DemoDesign\Loi\ThemDocGia\LibraryManage\LibraryManage\obj\Debug\LibraryManage.csproj.GenerateResource.cache
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\DemoDesign\Loi\ThemDocGia\LibraryManage\LibraryManage\obj\Debug\LibraryManage.csproj.CoreCompileInputs.cache
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\DemoDesign\Loi\ThemDocGia\LibraryManage\LibraryManage\obj\Debug\LibraryManage.exe
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\DemoDesign\Loi\ThemDocGia\LibraryManage\LibraryManage\obj\Debug\LibraryManage.pdb
+C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\DemoDesign\Loi\ThemDocGia\LibraryManage\LibraryManage\bin\Debug\LibraryManage.exe.config
+C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\DemoDesign\Loi\ThemDocGia\LibraryManage\LibraryManage\bin\Debug\LibraryManage.exe
+C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\DemoDesign\Loi\ThemDocGia\LibraryManage\LibraryManage\bin\Debug\LibraryManage.pdb
+C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\DemoDesign\Loi\ThemDocGia\LibraryManage\LibraryManage\obj\Debug\LibraryManage.csproj.AssemblyReference.cache
+C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\DemoDesign\Loi\ThemDocGia\LibraryManage\LibraryManage\obj\Debug\LibraryManage.Form1.resources
+C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\DemoDesign\Loi\ThemDocGia\LibraryManage\LibraryManage\obj\Debug\LibraryManage.Properties.Resources.resources
+C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\DemoDesign\Loi\ThemDocGia\LibraryManage\LibraryManage\obj\Debug\LibraryManage.csproj.GenerateResource.cache
+C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\DemoDesign\Loi\ThemDocGia\LibraryManage\LibraryManage\obj\Debug\LibraryManage.csproj.CoreCompileInputs.cache
+C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\DemoDesign\Loi\ThemDocGia\LibraryManage\LibraryManage\obj\Debug\LibraryManage.exe
+C:\Users\ACER\source\repos\CLONE_GIT\Library_Management\DemoDesign\Loi\ThemDocGia\LibraryManage\LibraryManage\obj\Debug\LibraryManage.pdb
+C:\Users\ACER\Study\TAI LIEU HK2_NAM2\SE104 NMCNPM\LibraryManage\LibraryManage\bin\Debug\LibraryManage.exe.config
+C:\Users\ACER\Study\TAI LIEU HK2_NAM2\SE104 NMCNPM\LibraryManage\LibraryManage\bin\Debug\LibraryManage.exe
+C:\Users\ACER\Study\TAI LIEU HK2_NAM2\SE104 NMCNPM\LibraryManage\LibraryManage\bin\Debug\LibraryManage.pdb
+C:\Users\ACER\Study\TAI LIEU HK2_NAM2\SE104 NMCNPM\LibraryManage\LibraryManage\obj\Debug\LibraryManage.csproj.AssemblyReference.cache
+C:\Users\ACER\Study\TAI LIEU HK2_NAM2\SE104 NMCNPM\LibraryManage\LibraryManage\obj\Debug\LibraryManage.Form1.resources
+C:\Users\ACER\Study\TAI LIEU HK2_NAM2\SE104 NMCNPM\LibraryManage\LibraryManage\obj\Debug\LibraryManage.Properties.Resources.resources
+C:\Users\ACER\Study\TAI LIEU HK2_NAM2\SE104 NMCNPM\LibraryManage\LibraryManage\obj\Debug\LibraryManage.csproj.GenerateResource.cache
+C:\Users\ACER\Study\TAI LIEU HK2_NAM2\SE104 NMCNPM\LibraryManage\LibraryManage\obj\Debug\LibraryManage.csproj.CoreCompileInputs.cache
+C:\Users\ACER\Study\TAI LIEU HK2_NAM2\SE104 NMCNPM\LibraryManage\LibraryManage\obj\Debug\LibraryManage.exe
+C:\Users\ACER\Study\TAI LIEU HK2_NAM2\SE104 NMCNPM\LibraryManage\LibraryManage\obj\Debug\LibraryManage.pdb
+C:\Users\ACER\source\repos\CLONE_GIT\clone\LibraryManage\LibraryManage\bin\Debug\LibraryManage.exe.config
+C:\Users\ACER\source\repos\CLONE_GIT\clone\LibraryManage\LibraryManage\bin\Debug\LibraryManage.exe
+C:\Users\ACER\source\repos\CLONE_GIT\clone\LibraryManage\LibraryManage\bin\Debug\LibraryManage.pdb
+C:\Users\ACER\source\repos\CLONE_GIT\clone\LibraryManage\LibraryManage\obj\Debug\LibraryManage.csproj.AssemblyReference.cache
+C:\Users\ACER\source\repos\CLONE_GIT\clone\LibraryManage\LibraryManage\obj\Debug\LibraryManage.Form1.resources
+C:\Users\ACER\source\repos\CLONE_GIT\clone\LibraryManage\LibraryManage\obj\Debug\LibraryManage.Properties.Resources.resources
+C:\Users\ACER\source\repos\CLONE_GIT\clone\LibraryManage\LibraryManage\obj\Debug\LibraryManage.csproj.GenerateResource.cache
+C:\Users\ACER\source\repos\CLONE_GIT\clone\LibraryManage\LibraryManage\obj\Debug\LibraryManage.csproj.CoreCompileInputs.cache
+C:\Users\ACER\source\repos\CLONE_GIT\clone\LibraryManage\LibraryManage\obj\Debug\LibraryManage.exe
+C:\Users\ACER\source\repos\CLONE_GIT\clone\LibraryManage\LibraryManage\obj\Debug\LibraryManage.pdb
+C:\Users\Admin\Desktop\Library_Management\DemoDesign\Loi\LibraryManage\LibraryManage\bin\Debug\LibraryManage.exe.config
+C:\Users\Admin\Desktop\Library_Management\DemoDesign\Loi\LibraryManage\LibraryManage\bin\Debug\LibraryManage.exe
+C:\Users\Admin\Desktop\Library_Management\DemoDesign\Loi\LibraryManage\LibraryManage\bin\Debug\LibraryManage.pdb
+C:\Users\Admin\Desktop\Library_Management\DemoDesign\Loi\LibraryManage\LibraryManage\obj\Debug\LibraryManage.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Library_Management\DemoDesign\Loi\LibraryManage\LibraryManage\obj\Debug\LibraryManage.Form1.resources
+C:\Users\Admin\Desktop\Library_Management\DemoDesign\Loi\LibraryManage\LibraryManage\obj\Debug\LibraryManage.Properties.Resources.resources
+C:\Users\Admin\Desktop\Library_Management\DemoDesign\Loi\LibraryManage\LibraryManage\obj\Debug\LibraryManage.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Library_Management\DemoDesign\Loi\LibraryManage\LibraryManage\obj\Debug\LibraryManage.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Library_Management\DemoDesign\Loi\LibraryManage\LibraryManage\obj\Debug\LibraryManage.exe
+C:\Users\Admin\Desktop\Library_Management\DemoDesign\Loi\LibraryManage\LibraryManage\obj\Debug\LibraryManage.pdb
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\DemoDesign\Loi\LibraryManage\LibraryManage\bin\Debug\LibraryManage.exe.config
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\DemoDesign\Loi\LibraryManage\LibraryManage\bin\Debug\LibraryManage.exe
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\DemoDesign\Loi\LibraryManage\LibraryManage\bin\Debug\LibraryManage.pdb
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\DemoDesign\Loi\LibraryManage\LibraryManage\obj\Debug\LibraryManage.csproj.AssemblyReference.cache
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\DemoDesign\Loi\LibraryManage\LibraryManage\obj\Debug\LibraryManage.Form1.resources
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\DemoDesign\Loi\LibraryManage\LibraryManage\obj\Debug\LibraryManage.Properties.Resources.resources
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\DemoDesign\Loi\LibraryManage\LibraryManage\obj\Debug\LibraryManage.csproj.GenerateResource.cache
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\DemoDesign\Loi\LibraryManage\LibraryManage\obj\Debug\LibraryManage.csproj.CoreCompileInputs.cache
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\DemoDesign\Loi\LibraryManage\LibraryManage\obj\Debug\LibraryManage.exe
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\DemoDesign\Loi\LibraryManage\LibraryManage\obj\Debug\LibraryManage.pdb

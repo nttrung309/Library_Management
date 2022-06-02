@@ -1,0 +1,50 @@
+C:\Users\Admin\source\repos\PhieuThuTien\PhieuThuTien\bin\Debug\PhieuThuTien.exe.config
+C:\Users\Admin\source\repos\PhieuThuTien\PhieuThuTien\bin\Debug\PhieuThuTien.exe
+C:\Users\Admin\source\repos\PhieuThuTien\PhieuThuTien\bin\Debug\PhieuThuTien.pdb
+C:\Users\Admin\source\repos\PhieuThuTien\PhieuThuTien\obj\Debug\PhieuThuTien.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\PhieuThuTien\PhieuThuTien\obj\Debug\PhieuThuTien.Properties.Resources.resources
+C:\Users\Admin\source\repos\PhieuThuTien\PhieuThuTien\obj\Debug\PhieuThuTien.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\PhieuThuTien\PhieuThuTien\obj\Debug\PhieuThuTien.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\PhieuThuTien\PhieuThuTien\obj\Debug\PhieuThuTien.exe
+C:\Users\Admin\source\repos\PhieuThuTien\PhieuThuTien\obj\Debug\PhieuThuTien.pdb
+C:\Users\Admin\source\repos\PhieuThuTien\PhieuThuTien\obj\Debug\PhieuThuTien.Form1.resources
+C:\Users\Admin\Desktop\Library_Management\NGOC\PhieuThuTien\bin\Debug\PhieuThuTien.exe.config
+C:\Users\Admin\Desktop\Library_Management\NGOC\PhieuThuTien\bin\Debug\PhieuThuTien.exe
+C:\Users\Admin\Desktop\Library_Management\NGOC\PhieuThuTien\bin\Debug\PhieuThuTien.pdb
+C:\Users\Admin\Desktop\Library_Management\NGOC\PhieuThuTien\obj\Debug\PhieuThuTien.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Library_Management\NGOC\PhieuThuTien\obj\Debug\PhieuThuTien.Properties.Resources.resources
+C:\Users\Admin\Desktop\Library_Management\NGOC\PhieuThuTien\obj\Debug\PhieuThuTien.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Library_Management\NGOC\PhieuThuTien\obj\Debug\PhieuThuTien.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Library_Management\NGOC\PhieuThuTien\obj\Debug\PhieuThuTien.exe
+C:\Users\Admin\Desktop\Library_Management\NGOC\PhieuThuTien\obj\Debug\PhieuThuTien.pdb
+C:\Users\Admin\Desktop\Library_Management1\NGOC\PhieuThuTien\bin\Debug\PhieuThuTien.exe.config
+C:\Users\Admin\Desktop\Library_Management1\NGOC\PhieuThuTien\bin\Debug\PhieuThuTien.exe
+C:\Users\Admin\Desktop\Library_Management1\NGOC\PhieuThuTien\bin\Debug\PhieuThuTien.pdb
+C:\Users\Admin\Desktop\Library_Management1\NGOC\PhieuThuTien\obj\Debug\PhieuThuTien.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Library_Management1\NGOC\PhieuThuTien\obj\Debug\PhieuThuTien.FormThuTien.resources
+C:\Users\Admin\Desktop\Library_Management1\NGOC\PhieuThuTien\obj\Debug\PhieuThuTien.Properties.Resources.resources
+C:\Users\Admin\Desktop\Library_Management1\NGOC\PhieuThuTien\obj\Debug\PhieuThuTien.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Library_Management1\NGOC\PhieuThuTien\obj\Debug\PhieuThuTien.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Library_Management1\NGOC\PhieuThuTien\obj\Debug\PhieuThuTien.exe
+C:\Users\Admin\Desktop\Library_Management1\NGOC\PhieuThuTien\obj\Debug\PhieuThuTien.pdb
+C:\Users\Admin\Desktop\Library_Management\NGOC\PhieuThuTien\obj\Debug\PhieuThuTien.FormThuTien.resources
+C:\Users\Admin\Desktop\Library_Management - Copy\NGOC\PhieuThuTien\bin\Debug\PhieuThuTien.exe.config
+C:\Users\Admin\Desktop\Library_Management - Copy\NGOC\PhieuThuTien\bin\Debug\PhieuThuTien.exe
+C:\Users\Admin\Desktop\Library_Management - Copy\NGOC\PhieuThuTien\bin\Debug\PhieuThuTien.pdb
+C:\Users\Admin\Desktop\Library_Management - Copy\NGOC\PhieuThuTien\obj\Debug\PhieuThuTien.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Library_Management - Copy\NGOC\PhieuThuTien\obj\Debug\PhieuThuTien.FormThuTien.resources
+C:\Users\Admin\Desktop\Library_Management - Copy\NGOC\PhieuThuTien\obj\Debug\PhieuThuTien.Properties.Resources.resources
+C:\Users\Admin\Desktop\Library_Management - Copy\NGOC\PhieuThuTien\obj\Debug\PhieuThuTien.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Library_Management - Copy\NGOC\PhieuThuTien\obj\Debug\PhieuThuTien.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Library_Management - Copy\NGOC\PhieuThuTien\obj\Debug\PhieuThuTien.exe
+C:\Users\Admin\Desktop\Library_Management - Copy\NGOC\PhieuThuTien\obj\Debug\PhieuThuTien.pdb
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\QuanLyDocGia\PhieuThuTien\PhieuThuTien\bin\Debug\PhieuThuTien.exe.config
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\QuanLyDocGia\PhieuThuTien\PhieuThuTien\bin\Debug\PhieuThuTien.exe
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\QuanLyDocGia\PhieuThuTien\PhieuThuTien\bin\Debug\PhieuThuTien.pdb
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\QuanLyDocGia\PhieuThuTien\PhieuThuTien\obj\Debug\PhieuThuTien.csproj.AssemblyReference.cache
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\QuanLyDocGia\PhieuThuTien\PhieuThuTien\obj\Debug\PhieuThuTien.FormThuTien.resources
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\QuanLyDocGia\PhieuThuTien\PhieuThuTien\obj\Debug\PhieuThuTien.Properties.Resources.resources
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\QuanLyDocGia\PhieuThuTien\PhieuThuTien\obj\Debug\PhieuThuTien.csproj.GenerateResource.cache
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\QuanLyDocGia\PhieuThuTien\PhieuThuTien\obj\Debug\PhieuThuTien.csproj.CoreCompileInputs.cache
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\QuanLyDocGia\PhieuThuTien\PhieuThuTien\obj\Debug\PhieuThuTien.exe
+C:\Users\ACER\source\repos\CLONE_GIT\clone\Library_Management\QuanLyDocGia\PhieuThuTien\PhieuThuTien\obj\Debug\PhieuThuTien.pdb

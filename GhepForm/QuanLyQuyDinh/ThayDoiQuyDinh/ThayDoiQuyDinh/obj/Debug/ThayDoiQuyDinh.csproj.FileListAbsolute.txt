@@ -1,0 +1,30 @@
+C:\Users\Admin\source\repos\ThayDoiQuyDinh\ThayDoiQuyDinh\bin\Debug\ThayDoiQuyDinh.exe.config
+C:\Users\Admin\source\repos\ThayDoiQuyDinh\ThayDoiQuyDinh\bin\Debug\ThayDoiQuyDinh.exe
+C:\Users\Admin\source\repos\ThayDoiQuyDinh\ThayDoiQuyDinh\bin\Debug\ThayDoiQuyDinh.pdb
+C:\Users\Admin\source\repos\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.Form1.resources
+C:\Users\Admin\source\repos\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.Properties.Resources.resources
+C:\Users\Admin\source\repos\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.exe
+C:\Users\Admin\source\repos\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.pdb
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\bin\Debug\ThayDoiQuyDinh.exe.config
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\bin\Debug\ThayDoiQuyDinh.exe
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\bin\Debug\ThayDoiQuyDinh.pdb
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.csproj.AssemblyReference.cache
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.Form1.resources
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.Properties.Resources.resources
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.csproj.GenerateResource.cache
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.csproj.CoreCompileInputs.cache
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.exe
+C:\Users\Dell\OneDrive - Trường ĐH CNTT - University of Information Technology\Máy tính\testgit\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.pdb
+C:\Users\Admin\Desktop\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\bin\Debug\ThayDoiQuyDinh.exe.config
+C:\Users\Admin\Desktop\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\bin\Debug\ThayDoiQuyDinh.exe
+C:\Users\Admin\Desktop\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\bin\Debug\ThayDoiQuyDinh.pdb
+C:\Users\Admin\Desktop\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.Properties.Resources.resources
+C:\Users\Admin\Desktop\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.exe
+C:\Users\Admin\Desktop\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.pdb
+C:\Users\Admin\Desktop\Library_Management\ThayDoiQuyDinh\ThayDoiQuyDinh\obj\Debug\ThayDoiQuyDinh.FormThayDoiQuyDinh.resources
