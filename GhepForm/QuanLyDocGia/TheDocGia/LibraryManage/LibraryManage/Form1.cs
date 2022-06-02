@@ -26,7 +26,7 @@ namespace LibraryManage
         public Form1()
         {
             InitializeComponent();
-            MessageBox.Show(this.Height.ToString(), this.Width.ToString());
+           
             foreach (DataGridViewColumn col in dgvDSDocGia.Columns)
             {
                 col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -186,6 +186,44 @@ namespace LibraryManage
             DateTime ngLapThe = dtpNgLapThe.Value.Date;
             DateTime ngHetHan = ngLapThe.AddMonths(ThoiHanThe);
             txbNgayHetHan.Text = tranferFormatTextBox(ngHetHan.ToString());
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            if (txbMaDG.Text == "" || txbHoTen.Text == "" || txbNgayHetHan.Text == "" || dtpNgLapThe.Text == "" || dtpNgSinh.Text == "" || cbLoaiDG.Text == "" )
+            {
+                MessageBox.Show("vui lòng chọn 1 bộ dữ liệu bên dưới để tiến hành in");
+            }
+            else
+            {
+                e.Graphics.DrawString("Thẻ Độc Giả", new Font("Arial", 25, FontStyle.Bold), Brushes.Blue, new Point(320, 80));
+                e.Graphics.DrawString(lbMaDG.Text + " " + txbMaDG.Text, new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(150, 190));
+                e.Graphics.DrawString("....................................................................", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(332, 196));
+
+                e.Graphics.DrawString(lbHoTen.Text + "      " + txbHoTen.Text, new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(150, 260));
+                e.Graphics.DrawString(".......................................................................", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(300, 272));
+
+                e.Graphics.DrawString(lbNgaySinh.Text + "    " + dtpNgSinh.Text, new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(150, 330));
+                e.Graphics.DrawString(".....................................................................", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(315, 340));
+
+                e.Graphics.DrawString(lbNgLapThe.Text + "            " + dtpNgLapThe.Text, new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(150, 400));
+                e.Graphics.DrawString(".........................................................................", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(290, 410));
+
+                e.Graphics.DrawString(lbNgHetHan.Text + "        " + txbNgayHetHan.Text, new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(150, 470));
+                e.Graphics.DrawString(".......................................................................", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(290, 476));
+                e.Graphics.DrawString("Độc giả", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(90, 700));
+                e.Graphics.DrawString("(Ký ghi rõ họ tên)", new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(105, 735));
+                e.Graphics.DrawString("Người Lập thẻ", new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(550, 700));
+                e.Graphics.DrawString("(Ký ghi rõ họ tên)", new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(565, 735));
+            }
+        }
+
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.Height = this.Height;
+            printPreviewDialog1.Width = this.Width;
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)

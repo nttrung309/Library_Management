@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.lbTTDocGia = new System.Windows.Forms.Label();
             this.dgvDSDocGia = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -62,6 +63,9 @@
             this.errEmail = new System.Windows.Forms.ErrorProvider(this.components);
             this.errDC = new System.Windows.Forms.ErrorProvider(this.components);
             this.errLoaiDG = new System.Windows.Forms.ErrorProvider(this.components);
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.btnIn = new nhapsach.nButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSDocGia)).BeginInit();
             this.gbDocGia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errTenDG)).BeginInit();
@@ -138,6 +142,7 @@
             // 
             this.gbDocGia.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.gbDocGia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.gbDocGia.Controls.Add(this.btnIn);
             this.gbDocGia.Controls.Add(this.txbNgayHetHan);
             this.gbDocGia.Controls.Add(this.btnXoa);
             this.gbDocGia.Controls.Add(this.btnCapNhat);
@@ -196,7 +201,7 @@
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoa.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(799, 250);
+            this.btnXoa.Location = new System.Drawing.Point(725, 246);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(140, 40);
             this.btnXoa.TabIndex = 5;
@@ -219,7 +224,7 @@
             this.btnCapNhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCapNhat.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCapNhat.ForeColor = System.Drawing.Color.White;
-            this.btnCapNhat.Location = new System.Drawing.Point(632, 250);
+            this.btnCapNhat.Location = new System.Drawing.Point(558, 246);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(140, 40);
             this.btnCapNhat.TabIndex = 6;
@@ -242,7 +247,7 @@
             this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLuu.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.Location = new System.Drawing.Point(466, 250);
+            this.btnLuu.Location = new System.Drawing.Point(392, 246);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(140, 40);
             this.btnLuu.TabIndex = 7;
@@ -291,7 +296,7 @@
             this.btnThemMoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThemMoi.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemMoi.ForeColor = System.Drawing.Color.White;
-            this.btnThemMoi.Location = new System.Drawing.Point(305, 250);
+            this.btnThemMoi.Location = new System.Drawing.Point(231, 246);
             this.btnThemMoi.Name = "btnThemMoi";
             this.btnThemMoi.Size = new System.Drawing.Size(140, 40);
             this.btnThemMoi.TabIndex = 4;
@@ -480,6 +485,44 @@
             // 
             this.errLoaiDG.ContainerControl = this;
             // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // btnIn
+            // 
+            this.btnIn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnIn.BackColor = System.Drawing.Color.Orange;
+            this.btnIn.BackgroundColor = System.Drawing.Color.Orange;
+            this.btnIn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnIn.BorderRadius = 20;
+            this.btnIn.BorderSize = 0;
+            this.btnIn.FlatAppearance.BorderSize = 0;
+            this.btnIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIn.ForeColor = System.Drawing.Color.White;
+            this.btnIn.Location = new System.Drawing.Point(906, 246);
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Size = new System.Drawing.Size(140, 40);
+            this.btnIn.TabIndex = 19;
+            this.btnIn.Text = "In Phiếu";
+            this.btnIn.TextColor = System.Drawing.Color.White;
+            this.btnIn.UseVisualStyleBackColor = false;
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -539,5 +582,8 @@
         private System.Windows.Forms.ErrorProvider errDC;
         private System.Windows.Forms.ErrorProvider errLoaiDG;
         private System.Windows.Forms.TextBox txbNgayHetHan;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private nhapsach.nButton btnIn;
     }
 }
