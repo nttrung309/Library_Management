@@ -17,6 +17,7 @@ namespace LibraryManagement.Models
         public string borrowDate { get; set; }
         public string borrowedDays { get; set; }
         public long fine { get; set; }
+        public int lateReturnDays;
 
         public ReturnBook() { }
         public ReturnBook(int stt, string bookCode, string bookName, string borrowDate, string borrowedDays, long fine)

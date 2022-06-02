@@ -25,7 +25,8 @@ namespace DemoDesign
 
         List<int> selectedIndex = new List<int>();
 
-        public static string recvState = ""; 
+        public static string recvState = "";
+        public static bool needPrint = true;
 
         Thread tdGetNewSlipCode;
 
@@ -94,6 +95,7 @@ namespace DemoDesign
                     if(int.Parse(returnBook.borrowedDays) > Parameters.maxLendDay)
                     {
                         int lateReturnDays = int.Parse(returnBook.borrowedDays) - Parameters.maxLendDay;
+                        returnBook.lateReturnDays = lateReturnDays;
                         returnBook.fine = CalFineThisPeriod(lateReturnDays);
                     }
                     returnBooks.Add(returnBook);
@@ -140,6 +142,7 @@ namespace DemoDesign
                     ReturnBook data = new ReturnBook(returnBook);
                     data.specBookCode = returnBook.specBookCode;
                     data.detailSlipCode = returnBook.detailSlipCode;
+                    data.lateReturnDays = returnBook.lateReturnDays;
                     returnView.Add(data);
                 }
             }
@@ -232,6 +235,7 @@ namespace DemoDesign
                 returnBook.fine = long.Parse(dtgvReturnBook.SelectedRows[0].Cells[5].Value.ToString());
                 returnBook.specBookCode = returnView[dtgvReturnBook.SelectedRows[0].Index].specBookCode;
                 returnBook.detailSlipCode = returnView[dtgvReturnBook.SelectedRows[0].Index].detailSlipCode;
+                returnBook.lateReturnDays = returnView[dtgvReturnBook.SelectedRows[0].Index].lateReturnDays;
 
                 chosenBooks.Add(returnBook);
                 returnView.RemoveAt(dtgvReturnBook.SelectedRows[0].Index);
@@ -240,11 +244,16 @@ namespace DemoDesign
                 returnView = returnView.OrderBy(o => o.bookCode).ThenBy(o => o.bookName).ToList();
 
                 int stt = 1;
+                int totalLateReturnDays = 0;
                 foreach(ReturnBook book in chosenBooks)
                 {
+                    totalLateReturnDays += book.lateReturnDays;
                     book.stt = stt;
                     stt++;
                 }
+
+                lbLateDays.Text = totalLateReturnDays.ToString();
+
                 stt = 1;
                 foreach (ReturnBook book in returnView)
                 {
@@ -295,6 +304,7 @@ namespace DemoDesign
                 returnBook.fine = long.Parse(dtgvChosen.SelectedRows[0].Cells[5].Value.ToString());
                 returnBook.specBookCode = chosenBooks[dtgvChosen.SelectedRows[0].Index].specBookCode;
                 returnBook.detailSlipCode = chosenBooks[dtgvChosen.SelectedRows[0].Index].detailSlipCode;
+                returnBook.lateReturnDays = returnView[dtgvReturnBook.SelectedRows[0].Index].lateReturnDays;
 
                 returnView.Add(returnBook);
                 chosenBooks.RemoveAt(dtgvChosen.SelectedRows[0].Index);
@@ -303,11 +313,16 @@ namespace DemoDesign
                 returnView = returnView.OrderBy(o => o.bookCode).ThenBy(o => o.bookName).ToList();
 
                 int stt = 1;
+                int totalLateReturnDays = 0;
                 foreach (ReturnBook book in chosenBooks)
                 {
                     book.stt = stt;
+                    totalLateReturnDays += book.lateReturnDays;
                     stt++;
                 }
+
+                lbLateDays.Text = totalLateReturnDays.ToString();
+
                 stt = 1;
                 foreach (ReturnBook book in returnView)
                 {
@@ -440,14 +455,22 @@ namespace DemoDesign
                 MessageBox.Show("Trả sách thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 chosenBooks.Clear();
-                bindingChosen = new BindingSource();
-                bindingChosen.DataSource = chosenBooks;
-                dtgvChosen.DataSource = bindingChosen;
+
+                btnReturn.Enabled = false;
+
+                //bindingChosen = new BindingSource();
+                //bindingChosen.DataSource = chosenBooks;
+                //dtgvChosen.DataSource = bindingChosen;
 
                 recvState = "";
                 tdGetNewSlipCode = new Thread(new ThreadStart(GetNewReturnSlipCode));
                 tdGetNewSlipCode.Start();
             }
+        }
+
+        private void tgBtnPrint_CheckedChanged(object sender, EventArgs e)
+        {
+            needPrint = (tgBtnPrint.Checked == true) ? true : false;
         }
     }
 }

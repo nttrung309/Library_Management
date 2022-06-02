@@ -682,10 +682,12 @@ namespace DemoDesign
             {
                 MessageBox.Show("Cho mượn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                chosenBooks.Clear();
-                bindingChosen = new BindingSource();
-                bindingChosen.DataSource = chosenBooks;
-                dtgvBookChosen.DataSource = bindingChosen;
+                btnLend.Enabled = false;
+
+                //chosenBooks.Clear();
+                //bindingChosen = new BindingSource();
+                //bindingChosen.DataSource = chosenBooks;
+                //dtgvBookChosen.DataSource = bindingChosen;
 
                 lendState = "";
                 tdGetBookSlip = new Thread(new ThreadStart(GetSlipCode));
@@ -715,6 +717,11 @@ namespace DemoDesign
             {
                 lbMaxBorrow.Text = temp + "Không";
             }
+        }
+
+        private void btnViewBorrowSlip_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

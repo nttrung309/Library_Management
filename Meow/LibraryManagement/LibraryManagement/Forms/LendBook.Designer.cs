@@ -640,6 +640,7 @@
             this.btnViewBorrowSlip.Text = "Xem phiếu mượn";
             this.btnViewBorrowSlip.TextColor = System.Drawing.Color.White;
             this.btnViewBorrowSlip.UseVisualStyleBackColor = false;
+            this.btnViewBorrowSlip.Click += new System.EventHandler(this.btnViewBorrowSlip_Click);
             // 
             // lbMaxBorrow
             // 
