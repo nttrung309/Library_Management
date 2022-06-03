@@ -482,6 +482,9 @@ namespace formdausach
             
         }
 
-        
+        private void vbButton1_Click(object sender, EventArgs e)
+        {
+            LibraryManagement.fHome.SwitchForm(new FormTacGia.Form1());
+        }
     }
 }

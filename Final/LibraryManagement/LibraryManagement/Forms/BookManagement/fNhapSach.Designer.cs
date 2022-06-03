@@ -105,7 +105,7 @@ namespace FormNhapSach
             this.labelDuLieuPhieuNhapSach.ForeColor = System.Drawing.Color.Chocolate;
             this.labelDuLieuPhieuNhapSach.Location = new System.Drawing.Point(738, 78);
             this.labelDuLieuPhieuNhapSach.Name = "labelDuLieuPhieuNhapSach";
-            this.labelDuLieuPhieuNhapSach.Size = new System.Drawing.Size(364, 32);
+            this.labelDuLieuPhieuNhapSach.Size = new System.Drawing.Size(286, 26);
             this.labelDuLieuPhieuNhapSach.TabIndex = 4;
             this.labelDuLieuPhieuNhapSach.Text = "Dữ Liệu Phiếu Nhập Sách";
             // 
@@ -116,7 +116,7 @@ namespace FormNhapSach
             this.labelTieuDe.ForeColor = System.Drawing.Color.Navy;
             this.labelTieuDe.Location = new System.Drawing.Point(483, 21);
             this.labelTieuDe.Name = "labelTieuDe";
-            this.labelTieuDe.Size = new System.Drawing.Size(263, 36);
+            this.labelTieuDe.Size = new System.Drawing.Size(214, 29);
             this.labelTieuDe.TabIndex = 7;
             this.labelTieuDe.Text = "Phiếu Nhập Sách";
             // 
@@ -127,7 +127,7 @@ namespace FormNhapSach
             this.txbMaPhieuNhap.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbMaPhieuNhap.Location = new System.Drawing.Point(177, 63);
             this.txbMaPhieuNhap.Name = "txbMaPhieuNhap";
-            this.txbMaPhieuNhap.Size = new System.Drawing.Size(296, 34);
+            this.txbMaPhieuNhap.Size = new System.Drawing.Size(296, 29);
             this.txbMaPhieuNhap.TabIndex = 3;
             // 
             // lbMaPhieuNhap
@@ -137,7 +137,7 @@ namespace FormNhapSach
             this.lbMaPhieuNhap.ForeColor = System.Drawing.Color.Navy;
             this.lbMaPhieuNhap.Location = new System.Drawing.Point(18, 66);
             this.lbMaPhieuNhap.Name = "lbMaPhieuNhap";
-            this.lbMaPhieuNhap.Size = new System.Drawing.Size(185, 27);
+            this.lbMaPhieuNhap.Size = new System.Drawing.Size(142, 22);
             this.lbMaPhieuNhap.TabIndex = 2;
             this.lbMaPhieuNhap.Text = "Mã Phiếu Nhập:";
             // 
@@ -148,7 +148,7 @@ namespace FormNhapSach
             this.lbNgayNhap.ForeColor = System.Drawing.Color.Navy;
             this.lbNgayNhap.Location = new System.Drawing.Point(18, 132);
             this.lbNgayNhap.Name = "lbNgayNhap";
-            this.lbNgayNhap.Size = new System.Drawing.Size(140, 27);
+            this.lbNgayNhap.Size = new System.Drawing.Size(107, 22);
             this.lbNgayNhap.TabIndex = 2;
             this.lbNgayNhap.Text = "Ngày Nhập:";
             // 
@@ -182,7 +182,7 @@ namespace FormNhapSach
             this.txbTongTien.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txbTongTien.Location = new System.Drawing.Point(177, 201);
             this.txbTongTien.Name = "txbTongTien";
-            this.txbTongTien.Size = new System.Drawing.Size(296, 34);
+            this.txbTongTien.Size = new System.Drawing.Size(296, 29);
             this.txbTongTien.TabIndex = 46;
             // 
             // label1
@@ -192,7 +192,7 @@ namespace FormNhapSach
             this.label1.ForeColor = System.Drawing.Color.Navy;
             this.label1.Location = new System.Drawing.Point(18, 204);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 27);
+            this.label1.Size = new System.Drawing.Size(100, 22);
             this.label1.TabIndex = 45;
             this.label1.Text = "Tổng Tiền:";
             // 
@@ -203,7 +203,7 @@ namespace FormNhapSach
             this.dtp_NgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_NgayNhap.Location = new System.Drawing.Point(177, 132);
             this.dtp_NgayNhap.Name = "dtp_NgayNhap";
-            this.dtp_NgayNhap.Size = new System.Drawing.Size(296, 34);
+            this.dtp_NgayNhap.Size = new System.Drawing.Size(296, 28);
             this.dtp_NgayNhap.TabIndex = 44;
             // 
             // btnXoa
@@ -296,6 +296,7 @@ namespace FormNhapSach
             this.Controls.Add(this.labelTieuDe);
             this.Controls.Add(this.labelDuLieuPhieuNhapSach);
             this.Controls.Add(this.dgvPhieuNhap);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.Chocolate;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";

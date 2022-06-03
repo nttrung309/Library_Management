@@ -106,7 +106,7 @@ namespace FormTacGia
             this.label9.ForeColor = System.Drawing.Color.Chocolate;
             this.label9.Location = new System.Drawing.Point(707, 90);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(386, 26);
+            this.label9.Size = new System.Drawing.Size(331, 22);
             this.label9.TabIndex = 4;
             this.label9.Text = "Danh Sách Tác Giả Trong Thư Viện";
             // 
@@ -117,7 +117,7 @@ namespace FormTacGia
             this.label2.ForeColor = System.Drawing.Color.Navy;
             this.label2.Location = new System.Drawing.Point(492, 45);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(279, 36);
+            this.label2.Size = new System.Drawing.Size(231, 29);
             this.label2.TabIndex = 7;
             this.label2.Text = "Thông Tin Tác Giả";
             // 
@@ -127,7 +127,7 @@ namespace FormTacGia
             this.txbTenTG.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbTenTG.Location = new System.Drawing.Point(177, 132);
             this.txbTenTG.Name = "txbTenTG";
-            this.txbTenTG.Size = new System.Drawing.Size(296, 34);
+            this.txbTenTG.Size = new System.Drawing.Size(296, 28);
             this.txbTenTG.TabIndex = 4;
             this.txbTenTG.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbTenTG_KeyPress);
             // 
@@ -138,7 +138,7 @@ namespace FormTacGia
             this.txbMaTG.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbMaTG.Location = new System.Drawing.Point(177, 63);
             this.txbMaTG.Name = "txbMaTG";
-            this.txbMaTG.Size = new System.Drawing.Size(296, 34);
+            this.txbMaTG.Size = new System.Drawing.Size(296, 29);
             this.txbMaTG.TabIndex = 3;
             // 
             // label1
@@ -148,7 +148,7 @@ namespace FormTacGia
             this.label1.ForeColor = System.Drawing.Color.Navy;
             this.label1.Location = new System.Drawing.Point(18, 66);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 25);
+            this.label1.Size = new System.Drawing.Size(94, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Mã Tác Giả:";
             // 
@@ -159,7 +159,7 @@ namespace FormTacGia
             this.label24.ForeColor = System.Drawing.Color.Navy;
             this.label24.Location = new System.Drawing.Point(18, 132);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(127, 25);
+            this.label24.Size = new System.Drawing.Size(99, 20);
             this.label24.TabIndex = 2;
             this.label24.Text = "Tên Tác Giả:";
             // 
@@ -276,6 +276,7 @@ namespace FormTacGia
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dgvTacGia);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.Chocolate;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";

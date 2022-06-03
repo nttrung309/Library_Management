@@ -82,7 +82,7 @@ namespace FormNhapSach
             this.lb_ThongtinPN.ForeColor = System.Drawing.Color.Chocolate;
             this.lb_ThongtinPN.Location = new System.Drawing.Point(356, 379);
             this.lb_ThongtinPN.Name = "lb_ThongtinPN";
-            this.lb_ThongtinPN.Size = new System.Drawing.Size(553, 32);
+            this.lb_ThongtinPN.Size = new System.Drawing.Size(432, 26);
             this.lb_ThongtinPN.TabIndex = 15;
             this.lb_ThongtinPN.Text = "Danh Sách Thông Tin Phiếu Nhập Sách";
             this.lb_ThongtinPN.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -133,7 +133,7 @@ namespace FormNhapSach
             this.cbMaPN.Location = new System.Drawing.Point(235, 120);
             this.cbMaPN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbMaPN.Name = "cbMaPN";
-            this.cbMaPN.Size = new System.Drawing.Size(229, 34);
+            this.cbMaPN.Size = new System.Drawing.Size(229, 29);
             this.cbMaPN.TabIndex = 38;
             // 
             // cbMaSach
@@ -145,7 +145,7 @@ namespace FormNhapSach
             this.cbMaSach.Location = new System.Drawing.Point(235, 253);
             this.cbMaSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbMaSach.Name = "cbMaSach";
-            this.cbMaSach.Size = new System.Drawing.Size(229, 34);
+            this.cbMaSach.Size = new System.Drawing.Size(229, 29);
             this.cbMaSach.TabIndex = 37;
             this.cbMaSach.SelectedValueChanged += new System.EventHandler(this.cbMaSach_SelectedValueChanged);
             this.cbMaSach.TextChanged += new System.EventHandler(this.cbMaSach_TextChanged);
@@ -157,7 +157,7 @@ namespace FormNhapSach
             this.label3.ForeColor = System.Drawing.Color.Navy;
             this.label3.Location = new System.Drawing.Point(48, 259);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 24);
+            this.label3.Size = new System.Drawing.Size(71, 18);
             this.label3.TabIndex = 36;
             this.label3.Text = "Mã Sách:";
             // 
@@ -168,7 +168,7 @@ namespace FormNhapSach
             this.txbThanhTien.Location = new System.Drawing.Point(961, 190);
             this.txbThanhTien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txbThanhTien.Name = "txbThanhTien";
-            this.txbThanhTien.Size = new System.Drawing.Size(229, 34);
+            this.txbThanhTien.Size = new System.Drawing.Size(229, 29);
             this.txbThanhTien.TabIndex = 35;
             this.txbThanhTien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbThanhTien_KeyPress);
             // 
@@ -179,7 +179,7 @@ namespace FormNhapSach
             this.label1.ForeColor = System.Drawing.Color.Navy;
             this.label1.Location = new System.Drawing.Point(865, 196);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 24);
+            this.label1.Size = new System.Drawing.Size(85, 18);
             this.label1.TabIndex = 34;
             this.label1.Text = "Thành Tiền:";
             // 
@@ -203,7 +203,7 @@ namespace FormNhapSach
             this.txbNamXB.Location = new System.Drawing.Point(620, 190);
             this.txbNamXB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txbNamXB.Name = "txbNamXB";
-            this.txbNamXB.Size = new System.Drawing.Size(229, 34);
+            this.txbNamXB.Size = new System.Drawing.Size(229, 29);
             this.txbNamXB.TabIndex = 32;
             this.txbNamXB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbNamXB_KeyPress);
             // 
@@ -214,7 +214,7 @@ namespace FormNhapSach
             this.txbNhaXB.Location = new System.Drawing.Point(620, 120);
             this.txbNhaXB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txbNhaXB.Name = "txbNhaXB";
-            this.txbNhaXB.Size = new System.Drawing.Size(229, 34);
+            this.txbNhaXB.Size = new System.Drawing.Size(229, 29);
             this.txbNhaXB.TabIndex = 31;
             this.txbNhaXB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbNhaXB_KeyPress);
             // 
@@ -227,7 +227,7 @@ namespace FormNhapSach
             this.cbTenSach.Location = new System.Drawing.Point(235, 190);
             this.cbTenSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbTenSach.Name = "cbTenSach";
-            this.cbTenSach.Size = new System.Drawing.Size(229, 34);
+            this.cbTenSach.Size = new System.Drawing.Size(229, 29);
             this.cbTenSach.TabIndex = 30;
             this.cbTenSach.SelectedIndexChanged += new System.EventHandler(this.cbTenSach_SelectedIndexChanged);
             this.cbTenSach.SelectedValueChanged += new System.EventHandler(this.cbTenSach_SelectedValueChanged);
@@ -321,7 +321,7 @@ namespace FormNhapSach
             this.txbDonGia.Location = new System.Drawing.Point(961, 124);
             this.txbDonGia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txbDonGia.Name = "txbDonGia";
-            this.txbDonGia.Size = new System.Drawing.Size(229, 34);
+            this.txbDonGia.Size = new System.Drawing.Size(229, 29);
             this.txbDonGia.TabIndex = 24;
             this.txbDonGia.TextChanged += new System.EventHandler(this.txbDonGia_TextChanged);
             this.txbDonGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbDonGia_KeyPress);
@@ -333,7 +333,7 @@ namespace FormNhapSach
             this.txbMaCTPN.Location = new System.Drawing.Point(235, 54);
             this.txbMaCTPN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txbMaCTPN.Name = "txbMaCTPN";
-            this.txbMaCTPN.Size = new System.Drawing.Size(229, 34);
+            this.txbMaCTPN.Size = new System.Drawing.Size(229, 29);
             this.txbMaCTPN.TabIndex = 23;
             this.txbMaCTPN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbMaCTPN_KeyPress);
             // 
@@ -344,7 +344,7 @@ namespace FormNhapSach
             this.txbSoLuong.Location = new System.Drawing.Point(961, 56);
             this.txbSoLuong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txbSoLuong.Name = "txbSoLuong";
-            this.txbSoLuong.Size = new System.Drawing.Size(229, 34);
+            this.txbSoLuong.Size = new System.Drawing.Size(229, 29);
             this.txbSoLuong.TabIndex = 22;
             this.txbSoLuong.TextChanged += new System.EventHandler(this.txbSoLuong_TextChanged);
             this.txbSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbSoLuong_KeyPress);
@@ -356,7 +356,7 @@ namespace FormNhapSach
             this.lb_DonGia.ForeColor = System.Drawing.Color.Navy;
             this.lb_DonGia.Location = new System.Drawing.Point(865, 130);
             this.lb_DonGia.Name = "lb_DonGia";
-            this.lb_DonGia.Size = new System.Drawing.Size(83, 24);
+            this.lb_DonGia.Size = new System.Drawing.Size(67, 18);
             this.lb_DonGia.TabIndex = 7;
             this.lb_DonGia.Text = "Đơn Giá:";
             // 
@@ -367,7 +367,7 @@ namespace FormNhapSach
             this.lb_SoLuong.ForeColor = System.Drawing.Color.Navy;
             this.lb_SoLuong.Location = new System.Drawing.Point(865, 60);
             this.lb_SoLuong.Name = "lb_SoLuong";
-            this.lb_SoLuong.Size = new System.Drawing.Size(97, 24);
+            this.lb_SoLuong.Size = new System.Drawing.Size(76, 18);
             this.lb_SoLuong.TabIndex = 6;
             this.lb_SoLuong.Text = "Số Lượng:";
             // 
@@ -378,7 +378,7 @@ namespace FormNhapSach
             this.lb_NamXB.ForeColor = System.Drawing.Color.Navy;
             this.lb_NamXB.Location = new System.Drawing.Point(481, 196);
             this.lb_NamXB.Name = "lb_NamXB";
-            this.lb_NamXB.Size = new System.Drawing.Size(137, 24);
+            this.lb_NamXB.Size = new System.Drawing.Size(108, 18);
             this.lb_NamXB.TabIndex = 5;
             this.lb_NamXB.Text = "Năm Xuất Bản:";
             // 
@@ -389,7 +389,7 @@ namespace FormNhapSach
             this.lb_NhaXB.ForeColor = System.Drawing.Color.Navy;
             this.lb_NhaXB.Location = new System.Drawing.Point(482, 130);
             this.lb_NhaXB.Name = "lb_NhaXB";
-            this.lb_NhaXB.Size = new System.Drawing.Size(132, 24);
+            this.lb_NhaXB.Size = new System.Drawing.Size(103, 18);
             this.lb_NhaXB.TabIndex = 4;
             this.lb_NhaXB.Text = "Nhà Xuất Bản:";
             // 
@@ -400,7 +400,7 @@ namespace FormNhapSach
             this.lb_TenTacGia.ForeColor = System.Drawing.Color.Navy;
             this.lb_TenTacGia.Location = new System.Drawing.Point(482, 62);
             this.lb_TenTacGia.Name = "lb_TenTacGia";
-            this.lb_TenTacGia.Size = new System.Drawing.Size(119, 24);
+            this.lb_TenTacGia.Size = new System.Drawing.Size(93, 18);
             this.lb_TenTacGia.TabIndex = 3;
             this.lb_TenTacGia.Text = "Tên Tác Giả:";
             // 
@@ -411,7 +411,7 @@ namespace FormNhapSach
             this.lb_TenCuonSach.ForeColor = System.Drawing.Color.Navy;
             this.lb_TenCuonSach.Location = new System.Drawing.Point(48, 196);
             this.lb_TenCuonSach.Name = "lb_TenCuonSach";
-            this.lb_TenCuonSach.Size = new System.Drawing.Size(136, 24);
+            this.lb_TenCuonSach.Size = new System.Drawing.Size(106, 18);
             this.lb_TenCuonSach.TabIndex = 2;
             this.lb_TenCuonSach.Text = "Tên Đầu Sách:";
             // 
@@ -422,7 +422,7 @@ namespace FormNhapSach
             this.lb_maPN.ForeColor = System.Drawing.Color.Navy;
             this.lb_maPN.Location = new System.Drawing.Point(48, 126);
             this.lb_maPN.Name = "lb_maPN";
-            this.lb_maPN.Size = new System.Drawing.Size(146, 24);
+            this.lb_maPN.Size = new System.Drawing.Size(113, 18);
             this.lb_maPN.TabIndex = 1;
             this.lb_maPN.Text = "Mã Phiếu Nhập:";
             // 
@@ -433,7 +433,7 @@ namespace FormNhapSach
             this.lb_MaCTPN.ForeColor = System.Drawing.Color.Navy;
             this.lb_MaCTPN.Location = new System.Drawing.Point(48, 62);
             this.lb_MaCTPN.Name = "lb_MaCTPN";
-            this.lb_MaCTPN.Size = new System.Drawing.Size(215, 24);
+            this.lb_MaCTPN.Size = new System.Drawing.Size(167, 18);
             this.lb_MaCTPN.TabIndex = 0;
             this.lb_MaCTPN.Text = "Mã Chi Tiết Phiếu Nhập:";
             // 
@@ -444,7 +444,7 @@ namespace FormNhapSach
             this.lb_CTPhieuNhap.ForeColor = System.Drawing.Color.Navy;
             this.lb_CTPhieuNhap.Location = new System.Drawing.Point(401, -1);
             this.lb_CTPhieuNhap.Name = "lb_CTPhieuNhap";
-            this.lb_CTPhieuNhap.Size = new System.Drawing.Size(469, 51);
+            this.lb_CTPhieuNhap.Size = new System.Drawing.Size(372, 41);
             this.lb_CTPhieuNhap.TabIndex = 13;
             this.lb_CTPhieuNhap.Text = "Chi Tiết Phiếu Nhập Sách";
             this.lb_CTPhieuNhap.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -456,7 +456,7 @@ namespace FormNhapSach
             this.label2.ForeColor = System.Drawing.Color.Navy;
             this.label2.Location = new System.Drawing.Point(490, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 36);
+            this.label2.Size = new System.Drawing.Size(0, 29);
             this.label2.TabIndex = 12;
             // 
             // errMaPN
@@ -554,6 +554,7 @@ namespace FormNhapSach
             this.Controls.Add(this.gb_CTpNhap);
             this.Controls.Add(this.lb_CTPhieuNhap);
             this.Controls.Add(this.label2);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "formCTPN";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

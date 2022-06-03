@@ -465,6 +465,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pnlTop);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ConfirmLendBook";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

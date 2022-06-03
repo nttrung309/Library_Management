@@ -74,7 +74,7 @@ namespace TraCuuSach
             this.lbTieude1.ForeColor = System.Drawing.Color.Chocolate;
             this.lbTieude1.Location = new System.Drawing.Point(463, 392);
             this.lbTieude1.Name = "lbTieude1";
-            this.lbTieude1.Size = new System.Drawing.Size(376, 41);
+            this.lbTieude1.Size = new System.Drawing.Size(306, 32);
             this.lbTieude1.TabIndex = 2;
             this.lbTieude1.Text = "Danh Sách Các Cuốn Sách";
             // 
@@ -86,7 +86,7 @@ namespace TraCuuSach
             this.lbTieuDe.ForeColor = System.Drawing.Color.Navy;
             this.lbTieuDe.Location = new System.Drawing.Point(515, 10);
             this.lbTieuDe.Name = "lbTieuDe";
-            this.lbTieuDe.Size = new System.Drawing.Size(287, 59);
+            this.lbTieuDe.Size = new System.Drawing.Size(234, 47);
             this.lbTieuDe.TabIndex = 3;
             this.lbTieuDe.Text = "Tra Cứu Sách";
             // 
@@ -98,7 +98,7 @@ namespace TraCuuSach
             this.label3.ForeColor = System.Drawing.Color.Chocolate;
             this.label3.Location = new System.Drawing.Point(73, 53);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 32);
+            this.label3.Size = new System.Drawing.Size(86, 26);
             this.label3.TabIndex = 10;
             this.label3.Text = "Bộ Loc";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -179,7 +179,7 @@ namespace TraCuuSach
             this.label14.ForeColor = System.Drawing.Color.Navy;
             this.label14.Location = new System.Drawing.Point(296, 197);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(31, 32);
+            this.label14.Size = new System.Drawing.Size(24, 26);
             this.label14.TabIndex = 20;
             this.label14.Text = "0";
             // 
@@ -190,7 +190,7 @@ namespace TraCuuSach
             this.label13.ForeColor = System.Drawing.Color.Navy;
             this.label13.Location = new System.Drawing.Point(296, 129);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(31, 32);
+            this.label13.Size = new System.Drawing.Size(24, 26);
             this.label13.TabIndex = 20;
             this.label13.Text = "0";
             // 
@@ -201,7 +201,7 @@ namespace TraCuuSach
             this.label12.ForeColor = System.Drawing.Color.Navy;
             this.label12.Location = new System.Drawing.Point(296, 64);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(31, 32);
+            this.label12.Size = new System.Drawing.Size(24, 26);
             this.label12.TabIndex = 20;
             this.label12.Text = "0";
             // 
@@ -212,7 +212,7 @@ namespace TraCuuSach
             this.lbTongSoSach.ForeColor = System.Drawing.Color.Navy;
             this.lbTongSoSach.Location = new System.Drawing.Point(18, 64);
             this.lbTongSoSach.Name = "lbTongSoSach";
-            this.lbTongSoSach.Size = new System.Drawing.Size(202, 32);
+            this.lbTongSoSach.Size = new System.Drawing.Size(155, 26);
             this.lbTongSoSach.TabIndex = 20;
             this.lbTongSoSach.Text = "Tổng Số Sách:";
             // 
@@ -223,7 +223,7 @@ namespace TraCuuSach
             this.lbTongSoTheLoai.ForeColor = System.Drawing.Color.Navy;
             this.lbTongSoTheLoai.Location = new System.Drawing.Point(18, 129);
             this.lbTongSoTheLoai.Name = "lbTongSoTheLoai";
-            this.lbTongSoTheLoai.Size = new System.Drawing.Size(261, 32);
+            this.lbTongSoTheLoai.Size = new System.Drawing.Size(201, 26);
             this.lbTongSoTheLoai.TabIndex = 21;
             this.lbTongSoTheLoai.Text = "Tổng Số Đầu Sách:";
             // 
@@ -234,7 +234,7 @@ namespace TraCuuSach
             this.lbTongSoTacGia.ForeColor = System.Drawing.Color.Navy;
             this.lbTongSoTacGia.Location = new System.Drawing.Point(18, 197);
             this.lbTongSoTacGia.Name = "lbTongSoTacGia";
-            this.lbTongSoTacGia.Size = new System.Drawing.Size(355, 32);
+            this.lbTongSoTacGia.Size = new System.Drawing.Size(273, 26);
             this.lbTongSoTacGia.TabIndex = 22;
             this.lbTongSoTacGia.Text = "Tổng Số Sách Đang Mượn:";
             // 
@@ -280,7 +280,7 @@ namespace TraCuuSach
             this.radioButton5.MinimumSize = new System.Drawing.Size(0, 21);
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.radioButton5.Size = new System.Drawing.Size(27, 21);
+            this.radioButton5.Size = new System.Drawing.Size(24, 21);
             this.radioButton5.TabIndex = 23;
             this.radioButton5.TabStop = true;
             this.radioButton5.UnCheckedColor = System.Drawing.Color.Black;
@@ -297,7 +297,7 @@ namespace TraCuuSach
             this.radioButton3.MinimumSize = new System.Drawing.Size(0, 21);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.radioButton3.Size = new System.Drawing.Size(27, 21);
+            this.radioButton3.Size = new System.Drawing.Size(24, 21);
             this.radioButton3.TabIndex = 23;
             this.radioButton3.TabStop = true;
             this.radioButton3.UnCheckedColor = System.Drawing.Color.Black;
@@ -314,7 +314,7 @@ namespace TraCuuSach
             this.radioButton2.MinimumSize = new System.Drawing.Size(0, 21);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.radioButton2.Size = new System.Drawing.Size(27, 21);
+            this.radioButton2.Size = new System.Drawing.Size(24, 21);
             this.radioButton2.TabIndex = 23;
             this.radioButton2.TabStop = true;
             this.radioButton2.UnCheckedColor = System.Drawing.Color.Black;
@@ -331,7 +331,7 @@ namespace TraCuuSach
             this.radioButton1.MinimumSize = new System.Drawing.Size(0, 21);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.radioButton1.Size = new System.Drawing.Size(27, 21);
+            this.radioButton1.Size = new System.Drawing.Size(24, 21);
             this.radioButton1.TabIndex = 23;
             this.radioButton1.TabStop = true;
             this.radioButton1.UnCheckedColor = System.Drawing.Color.Black;
@@ -348,7 +348,7 @@ namespace TraCuuSach
             this.radioButton4.MinimumSize = new System.Drawing.Size(0, 21);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.radioButton4.Size = new System.Drawing.Size(27, 21);
+            this.radioButton4.Size = new System.Drawing.Size(24, 21);
             this.radioButton4.TabIndex = 23;
             this.radioButton4.TabStop = true;
             this.radioButton4.UnCheckedColor = System.Drawing.Color.Black;
@@ -360,10 +360,10 @@ namespace TraCuuSach
             this.cbTenSach.Enabled = false;
             this.cbTenSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTenSach.FormattingEnabled = true;
-            this.cbTenSach.ItemHeight = 29;
+            this.cbTenSach.ItemHeight = 22;
             this.cbTenSach.Location = new System.Drawing.Point(176, 98);
             this.cbTenSach.Name = "cbTenSach";
-            this.cbTenSach.Size = new System.Drawing.Size(265, 37);
+            this.cbTenSach.Size = new System.Drawing.Size(265, 30);
             this.cbTenSach.TabIndex = 0;
             this.cbTenSach.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbTenSach_KeyPress);
             // 
@@ -443,7 +443,7 @@ namespace TraCuuSach
             this.lbTenSach.ForeColor = System.Drawing.Color.Navy;
             this.lbTenSach.Location = new System.Drawing.Point(66, 97);
             this.lbTenSach.Name = "lbTenSach";
-            this.lbTenSach.Size = new System.Drawing.Size(144, 32);
+            this.lbTenSach.Size = new System.Drawing.Size(110, 26);
             this.lbTenSach.TabIndex = 19;
             this.lbTenSach.Text = "Tên Sách:";
             // 
@@ -454,7 +454,7 @@ namespace TraCuuSach
             this.lbMaSach.ForeColor = System.Drawing.Color.Navy;
             this.lbMaSach.Location = new System.Drawing.Point(71, 32);
             this.lbMaSach.Name = "lbMaSach";
-            this.lbMaSach.Size = new System.Drawing.Size(134, 32);
+            this.lbMaSach.Size = new System.Drawing.Size(104, 26);
             this.lbMaSach.TabIndex = 18;
             this.lbMaSach.Text = "Mã Sách:";
             // 
@@ -465,7 +465,7 @@ namespace TraCuuSach
             this.lbTacGia.ForeColor = System.Drawing.Color.Navy;
             this.lbTacGia.Location = new System.Drawing.Point(498, 99);
             this.lbTacGia.Name = "lbTacGia";
-            this.lbTacGia.Size = new System.Drawing.Size(122, 32);
+            this.lbTacGia.Size = new System.Drawing.Size(93, 26);
             this.lbTacGia.TabIndex = 17;
             this.lbTacGia.Text = "Tác Giả:";
             // 
@@ -476,7 +476,7 @@ namespace TraCuuSach
             this.lbTheLoai.ForeColor = System.Drawing.Color.Navy;
             this.lbTheLoai.Location = new System.Drawing.Point(497, 33);
             this.lbTheLoai.Name = "lbTheLoai";
-            this.lbTheLoai.Size = new System.Drawing.Size(134, 32);
+            this.lbTheLoai.Size = new System.Drawing.Size(101, 26);
             this.lbTheLoai.TabIndex = 16;
             this.lbTheLoai.Text = "Thể Loại:";
             // 
@@ -487,7 +487,7 @@ namespace TraCuuSach
             this.cbTacGia.FormattingEnabled = true;
             this.cbTacGia.Location = new System.Drawing.Point(599, 99);
             this.cbTacGia.Name = "cbTacGia";
-            this.cbTacGia.Size = new System.Drawing.Size(235, 37);
+            this.cbTacGia.Size = new System.Drawing.Size(235, 30);
             this.cbTacGia.TabIndex = 0;
             this.cbTacGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbTacGia_KeyPress);
             // 
@@ -501,7 +501,7 @@ namespace TraCuuSach
             "Chưa Mượn"});
             this.cbTinhTrang.Location = new System.Drawing.Point(363, 169);
             this.cbTinhTrang.Name = "cbTinhTrang";
-            this.cbTinhTrang.Size = new System.Drawing.Size(257, 37);
+            this.cbTinhTrang.Size = new System.Drawing.Size(257, 30);
             this.cbTinhTrang.TabIndex = 0;
             this.cbTinhTrang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbTinhTrang_KeyPress);
             // 
@@ -512,7 +512,7 @@ namespace TraCuuSach
             this.cbMaSach.FormattingEnabled = true;
             this.cbMaSach.Location = new System.Drawing.Point(176, 33);
             this.cbMaSach.Name = "cbMaSach";
-            this.cbMaSach.Size = new System.Drawing.Size(265, 37);
+            this.cbMaSach.Size = new System.Drawing.Size(265, 30);
             this.cbMaSach.TabIndex = 0;
             this.cbMaSach.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox1_KeyPress);
             // 
@@ -523,7 +523,7 @@ namespace TraCuuSach
             this.cbTheLoai.FormattingEnabled = true;
             this.cbTheLoai.Location = new System.Drawing.Point(600, 34);
             this.cbTheLoai.Name = "cbTheLoai";
-            this.cbTheLoai.Size = new System.Drawing.Size(234, 37);
+            this.cbTheLoai.Size = new System.Drawing.Size(234, 30);
             this.cbTheLoai.TabIndex = 0;
             this.cbTheLoai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox2_KeyPress);
             // 
@@ -534,7 +534,7 @@ namespace TraCuuSach
             this.lbTinhTrang.ForeColor = System.Drawing.Color.Navy;
             this.lbTinhTrang.Location = new System.Drawing.Point(234, 168);
             this.lbTinhTrang.Name = "lbTinhTrang";
-            this.lbTinhTrang.Size = new System.Drawing.Size(160, 32);
+            this.lbTinhTrang.Size = new System.Drawing.Size(120, 26);
             this.lbTinhTrang.TabIndex = 15;
             this.lbTinhTrang.Text = "Tình Trạng:";
             // 
@@ -550,6 +550,7 @@ namespace TraCuuSach
             this.Controls.Add(this.gbBoLoc);
             this.Controls.Add(this.lbTieuDe);
             this.Controls.Add(this.lbTieude1);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.Chocolate;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormTraCuu";

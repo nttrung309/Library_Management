@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txbTenTLS = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txbMaTLS = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@
             this.btnCapNhat = new FormLoaiSach.nButton();
             this.btnLuu = new FormLoaiSach.nButton();
             this.dgvTLSach = new System.Windows.Forms.DataGridView();
-            this.txbTenTLS = new System.Windows.Forms.TextBox();
             this.errTenTLS = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTLSach)).BeginInit();
@@ -57,7 +57,7 @@
             this.label9.ForeColor = System.Drawing.Color.Chocolate;
             this.label9.Location = new System.Drawing.Point(658, 91);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(505, 26);
+            this.label9.Size = new System.Drawing.Size(431, 22);
             this.label9.TabIndex = 4;
             this.label9.Text = "Danh Sách Các Thể Loại Sách Trong Thư Viện";
             // 
@@ -68,7 +68,7 @@
             this.label2.ForeColor = System.Drawing.Color.Navy;
             this.label2.Location = new System.Drawing.Point(486, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(374, 36);
+            this.label2.Size = new System.Drawing.Size(308, 29);
             this.label2.TabIndex = 7;
             this.label2.Text = "Thông Tin Thể Loại Sách";
             // 
@@ -91,6 +91,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin Loại Sách";
             // 
+            // txbTenTLS
+            // 
+            this.txbTenTLS.BackColor = System.Drawing.SystemColors.Control;
+            this.txbTenTLS.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbTenTLS.Location = new System.Drawing.Point(180, 135);
+            this.txbTenTLS.Name = "txbTenTLS";
+            this.txbTenTLS.Size = new System.Drawing.Size(296, 28);
+            this.txbTenTLS.TabIndex = 5;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -98,7 +107,7 @@
             this.label3.ForeColor = System.Drawing.Color.Navy;
             this.label3.Location = new System.Drawing.Point(18, 67);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 25);
+            this.label3.Size = new System.Drawing.Size(100, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Mã Thể Loại:";
             // 
@@ -109,7 +118,7 @@
             this.txbMaTLS.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbMaTLS.Location = new System.Drawing.Point(180, 63);
             this.txbMaTLS.Name = "txbMaTLS";
-            this.txbMaTLS.Size = new System.Drawing.Size(296, 34);
+            this.txbMaTLS.Size = new System.Drawing.Size(296, 29);
             this.txbMaTLS.TabIndex = 3;
             // 
             // label4
@@ -119,7 +128,7 @@
             this.label4.ForeColor = System.Drawing.Color.Navy;
             this.label4.Location = new System.Drawing.Point(18, 141);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(135, 25);
+            this.label4.Size = new System.Drawing.Size(105, 20);
             this.label4.TabIndex = 2;
             this.label4.Text = "Tên Thể Loại:";
             // 
@@ -208,30 +217,30 @@
             this.dgvTLSach.AllowUserToAddRows = false;
             this.dgvTLSach.AllowUserToDeleteRows = false;
             this.dgvTLSach.AllowUserToResizeRows = false;
-            this.dgvTLSach.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgvTLSach.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTLSach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTLSach.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvTLSach.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvTLSach.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTLSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Cyan;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTLSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTLSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Chocolate;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTLSach.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Chocolate;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTLSach.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTLSach.EnableHeadersVisualStyles = false;
             this.dgvTLSach.GridColor = System.Drawing.Color.Navy;
             this.dgvTLSach.Location = new System.Drawing.Point(540, 120);
@@ -239,26 +248,17 @@
             this.dgvTLSach.ReadOnly = true;
             this.dgvTLSach.RowHeadersVisible = false;
             this.dgvTLSach.RowHeadersWidth = 51;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(90)))), ((int)(((byte)(114)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.Control;
-            this.dgvTLSach.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(90)))), ((int)(((byte)(114)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Control;
+            this.dgvTLSach.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTLSach.RowTemplate.Height = 24;
             this.dgvTLSach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTLSach.Size = new System.Drawing.Size(719, 589);
             this.dgvTLSach.TabIndex = 50;
             this.dgvTLSach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTLSach_CellClick);
-            // 
-            // txbTenTLS
-            // 
-            this.txbTenTLS.BackColor = System.Drawing.SystemColors.Control;
-            this.txbTenTLS.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTenTLS.Location = new System.Drawing.Point(180, 135);
-            this.txbTenTLS.Name = "txbTenTLS";
-            this.txbTenTLS.Size = new System.Drawing.Size(296, 34);
-            this.txbTenTLS.TabIndex = 5;
             // 
             // errTenTLS
             // 
@@ -274,6 +274,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label9);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.Chocolate;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";

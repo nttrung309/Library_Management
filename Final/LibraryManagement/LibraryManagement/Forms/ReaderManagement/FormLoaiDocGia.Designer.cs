@@ -41,11 +41,11 @@ namespace FormLoaiDocGia
             this.lbMaLoaiDocGia = new System.Windows.Forms.Label();
             this.lbTenLoaiDocGia = new System.Windows.Forms.Label();
             this.gbThongTinLoaiDocGia = new System.Windows.Forms.GroupBox();
-            this.errTenLDG = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnXoa = new ThayDoiQuyDinh.nButton();
             this.btnCapNhat = new ThayDoiQuyDinh.nButton();
             this.btnLuu = new ThayDoiQuyDinh.nButton();
             this.btnThemMoi = new ThayDoiQuyDinh.nButton();
+            this.errTenLDG = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiDocGia)).BeginInit();
             this.gbThongTinLoaiDocGia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errTenLDG)).BeginInit();
@@ -106,7 +106,7 @@ namespace FormLoaiDocGia
             this.lbtieude1.ForeColor = System.Drawing.Color.Chocolate;
             this.lbtieude1.Location = new System.Drawing.Point(707, 90);
             this.lbtieude1.Name = "lbtieude1";
-            this.lbtieude1.Size = new System.Drawing.Size(323, 26);
+            this.lbtieude1.Size = new System.Drawing.Size(271, 22);
             this.lbtieude1.TabIndex = 4;
             this.lbtieude1.Text = "Danh Sách Các Loại Độc Giả";
             // 
@@ -117,7 +117,7 @@ namespace FormLoaiDocGia
             this.lbtieude.ForeColor = System.Drawing.Color.Navy;
             this.lbtieude.Location = new System.Drawing.Point(450, 38);
             this.lbtieude.Name = "lbtieude";
-            this.lbtieude.Size = new System.Drawing.Size(353, 36);
+            this.lbtieude.Size = new System.Drawing.Size(290, 29);
             this.lbtieude.TabIndex = 7;
             this.lbtieude.Text = "Thông Tin Loại Độc Giả";
             // 
@@ -127,7 +127,7 @@ namespace FormLoaiDocGia
             this.txbTenLoaiDocGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbTenLoaiDocGia.Location = new System.Drawing.Point(177, 132);
             this.txbTenLoaiDocGia.Name = "txbTenLoaiDocGia";
-            this.txbTenLoaiDocGia.Size = new System.Drawing.Size(296, 34);
+            this.txbTenLoaiDocGia.Size = new System.Drawing.Size(296, 28);
             this.txbTenLoaiDocGia.TabIndex = 4;
             // 
             // txbMaLoaiDocGia
@@ -137,7 +137,7 @@ namespace FormLoaiDocGia
             this.txbMaLoaiDocGia.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbMaLoaiDocGia.Location = new System.Drawing.Point(177, 63);
             this.txbMaLoaiDocGia.Name = "txbMaLoaiDocGia";
-            this.txbMaLoaiDocGia.Size = new System.Drawing.Size(296, 34);
+            this.txbMaLoaiDocGia.Size = new System.Drawing.Size(296, 29);
             this.txbMaLoaiDocGia.TabIndex = 3;
             // 
             // lbMaLoaiDocGia
@@ -147,7 +147,7 @@ namespace FormLoaiDocGia
             this.lbMaLoaiDocGia.ForeColor = System.Drawing.Color.Navy;
             this.lbMaLoaiDocGia.Location = new System.Drawing.Point(18, 66);
             this.lbMaLoaiDocGia.Name = "lbMaLoaiDocGia";
-            this.lbMaLoaiDocGia.Size = new System.Drawing.Size(163, 25);
+            this.lbMaLoaiDocGia.Size = new System.Drawing.Size(131, 20);
             this.lbMaLoaiDocGia.TabIndex = 2;
             this.lbMaLoaiDocGia.Text = "Mã Loại Độc Giả:";
             // 
@@ -158,7 +158,7 @@ namespace FormLoaiDocGia
             this.lbTenLoaiDocGia.ForeColor = System.Drawing.Color.Navy;
             this.lbTenLoaiDocGia.Location = new System.Drawing.Point(18, 132);
             this.lbTenLoaiDocGia.Name = "lbTenLoaiDocGia";
-            this.lbTenLoaiDocGia.Size = new System.Drawing.Size(170, 25);
+            this.lbTenLoaiDocGia.Size = new System.Drawing.Size(136, 20);
             this.lbTenLoaiDocGia.TabIndex = 2;
             this.lbTenLoaiDocGia.Text = "Tên Loại Độc Giả:";
             // 
@@ -180,10 +180,6 @@ namespace FormLoaiDocGia
             this.gbThongTinLoaiDocGia.TabIndex = 48;
             this.gbThongTinLoaiDocGia.TabStop = false;
             this.gbThongTinLoaiDocGia.Text = "Thông Tin Loại Độc Giả";
-            // 
-            // errTenLDG
-            // 
-            this.errTenLDG.ContainerControl = this;
             // 
             // btnXoa
             // 
@@ -265,6 +261,10 @@ namespace FormLoaiDocGia
             this.btnThemMoi.UseVisualStyleBackColor = false;
             this.btnThemMoi.Click += new System.EventHandler(this.btnThemMoi_Click);
             // 
+            // errTenLDG
+            // 
+            this.errTenLDG.ContainerControl = this;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -275,6 +275,7 @@ namespace FormLoaiDocGia
             this.Controls.Add(this.lbtieude);
             this.Controls.Add(this.lbtieude1);
             this.Controls.Add(this.dgvLoaiDocGia);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.Chocolate;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
