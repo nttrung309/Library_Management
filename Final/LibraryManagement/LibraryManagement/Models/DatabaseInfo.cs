@@ -13,7 +13,10 @@ namespace LibraryManagement.Models
             FROM SACH, DAUSACH, CUONSACH, THELOAI, CTTACGIA, TACGIA
             WHERE SACH.MaDauSach = DAUSACH.MaDauSach AND DAUSACH.MaTheLoai = THELOAI.MaTheLoai
             AND DAUSACH.MaDauSach = CTTACGIA.MaDauSach AND CTTACGIA.MaTacGia = TACGIA.MaTacGia
-            AND SACH.MaSach = CUONSACH.MaSach AND TinhTrang = 1
+            AND SACH.MaSach = CUONSACH.MaSach AND TinhTrang = 0
+			AND CUONSACH.MaCuonSach = (SELECT MAX(B.MaCuonSach)
+				FROM CUONSACH B
+				WHERE B.MaSach = CUONSACH.MaSach AND B. TinhTrang = 0)
 			ORDER BY CUONSACH.MaSach";
         public static string parametersQueryCmd = @"SELECT * from THAMSO";
         public static string readersQueryCmd = @"SELECT MaDocGia, HoTen, NgHetHan, Email

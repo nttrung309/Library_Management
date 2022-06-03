@@ -134,7 +134,7 @@ namespace LibraryManagement.Forms
             foreach (ReturnBook book in returnSlip.returnBooks)
             {
                 createReturnSlipDetail += $@"INSERT INTO CTPT(MaPhieuTraSach, MaCuonSach, MaPhieuMuonSach, SoNgayMuon, TienPhat) VALUES('{returnSlip.recvSlipCode}','{book.specBookCode}','{returnSlip.borrowSlipCode}','{book.borrowedDays}','{book.fine}')" + "\n";
-                setBookAndSlipDetailStatus += $@"UPDATE CTPHIEUMUON SET TinhTrangPM = 1  WHERE MaChiTietPhieuMuon = '{book.detailSlipCode}'" + "\n" + $@"UPDATE CUONSACH SET TinhTrang = 1 WHERE MaCuonSach = '{book.specBookCode}'";
+                setBookAndSlipDetailStatus += $@"UPDATE CTPHIEUMUON SET TinhTrangPM = 1  WHERE MaChiTietPhieuMuon = '{book.detailSlipCode}'" + "\n" + $@"UPDATE CUONSACH SET TinhTrang = 0 WHERE MaCuonSach = '{book.specBookCode}'";
             }
 
             SqlConnection conn = new SqlConnection(DatabaseInfo.connectionString);

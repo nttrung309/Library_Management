@@ -132,7 +132,7 @@ namespace LibraryManagement.Forms
             foreach(Book book in borrowSlip.chosenBooks)
             {
                 insertSlipDetail = insertSlipDetail + $@"INSERT INTO CTPHIEUMUON(MaPhieuMuonSach, MaCuonSach, TinhTrangPM) VALUES('{borrowSlip.slipCode}','{book.specCode}', 0)" + "\n";
-                updateBookState = updateBookState + $@"UPDATE CUONSACH SET TinhTrang = 0 WHERE MaCuonSach = '{book.specCode}'" + "\n";
+                updateBookState = updateBookState + $@"UPDATE CUONSACH SET TinhTrang = 1 WHERE MaCuonSach = '{book.specCode}'" + "\n";
             }
             
             SqlConnection conn = new SqlConnection(DatabaseInfo.connectionString);

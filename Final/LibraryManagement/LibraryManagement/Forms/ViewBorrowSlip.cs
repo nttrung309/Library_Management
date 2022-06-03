@@ -187,14 +187,14 @@ namespace LibraryManagement.Forms
             if (opt == 1)
             {
                 queryUpdateCmd = $@"UPDATE PHIEUMUON
-                SET NgMuon = {dtpBorrowDate.Value}, HanTra = {dtpReturnDate.Value}
-                WHERE MaPhieuMuonSach = '{lbSlipCode}'";
+                SET NgMuon = '{dtpBorrowDate.Value.ToString()}', HanTra = '{dtpReturnDate.Value.ToString()}'
+                WHERE MaPhieuMuonSach = '{lbSlipCode.Text}'";
             }
             else if (opt == 2)
             {
                 queryUpdateCmd = $@"
                     UPDATE CUONSACH
-                    SET TinhTrang = 1
+                    SET TinhTrang = 0
                     WHERE CUONSACH.MaCuonSach IN (SELECT CTPHIEUMUON.MaCuonSach
 		                    FROM CTPHIEUMUON
 		                    WHERE CTPHIEUMUON.MaPhieuMuonSach = '{lbSlipCode.Text}')

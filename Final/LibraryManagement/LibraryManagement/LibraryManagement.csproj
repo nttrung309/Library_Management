@@ -121,6 +121,12 @@
     <Compile Include="Forms\BookManagement\fLoaiSach.designer.cs">
       <DependentUpon>fLoaiSach.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\BookManagement\fNhapSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BookManagement\fNhapSach.designer.cs">
+      <DependentUpon>fNhapSach.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\BookManagement\formCTPN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,12 +138,6 @@
     </Compile>
     <Compile Include="Forms\BookManagement\FormSach.designer.cs">
       <DependentUpon>FormSach.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\BookManagement\fPhieuNhap.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\BookManagement\fPhieuNhap.designer.cs">
-      <DependentUpon>fPhieuNhap.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\BookManagement\fTacGia.cs">
       <SubType>Form</SubType>
@@ -257,14 +257,14 @@
     <EmbeddedResource Include="Forms\BookManagement\fLoaiSach.resx">
       <DependentUpon>fLoaiSach.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BookManagement\fNhapSach.resx">
+      <DependentUpon>fNhapSach.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\BookManagement\formCTPN.resx">
       <DependentUpon>formCTPN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BookManagement\FormSach.resx">
       <DependentUpon>FormSach.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\BookManagement\fPhieuNhap.resx">
-      <DependentUpon>fPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BookManagement\fTacGia.resx">
       <DependentUpon>fTacGia.cs</DependentUpon>
@@ -388,12 +388,29 @@
   <ItemGroup>
     <None Include="Resources\minimize_btn.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\user_icon.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\186407_arrow_up_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\down+icon-1320166862644492688.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book-alt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exchange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notebook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

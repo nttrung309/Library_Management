@@ -30,6 +30,7 @@ namespace DemoDesign
         public static bool askBeforePrint = true;
 
         Thread tdGetBookSlip;
+        int numborrowedBooks = -1;
 
         BindingSource bindingStock;
         BindingSource bindingChosen;
@@ -165,22 +166,84 @@ namespace DemoDesign
 
         private void btnChooseBook_Click(object sender, EventArgs e)
         {
-            Parameters.LoadParam();
-            if ((chosenBooks.Count + 1 > Parameters.maxBorrowBook) && (tgBtnAllowMax.CheckState == CheckState.Checked))
+            if(cbbReaderCode.SelectedIndex == -1)
             {
-                MessageBox.Show($"Không được mượn quá {Parameters.maxBorrowBook} quyển sách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"Vui lòng nhập mã độc giả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                if (txbFindBook.Text.Length == 0)
+                //try
                 {
-                    SelectFromNormalView();
+                    Parameters.LoadParam();
+                    LoadNumBorrowBooks();
+
+                    if ((chosenBooks.Count + numborrowedBooks + 1 > Parameters.maxBorrowBook) && (tgBtnAllowMax.CheckState == CheckState.Checked))
+                    {
+                        MessageBox.Show($"Không được mượn quá {Parameters.maxBorrowBook} quyển sách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else if (CheckBorrowed())
+                    {
+                        MessageBox.Show($"Độc giả đã mượn quyển sách này rồi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        if (txbFindBook.Text.Length == 0)
+                        {
+                            SelectFromNormalView();
+                        }
+                        else
+                        {
+                            SelectFromFindingView();
+                        }
+                    }
                 }
-                else
+                //catch
+                //{
+                //    MessageBox.Show($"Vui lòng chọn 1 quyển sách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //}
+            }
+        }
+
+        private bool CheckBorrowed()
+        {
+            string bookCode;
+            bookCode = dtgvStock.SelectedRows[0].Cells[1].Value.ToString();
+
+            string queryCmd = $@"SELECT *
+                FROM PHIEUMUON, CTPHIEUMUON, CUONSACH
+                WHERE PHIEUMUON.MaPhieuMuonSach = CTPHIEUMUON.MaPhieuMuonSach AND TinhTrangPM = 0 
+		                AND MaDocGia = '{cbbReaderCode.Text}' AND CUONSACH.MaSach = '{bookCode}' AND CTPHIEUMUON.MaCuonSach = CUONSACH.MaCuonSach";
+            bool found = false;
+            Parameters.LoadParam();
+            SqlConnection conn = new SqlConnection(DatabaseInfo.connectionString);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(queryCmd, conn);
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
                 {
-                    SelectFromFindingView();
+                    found = true;
                 }
             }
+            conn.Close();
+
+            return found;
+        }
+
+        private void LoadNumBorrowBooks()
+        {
+            Parameters.LoadParam();
+            SqlConnection conn = new SqlConnection(DatabaseInfo.connectionString);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(DatabaseInfo.GetNumOfBooksBorrowed(cbbReaderCode.Text), conn);
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    numborrowedBooks = reader.GetInt32(0);
+                }
+            }
+            conn.Close();
         }
 
         private void SelectFromFindingView()
@@ -598,7 +661,8 @@ namespace DemoDesign
             MissingCode,
             MissingBook,
             BorrowedMax,
-            LendDayPast
+            LendDayPast,
+            Borrowed
         }
 
         private void btnLend_Click(object sender, EventArgs e)
@@ -607,9 +671,7 @@ namespace DemoDesign
             {
                 case Valid.Valid:
                     {
-                        btnLend.Enabled = false;
-                        btnCancel.Enabled = true;
-                        btnCan.Enabled = true;
+                        ShowConfirmForm();
                         break;
                     }
                 case Valid.MissingCode:
@@ -624,7 +686,12 @@ namespace DemoDesign
                     }
                 case Valid.BorrowedMax:
                     {
-                        MessageBox.Show($"Độc giả này đã mượn tối đa {Parameters.maxBorrowBook} quyển sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show($"Không được mượn quá {Parameters.maxBorrowBook} quyển sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        break;
+                    }
+                case Valid.Borrowed:
+                    {
+
                         break;
                     }
             }
@@ -644,7 +711,6 @@ namespace DemoDesign
             {
                 if(tgBtnAllowMax.CheckState == CheckState.Checked)
                 {
-                    int numborrowedBooks = -1;
                     Parameters.LoadParam();
                     SqlConnection conn = new SqlConnection(DatabaseInfo.connectionString);
                     conn.Open();
@@ -664,6 +730,36 @@ namespace DemoDesign
                     }
                 }
             }
+
+            string msg = "";
+            Parameters.LoadParam();
+            SqlConnection conn1 = new SqlConnection(DatabaseInfo.connectionString);
+            conn1.Open();
+            SqlCommand cmd1;
+            string queryCmd = "";
+            foreach (Book book in chosenBooks)
+            {
+                queryCmd = $@"SELECT *
+                FROM PHIEUMUON, CTPHIEUMUON, CUONSACH
+                WHERE PHIEUMUON.MaPhieuMuonSach = CTPHIEUMUON.MaPhieuMuonSach AND TinhTrangPM = 0 
+		                AND MaDocGia = '{cbbReaderCode.Text}' AND CUONSACH.MaSach = '{book.code}' AND CTPHIEUMUON.MaCuonSach = CUONSACH.MaCuonSach";
+
+                cmd1 = new SqlCommand(queryCmd, conn1);
+                using (SqlDataReader reader = cmd1.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        msg += book.code + " ";
+                    }
+                }
+            }
+            conn1.Close();
+            if(msg != "")
+            {
+                MessageBox.Show("Độc giả này đã mượn " + msg + "rồi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return Valid.Borrowed;
+            }
+
             return Valid.Valid;
         }
 
@@ -729,9 +825,7 @@ namespace DemoDesign
 
         private void btnCan_Click(object sender, EventArgs e)
         {
-            btnLend.Enabled = true;
-            btnCancel.Enabled = false;
-            btnCan.Enabled = false;
+            LibraryManagement.fHome.SwitchForm(new LendBook());
         }
     }
 }

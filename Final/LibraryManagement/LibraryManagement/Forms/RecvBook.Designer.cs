@@ -74,7 +74,6 @@
             this.btnUnchooseBook = new LibraryManagement.nButton();
             this.btnChooseBook = new LibraryManagement.nButton();
             this.btnViewReturnSlip = new LibraryManagement.nButton();
-            this.btnCancel = new LibraryManagement.nButton();
             this.btnReturn = new LibraryManagement.nButton();
             ((System.ComponentModel.ISupportInitialize)(this.border)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvReturnBook)).BeginInit();
@@ -505,7 +504,6 @@
             this.btnCan.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnCan.BorderRadius = 12;
             this.btnCan.BorderSize = 0;
-            this.btnCan.Enabled = false;
             this.btnCan.FlatAppearance.BorderSize = 0;
             this.btnCan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
@@ -514,7 +512,7 @@
             this.btnCan.Name = "btnCan";
             this.btnCan.Size = new System.Drawing.Size(123, 40);
             this.btnCan.TabIndex = 65;
-            this.btnCan.Text = "Hủy";
+            this.btnCan.Text = "Làm mới";
             this.btnCan.TextColor = System.Drawing.Color.White;
             this.btnCan.UseVisualStyleBackColor = false;
             this.btnCan.Click += new System.EventHandler(this.btnCan_Click);
@@ -589,7 +587,7 @@
             this.btnViewReturnSlip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewReturnSlip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnViewReturnSlip.ForeColor = System.Drawing.Color.White;
-            this.btnViewReturnSlip.Location = new System.Drawing.Point(707, 27);
+            this.btnViewReturnSlip.Location = new System.Drawing.Point(834, 27);
             this.btnViewReturnSlip.Name = "btnViewReturnSlip";
             this.btnViewReturnSlip.Size = new System.Drawing.Size(132, 40);
             this.btnViewReturnSlip.TabIndex = 59;
@@ -597,27 +595,6 @@
             this.btnViewReturnSlip.TextColor = System.Drawing.Color.White;
             this.btnViewReturnSlip.UseVisualStyleBackColor = false;
             this.btnViewReturnSlip.Click += new System.EventHandler(this.btnViewReturnSlip_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnCancel.BackgroundColor = System.Drawing.Color.DodgerBlue;
-            this.btnCancel.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnCancel.BorderRadius = 12;
-            this.btnCancel.BorderSize = 0;
-            this.btnCancel.Enabled = false;
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(987, 27);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(123, 40);
-            this.btnCancel.TabIndex = 50;
-            this.btnCancel.Text = "Cập Nhật";
-            this.btnCancel.TextColor = System.Drawing.Color.White;
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnReturn
             // 
@@ -630,7 +607,7 @@
             this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnReturn.ForeColor = System.Drawing.Color.White;
-            this.btnReturn.Location = new System.Drawing.Point(853, 27);
+            this.btnReturn.Location = new System.Drawing.Point(980, 27);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(123, 40);
             this.btnReturn.TabIndex = 49;
@@ -661,7 +638,6 @@
             this.Controls.Add(this.lbSlipCode);
             this.Controls.Add(this.txbReaderName);
             this.Controls.Add(this.txbReaderCode);
-            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
@@ -703,7 +679,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private LibraryManagement.nButton btnReturn;
-        private LibraryManagement.nButton btnCancel;
         private System.Windows.Forms.TextBox txbReaderCode;
         private System.Windows.Forms.TextBox txbReaderName;
         private System.Windows.Forms.Label lbSlipCode;

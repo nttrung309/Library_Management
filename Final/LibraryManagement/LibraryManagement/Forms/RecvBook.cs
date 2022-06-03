@@ -365,10 +365,6 @@ namespace DemoDesign
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            ShowConfirmForm();
-        }
         public enum Valid
         {
             MissingInfo,
@@ -391,9 +387,7 @@ namespace DemoDesign
                     }
                 case Valid.Success:
                     {
-                        btnReturn.Enabled = false;
-                        btnCan.Enabled = true;
-                        btnCancel.Enabled = true;
+                        ShowConfirmForm();
                         break;
                     }
             }
@@ -459,7 +453,7 @@ namespace DemoDesign
             if (recvState == "Success")
             {
                 MessageBox.Show("Trả sách thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                LibraryManagement.fHome.SwitchForm(new RecvBook());
                 chosenBooks.Clear();
 
                 btnReturn.Enabled = false;
@@ -473,9 +467,9 @@ namespace DemoDesign
                 tdGetNewSlipCode.Start();
 
                 btnCan.Enabled = false;
-                btnCancel.Enabled = false;
-                cbbReaderCode.Text = "";
+                txbReaderName.Text = "";
                 txbReaderCode.Text = "";
+                cbbSlipCode.Text = "";
                 LoadBorrowSlip();
 
                 bindingReturn = new BindingSource();
@@ -495,9 +489,7 @@ namespace DemoDesign
 
         private void btnCan_Click(object sender, EventArgs e)
         {
-            btnCan.Enabled = false;
-            btnReturn.Enabled = true;
-            btnCancel.Enabled = false;
+            LibraryManagement.fHome.SwitchForm(new RecvBook());
         }
 
         private void LoadReaderCode()

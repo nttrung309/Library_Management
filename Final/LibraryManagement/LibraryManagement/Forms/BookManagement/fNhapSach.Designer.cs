@@ -39,9 +39,9 @@ namespace FormNhapSach
             this.lbMaPhieuNhap = new System.Windows.Forms.Label();
             this.lbNgayNhap = new System.Windows.Forms.Label();
             this.gbPhieuNhap = new System.Windows.Forms.GroupBox();
-            this.dtp_NgayNhap = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
             this.txbTongTien = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dtp_NgayNhap = new System.Windows.Forms.DateTimePicker();
             this.btnXoa = new ThayDoiQuyDinh.nButton();
             this.btnCapNhat = new ThayDoiQuyDinh.nButton();
             this.btnLuu = new ThayDoiQuyDinh.nButton();
@@ -174,15 +174,16 @@ namespace FormNhapSach
             this.gbPhieuNhap.TabStop = false;
             this.gbPhieuNhap.Text = "Thông Tin Phiếu Nhập";
             // 
-            // dtp_NgayNhap
+            // txbTongTien
             // 
-            this.dtp_NgayNhap.CalendarMonthBackground = System.Drawing.SystemColors.Control;
-            this.dtp_NgayNhap.CustomFormat = "dd/MM/yyyy";
-            this.dtp_NgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_NgayNhap.Location = new System.Drawing.Point(177, 132);
-            this.dtp_NgayNhap.Name = "dtp_NgayNhap";
-            this.dtp_NgayNhap.Size = new System.Drawing.Size(296, 34);
-            this.dtp_NgayNhap.TabIndex = 44;
+            this.txbTongTien.BackColor = System.Drawing.Color.LightGray;
+            this.txbTongTien.Enabled = false;
+            this.txbTongTien.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbTongTien.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txbTongTien.Location = new System.Drawing.Point(177, 201);
+            this.txbTongTien.Name = "txbTongTien";
+            this.txbTongTien.Size = new System.Drawing.Size(296, 34);
+            this.txbTongTien.TabIndex = 46;
             // 
             // label1
             // 
@@ -195,16 +196,15 @@ namespace FormNhapSach
             this.label1.TabIndex = 45;
             this.label1.Text = "Tổng Tiền:";
             // 
-            // txbTongTien
+            // dtp_NgayNhap
             // 
-            this.txbTongTien.BackColor = System.Drawing.Color.LightGray;
-            this.txbTongTien.Enabled = false;
-            this.txbTongTien.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTongTien.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txbTongTien.Location = new System.Drawing.Point(177, 201);
-            this.txbTongTien.Name = "txbTongTien";
-            this.txbTongTien.Size = new System.Drawing.Size(296, 34);
-            this.txbTongTien.TabIndex = 46;
+            this.dtp_NgayNhap.CalendarMonthBackground = System.Drawing.SystemColors.Control;
+            this.dtp_NgayNhap.CustomFormat = "dd/MM/yyyy";
+            this.dtp_NgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_NgayNhap.Location = new System.Drawing.Point(177, 132);
+            this.dtp_NgayNhap.Name = "dtp_NgayNhap";
+            this.dtp_NgayNhap.Size = new System.Drawing.Size(296, 34);
+            this.dtp_NgayNhap.TabIndex = 44;
             // 
             // btnXoa
             // 
@@ -219,7 +219,7 @@ namespace FormNhapSach
             this.btnXoa.ForeColor = System.Drawing.Color.White;
             this.btnXoa.Location = new System.Drawing.Point(284, 387);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(175, 50);
+            this.btnXoa.Size = new System.Drawing.Size(191, 50);
             this.btnXoa.TabIndex = 2;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.TextColor = System.Drawing.Color.White;
@@ -239,9 +239,9 @@ namespace FormNhapSach
             this.btnCapNhat.ForeColor = System.Drawing.Color.White;
             this.btnCapNhat.Location = new System.Drawing.Point(55, 387);
             this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(175, 50);
+            this.btnCapNhat.Size = new System.Drawing.Size(191, 50);
             this.btnCapNhat.TabIndex = 2;
-            this.btnCapNhat.Text = "Cập Nhật";
+            this.btnCapNhat.Text = "Xem và Cập Nhật";
             this.btnCapNhat.TextColor = System.Drawing.Color.White;
             this.btnCapNhat.UseVisualStyleBackColor = false;
             this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
@@ -259,9 +259,9 @@ namespace FormNhapSach
             this.btnLuu.ForeColor = System.Drawing.Color.White;
             this.btnLuu.Location = new System.Drawing.Point(284, 295);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(175, 50);
+            this.btnLuu.Size = new System.Drawing.Size(191, 50);
             this.btnLuu.TabIndex = 2;
-            this.btnLuu.Text = "Lưu";
+            this.btnLuu.Text = "Nhập Sách";
             this.btnLuu.TextColor = System.Drawing.Color.White;
             this.btnLuu.UseVisualStyleBackColor = false;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
@@ -279,7 +279,7 @@ namespace FormNhapSach
             this.btnThemMoi.ForeColor = System.Drawing.Color.White;
             this.btnThemMoi.Location = new System.Drawing.Point(55, 295);
             this.btnThemMoi.Name = "btnThemMoi";
-            this.btnThemMoi.Size = new System.Drawing.Size(175, 50);
+            this.btnThemMoi.Size = new System.Drawing.Size(191, 50);
             this.btnThemMoi.TabIndex = 2;
             this.btnThemMoi.Text = "Thêm Mới";
             this.btnThemMoi.TextColor = System.Drawing.Color.White;

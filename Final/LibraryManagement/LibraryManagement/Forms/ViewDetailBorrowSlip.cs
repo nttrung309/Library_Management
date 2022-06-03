@@ -162,7 +162,7 @@ namespace LibraryManagement.Forms
                 WHERE MaChiTietPhieuMuon = '{lbSpecCode.Text}'
 
                 UPDATE CUONSACH
-                SET TinhTrang = 1
+                SET TinhTrang = 0
                 WHERE MaCuonSach = '{lbBookCode.Text}'";
 
             SqlConnection conn = new SqlConnection(DatabaseInfo.connectionString);

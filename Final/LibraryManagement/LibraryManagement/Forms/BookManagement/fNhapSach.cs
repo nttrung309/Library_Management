@@ -104,7 +104,6 @@ namespace FormNhapSach
                 string themdongsql = "INSERT INTO PHIEUNHAPSACH(NgLap)" +
                 "VALUES ('" + dtp_NgayNhap.Value.Date.ToString("MM/dd/yyyy") + "')";
                 ketnoiNonQuery(themdongsql);
-                MessageBox.Show("Thêm thành công.", "Thông Báo");
                 loadDgv();
             }
             catch (Exception)
@@ -135,13 +134,31 @@ namespace FormNhapSach
                 btnXoa.Enabled = true;
                 dgvPhieuNhap.Enabled = true;
                 dgvPhieuNhap.FirstDisplayedScrollingRowIndex = dgvPhieuNhap.RowCount - 1;
+            query = "DROP TABLE IF EXISTS MAPN CREATE TABLE MAPN(MaPhieuNhap VARCHAR(50)) INSERT INTO MAPN VALUES ('" + txbMaPhieuNhap.Text + "')";
+            ketnoiNonQuery(query);
+            formCTPN ne = new formCTPN();
+            ne.Show();
+            ne.FormClosed += (formCTPN_FormClosed);
 
-            
+
         }
 
+        private void formCTPN_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            loadDgv();
+            for (int i=0;i<dgvPhieuNhap.RowCount;i++)
+            {
+                if (dgvPhieuNhap.Rows[i].Cells[0].Value.ToString()==txbMaPhieuNhap.Text)
+                {
+                    txbTongTien.Text = dgvPhieuNhap.Rows[i].Cells[2].Value.ToString();
+                    break;
+                }    
+            }    
+        }
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            xuly = 1;
+         
+            /*xuly = 1;
            
                     try
                     {
@@ -158,13 +175,17 @@ namespace FormNhapSach
                     {
                         MessageBox.Show("Sửa thất bại.\nVui lòng kiểm tra lại dữ liệu.", "Thông Báo");
                     }
-                
-                btnLuu.Enabled = false;
+                */
+            btnLuu.Enabled = false;
                 btnThemMoi.Enabled = true;
                 btnCapNhat.Enabled = true;
                 btnXoa.Enabled = true;
                 dgvPhieuNhap.Enabled = true;
-            
+            string query = "DROP TABLE IF EXISTS MAPN CREATE TABLE MAPN(MaPhieuNhap VARCHAR(50)) INSERT INTO MAPN VALUES ('" + txbMaPhieuNhap.Text + "')";
+            ketnoiNonQuery(query);
+            formCTPN ne = new formCTPN();
+            ne.Show();
+            ne.FormClosed += (formCTPN_FormClosed);
 
         }
         // Phương thức xóa tác giả
@@ -177,13 +198,23 @@ namespace FormNhapSach
         {
             try
             {
-                string xoadongsql = "DELETE FROM PHIEUNHAPSACH WHERE MaPhieuNhapSach='" + txbMaPhieuNhap.Text + "'";
-                ketnoiNonQuery(xoadongsql);
-                MessageBox.Show("Xóa thành công.", "Thông Báo");
-                btnLuu.Enabled = true;
-                btnXoa.Enabled = false;
-                btnThemMoi.Enabled = true;
-                btnCapNhat.Enabled = false;
+                    string xoadongsql = "IF EXISTS ( SELECT * FROM CT_PHIEUNHAP WHERE MaPhieuNhapSach = '" + txbMaPhieuNhap.Text + "') BEGIN SELECT 1 END ELSE BEGIN SELECT 2 END";
+                    ketnoiNonQuery(xoadongsql);
+                    int xoa = Convert.ToInt32(myCommand.ExecuteScalar());
+                    if (xoa == 2)
+                    {
+
+                        xoadongsql = "DELETE FROM PHIEUNHAPSACH WHERE MaPhieuNhapSach='" + txbMaPhieuNhap.Text + "'";
+                        ketnoiNonQuery(xoadongsql);
+                        MessageBox.Show("Xóa thành công.", "Thông Báo");
+                        btnLuu.Enabled = true;
+                        btnXoa.Enabled = false;
+                        btnThemMoi.Enabled = true;
+                        btnCapNhat.Enabled = false;
+                    }
+                    else
+                        MessageBox.Show("Đã có chi tiết phiếu nhập trong phiếu nhập trên!", "Thông báo");
+
             }
             catch (Exception)
             {
@@ -196,6 +227,12 @@ namespace FormNhapSach
         private void btnXoa_Click(object sender, EventArgs e)
         {
             xoaPhieuNhap();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            formCTPN ne = new formCTPN();
+            ne.Show();
         }
     }
 }
