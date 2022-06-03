@@ -126,7 +126,7 @@ namespace LibraryManagement.Forms
 
         private void UpdataData()
         {
-            string createReturnSlip = $@"INSERT INTO PHIEUTRASACH(MaDocGia, NgTra, TienPhatKyNay) VALUES('{returnSlip.readerCode}', '{returnSlip.returnDate}', {returnSlip.fineThisPeriod})";
+            string createReturnSlip = $@"INSERT INTO PHIEUTRASACH(MaDocGia, NgTra, TienPhatKyNay) VALUES('{returnSlip.readerCode}', '{returnSlip.returnDate}', {long.Parse(lbFineThisPeriod.Text)})";
             string createReturnSlipDetail = @"";
             string setBookAndSlipDetailStatus = @"";
             string updateTotalFine = $@"UPDATE DOCGIA SET TongNo = {returnSlip.totalFine} WHERE MaDocGia = '{returnSlip.readerCode}'";
@@ -145,6 +145,8 @@ namespace LibraryManagement.Forms
             cmd.CommandText = createReturnSlipDetail;
             cmd.ExecuteNonQuery();
             cmd.CommandText = setBookAndSlipDetailStatus;
+            cmd.ExecuteNonQuery();
+            cmd.CommandText = updateTotalFine;
             cmd.ExecuteNonQuery();
 
             DemoDesign.RecvBook.recvState = "Success";

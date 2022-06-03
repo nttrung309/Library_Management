@@ -99,7 +99,7 @@ namespace LibraryManagement.Forms
                     slip.readerCode = reader.GetString(1);
                     slip.readerName = reader.GetString(2);
                     slip.returnDate = reader.GetDateTime(3).ToString("dd/MM/yyyy");
-
+                    slip.fineThisPeriod = (long)reader.GetSqlMoney(4);
                     returnSlips.Add(slip);
                 }
             }

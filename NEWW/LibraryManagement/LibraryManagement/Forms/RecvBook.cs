@@ -460,6 +460,7 @@ namespace DemoDesign
             ConfirmRecvBook.returnSlip = new ReturnSlip(cbbSlipCode.Text, cbbReaderCode.Text, txbReaderName.Text, returnDate.Value.ToString("yyyy-MM-dd"), txbTotalFine.Text, txbFineThisPeriod.Text, chosenBooks);
             ConfirmRecvBook.returnSlip.recvSlipCode = newReturnSlipCode;
             ConfirmRecvBook.returnSlip.email = "";
+            ConfirmRecvBook.returnSlip.fineThisPeriod = long.Parse(txbFineThisPeriod.Text);
             
 
             new ConfirmRecvBook().ShowDialog();
@@ -526,6 +527,7 @@ namespace DemoDesign
                     txbFineThisPeriod.Text = "0";
                     returnDate.Value = DateTime.Now;
                     txbTotalFine.Text = slip.totalFine;
+                    totalFine = long.Parse(slip.totalFine);
 
                     fineThisPeriod = 0;
                     chosenBooks.Clear();
