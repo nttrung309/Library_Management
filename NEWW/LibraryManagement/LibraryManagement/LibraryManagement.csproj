@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FA6C5886-039A-4433-A8C4-270C58C6F714}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>LibraryManagement</RootNamespace>
+    <AssemblyName>LibraryManagement</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FontAwesome.Sharp, Version=5.15.4.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.5.15.4\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomControl\but.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl\butcs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl\Buts.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl\button.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl\buttons.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl\CustomPic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl\luu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl\MenuColorTable.cs" />
+    <Compile Include="CustomControl\MenuRenderer.cs" />
+    <Compile Include="CustomControl\nbut.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl\nhapsach_button.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl\panels.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl\radion.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl\RJDropdownMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl\ToggleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl\VBButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl\Vien.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl\VNPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="fHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fHome.Designer.cs">
+      <DependentUpon>fHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BookManagement\fDausach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BookManagement\fDausach.designer.cs">
+      <DependentUpon>fDausach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BookManagement\fLoaiSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BookManagement\fLoaiSach.designer.cs">
+      <DependentUpon>fLoaiSach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BookManagement\fNhapSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BookManagement\fNhapSach.designer.cs">
+      <DependentUpon>fNhapSach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BookManagement\formCTPN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BookManagement\formCTPN.designer.cs">
+      <DependentUpon>formCTPN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BookManagement\FormSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BookManagement\FormSach.designer.cs">
+      <DependentUpon>FormSach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BookManagement\fTacGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BookManagement\fTacGia.designer.cs">
+      <DependentUpon>fTacGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ChangeRules\FormThayDoiQuyDinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChangeRules\FormThayDoiQuyDinh.designer.cs">
+      <DependentUpon>FormThayDoiQuyDinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Finding\FormTraCuu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Finding\FormTraCuu.designer.cs">
+      <DependentUpon>FormTraCuu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReaderManagement\FormLoaiDocGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReaderManagement\FormLoaiDocGia.designer.cs">
+      <DependentUpon>FormLoaiDocGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReaderManagement\FormThuTien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReaderManagement\FormThuTien.designer.cs">
+      <DependentUpon>FormThuTien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReaderManagement\fTheDocGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReaderManagement\fTheDocGia.designer.cs">
+      <DependentUpon>fTheDocGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ViewRecvSlip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ViewRecvSlip.Designer.cs">
+      <DependentUpon>ViewRecvSlip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ViewDetailRecvSlip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ViewDetailRecvSlip.Designer.cs">
+      <DependentUpon>ViewDetailRecvSlip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ViewDetailBorrowSlip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ViewDetailBorrowSlip.Designer.cs">
+      <DependentUpon>ViewDetailBorrowSlip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ViewBorrowSlip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ViewBorrowSlip.Designer.cs">
+      <DependentUpon>ViewBorrowSlip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ConfirmRecvBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ConfirmRecvBook.Designer.cs">
+      <DependentUpon>ConfirmRecvBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ConfirmLendBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ConfirmLendBook.Designer.cs">
+      <DependentUpon>ConfirmLendBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LendBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LendBook.Designer.cs">
+      <DependentUpon>LendBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RecvBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RecvBook.Designer.cs">
+      <DependentUpon>RecvBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Report.Designer.cs">
+      <DependentUpon>Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BorrowSlip.cs" />
+    <Compile Include="Models\DatabaseInfo.cs" />
+    <Compile Include="Models\DetailBorrowSlip.cs" />
+    <Compile Include="Models\MailService.cs" />
+    <Compile Include="Models\Parameters.cs" />
+    <Compile Include="Models\Reader.cs" />
+    <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\ReportByCategory.cs" />
+    <Compile Include="Models\ReportLate.cs" />
+    <Compile Include="Models\ReturnBook.cs" />
+    <Compile Include="Models\ReturnSlip.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\LendSlip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\LendSlip.Designer.cs">
+      <DependentUpon>LendSlip.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="fHome.resx">
+      <DependentUpon>fHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BookManagement\fDausach.resx">
+      <DependentUpon>fDausach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BookManagement\fLoaiSach.resx">
+      <DependentUpon>fLoaiSach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BookManagement\fNhapSach.resx">
+      <DependentUpon>fNhapSach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BookManagement\formCTPN.resx">
+      <DependentUpon>formCTPN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BookManagement\FormSach.resx">
+      <DependentUpon>FormSach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BookManagement\fTacGia.resx">
+      <DependentUpon>fTacGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChangeRules\FormThayDoiQuyDinh.resx">
+      <DependentUpon>FormThayDoiQuyDinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Finding\FormTraCuu.resx">
+      <DependentUpon>FormTraCuu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReaderManagement\FormLoaiDocGia.resx">
+      <DependentUpon>FormLoaiDocGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReaderManagement\FormThuTien.resx">
+      <DependentUpon>FormThuTien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReaderManagement\fTheDocGia.resx">
+      <DependentUpon>fTheDocGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ViewRecvSlip.resx">
+      <DependentUpon>ViewRecvSlip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ViewDetailRecvSlip.resx">
+      <DependentUpon>ViewDetailRecvSlip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ViewDetailBorrowSlip.resx">
+      <DependentUpon>ViewDetailBorrowSlip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ViewBorrowSlip.resx">
+      <DependentUpon>ViewBorrowSlip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ConfirmRecvBook.resx">
+      <DependentUpon>ConfirmRecvBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ConfirmLendBook.resx">
+      <DependentUpon>ConfirmLendBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LendBook.resx">
+      <DependentUpon>LendBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RecvBook.resx">
+      <DependentUpon>RecvBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Report.resx">
+      <DependentUpon>Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Icons.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Icons.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Icons.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Icons.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reports\LendSlip.resx">
+      <DependentUpon>LendSlip.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maximize_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu_btnSearch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimize_btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\186407_arrow_up_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down+icon-1320166862644492688.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book-alt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exchange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notebook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
