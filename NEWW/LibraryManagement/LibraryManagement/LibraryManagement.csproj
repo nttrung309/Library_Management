@@ -412,5 +412,8 @@
   <ItemGroup>
     <None Include="Resources\key.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stuttgart-public-library-interior-stadtbibliothek-stuttgart-stuttgart-germany-2G6HEF3.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,7 +8,7 @@ namespace LibraryManagement.Models
 {
     public class DatabaseInfo
     {
-        public static string connectionString = @"Data Source=TRUNGNGUYEN\SQLEXPRESS;Initial Catalog=QLTV;Integrated Security=True";
+        public static string connectionString = @"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=QLTV;Integrated Security=True";
         public static string bookStockQueryCmd = @"SELECT DISTINCT CUONSACH.MaSach, TenDauSach, TenTheLoai, TenTacGia, CUONSACH.MaCuonSach
             FROM SACH, DAUSACH, CUONSACH, THELOAI, CTTACGIA, TACGIA
             WHERE SACH.MaDauSach = DAUSACH.MaDauSach AND DAUSACH.MaTheLoai = THELOAI.MaTheLoai
